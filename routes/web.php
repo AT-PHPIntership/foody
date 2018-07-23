@@ -12,6 +12,6 @@
 */
 
 Route::get('/admin/dashboard', function () {
-    return view('admin.pages.index.index');
+    return view('admin.pages.index');
 });
 
