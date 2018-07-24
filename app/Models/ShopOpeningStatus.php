@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class ShopOpeningStatus extends Model
 {
     use SoftDeletes;
 
@@ -15,17 +15,17 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'parent_id'
+        'store_id', 'time_open', 'time_close'
     ];
 
     /**
-     * Relationship hasMany with Like
+     * Get the users for a role.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function products()
+    public function store()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Store::class, 'store_id', 'id');
     }
 
     /**

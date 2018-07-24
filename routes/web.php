@@ -17,4 +17,3 @@ Route::get('/', function () {
 Route::get('/admin/dashboard', function () {
     return view('admin.pages.index');
 });
-
