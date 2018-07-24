@@ -33,9 +33,9 @@ class Order extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function detailsOrders()
+    public function orderDetail()
     {
-        return $this->hasMany(DetailsOrder::class, 'order_id', 'id');
+        return $this->hasMany(OrderDetail::class, 'order_id', 'id');
     }
 
     /**
