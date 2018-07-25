@@ -55,7 +55,7 @@ class LoginTest extends DuskTestCase
     }
 
     /**
-     * A Dusk test for Logout Admin.
+     * A Dusk test for Logout Admin account.
      *
      * @return void
      */
