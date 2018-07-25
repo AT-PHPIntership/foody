@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin/dashboard', function () {
-    return view('admin.pages.index');
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Auth::routes();
+});
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'adminLogin'], function () {
+    Route::get('/dashboard', 'HomeController@index');
 });
