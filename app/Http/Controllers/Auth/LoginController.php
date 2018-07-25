@@ -40,15 +40,30 @@ class LoginController extends Controller
     }
 
     /**
-     * The user has logged out of the application.
+     * Log the user out of the application.
      *
      * @param \Illuminate\Http\Request $request request
      *
-     * @return mixed
+     * @return \Illuminate\Http\Response
      */
-    protected function loggedOut(Request $request)
+    public function logout(Request $request)
     {
-        unset($request);
-        return redirect('admin/login');
+        Auth::logout();
+        $this->guard()->logout();
+        $request->session()->invalidate();
+        return redirect('/admin/login');
     }
+
+    // /**
+    //  * The user has logged out of the application.
+    //  *
+    //  * @param \Illuminate\Http\Request $request request
+    //  *
+    //  * @return mixed
+    //  */
+    // protected function loggedOut(Request $request)
+    // {
+    //     unset($request);
+    //     return redirect('admin/login');
+    // }
 }

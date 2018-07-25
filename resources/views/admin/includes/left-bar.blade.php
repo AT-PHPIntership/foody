@@ -15,19 +15,14 @@
 						<div class="name" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">{{ Auth::user()->username }}</div>
 						<div class="email">{{ Auth::user()->email }}</div>
-						<div class="btn-group user-helper-dropdown">
+						<div id="logout-button" class="btn-group user-helper-dropdown">
 							<i class="material-icons" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
 							<ul class="dropdown-menu pull-right">
 								<li><a href="javascript:void(0);"><i
 										class="material-icons">person</i>{{ __('auth.profile') }}</a></li>
 								<li role="seperator" class="divider"></li>
-								<li><a href="{{ route('admin.logout')}}" onclick="event.preventDefault();
-									document.getElementById('logout-form').submit();"><i
-										class="material-icons">input</i>{{ __('auth.logout') }}</a>
-									 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-										 @csrf
-									 </form>	
+								<li><a id="link-click-me" href="{{ route('admin.logout')}}"><i class="material-icons">input</i>{{ __('auth.logout') }}</a>
 								</li>
 							</ul>
 						</div>

@@ -57,7 +57,7 @@
                                     {{ __('auth.login') }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('admin.password.request') }}">
+                                <a class="btn btn-link" href="">
                                     {{ __('auth.forgot_pass') }}
                                 </a>
                             </div>
