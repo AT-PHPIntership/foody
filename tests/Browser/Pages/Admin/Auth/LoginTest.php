@@ -6,34 +6,19 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\Models\User;
-use Faker\Generator as Faker;
+
 class LoginTest extends DuskTestCase
 {
+    use DatabaseMigrations;
+    
     /**
-     * A Dusk test for Login Admin.
-     *
-     * @return void
-     */
-    public function createUser($role_id)
+    * Override function setUp() for make user login
+    *
+    * @return void
+    */
+    public function setUp()
     {
-        $email = ($role_id == 3)? 'libbie.damore@example.org' : 'johnathan.mckenzie@example.com';
-        $user = User::where('email', $email)->first();
-        if(!$user) {
-            $faker = new Faker;
-            $user = factory(User::class)->create([
-                'email' => $email,
-                'password' => bcrypt('12345'),
-                'username' => $faker->username,
-                'full_name' => $faker->name,
-                'birthday' => $faker->date($format = 'Y-m-d', $max = 'now'),
-                'gender' => $faker->numberBetween($min = 0, $max = 1),
-                'phone' => $faker->phoneNumber,
-                'role_id' => $role_id,
-                'is_active' => $faker->numberBetween($min = 0, $max = 1),
-                'remember_token' => str_random(10),
-            ]);
-        }
-        return $user;
+        parent::setUp();
     }
 
     /**
@@ -41,16 +26,15 @@ class LoginTest extends DuskTestCase
      *
      * @return void
      */
-    public function testLoginAdmin()
+    public function testSuccessLoginAdmin()
     {
-        $user = $this->createUser(User::ROLE_ADMIN);
-
-        $this->browse(function (Browser $browser) use ($user) {
+        $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
-                    ->type('email', $user->email)
+                    ->type('email', $this->user->email)
                     ->type('password', '12345')
                     ->press('Login')
                     ->assertPathIs('/admin/dashboard');
+                    
         });
     }
 
@@ -61,9 +45,8 @@ class LoginTest extends DuskTestCase
      */
     public function testLogoutAdmin()
     {
-        $user = $this->createUser(User::ROLE_ADMIN);
-        $this->browse(function (Browser $browser) use($user) {
-            $browser->loginAs($user)
+        $this->browse(function (Browser $browser) {
+            $browser->loginAs($this->user)
                     ->visit('/admin/dashboard')
                     ->click('#logout-button')
                     ->assertVisible('#link-click-me')
@@ -75,14 +58,41 @@ class LoginTest extends DuskTestCase
     }
 
     /**
+     * A Dusk test for Login Admin.
+     *
+     * @return void
+     */
+     public function testFailLoginAdmin()
+     {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/admin/login')
+                    ->type('email', 'loginfail@gamil.com')
+                    ->type('password', '12345')
+                    ->press('Login')
+                    ->assertSee('These credentials do not match our records.');
+                    
+        });
+    }
+
+    /**
      * A Dusk test for Login Not be Admin.
      *
      * @return void
      */
     public function testLoginAdminByUser()
     {
-        $user = $this->createUser(User::ROLE_USER);
- 
+        $user = factory('App\Models\User')->create([
+            'email' => 'lebavy@gmail.com',
+            'password' => bcrypt('12345'),
+            'username' => 'testuser',
+            'full_name' => 'Le Ba Vy',
+            'birthday' => '1996-07-05',
+            'gender' => '1',
+            'phone' => '01265265656',
+            'role_id' => '3',
+            'is_active' => '1',
+            'remember_token' => str_random(10)
+        ]);
         $this->browse(function (Browser $browser) use ($user) {
              $browser->visit('/admin/login')
                      ->type('email', $user->email)

@@ -43,16 +43,6 @@ class User extends Authenticatable
     }
 
     /**
-    * Get Role Object
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
-    public function role()
-    {
-        return $this->belongsTo(Role::class, 'role_id', 'id');
-    }
-
-    /**
      * The attributes that should be mutated to dates.
      *
      * @var array
