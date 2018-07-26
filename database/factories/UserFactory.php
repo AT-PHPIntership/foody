@@ -22,7 +22,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber,
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('12345'),
-        'role_id' => App\Models\Role::all()->random()->id,
+        'role_id' => $faker->numberBetween($min = 1, $max = 3),
         'is_active' => $faker->numberBetween($min = 0, $max = 1),
         'remember_token' => str_random(10),
     ];

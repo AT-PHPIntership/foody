@@ -13,17 +13,17 @@
 					</div>
 					<div class="info-container">
 						<div class="name" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">Le Ba Vy</div>
-						<div class="email">vy.le@asiantech.vn</div>
-						<div class="btn-group user-helper-dropdown">
+					aria-expanded="false">{{ Auth::user()->username }}</div>
+						<div class="email">{{ Auth::user()->email }}</div>
+						<div id="logout-button" class="btn-group user-helper-dropdown">
 							<i class="material-icons" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
 							<ul class="dropdown-menu pull-right">
 								<li><a href="javascript:void(0);"><i
-										class="material-icons">person</i>Profile</a></li>
+										class="material-icons">person</i>{{ __('auth.profile') }}</a></li>
 								<li role="seperator" class="divider"></li>
-								<li><a href=""><i
-										class="material-icons">input</i>Sign Out</a></li>
+								<li><a id="link-click-me" href="{{ route('admin.logout')}}"><i class="material-icons">input</i>{{ __('auth.logout') }}</a>
+								</li>
 							</ul>
 						</div>
 					</div>
