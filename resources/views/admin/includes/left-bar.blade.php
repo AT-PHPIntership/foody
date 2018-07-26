@@ -51,6 +51,22 @@
 									href=""> <span>Show all</span>
 								</a></li>
 							</ul></li>
+						
+							<li class="">
+								<a href="javascript:void(0);" class="menu-toggle">
+										<i class="material-icons">assignment</i>
+										<span>User Management</span>
+								</a>
+								<ul class="ml-menu">
+									<li class="active">
+										<a href="{{ route('admin.users.create')}}">Create user</a>
+									</li>
+									<li>
+										<a href="{{ route('admin.users.index')}}">Show all users</a>
+									</li>
+								</ul>
+						</li>
+
 						<li><a
 							href="javascript:void(0);"> <i
 								class="material-icons">library_books</i> <span>Store</span>

@@ -17,6 +17,9 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet" type="text/css">
 
+<link href="admin/plugins/node-waves/waves.css" rel="stylesheet">
+<link href="admin/plugins/animate-css/animate.css" rel="stylesheet">
+
 <!-- Bootstrap Core Css -->
 <link
 	href="admin/plugins/bootstrap/css/bootstrap.css"
@@ -29,4 +32,4 @@
 <!-- AdminBSB Themes. You can choose a theme from themes instead of get all themes -->
 <link
   href="admin/css/themes/all-themes.css" rel="stylesheet" />
-  
+

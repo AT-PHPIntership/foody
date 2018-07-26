@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'full_name',  'birthday', 'gender', 'phone', 'email', 'password', 'role_id', 'is_active',
     ];
 
     /**
@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'deleted_at'
     ];
 
     /**
@@ -36,16 +36,6 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany(Order::class, 'user_id', 'id');
-    }
-
-    /**
-    * Get Role Object
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
-    public function role()
-    {
-        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
     /**

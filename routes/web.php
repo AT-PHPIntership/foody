@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/admin/dashboard', function () {
     return view('admin.pages.index');
 });
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
+    Route::resource('users', 'UserController');
+});
