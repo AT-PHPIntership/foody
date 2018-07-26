@@ -53,9 +53,9 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function detailsOrders()
+    public function orderDetail()
     {
-        return $this->hasMany(DetailsOrder::class, 'product_id', 'id');
+        return $this->hasMany(OrderDetail::class, 'product_id', 'id');
     }
 
     /**
