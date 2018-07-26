@@ -14,8 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin/dashboard', function () {
-    return view('admin.pages.index');
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    //Auth::routes();
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+});
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'adminLogin'], function () {
+    Route::get('/dashboard', 'HomeController@index');
 });
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
     Route::resource('users', 'UserController');

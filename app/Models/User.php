@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;
+    
+    const ROLE_ADMIN = 1;
+    const ROLE_SHOP_MANAGER = 2;
+    const ROLE_USER = 3;
 
     /**
      * The attributes that are mass assignable.
