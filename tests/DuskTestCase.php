@@ -22,16 +22,16 @@ abstract class DuskTestCase extends BaseTestCase
     {
         parent::setUp();
         $this->user = factory('App\Models\User')->create([
-            'email' => 'johnathan.mckenzie@example.com',
+            'email' => 'mclaughlin.ressie@example.com',
             'password' => bcrypt('12345'),
             'username' => 'test',
-            'full_name' => 'Le Ba Vy',
-            'birthday' => '1996-07-05',
-            'gender' => '1',
-            'phone' => '01265265656',
-            'role_id' => '1',
+            'full_name' => 'Minh Hien',
+            'birthday' => '1981-07-02',
+            'gender' => '0',
+            'phone' => '716.654.4798 x697',
+            'role_id' => '2',
             'is_active' => '1',
-            'remember_token' => str_random(10)
+            'remember_token' => 'mQ3XZYjb1KPae0ZR8a6GerpyUEqPaSpZSOwqPdUvNyUX2dSovkR6wQN0uUCX'
         ]);
     }
 

@@ -9,6 +9,8 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
     protected $user;
+    //protected $token;
+
     /**
      * Set up TestCase
      *
@@ -18,7 +20,11 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
         Artisan::call('passport:install');
-        //$this->user = factory('App\Models\User')->create();
+        $this->user = factory('App\Models\User')->create();
+        // $this->token =  $this->user->createToken('token')->accessToken;
+        // factory('App\Models\User')->create([
+        //     'id' => $this->user->id,
+        // ]);
     }
  
 }
