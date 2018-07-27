@@ -32,22 +32,50 @@
         <ul class="list">
           <li class="header">MAIN NAVIGATION</li>
           <li class="active"><a href=""> <i class="material-icons">home</i><span>Home</span></a></li>
-          <li><a href="javascript:void(0);" class="menu-toggle"><i
+          <li>
+            <a href="javascript:void(0);" class="menu-toggle">
+              <i class="material-icons">assignment</i>
+              <span>User Management</span>
+            </a>
+            <ul class="ml-menu">
+              <li><a href="{{ route('admin.users.create') }}">Create user</a></li>
+              <li><a href="{{ route('admin.users.index') }}">Show all users</a></li>
+            </ul>
+
+            <a href="javascript:void(0);" class="menu-toggle"><i
               class="material-icons">widgets</i><span>Category</span></a>
             <ul class="ml-menu">
-              <li><a href=""> <span>Add new Category</span></a></li>
-              <li><a href=""><span>Show all</span></a></li>
+              <li><a href=""> <span>Create category</span></a></li>
+              <li><a href=""><span>Show all categories</span></a></li>
             </ul>
-          </li>
-          <a href="javascript:void(0);" class="menu-toggle">
-            <i class="material-icons">assignment</i>
-            <span>User Management</span>
-          </a>
-          <ul class="ml-menu">
-            <li><a href="{{ route('admin.users.create') }}">Create user</a></li>
-            <li><a href="{{ route('admin.users.index') }}">Show all users</a></li>
-          </ul>
-          <li><a href="javascript:void(0);"><i class="material-icons">library_books</i> <span>Store</span></a>
+
+            <a href="javascript:void(0);" class="menu-toggle">
+              <i class="material-icons">library_books</i>
+              <span>Store Management</span>
+            </a>
+            <ul class="ml-menu">
+              <li><a href="">Create store</a></li>
+              <li><a href="">Show all stores</a></li>
+            </ul>
+
+            <a href="javascript:void(0);" class="menu-toggle">
+              <i class="material-icons">library_books</i>
+              <span>Product Management</span>
+            </a>
+            <ul class="ml-menu">
+              <li><a href="">Create product</a></li>
+              <li><a href="">Show all products</a></li>
+            </ul>
+
+            <a href="javascript:void(0);" class="menu-toggle">
+              <i class="material-icons">library_books</i>
+              <span>Order Management</span>
+            </a>
+            <ul class="ml-menu">
+              <li><a href="">Create order</a></li>
+              <li><a href="">Show all orders</a></li>
+            </ul>
+
           </li>
         </ul>
       </div>

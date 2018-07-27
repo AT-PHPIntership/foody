@@ -17,13 +17,64 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet" type="text/css">
 
-<link href="admin/plugins/node-waves/waves.css" rel="stylesheet">
-<link href="admin/plugins/animate-css/animate.css" rel="stylesheet">
-
 <!-- Bootstrap Core Css -->
 <link
 	href="admin/plugins/bootstrap/css/bootstrap.css"
 	rel="stylesheet">
+
+<!-- Waves Effect Css -->
+<link
+	href="admin/plugins/node-waves/waves.css"
+	rel="stylesheet" />
+<link
+	href="admin/plugins/waitme/waitMe.css"
+	rel="stylesheet">
+
+<!-- Animation Css -->
+<link
+	href="admin/plugins/animate-css/animate.css"
+	rel="stylesheet" />
+<!-- Colorpicker Css -->
+{{-- <link
+	href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css"
+	rel="stylesheet" /> --}}
+<!-- Dropzone Css -->
+<link
+	href="admin/plugins/dropzone/dropzone.css"
+	rel="stylesheet">
+<!-- Multi Select Css -->
+{{-- <link
+	href="admin/plugins/multi-select/css/multi-select.css"
+	rel="stylesheet"> --}}
+<!-- Bootstrap Spinner Css -->
+<link
+	href="admin/plugins/jquery-spinner/css/bootstrap-spinner.css"
+	rel="stylesheet">
+
+<!-- Bootstrap Tagsinput Css -->
+<link
+	href="admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css"
+	rel="stylesheet">
+<!-- Bootstrap Select Css -->
+<link
+	href="admin/plugins/bootstrap-select/css/bootstrap-select.css"
+	rel="stylesheet" />
+<!-- noUISlider Css -->
+    <link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+
+<link href="admin/select2/dist/css/select2.min.css" rel="stylesheet" />
+<script src="admin/select2/dist/js/select2.min.js"></script>
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/select2.min.css" rel="stylesheet" /> --}}
+
+<!-- Sweet Alert Css -->
+<link
+	href="admin/plugins/sweetalert/sweetalert.css"
+	rel="stylesheet" />
+<!-- JQuery DataTable Css -->
+{{-- <link
+	href="admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css"
+	rel="stylesheet"> --}}
+
 
 <!-- Custom Css -->
 <link
@@ -31,5 +82,4 @@
 
 <!-- AdminBSB Themes. You can choose a theme from themes instead of get all themes -->
 <link
-  href="admin/css/themes/all-themes.css" rel="stylesheet" />
-
+	href="admin/css/themes/all-themes.css" rel="stylesheet" />

@@ -18,4 +18,14 @@ class UserController extends Controller
         $data['users'] = User::paginate(config('paginate.number_users'));
         return view('admin.pages.users.index', $data);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.pages.users.create');
+    }
 }
