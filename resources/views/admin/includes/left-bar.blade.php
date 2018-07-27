@@ -48,7 +48,7 @@
 										<span>Add new Category</span>
 								</a></li>
 								<li><a
-									href=""> <span>Show all</span>
+								href="{{ route('admin.categories.index')}}"> <span>Show all</span>
 								</a></li>
 							</ul></li>
 						<li><a

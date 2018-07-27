@@ -34,4 +34,26 @@ class Category extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Count sub categories
+     *
+     * @param int $id Integer
+     *
+     * @return int
+     */
+    public function countChild($id)
+    {
+        return Category::where('parent_id', $id)->count();
+    }
+
+    /**
+     * Count parent categories
+     *
+     * @return int Integer
+     */
+    public static function countParents()
+    {
+        return Category::where('parent_id', 0)->count();
+    }
 }
