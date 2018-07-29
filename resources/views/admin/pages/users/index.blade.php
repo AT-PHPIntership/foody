@@ -14,17 +14,17 @@
             </a>
         </div>
         <div class="body table-responsive">
-          <table class="table">
+          <table class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>{{__('user.admin.show.username')}}</th>
-                <th>{{__('user.admin.show.fullname')}}</th>
-                <th>{{__('user.admin.show.email')}}</th>
-                <th>{{__('user.admin.show.birthday')}}</th>
-                <th>{{__('user.admin.show.gender')}}</th>
-                <th>{{__('user.admin.show.phone')}}</th>
-                <th>{{__('user.admin.show.role')}}</th>
+                <th>{{__('user.admin.username')}}</th>
+                <th>{{__('user.admin.fullname')}}</th>
+                <th>{{__('user.admin.email')}}</th>
+                <th>{{__('user.admin.birthday')}}</th>
+                <th>{{__('user.admin.gender')}}</th>
+                <th>{{__('user.admin.phone')}}</th>
+                <th>{{__('user.admin.role')}}</th>
                 <th>{{__('user.admin.show.edit')}}</th>
                 <th>{{__('user.admin.show.delete')}}</th>
               </tr>
@@ -37,9 +37,19 @@
                 <td>{{ $userInfo->full_name }}</td>
                 <td>{{ $userInfo->email }}</td>
                 <td>{{ $userInfo->birthday }}</td>
-                <td>{{ $userInfo->gender }}</td>
+                @if ($userInfo->gender == 1)
+                  <td>{{__('user.admin.female')}}</td>
+                @else
+                  <td>{{__('user.admin.male')}}</td>
+                @endif
                 <td>{{ $userInfo->phone }}</td>
-                <td>{{ $userInfo->role_id }}</td>
+                @if ($userInfo->role_id == 1)
+                  <td>{{__('user.admin.show.role_admin')}}</td>
+                @elseif ($userInfo->role_id == 2)
+                  <td>{{__('user.admin.show.role_shop_manager')}}</td>
+                @else
+                  <td>{{__('user.admin.show.role_user')}}</td>
+                @endif
                 <td><a
                   href="{{route('admin.users.edit', $userInfo->id)}}"
                   class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
