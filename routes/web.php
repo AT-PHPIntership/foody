@@ -23,3 +23,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'adminLogin'], function () {
     Route::get('/dashboard', 'HomeController@index');
 });
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
+    Route::resource('users', 'UserController');
+});

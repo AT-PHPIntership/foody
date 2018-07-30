@@ -2,5 +2,5 @@
 
 return [
     'welcome' => 'Welcome to Foody',
-    'title' => 'Foody Dashboard'
+    'title' => 'Foody Dashboard',
 ];
