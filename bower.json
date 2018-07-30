@@ -1,0 +1,21 @@
+{
+  "name": "foody",
+  "description": "Foody Project",
+  "main": "js/admin.js",
+  "authors": [
+    "\"Vy-Hien\""
+  ],
+  "license": "\"MIT\"",
+  "homepage": "https://github.com/gurayyarar/AdminBSBMaterialDesign",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "adminbsb-materialdesign": "^1.0.5"
+  }
+}

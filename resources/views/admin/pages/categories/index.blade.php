@@ -2,6 +2,32 @@
 @section('title', __('category.admin.title'))
 @section('body')
 <div class="row clearfix">
+	<div class="row clearfix">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="body">
+				@if ($errors->any())
+					<div class="alert bg-green alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					@foreach ($errors->all() as $error)
+					{{ $error }}
+					@endforeach
+					</div>
+        @endif
+        @if (session('message'))
+          <div class="alert bg-green alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"
+              aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            {{session('message')}}
+          </div>
+			  @endif
+				</div>
+			</div>
+	</div>
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="card">
 				<div class="header">
@@ -41,7 +67,7 @@
 														<form class="del-form" action="{{route('admin.categories.destroy', $category->id)}}" method="post">
 															@csrf
 															@method('DELETE')
-															<button class="btn btn-danger btn-circle waves-effect waves-circle waves-float"  type="submit">
+															<button class="btn btn-danger btn-circle waves-effect waves-circle waves-float cancel" data-type="cancel" type="submit">
 																	<i class="material-icons">delete_sweep</i>
 															</button>
 														</form>
@@ -49,7 +75,8 @@
 											</tr>
 										@endforeach
 								</tbody>
-						</table>
+            </table>
+            {{ $categoriesParent->links()}}
 				</div>
 			</div>
 	</div>
