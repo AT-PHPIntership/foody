@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'full_name',  'birthday', 'gender', 'phone', 'email', 'password', 'role_id', 'is_active',
     ];
 
     /**
@@ -48,4 +48,24 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+    * Get Role Name
+     *
+    * @return String
+    */
+    public function nameRole()
+    {
+        switch ($this->role_id) {
+            case 1:
+                return 'Admin';
+                break;
+            case 2:
+                return 'Shop Manager';
+                break;
+            case 3:
+                return 'Customer';
+                break;
+        }
+    }
 }
