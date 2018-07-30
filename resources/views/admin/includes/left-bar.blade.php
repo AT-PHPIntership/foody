@@ -7,7 +7,7 @@
       <!-- User Info -->
       <div class="user-info">
         <div class="image">
-          <img src="admin/images/user.png" width="48" height="48" alt="User" />
+          <img src="bower_components/adminbsb-materialdesign/images/user.png" width="48" height="48" alt="User" />
         </div>
         <div class="info-container">
           <div class="name" data-toggle="dropdown" aria-haspopup="true"
@@ -34,7 +34,7 @@
           <li class="active"><a href=""> <i class="material-icons">home</i><span>Home</span></a></li>
           <li>
             <a href="javascript:void(0);" class="menu-toggle">
-              <i class="material-icons">assignment</i>
+              <i class="material-icons">person_pin</i>
               <span>User Management</span>
             </a>
             <ul class="ml-menu">
@@ -50,7 +50,7 @@
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">store</i>
               <span>Store Management</span>
             </a>
             <ul class="ml-menu">
@@ -59,7 +59,7 @@
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">restaurant</i>
               <span>Product Management</span>
             </a>
             <ul class="ml-menu">
@@ -68,7 +68,7 @@
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">assignment</i>
               <span>Order Management</span>
             </a>
             <ul class="ml-menu">

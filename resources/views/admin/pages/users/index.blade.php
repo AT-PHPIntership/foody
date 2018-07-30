@@ -10,7 +10,7 @@
             <h2>{{__('user.admin.show.form_title')}}</h2>
             <a href="{{ route('admin.users.create') }}"
               class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
-              class="material-icons">add</i> <span>{{ __('user.admin.show.create_user') }}</span>
+              class="material-icons">person_add</i> <span>{{ __('user.admin.show.create_user') }}</span>
             </a>
         </div>
         <div class="body table-responsive">
@@ -66,7 +66,7 @@
               @endforeach
             </tbody>
           </table>
-          {{ $users->render() }}
+          {{ $users->links() }}
         </div>
       </div>
     </div>
