@@ -35,7 +35,7 @@
           <li>
             <a href="javascript:void(0);" class="menu-toggle">
               <i class="material-icons">person_pin</i>
-              <span>{{ __('left-bar.home') }}</span>
+              <span>{{ __('left-bar.user') }}</span>
             </a>
             <ul class="ml-menu">
               <li><a href="{{ route('admin.users.create') }}">{{ __('left-bar.create-user') }}</a></li>
@@ -44,7 +44,7 @@
             <a href="javascript:void(0);" class="menu-toggle"><i
               class="material-icons">widgets</i><span>{{ __('left-bar.category') }}</span></a>
             <ul class="ml-menu">
-              <li><a href=""> <span>{{ __('left-bar.create-user') }}</span></a></li>
+              <li><a href=""> <span>{{ __('left-bar.create-category') }}</span></a></li>
               <li><a href="{{ route('admin.categories.index')}}"><span>{{ __('left-bar.show-categories') }}</span></a></li>
             </ul>
 
@@ -53,7 +53,7 @@
               <span>{{ __('left-bar.store') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">{{ __('left-bar.create-user') }}</a></li>
+              <li><a href="">{{ __('left-bar.create-store') }}</a></li>
               <li><a href="">{{ __('left-bar.show-store') }}</a></li>
             </ul>
 
@@ -62,7 +62,7 @@
               <span>{{ __('left-bar.product') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">{{ __('left-bar.create-user') }}</a></li>
+              <li><a href="">{{ __('left-bar.create-product') }}</a></li>
               <li><a href="">{{ __('left-bar.show-products') }}</a></li>
             </ul>
 
@@ -71,7 +71,7 @@
               <span>{{ __('left-bar.order') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">{{ __('left-bar.create-user') }}</a></li>
+              <li><a href="">{{ __('left-bar.create-order') }}</a></li>
               <li><a href="">{{ __('left-bar.show-orders') }}</a></li>
             </ul>
 
