@@ -59,12 +59,12 @@ class CategoryController extends Controller
         $obj->parent_id = $request->parent_id;
         if ($obj->save()) {
             if ($request->parent_id == 0) {
-                return redirect()->route('admin.categories.index')->with('message', '__(category.message.add)');
+                return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.add'));
             } else {
-                return redirect()->route('admin.categories.showChild', $request->parent_id)->with('message', '__(category.message.add)');
+                return redirect()->route('admin.categories.showChild', $request->parent_id)->with('message', __('category.admin.message.add'));
             }
         } else {
-            return redirect()->route('admin.categories.create')->with('message', '__(category.message.add_fail)');
+            return redirect()->route('admin.categories.create')->with('message', __('category.admin.message.add_fail'));
         }
     }
 }

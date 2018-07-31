@@ -50,60 +50,22 @@
             @csrf
             @method('POST')
             <div class="row clearfix">
-                <div class="col-sm-6">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="name"
-                            minlength="3" required> <label class="form-label">{{__('category.admin.table.name') }}</label>
-                        </div>
-                    </div>
+              <div class="col-sm-6">
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="name"
+                    minlength="3" required> <label class="form-label">{{__('category.admin.table.name') }}</label>
+                  </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="btn-group bootstrap-select form-control show-tick">
-                      <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="-- Please select --" aria-expanded="false">
-                        <span class="filter-option pull-left">-- Please select --</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>
-                      </button>
-                      <div class="dropdown-menu open" style="max-height: 599px; overflow: hidden; min-height: 92px;">
-                        <ul class="dropdown-menu inner" role="menu" style="max-height: 589px; overflow-y: auto; min-height: 82px;">
-                          <li data-original-index="0" class="selected">
-                            <a tabindex="0" class="" style="" data-tokens="null">
-                              <span class="text">-- Please select --</span><span class="glyphicon glyphicon-ok check-mark"></span>
-                            </a>
-                          </li>
-                          <li data-original-index="1">
-                            <a tabindex="0" class="" style="" data-tokens="null">
-                              <span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span>
-                            </a>
-                          </li>
-                          <li data-original-index="2">
-                            <a tabindex="0" class="" style="" data-tokens="null">
-                              <span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span>
-                            </a>
-                          </li>
-                          <li data-original-index="3">
-                            <a tabindex="0" class="" style="" data-tokens="null">
-                              <span class="text">30</span><span class="glyphicon glyphicon-ok check-mark"></span>
-                            </a>
-                          </li>
-                          <li data-original-index="4">
-                            <a tabindex="0" class="" style="" data-tokens="null">
-                              <span class="text">40</span><span class="glyphicon glyphicon-ok check-mark"></span>
-                            </a>
-                          </li>
-                          <li data-original-index="5">
-                            <a tabindex="0" class="" style="" data-tokens="null">
-                              <span class="text">50</span><span class="glyphicon glyphicon-ok check-mark"></span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <select name="parent_id"  class="form-control show-tick" tabindex="-98">
-                        <option value="0">-- Please select --</option>
-                        @foreach ($categoriesParent as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select></div>
-                </div>
+              </div>
+              <div class="col-sm-6">
+                <select class="form-control show-tick" name="parent_id" tabindex="-98">
+                  <option value="0">-- Please select category --</option>
+                  @foreach ($categoriesParent as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  @endforeach
+                </select>
+              </div>
             </div>
             <button class="btn btn-success waves-effect" type="submit">Create</button>
           </form>

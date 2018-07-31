@@ -66,6 +66,7 @@ class Category extends Model
     {
         return $this->hasMany(Category::class, 'parent_id', 'id');
     }
+    
      /**
       * Get the products for the category.
       *

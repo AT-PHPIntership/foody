@@ -1,12 +1,9 @@
 {
   "name": "foody",
-  "description": "Foody Project",
+  "description": "",
   "main": "js/admin.js",
-  "authors": [
-    "\"Vy-Hien\""
-  ],
-  "license": "\"MIT\"",
-  "homepage": "https://github.com/gurayyarar/AdminBSBMaterialDesign",
+  "license": "MIT",
+  "homepage": "https://github.com/AT-PHPIntership/foody",
   "private": true,
   "ignore": [
     "**/.*",

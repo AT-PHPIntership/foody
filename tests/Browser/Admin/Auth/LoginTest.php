@@ -6,7 +6,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\Models\User;
-use Tests\Browser\Admin\AdminTestCase;
+use \Tests\Browser\Admin\AdminTestCase;
 
 class LoginTest extends AdminTestCase
 {

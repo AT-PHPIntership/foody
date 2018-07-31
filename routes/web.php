@@ -15,13 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-    //Auth::routes();
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 });
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'adminLogin'], function () {
-    Route::get('/dashboard', 'HomeController@index');
-    Route::get('categories/show-child/{category}', 'CategoryController@showChild')->name('categories.showChild');
+    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::resource('users', 'UserController');
+    Route::get('categories/{category}/show-child', 'CategoryController@showChild')->name('categories.showChild');
     Route::resource('categories', 'CategoryController');
 });
