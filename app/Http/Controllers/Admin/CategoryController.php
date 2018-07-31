@@ -22,13 +22,14 @@ class CategoryController extends Controller
     /**
      * Show all sub categories of Parent Category
      *
-     * @param int $idParent Integer
+     * @param Category $category Category
      *
      * @return \Illuminate\Http\Response Response
      */
-    public function showChild($idParent)
+    public function showChild(Category $category)
     {
-        $data['categoriesChild'] = Category::where('parent_id', $idParent)->paginate(config('paginate.number_categories'));
+        $data['categoriesChild'] = $category->children()->paginate(config('paginate.number_categories'));
+        $data['categoriesParent'] = $category;
         return view('admin.pages.categories.showChild', $data);
     }
 }

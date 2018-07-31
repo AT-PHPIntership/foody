@@ -20,8 +20,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 });
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'adminLogin'], function () {
-    Route::get('/dashboard', 'HomeController@index');
+    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
     Route::resource('users', 'UserController');
-    Route::get('categories/{categoty}/show-child', 'CategoryController@showChild')->name('categories.showChild');
+    Route::get('categories/{category}/show-child', 'CategoryController@showChild')->name('categories.showChild');
     Route::resource('categories', 'CategoryController');
 });
