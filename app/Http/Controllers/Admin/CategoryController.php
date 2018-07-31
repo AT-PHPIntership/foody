@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data['categoriesParent'] = Category::where('parent_id', 0)->get();
+        $data['categoriesParent'] = Category::where('parent_id', 0)->paginate(config('paginate.number_categories'));
         return view('admin.pages.categories.index', $data);
     }
 
@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function showChild($idParent)
     {
-        $data['categoriesChild'] = Category::where('parent_id', $idParent)->get();
+        $data['categoriesChild'] = Category::where('parent_id', $idParent)->paginate(config('paginate.number_categories'));
         return view('admin.pages.categories.showChild', $data);
     }
 }
