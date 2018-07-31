@@ -6,6 +6,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\CreatesApplication;
+
 class AdminTestCase extends DuskTestCase
 {
     use CreatesApplication;

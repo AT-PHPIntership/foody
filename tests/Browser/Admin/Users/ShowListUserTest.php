@@ -7,7 +7,9 @@ use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use \Tests\Browser\Pages\Admin\User\ShowListUser;
 use \App\Models\User;
-class ShowListUserTest extends \Tests\Browser\Admin\AdminTestCase
+use \Tests\Browser\Admin\AdminTestCase;
+
+class ShowListUserTest extends AdminTestCase
 {
     use DatabaseMigrations;
 

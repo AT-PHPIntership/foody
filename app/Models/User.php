@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     /**
     * Get Role Name
-     *
+    *
     * @return String
     */
     public function nameRole()
