@@ -62,12 +62,12 @@
                     <i class="material-icons">border_color</i>
                     </a>
                   </td>
-                  <td>
-                    <form class="del-form" action="{{route('admin.categories.destroy', $category->id)}}" method="post">
+                  <td class="js-sweetalert">
+                    <form class="del-form" action="{{ route('admin.categories.destroy', $category->id)}}" method="post">
                       @csrf
                       @method('DELETE')
-                      <button class="btn btn-danger btn-circle waves-effect waves-circle waves-float"  type="submit">
-                          <i class="material-icons">delete_sweep</i>
+                      <button class="btn btn-danger btn-circle waves-effect waves-circle waves-float"  onclick="return confirm('@lang('category.admin.message.msg_del')')" type="submit">
+                        <i class="material-icons">delete_sweep</i>
                       </button>
                     </form>
                   </td>
