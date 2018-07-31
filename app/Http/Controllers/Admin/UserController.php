@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Http\Requests\CreateUserRequest;
 
 class UserController extends Controller
 {
@@ -32,11 +33,11 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request request
+     * @param Http\Requests\CreateUserRequest $request request
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
         $userData = [
             'username' => $request->username,
@@ -50,6 +51,6 @@ class UserController extends Controller
             'is_active' => $request->is_active,
         ];
         User::create($userData);
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('message', __('user.admin.create.create_success'));
     }
 }
