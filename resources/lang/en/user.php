@@ -14,6 +14,7 @@
             'active' => 'Active',
             'actived' => 'Yes',
             'deactived' => 'No',
+            'delete_success' => 'Delete user successfully',
             'create' => [
                 'title' => 'Create User',
                 'form_title' => 'Create Form',
