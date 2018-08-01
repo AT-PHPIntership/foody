@@ -16,8 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::paginate(config('paginate.number_users'));
-        return view('admin.pages.users.index', $data);
+        $users = User::paginate(config('paginate.number_users'));
+        return view('admin.pages.users.index', compact('users'));
     }
 
     /**

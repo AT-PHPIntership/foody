@@ -3,18 +3,10 @@
 @section('body')
 <!-- Hover Rows -->
 <div class="row clearfix">
+  @include('admin.includes.message')
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
       <div class="body">
-          @if (session('message'))
-            <div class="alert bg-green alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert"
-                aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-              {{session('message')}}
-            </div>
-          @endif
         <div class="header">
             <h2>{{__('user.admin.show.form_title')}}</h2>
             <a href="{{ route('admin.users.create') }}"

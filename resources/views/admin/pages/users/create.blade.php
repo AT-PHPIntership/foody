@@ -3,20 +3,10 @@
 @section('body')
 <!-- Hover Rows -->
 <div class="row clearfix">
+  @include('admin.includes.message')
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
       <div class="body">
-          @if ($errors->any())
-            <div class="alert bg-red alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert"
-                aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-              @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li><br>
-              @endforeach
-            </div>
-          @endif
         <h2 class="card-inside-title">{{ __('user.admin.create.form_title') }}</h2>
         <div class="row clearfix">
           <div class="col-sm-12">
