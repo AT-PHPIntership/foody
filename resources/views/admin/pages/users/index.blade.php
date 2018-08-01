@@ -3,6 +3,7 @@
 @section('body')
 <!-- Hover Rows -->
 <div class="row clearfix">
+  @include('admin.includes.message')
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
       <div class="body">
@@ -10,7 +11,7 @@
             <h2>{{__('user.admin.show.form_title')}}</h2>
             <a href="{{ route('admin.users.create') }}"
               class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
-              class="material-icons">add</i> <span>{{ __('user.admin.show.create_user') }}</span>
+              class="material-icons">person_add</i> <span>{{ __('user.admin.show.create_user') }}</span>
             </a>
         </div>
         <div class="body table-responsive">
