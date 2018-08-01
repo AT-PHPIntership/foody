@@ -7,9 +7,10 @@ use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use App\Models\User;
+use Tests\CreatesApplication;
 
 abstract class DuskTestCase extends BaseTestCase
-{
+{    
     use CreatesApplication;
     
     /**

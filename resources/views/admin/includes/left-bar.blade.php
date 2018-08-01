@@ -30,50 +30,49 @@
       <!-- Menu -->
       <div class="menu">
         <ul class="list">
-          <li class="header">MAIN NAVIGATION</li>
-          <li class="active"><a href=""> <i class="material-icons">home</i><span>Home</span></a></li>
+          <li class="header">{{ __('left-bar.main') }}</li>
+          <li class="active"><a href="{{ route('admin.dashboard')}}"> <i class="material-icons">home</i><span>{{ __('left-bar.home') }}</span></a></li>
           <li>
             <a href="javascript:void(0);" class="menu-toggle">
               <i class="material-icons">person_pin</i>
-              <span>User Management</span>
+              <span>{{ __('left-bar.user') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="{{ route('admin.users.create') }}">Create user</a></li>
-              <li><a href="{{ route('admin.users.index') }}">Show all users</a></li>
+              <li><a href="{{ route('admin.users.create') }}">{{ __('left-bar.create-user') }}</a></li>
+              <li><a href="{{ route('admin.users.index') }}">{{ __('left-bar.show-users') }}</a></li>
             </ul>
-
             <a href="javascript:void(0);" class="menu-toggle"><i
-              class="material-icons">widgets</i><span>Category</span></a>
+              class="material-icons">widgets</i><span>{{ __('left-bar.category') }}</span></a>
             <ul class="ml-menu">
-              <li><a href=""> <span>Create category</span></a></li>
-              <li><a href=""><span>Show all categories</span></a></li>
+              <li><a href=""> <span>{{ __('left-bar.create-category') }}</span></a></li>
+              <li><a href="{{ route('admin.categories.index')}}"><span>{{ __('left-bar.show-categories') }}</span></a></li>
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">
               <i class="material-icons">store</i>
-              <span>Store Management</span>
+              <span>{{ __('left-bar.store') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">Create store</a></li>
-              <li><a href="">Show all stores</a></li>
+              <li><a href="">{{ __('left-bar.create-store') }}</a></li>
+              <li><a href="">{{ __('left-bar.show-store') }}</a></li>
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">
               <i class="material-icons">restaurant</i>
-              <span>Product Management</span>
+              <span>{{ __('left-bar.product') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">Create product</a></li>
-              <li><a href="">Show all products</a></li>
+              <li><a href="">{{ __('left-bar.create-product') }}</a></li>
+              <li><a href="">{{ __('left-bar.show-products') }}</a></li>
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">
               <i class="material-icons">assignment</i>
-              <span>Order Management</span>
+              <span>{{ __('left-bar.order') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">Create order</a></li>
-              <li><a href="">Show all orders</a></li>
+              <li><a href="">{{ __('left-bar.create-order') }}</a></li>
+              <li><a href="">{{ __('left-bar.show-orders') }}</a></li>
             </ul>
 
           </li>
@@ -83,10 +82,10 @@
       <!-- Footer -->
       <div class="legal">
         <div class="copyright">
-          &copy; 2018 <a href="javascript:void(0);">Admin-FOODY</a>.
+          &copy; {{ __('left-bar.year') }} <a href="javascript:void(0);">{{ __('left-bar.name-project') }}</a>.
         </div>
         <div class="version">
-          <b>Version: </b> 1.0
+          <b>{{ __('left-bar.version-tag') }} </b> {{ __('left-bar.version') }}
         </div>
       </div>
       <!-- #Footer -->
