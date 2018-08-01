@@ -54,5 +54,4 @@ class ListCategoriesTest extends AdminTestCase
             $this->assertTrue($numRecord == Category::countParents());
         });
     }
- 
 }
