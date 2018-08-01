@@ -10,6 +10,8 @@ use Tests\Browser\Pages\Admin\Category\ListCategories;
 
 class DeleteCategoryTest extends AdminTestCase
 {
+    use DatabaseMigrations;
+    
     protected $category;
     /**
      * Override function setUp() for make user login
@@ -33,7 +35,7 @@ class DeleteCategoryTest extends AdminTestCase
             $browser->loginAs($this->user)
                 ->visit(new ListCategories)
                 ->click('#delete-'. $this->category->id)
-                ->assertDialogOpened('Do you want to delete this Category?')
+                ->assertDialogOpened(__('category.admin.message.msg_del'))
                 ->dismissDialog();
             $this->assertDatabaseHas('categories', ['deleted_at' => null]);
         });
@@ -50,9 +52,9 @@ class DeleteCategoryTest extends AdminTestCase
             $browser->loginAs($this->user)
                 ->visit(new ListCategories)
                 ->click('#delete-'. $this->category->id)
-                ->assertDialogOpened('Do you want to delete this Category?')
+                ->assertDialogOpened(__('category.admin.message.msg_del'))
                 ->acceptDialog()
-                ->assertSee('Delete Category Successfull!');
+                ->assertSee(__('category.admin.message.del'));
             $this->assertDatabaseMissing('categories', ['deleted_at' => null]);
         });
     }
