@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Http\Requests\Admin\UpdateCategoryRequest;
 use App\Http\Requests\Admin\EditCategoryRequest;
+use Mockery\Exception;
 
 class CategoryController extends Controller
 {
@@ -57,9 +58,21 @@ class CategoryController extends Controller
       */
     public function update(EditCategoryRequest $request, Category $category)
     {
-        $category->name = $request->name;
-        $category->parent_id = $request->parent_id;
-        $category->save();
-        return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.edit'));
+        try {
+            $category->name = $request->name;
+            $category->parent_id = $request->parent_id != null ? $request->parent_id : 0;
+            $category->save();
+            if ($category) {
+                if ($request->parent_id == 0) {
+                    return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.edit'));
+                } else {
+                    return redirect()->route('admin.categories.showChild', $request->parent_id)->with('message', __('category.admin.message.edit'));
+                }
+            } else {
+                return redirect()->route('admin.categories.edit')->with('message', __('category.admin.message.edit_fail'));
+            }
+        } catch (Exception $ex) {
+            return $ex;
+        }
     }
 }

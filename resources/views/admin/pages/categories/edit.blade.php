@@ -59,7 +59,7 @@
                 </div>
               </div>
               <div class="col-sm-6">
-                <select @if (Category::countChild($category->id) > 0) disable @endif class="form-control show-tick" name="parent_id" tabindex="-98">
+                <select @if ($category->countChild($category->id) > 0) disabled @endif class="form-control show-tick" name="parent_id" tabindex="-98">
                   <option value="0">-- Please select category --</option>
                   @foreach ($categoriesParent as $categoryParent)
                     <option @if($categoryParent->id == $category->parent_id) selected @endif
