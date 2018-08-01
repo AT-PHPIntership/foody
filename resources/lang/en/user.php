@@ -25,6 +25,7 @@
                 'enter_password' => 'Enter your password',
                 'create_user' => 'Create User',
                 'reset_user' => 'Reset',
+                'create_success' => 'Create user successfully',
             ],
             'edit' => [
                 'title' => 'Edit User',

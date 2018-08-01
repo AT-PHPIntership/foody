@@ -67,7 +67,7 @@ class CategoryController extends Controller
                 return redirect()->route('admin.categories.create')->with('message', __('category.admin.message.add_fail'));
             }
         } catch (Exception $ex) {
-            return $ex;
+            return redirect()->route('admin.categories.create')->with('message', __('category.admin.message.add_fail'));
         }
     }
 }
