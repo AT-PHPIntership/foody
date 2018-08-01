@@ -27,7 +27,7 @@ class CreateCategoryTest extends AdminTestCase
      *
      * @return void
      */
-    public function testCreateCategoryUrl()
+    public function test_create_category_url()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
@@ -40,7 +40,7 @@ class CreateCategoryTest extends AdminTestCase
      *
      * @return array
      */
-    public function listTestCaseValidateForInput()
+    public function list_test_case_validate_for_input()
     {
         return [
             ['name', '', 'The name field is required.'],
@@ -56,11 +56,11 @@ class CreateCategoryTest extends AdminTestCase
      * @param string $content content
      * @param string $message message show when validate
      *
-     * @dataProvider listTestCaseValidateForInput
+     * @dataProvider list_test_case_validate_for_input
      *
      * @return array
      */
-    public function testCategoryValidateForInput($name, $content, $message)
+    public function test_category_validate_for_input($name, $content, $message)
     {
         factory('App\Models\Category')->create([
             'name' => 'Mì Quảng'
@@ -79,7 +79,7 @@ class CreateCategoryTest extends AdminTestCase
      *
      * @return void
      */
-    public function testCreatesParentCategoryCategorySuccess()
+    public function test_creates_parent_category_success()
     {
         $testContent = 'Trà Sữa';
         $this->browse(function (Browser $browser) use ($testContent) {
@@ -100,7 +100,7 @@ class CreateCategoryTest extends AdminTestCase
      *
      * @return void
      */
-    public function testCreatesChildCategoryCategorySuccess()
+    public function test_creates_child_category_success()
     {
         $testContent = 'Trà Sửa Thái Xanh';
         $category = factory('App\Models\Category')->create();
