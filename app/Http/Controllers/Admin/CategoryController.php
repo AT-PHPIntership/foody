@@ -16,8 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data['categoriesParent'] = Category::where('parent_id', 0)->paginate(config('paginate.number_categories'));
-        return view('admin.pages.categories.index', $data);
+        $categoriesParent = Category::where('parent_id', 0)->paginate(config('paginate.number_categories'));
+        return view('admin.pages.categories.index', compact('categoriesParent'));
     }
 
     /**
@@ -29,9 +29,9 @@ class CategoryController extends Controller
      */
     public function showChild(Category $category)
     {
-        $data['categoriesChild'] = $category->children()->paginate(config('paginate.number_categories'));
-        $data['categoriesParent'] = $category;
-        return view('admin.pages.categories.showChild', $data);
+        $categoriesChild = $category->children()->paginate(config('paginate.number_categories'));
+        $categoriesParent = $category;
+        return view('admin.pages.categories.showChild', compact('categoriesChild', 'categoriesParent'));
     }
 
     /**
@@ -41,8 +41,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $data['categoriesParent'] = Category::where('parent_id', 0)->get();
-        return view('admin.pages.categories.create', $data);
+        $categoriesParent = Category::where('parent_id', 0)->get();
+        return view('admin.pages.categories.create', compact('categoriesParent'));
     }
 
     /**
@@ -54,17 +54,20 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $obj = new Category;
-        $obj->name = $request->name;
-        $obj->parent_id = $request->parent_id;
-        if ($obj->save()) {
-            if ($request->parent_id == 0) {
-                return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.add'));
+        try {
+            $data = $request->all();
+            $category = Category::create($data);
+            if ($category) {
+                if ($request->parent_id == 0) {
+                    return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.add'));
+                } else {
+                    return redirect()->route('admin.categories.showChild', $request->parent_id)->with('message', __('category.admin.message.add'));
+                }
             } else {
-                return redirect()->route('admin.categories.showChild', $request->parent_id)->with('message', __('category.admin.message.add'));
+                return redirect()->route('admin.categories.create')->with('message', __('category.admin.message.add_fail'));
             }
-        } else {
-            return redirect()->route('admin.categories.create')->with('message', __('category.admin.message.add_fail'));
+        } catch (Exception $ex) {
+            return $ex;
         }
     }
 }
