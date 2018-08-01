@@ -39,17 +39,7 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        $userData = [
-            'username' => $request->username,
-            'full_name' => $request->full_name,
-            'birthday' => $request->birthday,
-            'gender' => $request->gender,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'password' => $request->password,
-            'role_id' => $request->role_id,
-            'is_active' => $request->is_active,
-        ];
+        $userData = $request->all();
         User::create($userData);
         return redirect()->route('admin.users.index')->with('message', __('user.admin.create.create_success'));
     }

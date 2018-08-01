@@ -59,7 +59,7 @@ class CreateUserTest extends AdminTestCase
      * @param string $content content
      * @param string $message message show when validate
      *
-     * @dataProvider listTestCaseValidate
+     * @dataProvider list_test_case_validate
      *
      * @return void
      */

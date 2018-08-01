@@ -78,15 +78,6 @@
                   <option value="3">Customer</option>
                 </select>
                 </div>
-              <div class="form-group">
-                <div class="demo-radio-button">
-                  <label for="is_active">{{ __('user.admin.active') }}</label><br>
-                  <input name="is_active" type="radio" class="with-gap" id="radio_3" value="1">
-                  <label for="radio_3">{{ __('user.admin.actived') }}</label>
-                  <input name="is_active" type="radio" class="with-gap" id="radio_4" value="0">
-                  <label for="radio_4">{{ __('user.admin.deactived') }}</label>
-                </div>
-              </div>
               <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('user.admin.create.create_user') }}</button>&nbsp;
               <button class="btn btn-primary" type="reset">{{ __('user.admin.create.reset_user') }}</button>
             </form>
