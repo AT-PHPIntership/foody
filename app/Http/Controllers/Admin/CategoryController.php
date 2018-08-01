@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Http\Requests\Admin\UpdateCategoryRequest;
+use App\Http\Requests\Admin\EditCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -31,5 +33,33 @@ class CategoryController extends Controller
         $data['categoriesChild'] = $category->children()->paginate(config('paginate.number_categories'));
         $data['categoriesParent'] = $category;
         return view('admin.pages.categories.showChild', $data);
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Category $category)
+    {
+        $data['category'] = $category;
+        $data['categoriesParent'] = Category::where('parent_id', 0)->get();
+        return view('admin.pages.categories.edit', $data);
+    }
+ 
+     /**
+      * Update the specified resource in storage.
+      *
+      * @param  EditCategoryRequest $request EditCategoryRequest
+      * @param  int  $id
+      * @return \Illuminate\Http\Response
+      */
+    public function update(EditCategoryRequest $request, Category $category)
+    {
+        $category->name = $request->name;
+        $category->parent_id = $request->parent_id;
+        $category->save();
+        return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.edit'));
     }
 }
