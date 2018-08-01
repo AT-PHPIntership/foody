@@ -27,11 +27,49 @@ class CreateUserTest extends AdminTestCase
      *
      * @return void
      */
-    public function testCreateUser()
+    public function test_create_user()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
                     ->visit(new CreateUser);
+        });
+    }
+
+    /**
+     * List case for test validate for input
+     *
+     * @return array
+     */
+    public function list_test_case_validate()
+    {
+        return [
+            ['username', '', 'The username field is required.'],
+            ['full_name', '', 'The full name must be a string.'],
+            ['birthday', '', 'The birthday does not match the format Y-m-d.'],
+            ['phone', '', 'The phone format is invalid.'],
+            ['email', '', 'The email field is required.'],
+            ['password', '', 'The password field is required.'],
+        ];
+    }
+
+    /**
+     * Dusk test validate for input
+     *
+     * @param string $name name of field
+     * @param string $content content
+     * @param string $message message show when validate
+     *
+     * @dataProvider listTestCaseValidate
+     *
+     * @return void
+     */
+    public function test_validate($name, $content, $message)
+    {
+        $this->browse(function (Browser $browser) use ($name, $content, $message) {
+            $browser->loginAs($this->user)
+                    ->visit(new CreateUser)
+                    ->type($name, $content)
+                    ->press('Create User');
         });
     }
 }
