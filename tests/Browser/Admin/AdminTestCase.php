@@ -10,6 +10,7 @@ use Tests\CreatesApplication;
 class AdminTestCase extends DuskTestCase
 {
     use CreatesApplication;
+    use DatabaseMigrations;
     
     protected $user;
     /**
