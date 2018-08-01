@@ -44,10 +44,9 @@
             <a href="javascript:void(0);" class="menu-toggle"><i
               class="material-icons">widgets</i><span>{{ __('left-bar.category') }}</span></a>
             <ul class="ml-menu">
-              <li><a href=""> <span>{{ __('left-bar.create-category') }}</span></a></li>
+              <li><a href="{{ route('admin.categories.create')}}"> <span>{{ __('left-bar.create-category') }}</span></a></li>
               <li><a href="{{ route('admin.categories.index')}}"><span>{{ __('left-bar.show-categories') }}</span></a></li>
             </ul>
-
             <a href="javascript:void(0);" class="menu-toggle">
               <i class="material-icons">store</i>
               <span>{{ __('left-bar.store') }}</span>

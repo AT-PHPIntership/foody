@@ -11,7 +11,7 @@ class AdminTestCase extends DuskTestCase
 {
     use CreatesApplication;
     use DatabaseMigrations;
-    
+
     protected $user;
     /**
      * Override function setUp() for make user login
