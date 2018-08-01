@@ -30,19 +30,6 @@ class CreateUser extends Page
     }
 
     /**
-     * Assert that the browser is on the page.
-     *
-     * @param string $message message show when validate
-     * 
-     * @return void
-     */
-    public function assertValidate($message)
-    {
-        $browser->assertPathIs($this->url())
-                ->assertSee($message);
-    }
-
-    /**
      * Get the element shortcuts for the page.
      *
      * @return array

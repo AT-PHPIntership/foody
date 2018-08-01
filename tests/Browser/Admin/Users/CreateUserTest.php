@@ -69,7 +69,8 @@ class CreateUserTest extends AdminTestCase
             $browser->loginAs($this->user)
                     ->visit(new CreateUser)
                     ->type($name, $content)
-                    ->press('Create User');
+                    ->press('Create User')
+                    ->assertSee($message);
         });
     }
 }

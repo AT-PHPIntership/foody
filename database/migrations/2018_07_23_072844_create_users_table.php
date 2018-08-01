@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedInteger('role_id');
-            $table->boolean('is_active')->default(3);
+            $table->boolean('is_active')->default(1);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes('deleted_at');
