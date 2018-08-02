@@ -23,8 +23,8 @@
 {{-- <script
 	src="bower_components/adminbsb-materialdesign/plugins/jquery-steps/jquery.steps.js"></script> --}}
 <!-- Dropzone Plugin Js -->
-{{-- <script
-	src="bower_components/adminbsb-materialdesign/plugins/dropzone/dropzone.js"></script> --}}
+<script
+	src="bower_components/adminbsb-materialdesign/plugins/dropzone/dropzone.js"></script>
 
 <!-- Input Mask Plugin Js -->
 <script

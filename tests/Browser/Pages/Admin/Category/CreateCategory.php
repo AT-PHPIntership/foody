@@ -5,7 +5,7 @@ namespace Tests\Browser\Pages\Admin\Category;
 use Laravel\Dusk\Browser;
 use Laravel\Dusk\Page;
 
-class UpdateChildCategory extends Page
+class CreateCategory extends Page
 {
     /**
      * Get the URL for the page.
@@ -14,7 +14,7 @@ class UpdateChildCategory extends Page
      */
     public function url()
     {
-        return '/admin/categories';
+        return '/admin/categories/create';
     }
 
     /**
@@ -26,12 +26,9 @@ class UpdateChildCategory extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->click('#show-1')
-                ->assertPathIs('/admin/categories/1/show-child')
-                ->click('#edit-2')
-                ->assertSee('Edit Category')
+                ->assertSee('Add Category')
                 ->assertSee('Name')
-                ->assertSee('Edit');
+                ->assertSee('Create');
     }
 
     /**

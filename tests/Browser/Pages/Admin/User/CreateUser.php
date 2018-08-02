@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Browser\Pages\Admin\Category;
+namespace Tests\Browser\Pages\Admin\User;
 
 use Laravel\Dusk\Browser;
 use Laravel\Dusk\Page;
 
-class UpdateChildCategory extends Page
+class CreateUser extends Page
 {
     /**
      * Get the URL for the page.
@@ -14,7 +14,7 @@ class UpdateChildCategory extends Page
      */
     public function url()
     {
-        return '/admin/categories';
+        return '/admin/users/create';
     }
 
     /**
@@ -26,12 +26,7 @@ class UpdateChildCategory extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->click('#show-1')
-                ->assertPathIs('/admin/categories/1/show-child')
-                ->click('#edit-2')
-                ->assertSee('Edit Category')
-                ->assertSee('Name')
-                ->assertSee('Edit');
+                ->assertSee('Create User');
     }
 
     /**

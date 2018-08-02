@@ -61,7 +61,7 @@ class UpdateCategoryTest extends AdminTestCase
                     ->visit(new UpdateChildCategory)
                     ->type('name', 'Trà Sửa Thái Đỏ')
                     ->press('Edit')
-                    ->assertPathIs('/admin/categories')
+                    ->assertPathIs('/admin/categories/1/show-child')
                     ->assertSee(__('category.admin.message.edit'));
         });
     }

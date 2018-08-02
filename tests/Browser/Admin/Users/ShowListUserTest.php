@@ -32,7 +32,7 @@ class ShowListUserTest extends AdminTestCase
      *
      * @return void
      */
-    public function testShowListUser()
+    public function test_show_listUser()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
@@ -45,7 +45,7 @@ class ShowListUserTest extends AdminTestCase
      *
      * @return void
      */
-    public function testShowRecord()
+    public function test_show_record()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
@@ -60,7 +60,7 @@ class ShowListUserTest extends AdminTestCase
      *
      * @return void
      */
-    public function testListUsersPagination()
+    public function test_list_users_pagination()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
