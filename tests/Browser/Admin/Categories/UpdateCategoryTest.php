@@ -46,6 +46,7 @@ class UpdateCategoryTest extends AdminTestCase
                     ->press('Edit')
                     ->assertPathIs('/admin/categories')
                     ->assertSee(__('category.admin.message.edit'));
+            $this->assertDatabaseHas('categories', ['id' => '1', 'name' => 'Trà Sửa Ngon', 'parent_id' => '0']);
         });
     }
 
@@ -63,6 +64,7 @@ class UpdateCategoryTest extends AdminTestCase
                     ->press('Edit')
                     ->assertPathIs('/admin/categories/1/show-child')
                     ->assertSee(__('category.admin.message.edit'));
+        $this->assertDatabaseHas('categories', ['id' => '2', 'name' => 'Trà Sửa Thái Đỏ', 'parent_id' => '1']);
         });
     }
 }

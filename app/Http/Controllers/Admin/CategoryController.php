@@ -110,7 +110,7 @@ class CategoryController extends Controller
                 return redirect()->route('admin.categories.edit')->with('message', __('category.admin.message.edit_fail'));
             }
         } catch (Exception $ex) {
-            return $ex;
+            return redirect()->route('admin.categories.edit')->with('message', __('category.admin.message.edit_fail'));
         }
     }
     /**
