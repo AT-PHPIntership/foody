@@ -50,10 +50,10 @@
                   class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
                     <i class="material-icons">border_color</i>
                 </a></td>
-                <td><form class="col-md-4" id="deleted{{ $userInfo->id }}" action="{{ route('admin.users.destroy', ['id' => $userInfo['id']]) }}" method="POST">
+              <td><form onsubmit="return confirm('{{__('user.admin.show.delete_confirm')}}');" class="col-md-4" id="deleteUser-{{ $userInfo->id }}" action="{{ route('admin.users.destroy', $userInfo->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger btn-circle waves-effect waves-circle waves-float"  type="submit">
+                    <button class="btn btn-danger btn-circle waves-effect waves-circle waves-float" type="submit">
                       <i class="material-icons">delete_sweep</i>
                     </button>
                   </form></td>

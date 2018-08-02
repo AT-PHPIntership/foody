@@ -20,5 +20,14 @@
         {{session('message')}}
       </div>
     @endif
+    @if (session('alert'))
+      <div class="alert bg-red alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"
+          aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        {{session('alert')}}
+      </div>
+    @endif
   </div>
 </div>

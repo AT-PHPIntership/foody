@@ -14,6 +14,8 @@
             'active' => 'Active',
             'actived' => 'Yes',
             'deactived' => 'No',
+            'delete_success' => 'Delete user successfully',
+            'delete_fail' => 'Delete user failed!',
             'create' => [
                 'title' => 'Create User',
                 'form_title' => 'Create Form',
@@ -41,6 +43,7 @@
                 'role_admin' => 'Admin',
                 'role_shop_manager' => 'Shop Manager',
                 'role_user' => 'User',
+                'delete_confirm' => 'Are you sure want to delete?'
             ]
         ]
     ];
