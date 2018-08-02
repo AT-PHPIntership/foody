@@ -41,12 +41,14 @@
               <li><a href="{{ route('admin.users.create') }}">{{ __('left-bar.create-user') }}</a></li>
               <li><a href="{{ route('admin.users.index') }}">{{ __('left-bar.show-users') }}</a></li>
             </ul>
+            
             <a href="javascript:void(0);" class="menu-toggle"><i
               class="material-icons">widgets</i><span>{{ __('left-bar.category') }}</span></a>
             <ul class="ml-menu">
               <li><a href="{{ route('admin.categories.create')}}"> <span>{{ __('left-bar.create-category') }}</span></a></li>
               <li><a href="{{ route('admin.categories.index')}}"><span>{{ __('left-bar.show-categories') }}</span></a></li>
             </ul>
+
             <a href="javascript:void(0);" class="menu-toggle">
               <i class="material-icons">store</i>
               <span>{{ __('left-bar.store') }}</span>
@@ -61,8 +63,8 @@
               <span>{{ __('left-bar.product') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">{{ __('left-bar.create-product') }}</a></li>
-              <li><a href="">{{ __('left-bar.show-products') }}</a></li>
+              <li><a href="{{ route('admin.products.create')}}"><span>{{ __('left-bar.create-product') }}</span></a></li>
+              <li><a href="{{ route('admin.products.index') }}"><span>{{ __('left-bar.show-products') }}</span></a></li>
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">
