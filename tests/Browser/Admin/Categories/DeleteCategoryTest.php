@@ -21,7 +21,9 @@ class DeleteCategoryTest extends AdminTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->category = factory('App\Models\Category')->create();
+        $this->category = factory('App\Models\Category')->create([
+                'name' => 'Bánh',
+            ]);
     }
 
     /**
@@ -29,7 +31,7 @@ class DeleteCategoryTest extends AdminTestCase
      *
      * @return void
      */
-    public function test_click_cancel_delele_on_pop_up()
+    public function test_cancel_delele()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
@@ -46,7 +48,7 @@ class DeleteCategoryTest extends AdminTestCase
      *
      * @return void
      */
-    public function test_click_confirm_delete_on_pop_up()
+    public function test_confirm_delete()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
@@ -55,7 +57,8 @@ class DeleteCategoryTest extends AdminTestCase
                 ->assertDialogOpened(__('category.admin.message.msg_del'))
                 ->acceptDialog()
                 ->assertSee(__('category.admin.message.del'));
-            $this->assertDatabaseMissing('categories', ['deleted_at' => null]);
+        $this->assertDatabaseHas('categories', ['id' => '1', 'name' => 'Bánh', 'parent_id' => '0'])
+        ->assertDatabaseMissing('categories', ['deleted_at' => null]);
         });
     }
 }
