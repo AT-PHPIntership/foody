@@ -62,7 +62,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request request
-     * @param int                      $id      id
+     * @param App\Models\User          $user    user
      *
      * @return \Illuminate\Http\Response
      */

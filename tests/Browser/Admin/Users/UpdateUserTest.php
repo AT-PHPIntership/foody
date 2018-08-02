@@ -6,11 +6,27 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use \Tests\Browser\Admin\AdminTestCase;
-use Tests\Browser\Pages\Admin\User\UpdateUSer;
+use Tests\Browser\Pages\Admin\User\UpdateUser;
+use App\Models\User;
 
 class UpdateUserTest extends AdminTestCase
 {
-     /**
+    use DatabaseMigrations;
+
+    /**
+    * Override function setUp() for make user login
+    *
+    * @return void
+    */
+    public function setUp()
+    {
+        parent::setUp();
+        factory(User::class)->create([
+            'id' => '2'
+        ]);
+    }
+
+    /**
      * Test update user url
      *
      * @return void
