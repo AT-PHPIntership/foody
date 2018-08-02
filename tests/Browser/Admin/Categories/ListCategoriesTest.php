@@ -31,7 +31,7 @@ class ListCategoriesTest extends AdminTestCase
      *
      * @return void
      */
-    public function testListCategoriesParent()
+    public function test_list_categories_parent()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
@@ -44,7 +44,7 @@ class ListCategoriesTest extends AdminTestCase
      *
      * @return void
      */
-    public function testCountRecords()
+    public function test_count_records()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
@@ -54,5 +54,4 @@ class ListCategoriesTest extends AdminTestCase
             $this->assertTrue($numRecord == Category::countParents());
         });
     }
- 
 }
