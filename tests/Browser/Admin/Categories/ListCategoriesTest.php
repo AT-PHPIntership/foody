@@ -14,8 +14,6 @@ class ListCategoriesTest extends AdminTestCase
 {
     use DatabaseMigrations;
 
-    //const NUMBER_RECORD_SHOW = Category::countParents();
-    const ROW_LIMIT = 5;
     /**
      * Override function setUp() for make user login
      *

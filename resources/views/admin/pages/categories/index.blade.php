@@ -30,10 +30,10 @@
                   <td>{{ $category->name }}</td>
                   <td>
                     @if ($category->countChild($category->id)>0)
-                      <a href="{{ route('admin.categories.showChild', $category->id) }}">{{ __('category.admin.table.show') }}</a>
+                    <a id="show-{{ $category->id }}" href="{{ route('admin.categories.showChild', $category->id) }}">{{ __('category.admin.table.show') }}</a>
                     @endif
                   </td>
-                  <td><a
+                  <td><a id="edit-{{$category->id}}"
                       href="{{route('admin.categories.edit', $category->id)}}"
                       class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
                     <i class="material-icons">border_color</i>

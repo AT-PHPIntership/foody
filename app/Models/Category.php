@@ -42,7 +42,7 @@ class Category extends Model
      *
      * @return int
      */
-    public function countChild($id)
+    public static function countChild($id)
     {
         return Category::where('parent_id', $id)->count();
     }
