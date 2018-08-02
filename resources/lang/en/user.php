@@ -43,6 +43,7 @@
                 'role_admin' => 'Admin',
                 'role_shop_manager' => 'Shop Manager',
                 'role_user' => 'User',
+                'delete_confirm' => 'Are you sure want to delete?'
             ]
         ]
     ];

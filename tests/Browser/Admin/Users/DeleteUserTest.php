@@ -10,19 +10,8 @@ use Tests\Browser\Admin\AdminTestCase;
 
 class DeleteUserTest extends AdminTestCase
 {
+    use DatabaseMigrations;
     protected $userDel;
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                    ->assertSee('Laravel');
-        });
-    }
 
     /**
     * Override function setUp() database
@@ -49,7 +38,7 @@ class DeleteUserTest extends AdminTestCase
                 ->visit('/admin/users')
                 ->assertSee('List Users')
                 ->click('#deleteUser-'. $this->userDel->id)
-                ->assertDialogOpened('Are you sure want to delete?')
+                ->assertDialogOpened(__('user.admin.show.delete_confirm'))
                 ->dismissDialog();
             $this->assertDatabaseHas('users', ['deleted_at' => null]);
         });
@@ -66,7 +55,7 @@ class DeleteUserTest extends AdminTestCase
             $browser->loginAs($this->user)
                 ->visit('/admin/users')
                 ->click('#deleteUser-'. $this->userDel->id)
-                ->assertDialogOpened('Are you sure want to delete?')
+                ->assertDialogOpened(__('user.admin.show.delete_confirm'))
                 ->acceptDialog()
                 ->assertSee(__('user.admin.delete_success'));
             $this->assertDatabaseMissing('users', ['id' => 2, 'deleted_at' => null]);
