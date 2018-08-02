@@ -31,6 +31,8 @@
                 'title' => 'Edit User',
                 'form_title' => 'Edit Form',
                 'update_user' => 'Update User',
+                'update_success' => 'Update user successfully',
+                'update_fail' => 'Update user failed!',
             ],
             'show' => [
                 'title' => 'Show User',
@@ -40,7 +42,7 @@
                 'create_user' => 'Create User',
                 'role_admin' => 'Admin',
                 'role_shop_manager' => 'Shop Manager',
-                'role_user' => 'User',
+                'role_user' => 'Customer',
             ]
         ]
     ];
