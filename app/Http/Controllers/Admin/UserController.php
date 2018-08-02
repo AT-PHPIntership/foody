@@ -54,8 +54,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $users = User::all();
-        return view('admin.pages.users.edit', compact('users', 'user'));
+        return view('admin.pages.users.edit', compact('user'));
     }
 
     /**
@@ -70,7 +69,7 @@ class UserController extends Controller
     {
         try {
             $updateUser = $request->except(["_token", "_method", "submit", "username", "email"]);
-            User::where(['id' => $user->id])->update($updateUser);
+            $user->update($updateUser);
             return redirect()->route('admin.users.index')->with('message', __('user.admin.edit.update_success'));
         } catch (Exception $e) {
             return redirect()->route('admin.users.index')->with('alert', __('user.admin.edit.update_fail'));

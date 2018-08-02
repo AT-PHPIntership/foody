@@ -35,17 +35,10 @@
                 <div class="form-group">
                   <div class="demo-radio-button">
                     <label for="gender">{{ __('user.admin.gender') }}</label><br>
-                    @if ($user->gender ==1)
-                      <input name="gender" type="radio" id="radio_1" value="1" checked>
+                      <input name="gender" type="radio" id="radio_1" value="1" @if ($user->gender == 1) checked @endif>
                       <label for="radio_1">{{ __('user.admin.female') }}</label>
-                      <input name="gender" type="radio" id="radio_2" value="0">
+                      <input name="gender" type="radio" id="radio_2" value="0" @if ($user->gender == 0) checked @endif>
                       <label for="radio_2">{{ __('user.admin.male') }}</label>
-                    @else
-                      <input name="gender" type="radio" id="radio_1" value="1">
-                      <label for="radio_1">{{ __('user.admin.female') }}</label>
-                      <input name="gender" type="radio" id="radio_2" value="0" checked>
-                      <label for="radio_2">{{ __('user.admin.male') }}</label>
-                    @endif
                   </div>
                 </div>
                 <div class="form-group">
@@ -62,28 +55,19 @@
                   <div class="form-line">
                     <label class="control-label">{{ __('user.admin.role') }}</label>
                     <select name="role_id" class="form-control">
-                      @foreach ($users as $userInfo)
-                      <option @if ($userInfo->role_id == $user->role_id) selected @endif
-                          value="{{ $userInfo->role_id }}"
-                      >{{ $userInfo->nameRole() }}</option>
-                      @endforeach
+                      <option value="1" @if ($user->role_id == 1) selected @endif>{{__('user.admin.show.role_admin')}}</option>
+                      <option value="2" @if ($user->role_id == 2) selected @endif>{{__('user.admin.show.role_shop_manager')}}</option>
+                      <option value="3" @if ($user->role_id == 3) selected @endif>{{__('user.admin.show.role_user')}}</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="demo-radio-button">
                     <label for="is_active">{{ __('user.admin.active') }}</label><br>
-                    @if ($user->is_active ==1)
-                      <input name="is_active" type="radio" class="with-gap" id="radio_3" value="1" checked>
+                      <input name="is_active" type="radio" class="with-gap" id="radio_3" value="1" @if ($user->is_active == 1) checked @endif>
                       <label for="radio_3">{{ __('user.admin.actived') }}</label>
-                      <input name="is_active" type="radio" class="with-gap" id="radio_4" value="0">
+                      <input name="is_active" type="radio" class="with-gap" id="radio_4" value="0" @if ($user->is_active == 0) checked @endif>
                       <label for="radio_4">{{ __('user.admin.deactived') }}</label>
-                    @else
-                      <input name="is_active" type="radio" class="with-gap" id="radio_3" value="1">
-                      <label for="radio_3">{{ __('user.admin.actived') }}</label>
-                      <input name="is_active" type="radio" class="with-gap" id="radio_4" value="0" checked>
-                      <label for="radio_4">{{ __('user.admin.deactived') }}</label>
-                    @endif
                   </div>
                 </div>
               <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('user.admin.edit.update_user') }}</button>&nbsp;
