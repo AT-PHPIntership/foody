@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Store;
+use Faker\Generator as Faker;
+use App\Models\ShopOpeningStatus;
 
 class ShopOpeningStatusesTableSeeder extends Seeder
 {
@@ -9,8 +12,17 @@ class ShopOpeningStatusesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        factory(App\Models\ShopOpeningStatus::class, 5)->create();
+        $inputId = Store::doesntHave('shopOpenStatus')->pluck('id')->toArray();
+        $inputCount = count($inputId);
+        for ($i = 0; $i < $inputCount; $i++) {
+            factory(App\Models\ShopOpeningStatus::class,1)->create([
+                'store_id' => $faker->unique()->randomElement($inputId),
+            ]);
+        }
+        // factory(Store::class, 50)->create()->each(function ($order){
+        //     factory(ShopOpeningStatus::class, random_int(1,5))->create(['order_id' => $order->id,]);
+        // });
     }
 }

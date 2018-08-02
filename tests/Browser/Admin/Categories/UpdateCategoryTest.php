@@ -12,6 +12,7 @@ use Tests\Browser\Pages\Admin\Category\UpdateChildCategory;
 
 class UpdateCategoryTest extends AdminTestCase
 {
+    use DatabaseMigrations;
     /**
      * Override function setUp() for make user login
      *

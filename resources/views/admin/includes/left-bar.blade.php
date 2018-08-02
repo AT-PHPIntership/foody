@@ -53,7 +53,7 @@
             </a>
             <ul class="ml-menu">
               <li><a href="">{{ __('left-bar.create-store') }}</a></li>
-              <li><a href="">{{ __('left-bar.show-store') }}</a></li>
+              <li><a href="{{ route('admin.stores.index') }}">{{ __('left-bar.show-store') }}</a></li>
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">
