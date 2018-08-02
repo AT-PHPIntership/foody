@@ -76,4 +76,21 @@ class UserController extends Controller
             return redirect()->route('admin.users.index')->with('alert', __('user.admin.edit.update_fail'));
         }
     }
+    
+    /**
+      * Remove the specified resource from storage.
+      *
+      * @param App\Models\User $user user
+      *
+      * @return \Illuminate\Http\Response
+      */
+    public function destroy(User $user)
+    {
+        try {
+            $user->delete();
+            return redirect()->route('admin.users.index')->with('message', __('user.admin.delete_success'));
+        } catch (Exception $e) {
+            return redirect()->route('admin.users.index')->with('alert', __('user.admin.delete_fail'));
+        }
+    }
 }
