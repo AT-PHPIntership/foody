@@ -72,4 +72,29 @@ class UpdateUserTest extends AdminTestCase
                     ->assertSee($message);
         });
     }
+
+    /**
+     * Dusk test update user success.
+     *
+     * @return void
+     */
+    public function test_update_user_success()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->loginAs($this->user)
+                ->visit(new UpdateUser)
+                ->assertSee('Edit User')
+                ->type('full_name', 'Hien Pham')
+                ->type('birthday', '1995-08-15')
+                ->type('phone', '01214556631')
+                ->press('Update User')
+                ->assertPathIs('/admin/users')
+                ->assertSee(__('user.admin.edit.update_success'));
+            $this->assertDatabaseHas('users', [
+                'full_name' => 'Hien Pham',
+                'birthday' => '1995-08-15',
+                'phone' => '01214556631',
+            ]);
+        });
+    }
 }
