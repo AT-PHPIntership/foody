@@ -70,4 +70,21 @@ class CategoryController extends Controller
             return redirect()->route('admin.categories.create')->with('message', __('category.admin.message.add_fail'));
         }
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Category $category Category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Category $category)
+    {
+        try {
+            $category->delete();
+            return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del_fail'));
+        }
+    }
 }

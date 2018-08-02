@@ -27,7 +27,7 @@ class LoginTest extends AdminTestCase
      *
      * @return void
      */
-    public function testSuccessLoginAdmin()
+    public function test_success_login_admin()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
@@ -44,7 +44,7 @@ class LoginTest extends AdminTestCase
      *
      * @return void
      */
-    public function testLogoutAdmin()
+    public function test_logout_admin()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
@@ -63,7 +63,7 @@ class LoginTest extends AdminTestCase
      *
      * @return void
      */
-     public function testFailLoginAdmin()
+     public function test_fail_login_admin()
      {
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
@@ -80,7 +80,7 @@ class LoginTest extends AdminTestCase
      *
      * @return void
      */
-    public function testLoginAdminByUser()
+    public function test_login_admin_by_user()
     {
         $user = factory('App\Models\User')->create([
             'email' => 'lebavy@gmail.com',
