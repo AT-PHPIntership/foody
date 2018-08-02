@@ -54,8 +54,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $data['user'] = $user;
-        return view('admin.pages.users.edit', $data);
+        $user = $user;
+        return view('admin.pages.users.edit', compact('user'));
     }
 
     /**

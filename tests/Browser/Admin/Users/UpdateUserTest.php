@@ -21,9 +21,7 @@ class UpdateUserTest extends AdminTestCase
     public function setUp()
     {
         parent::setUp();
-        factory(User::class)->create([
-            'id' => '2'
-        ]);
+        factory(User::class)->create();
     }
 
     /**
@@ -35,8 +33,7 @@ class UpdateUserTest extends AdminTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
-                    ->visit(new UpdateUser)
-                    ->assertSee('Update User');
+                    ->visit(new UpdateUser);
         });
     }
 

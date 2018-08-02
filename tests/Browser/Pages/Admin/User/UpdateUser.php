@@ -26,7 +26,8 @@ class UpdateUser extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->assertSee('Edit User');
+                ->assertSee('Edit User')
+                ->assertSee('Update User');
     }
 
     /**
