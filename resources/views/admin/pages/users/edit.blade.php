@@ -62,19 +62,11 @@
                   <div class="form-line">
                     <label class="control-label">{{ __('user.admin.role') }}</label>
                     <select name="role_id" class="form-control">
-                      @if ($user->role_id == 1)
-                        <option value="1" selected>{{__('user.admin.show.role_admin')}}</option>
-                        <option value="2" >{{__('user.admin.show.role_shop_manager')}}</option>
-                        <option value="3" >{{__('user.admin.show.role_user')}}</option>
-                      @elseif ($user->role_id == 2)
-                        <option value="1" >{{__('user.admin.show.role_admin')}}</option>
-                        <option value="2" selected>{{__('user.admin.show.role_shop_manager')}}</option>
-                        <option value="3" >{{__('user.admin.show.role_user')}}</option>
-                      @else
-                        <option value="1" >{{__('user.admin.show.role_admin')}}</option>
-                        <option value="2" >{{__('user.admin.show.role_shop_manager')}}</option>
-                        <option value="3" selected>{{__('user.admin.show.role_user')}}</option>
-                      @endif
+                      @foreach ($users as $userInfo)
+                      <option @if ($userInfo->role_id == $user->role_id) selected @endif
+                          value="{{ $userInfo->role_id }}"
+                      >{{ $userInfo->nameRole() }}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
