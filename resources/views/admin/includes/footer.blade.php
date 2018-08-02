@@ -1,3 +1,4 @@
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
 <!-- Jquery Core Js -->
 <script
 	src="bower_components/adminbsb-materialdesign/plugins/jquery/jquery.min.js"></script>
@@ -18,7 +19,7 @@
 <!-- Jquery Validation Plugin Css -->
 <script
 	src="bower_components/adminbsb-materialdesign/plugins/jquery-validation/jquery.validate.js"></script>
-
+<script src="bower_components/adminbsb-materialdesign/plugins/bootstrap-notify/bootstrap-notify.js"></script>
 <!-- JQuery Steps Plugin Js -->
 {{-- <script
 	src="bower_components/adminbsb-materialdesign/plugins/jquery-steps/jquery.steps.js"></script> --}}
@@ -46,8 +47,8 @@
 {{-- <script
 	src="bower_components/adminbsb-materialdesign/plugins/nouislider/nouislider.js"></script> --%> --}}
 <!-- Sweet Alert Plugin Js -->
-{{-- <script
-	src="bower_components/adminbsb-materialdesign/plugins/sweetalert/sweetalert.min.js"></script> --}}
+<script
+	src="bower_components/adminbsb-materialdesign/plugins/sweetalert/sweetalert.min.js"></script>
 
 <!-- Waves Effect Plugin Js -->
 <script
@@ -81,6 +82,7 @@
 	src="bower_components/adminbsb-materialdesign/js/admin.js"></script>
 <script
 	src="bower_components/adminbsb-materialdesign/js/pages/index.js"></script>
+<script src="bower_components/adminbsb-materialdesign/js/pages/ui/dialogs.js"></script>
  {{-- <script
 	src="bower_components/adminbsb-materialdesign/js/pages/tables/jquery-datatable.js"></script>
 <script

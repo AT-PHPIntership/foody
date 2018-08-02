@@ -72,10 +72,11 @@ class CategoryController extends Controller
             return redirect()->route('admin.categories.create')->with('message', __('category.admin.message.add_fail'));
         }
     }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Category $category Category
      *
      * @return \Illuminate\Http\Response
      */
@@ -85,13 +86,14 @@ class CategoryController extends Controller
         return view('admin.pages.categories.edit', compact('categoriesParent', 'category'));
     }
  
-     /**
-      * Update the specified resource in storage.
-      *
-      * @param  EditCategoryRequest $request EditCategoryRequest
-      * @param  int  $id
-      * @return \Illuminate\Http\Response
-      */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param EditCategoryRequest $request  EditCategoryRequest
+     * @param Category            $category Category
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function update(EditCategoryRequest $request, Category $category)
     {
         try {
@@ -109,6 +111,22 @@ class CategoryController extends Controller
             }
         } catch (Exception $ex) {
             return $ex;
+        }
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Category $category Category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Category $category)
+    {
+        try {
+            $category->delete();
+            return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del_fail'));
         }
     }
 }
