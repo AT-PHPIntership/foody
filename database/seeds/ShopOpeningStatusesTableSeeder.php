@@ -21,8 +21,5 @@ class ShopOpeningStatusesTableSeeder extends Seeder
                 'store_id' => $faker->unique()->randomElement($inputId),
             ]);
         }
-        // factory(Store::class, 50)->create()->each(function ($order){
-        //     factory(ShopOpeningStatus::class, random_int(1,5))->create(['order_id' => $order->id,]);
-        // });
     }
 }
