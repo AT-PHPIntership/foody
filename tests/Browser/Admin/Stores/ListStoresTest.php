@@ -58,11 +58,7 @@ class ListStoresTest extends AdminTestCase
                     ->visit(new ListStores());
             $elements = $browser->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);
-            if($numRecord < self::ROW_LIMIT) {
-                $this->assertTrue($numRecord == Store::all());
-            } else {
-                $this->assertTrue($numRecord == self::ROW_LIMIT);
-            }
+            $this->assertTrue($numRecord == self::ROW_LIMIT);
         });
     }
 

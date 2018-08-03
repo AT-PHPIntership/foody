@@ -51,11 +51,7 @@ class ListCategoriesTest extends AdminTestCase
                     ->visit(new ListCategories());
             $elements = $browser->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);
-            if($numRecord < config('paginate.number_categories')) {
-                $this->assertTrue($numRecord == Category::countParents());
-            } else {
-                $this->assertTrue($numRecord == config('paginate.number_categories'));
-            }
+            $this->assertTrue($numRecord == config('paginate.number_categories'));
         });
     }
 }

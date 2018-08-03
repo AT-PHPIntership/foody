@@ -22,12 +22,13 @@ class StoreController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Store $store Store
+     * @param int $id int
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Store $store)
+    public function show($id)
     {
+        $store = Store::with('shopOpenStatus')->where('id', $id)->first();
         return view('admin.pages.stores.show', compact('store'));
     }
 }
