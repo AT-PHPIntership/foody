@@ -124,11 +124,20 @@ class CategoryController extends Controller
     {
         $categoryParent = $category->parent;
         try {
-            $category->delete();
-            if($categoryParent&&Category::countChild($categoryParent->id)>0) {
-                return redirect()->route('admin.categories.showChild')->with('message', __('category.admin.message.del'));
+            if ($categoryParent) {
+                $category->delete();
+                if (Category::countChild($categoryParent->id)>0) {
+                    return redirect()->route('admin.categories.showChild', $categoryParent->id)->with('message', __('category.admin.message.del'));
+                } else {
+                    return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del'));
+                }
             } else {
-                return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del'));
+                if (Category::countChild($category->id)>0) {
+                    return redirect()->route('admin.categories.index')->with('alert', __('category.admin.message.del_no_permit'));
+                } else {
+                    $category->delete();
+                    return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del'));
+                }
             }
         } catch (Exception $ex) {
             return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del_fail'));

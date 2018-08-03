@@ -42,6 +42,7 @@ class StoreController extends Controller
     {
         try {
             $store->delete();
+            $store->shopOpenStatus->delete();
             return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.del'));
         } catch (Exception $ex) {
             return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.del_fail'));
