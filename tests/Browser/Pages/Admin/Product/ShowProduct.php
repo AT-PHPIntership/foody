@@ -26,7 +26,14 @@ class ShowProduct extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->assertSee('List Products');
+                ->assertSee(__('product.admin.show.title'))
+                ->assertSee(__('product.admin.show.form_title'))
+                ->assertSee(__('product.admin.show.create_product'))
+                ->assertSee(__('product.admin.show.name'))
+                ->assertSee(__('product.admin.show.price'))
+                ->assertSee(__('product.admin.show.category'))
+                ->assertSee(__('product.admin.show.edit'))
+                ->assertSee(__('product.admin.show.delete'));
     }
 
     /**

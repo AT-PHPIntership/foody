@@ -20,10 +20,9 @@
               <tr>
                 <th>ID</th>
                 <th>{{__('product.admin.show.name')}}</th>
-                <th>{{__('product.admin.show.describe')}}</th>
                 <th>{{__('product.admin.show.price')}}</th>
-                <th>{{__('product.admin.show.store')}}</th>
                 <th>{{__('product.admin.show.category')}}</th>
+                <th>{{__('product.admin.show.details')}}</th>
                 <th>{{__('product.admin.show.edit')}}</th>
                 <th>{{__('product.admin.show.delete')}}</th>
               </tr>
@@ -33,10 +32,9 @@
               <tr>
                 <th>{{ $product->id }}</th>
                 <td>{{ $product->name }}</td>
-                <td>{{ $product->describe }}</td>
-                <td>{{ $product->price }}</td>
-                <td>{{ $product->store_id }}</td>
+                <td>{{ $product->price }} VND</td>
                 <td>{{ $product->category_id }}</td>
+                <td><a href="{{route('admin.products.show', $product->id)}}">Details</a></td>
                 <td><a
                   href="{{route('admin.users.edit', $product->id)}}"
                   class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">

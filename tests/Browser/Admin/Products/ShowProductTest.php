@@ -23,10 +23,13 @@ class ShowProductTest extends AdminTestCase
     public function setUp()
     {
         parent::setUp();
+        factory(Store::class, 5)->create();
+        factory(Category::class, 5)->create();
+        factory(Product::class, 10)->create();
     }
 
     /**
-     * A Dusk test show list user.
+     * A Dusk test show list products.
      *
      * @return void
      */
@@ -46,11 +49,7 @@ class ShowProductTest extends AdminTestCase
     public function test_list_products_pagination()
     {
         $this->browse(function (Browser $browser) {
-            factory(Store::class, 5)->create();
-            factory(Category::class,5)->create();
-            factory(Product::class, 10)->create();
             $browser->loginAs($this->user);
-
             $elements = $browser->visit(new ShowProduct)
                                 ->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);

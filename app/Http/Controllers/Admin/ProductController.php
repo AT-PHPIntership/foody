@@ -18,4 +18,17 @@ class ProductController extends Controller
         $products = Product::paginate(config('paginate.number_products'));
         return view('admin.pages.products.index', compact('products'));
     }
+
+    /**
+    * Display the specified resource.
+    *
+    * @param int $id id
+
+    * @return \Illuminate\Http\Response
+    */
+    public function show($id)
+    {
+        $product = Product::find($id);
+        return view('admin.pages.products.show', compact('product'));
+    }
 }
