@@ -30,4 +30,21 @@ class StoreController extends Controller
     {
         return view('admin.pages.stores.show', compact('store'));
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Store $store store
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Store $store)
+    {
+        try {
+            $store->delete();
+            return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.del'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.del_fail'));
+        }
+    }
 }
