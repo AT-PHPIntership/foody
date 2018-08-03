@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -45,12 +46,43 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Show the form for editing the specified resource.
      *
      * @param App\Models\User $user user
      *
      * @return \Illuminate\Http\Response
      */
+    public function edit(User $user)
+    {
+        return view('admin.pages.users.edit', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request request
+     * @param App\Models\User          $user    user
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateUserRequest $request, User $user)
+    {
+        try {
+            $updateUser = $request->except(["_token", "_method", "submit", "username", "email"]);
+            $user->update($updateUser);
+            return redirect()->route('admin.users.index')->with('message', __('user.admin.edit.update_success'));
+        } catch (Exception $e) {
+            return redirect()->route('admin.users.index')->with('alert', __('user.admin.edit.update_fail'));
+        }
+    }
+    
+    /**
+      * Remove the specified resource from storage.
+      *
+      * @param App\Models\User $user user
+      *
+      * @return \Illuminate\Http\Response
+      */
     public function destroy(User $user)
     {
         try {
