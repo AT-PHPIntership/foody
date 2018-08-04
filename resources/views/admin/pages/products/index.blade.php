@@ -19,6 +19,7 @@
             <thead>
               <tr>
                 <th>ID</th>
+                <th>{{__('product.admin.show.image')}}</th>
                 <th>{{__('product.admin.show.name')}}</th>
                 <th>{{__('product.admin.show.price')}}</th>
                 <th>{{__('product.admin.show.category')}}</th>
@@ -31,10 +32,12 @@
               @foreach ($products as $product)
               <tr>
                 <th>{{ $product->id }}</th>
+                <th>{{ $product->getPathOfFirstImages() }}</th>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price }} VND</td>
                 <td>{{ $product->category_id }}</td>
-                <td><a href="{{route('admin.products.show', $product->id)}}">Details</a></td>
+                <td><a id="details" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float"
+                   href="{{route('admin.products.show', $product->id)}}"><i class="material-icons">remove_red_eye</i></a></td>
                 <td><a
                   href="{{route('admin.users.edit', $product->id)}}"
                   class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">

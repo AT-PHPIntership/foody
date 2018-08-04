@@ -47,6 +47,16 @@ class Product extends Model
     {
         return $this->hasMany(Image::class, 'product_id', 'id');
     }
+
+    /**
+    * Get the user's first name.
+    *
+    * @return string
+    */
+    public function getPathOfFirstImages()
+    {
+        return  $this->images->first()['path'];
+    }
     
     /**
      * Get OrderDetail Object

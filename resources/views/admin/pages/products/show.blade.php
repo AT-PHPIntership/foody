@@ -56,10 +56,12 @@
         </div>
         <div class="row clearfix">
           <div class="col-sm-3">
-            <h4>{{__('product.admin.show.image')}}:</h4>
+            <h4>{{__('product.admin.show.images')}}:</h4>
           </div>
           <div class="col-sm-9">
-            <img class="img-responsive thumbnail" src="images/{{ $product->images->first()->path}}">
+            @foreach ($product->images as $image)
+              <img class="img-responsive thumbnail" src="images/{{ $image->path }}">
+            @endforeach
           </div>
         </div>
         <div class="row clearfix">
