@@ -28,7 +28,8 @@ class ProductController extends Controller
     */
     public function show($id)
     {
-        $product = Product::find($id);
+        $product = Product::with('images')->find($id);
+        // dd($product->images);
         return view('admin.pages.products.show', compact('product'));
     }
 }

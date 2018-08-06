@@ -60,7 +60,7 @@
           </div>
           <div class="col-sm-9">
             @foreach ($product->images as $image)
-              <img class="img-responsive thumbnail" src="images/{{ $image->path }}">
+              <img class="img-responsive thumbnail" src="images/{{ $image->getPathAttribute() }}">
             @endforeach
           </div>
         </div>
