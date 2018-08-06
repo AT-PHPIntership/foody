@@ -66,7 +66,7 @@ class StoreController extends Controller
             ShopOpeningStatus::create([
                 'store_id' => $store->id,
                 'time_open' => $data['time_open'],
-                'time_close' => $data['time_close'],
+                'time_close' => $data['time_close']
             ]);
             return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.add'));
         } catch (Exception $ex) {
