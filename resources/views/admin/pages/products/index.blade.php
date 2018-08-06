@@ -32,7 +32,7 @@
               @foreach ($products as $product)
               <tr>
                 <th>{{ $product->id }}</th>
-                <th>{{ $product->images->first()['path'] }}</th>
+                <th><img class="img-responsive thumbnail" src="images/{{ $product->images[0]->path }}"></th>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price }} VND</td>
                 <td>{{ $product->category_id }}</td>

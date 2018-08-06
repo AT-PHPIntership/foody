@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(config('paginate.number_products'));
+        $products = Product::with('images')->paginate(config('paginate.number_products'));
         return view('admin.pages.products.index', compact('products'));
     }
 
@@ -29,7 +29,6 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::with('images')->find($id);
-        // dd($product->images);
         return view('admin.pages.products.show', compact('product'));
     }
 }
