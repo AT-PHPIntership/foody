@@ -31,6 +31,7 @@ return [
         ],
         'edit' => [
             'title' => 'Edit Store',
+            'update' => 'Update'
         ],
         'show' => [
             'title' => 'Show Store',
