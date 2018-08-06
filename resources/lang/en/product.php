@@ -16,6 +16,16 @@
         'edit' => 'Edit',
         'delete' => 'Delete',
         'create_product' => 'Create Product',
+      ],
+      'create' => [
+        'title' => 'Create Product',
+        'form_title' => 'Create Form',
+        'enter_name' => 'Enter product name',
+        'enter_price' => 'Enter price',
+        'enter_describe' => 'Describe something ...',
+        'create_product' => 'Create product',
+        'reset_product' => 'Reset',
+        'create_success' => 'Create product successfully'
       ]
     ]
   ];

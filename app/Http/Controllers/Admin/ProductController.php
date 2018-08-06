@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Http\Requests\CreateProductRequest;
 
 class ProductController extends Controller
 {
@@ -30,5 +31,29 @@ class ProductController extends Controller
     {
         $product = Product::with('images')->find($id);
         return view('admin.pages.products.show', compact('product'));
+    }
+
+    /**
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function create()
+    {
+        return view('admin.pages.products.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Http\Requests\CreateProductRequest $request request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CreateProductRequest $request)
+    {
+        $userData = $request->all();
+        Product::create($userData);
+        return redirect()->route('admin.products.index')->with('message', __('product.admin.create.create_success'));
     }
 }
