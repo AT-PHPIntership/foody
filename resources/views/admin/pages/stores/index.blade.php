@@ -16,7 +16,7 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>{{ __('store.admin.id') }}</th>
+              <th>@sortablelink('id')</th>
               <th>{{ __('store.admin.name') }}</th>
               <th>{{ __('store.admin.address') }}</th>
               <th>{{ __('store.admin.active') }}</th>
@@ -52,7 +52,7 @@
             @endforeach
           </tbody>
         </table>
-        {{ $stores->links() }}
+        {!! $stores->appends(\Request::except('page'))->links() !!}
       </div>
 		</div>
 	</div>
