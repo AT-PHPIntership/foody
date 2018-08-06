@@ -24,5 +24,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('users', 'UserController');
     Route::get('categories/{category}/show-child', 'CategoryController@showChild')->name('categories.showChild');
     Route::resource('categories', 'CategoryController');
+    
     Route::resource('products', 'ProductController');
 });

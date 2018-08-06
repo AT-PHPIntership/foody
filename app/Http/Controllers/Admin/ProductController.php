@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('images')->paginate(config('paginate.number_products'));
+        $products = Product::with('images')->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
         return view('admin.pages.products.index', compact('products'));
     }
 
