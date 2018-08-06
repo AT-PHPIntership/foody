@@ -16,10 +16,10 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>{{ __('store.admin.table.id') }}</th>
-              <th>{{ __('store.admin.table.name') }}</th>
-              <th>{{ __('store.admin.table.address') }}</th>
-              <th>{{ __('store.admin.table.active') }}</th>
+              <th>{{ __('store.admin.id') }}</th>
+              <th>{{ __('store.admin.name') }}</th>
+              <th>{{ __('store.admin.address') }}</th>
+              <th>{{ __('store.admin.active') }}</th>
               <th>{{ __('store.admin.table.show') }}</th>
               <th>{{ __('store.admin.table.edit') }}</th>
               <th>{{ __('store.admin.table.delete') }}</th>

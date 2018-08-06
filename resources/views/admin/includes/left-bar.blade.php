@@ -52,7 +52,7 @@
               <span>{{ __('left-bar.store') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">{{ __('left-bar.create-store') }}</a></li>
+              <li><a href="{{ route('admin.stores.create') }}">{{ __('left-bar.create-store') }}</a></li>
               <li><a href="{{ route('admin.stores.index') }}">{{ __('left-bar.show-store') }}</a></li>
             </ul>
 

@@ -30,4 +30,28 @@ class StoreController extends Controller
     {
         return view('admin.pages.stores.show', compact('store'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.pages.stores.create');
+    }
+
+    /**
+    * Store a newly created resource in storage.
+    *
+    * @param Http\Requests\CreateUserRequest $request request
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function store(CreateUserRequest $request)
+    {
+        $userData = $request->all();
+        User::create($userData);
+        return redirect()->route('admin.users.index')->with('message', __('user.admin.create.create_success'));
+    }
 }
