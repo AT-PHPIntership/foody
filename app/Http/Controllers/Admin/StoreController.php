@@ -18,7 +18,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores = Store::sortable()->paginate(config('paginate.number_stores'));
+        $stores = Store::sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_stores'));
         return view('admin.pages.stores.index', compact('stores'));
     }
 
