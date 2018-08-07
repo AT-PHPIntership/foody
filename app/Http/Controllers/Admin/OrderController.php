@@ -16,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('user')->paginate(config('paginate.number_orders'));
+        $orders = Order::with('user')->withCount('orderdetails')->paginate(config('paginate.number_orders'));
         return view('admin.pages.orders.index', compact('orders'));
     }
 }

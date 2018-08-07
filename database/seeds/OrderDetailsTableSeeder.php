@@ -13,12 +13,11 @@ class OrderDetailsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        //factory(App\Models\OrderDetail::class, 7)->create();
-        $inputId = Order::doesntHave('orderDetail')->pluck('id')->toArray();
+        $inputId = Order::doesntHave('orderDetails')->pluck('id')->toArray();
         $inputCount = count($inputId);
-        for ($i = 0; $i < $inputCount; $i++) {
+        for ($i = 1; $i <= $inputCount; $i++) {
             factory(App\Models\OrderDetail::class,2)->create([
-                'order_id' => $faker->unique()->randomElement($inputId),
+                'order_id' => $i,
             ]);
         }
     }
