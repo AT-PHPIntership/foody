@@ -35,7 +35,9 @@ return [
             'update' => 'Update'
         ],
         'show' => [
-            'title' => 'Show Order',
+            'title' => 'Show Detail Order',
+            
+
         ],
         'message' => [
             'delivery_status' =>[

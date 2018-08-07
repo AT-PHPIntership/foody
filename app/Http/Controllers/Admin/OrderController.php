@@ -19,4 +19,19 @@ class OrderController extends Controller
         $orders = Order::with('user')->withCount('orderdetails')->paginate(config('paginate.number_orders'));
         return view('admin.pages.orders.index', compact('orders'));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id int
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $order = Order::with(['user','orderdetails'])->where('id', $id)->first();
+        //$user = $order->user();
+        //dd($user->username);
+        return view('admin.pages.orders.show', compact('order'));
+    }
 }
