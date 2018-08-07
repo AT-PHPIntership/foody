@@ -32,7 +32,11 @@
               @foreach ($products as $product)
               <tr>
                 <th>{{ $product->id }}</th>
-                <th><img class="img-responsive thumbnail" src="images/{{ $product->images[0]->path }}"></th>
+                @if (count($product->images))
+                  <th><img class="img-responsive thumbnail" src="images/products/{{ $product->images[0]->path }}"></th>
+                @else
+                  <th><img class="img-responsive thumbnail" src="images/products/no-image.jpg"></th>
+                @endif
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price }} VND</td>
                 <td>{{ $product->category_id }}</td>

@@ -19,8 +19,8 @@ class CreateShopOpeningStatusesTable extends Migration
             $table->foreign('store_id')
                     ->references('id')->on('stores')
                     ->onDelete('no action');
-            $table->date('time_open');
-            $table->date('time_close');
+            $table->time('time_open');
+            $table->time('time_close');
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });
