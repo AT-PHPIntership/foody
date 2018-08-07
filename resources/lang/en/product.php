@@ -25,7 +25,8 @@
         'enter_describe' => 'Describe something ...',
         'create_product' => 'Create product',
         'reset_product' => 'Reset',
-        'create_success' => 'Create product successfully'
+        'create_success' => 'Create product successfully',
+        'create_fali' => 'Create product fail'
       ]
     ]
   ];

@@ -61,9 +61,13 @@
           <div class="col-sm-9">
             @foreach ($product->images as $image)
               @if ($image)
-                <img class="img-responsive thumbnail" src="images/products/{{ $image->path }}">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                  <img class="img-responsive thumbnail" src="images/products/{{ $image->path }}">
+                </div>
               @else
-                <img class="img-responsive thumbnail" src="images/products/no-image.jpg">  
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                  <img class="img-responsive thumbnail" src="images/products/no-image.jpg">
+                </div>
               @endif
             @endforeach
           </div>
