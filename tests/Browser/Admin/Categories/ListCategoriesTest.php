@@ -22,6 +22,8 @@ class ListCategoriesTest extends AdminTestCase
     public function setUp()
     {
         parent::setUp();
+        factory(Category::class, 7)->create();
+        factory(Category::class, 10)->states('parent')->create();
     }
 
     /**
@@ -49,7 +51,7 @@ class ListCategoriesTest extends AdminTestCase
                     ->visit(new ListCategories());
             $elements = $browser->elements('.table-responsive table tbody tr');
             $numRecord = count($elements);
-            $this->assertTrue($numRecord == Category::countParents());
+            $this->assertTrue($numRecord == config('paginate.number_categories'));
         });
     }
 }
