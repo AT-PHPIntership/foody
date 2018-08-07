@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\ShopOpeningStatus;
 
 class Store extends Model
 {
@@ -25,7 +26,7 @@ class Store extends Model
      */
     public function shopOpenStatus()
     {
-        return $this->hasOne(ShopOpenStatus::class, 'store_id', 'id');
+        return $this->hasOne(ShopOpeningStatus::class, 'store_id', 'id');
     }
 
     /**
