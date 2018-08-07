@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Store;
 use App\Http\Requests\CreateProductRequest;
 
 class ProductController extends Controller
@@ -55,5 +56,18 @@ class ProductController extends Controller
         $userData = $request->all();
         Product::create($userData);
         return redirect()->route('admin.products.index')->with('message', __('product.admin.create.create_success'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param App\Models\Product $product product
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Product $product, Store $store)
+    {
+
+        return view('admin.pages.products.edit', compact('product'));
     }
 }

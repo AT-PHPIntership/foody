@@ -26,6 +26,11 @@
         'create_product' => 'Create product',
         'reset_product' => 'Reset',
         'create_success' => 'Create product successfully'
+      ],
+      'edit' => [
+        'title' => 'Edit Product',
+        'form_title' => 'Edit Form',
+        
       ]
     ]
   ];
