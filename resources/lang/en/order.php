@@ -9,6 +9,7 @@ return [
         'id' => 'ID',
         'username' => 'Username',
         'address' => 'Address',
+        'total_products' => 'Total products',
         'money_ship' => 'Money Ship',
         'delivery_status' => 'Deliveried ?',
         'status' => 'Status',
