@@ -19,7 +19,7 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>{{__('user.admin.username')}}</th>
+                <th>@sortablelink('username', __('user.admin.username'))</th>
                 <th>{{__('user.admin.fullname')}}</th>
                 <th>{{__('user.admin.email')}}</th>
                 <th>{{__('user.admin.birthday')}}</th>
