@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Store;
+use App\Models\Category;
+use App\Models\Image;
 use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -65,9 +68,30 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product, Store $store)
+    public function edit(Product $product)
     {
+        $stores = Store::all();
+        $categories = Category::all();
+        $images = Image::all();
+        return view('admin.pages.products.edit', compact('product', 'stores', 'categories', 'images'));
+    }
 
-        return view('admin.pages.products.edit', compact('product'));
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request request
+     * @param App\Models\Product       $product product
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateProductRequest $request, Product $product)
+    {
+        try {
+            $updateProduct = $request->except(["_token", "_method", "submit"]);
+            $product->update($updateProduct);
+            return redirect()->route('admin.products.index')->with('message', __('product.admin.edit.update_success'));
+        } catch (Exception $e) {
+            return redirect()->route('admin.products.index')->with('alert', __('product.admin.edit.update_fail'));
+        }
     }
 }

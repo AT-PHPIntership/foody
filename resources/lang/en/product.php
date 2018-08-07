@@ -23,14 +23,16 @@
         'enter_name' => 'Enter product name',
         'enter_price' => 'Enter price',
         'enter_describe' => 'Describe something ...',
-        'create_product' => 'Create product',
+        'create_product' => 'Save',
         'reset_product' => 'Reset',
         'create_success' => 'Create product successfully'
       ],
       'edit' => [
         'title' => 'Edit Product',
         'form_title' => 'Edit Form',
-        
+        'update_product' => 'Save',
+        'update_success' => 'Update product successfully',
+        'update_fail' => 'Update product failed!'
       ]
     ]
   ];
