@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, Sortable;
     
     const ROLE_ADMIN = 1;
     const ROLE_SHOP_MANAGER = 2;
@@ -41,6 +42,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class, 'user_id', 'id');
     }
+
+    public $sortable = ['username'];
 
     /**
      * The attributes that should be mutated to dates.
