@@ -32,7 +32,7 @@ class ShowListUserTest extends AdminTestCase
      *
      * @return void
      */
-    public function test_show_listUser()
+    public function test_show_list_user()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)

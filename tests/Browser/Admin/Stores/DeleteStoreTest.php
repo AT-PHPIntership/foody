@@ -39,7 +39,7 @@ class DeleteStoreTest extends AdminTestCase
      */
     public function test_cancel_delele()
     {
-        $store = Store::all()->random();
+        $store = Store::find(1);
         $this->browse(function (Browser $browser) use ($store){
             $browser->loginAs($this->user)
                 ->visit(new ListStores($store))
@@ -57,7 +57,7 @@ class DeleteStoreTest extends AdminTestCase
      */
     public function test_confirm_delete()
     {
-        $store = Store::all()->random();
+        $store = Store::find(1);
         $this->browse(function (Browser $browser) use ($store){
             $browser->loginAs($this->user)
                 ->visit(new ListStores($store))

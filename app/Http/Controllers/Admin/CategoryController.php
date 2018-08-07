@@ -122,12 +122,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $categoryParent = $category->parent;
         try {
-            if ($categoryParent) {
+            if ($category->parent_id != 0) {
                 $category->delete();
-                if (Category::countChild($categoryParent->id)>0) {
-                    return redirect()->route('admin.categories.showChild', $categoryParent->id)->with('message', __('category.admin.message.del'));
+                if (Category::countChild($category->parent_id)>0) {
+                    return redirect()->route('admin.categories.showChild', $category->parent_id)->with('message', __('category.admin.message.del'));
                 } else {
                     return redirect()->route('admin.categories.index')->with('message', __('category.admin.message.del'));
                 }
