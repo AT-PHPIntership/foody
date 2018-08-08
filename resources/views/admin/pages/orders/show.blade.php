@@ -92,6 +92,9 @@
                     {{__('order.admin.show.list_products')}}
 								</h2>
 							</div>
+							@php
+								$total_orders = 0;
+							@endphp
 							<div class="body table-responsive">
 								<table class="table table-striped">
 									<thead>
@@ -104,11 +107,14 @@
 									</thead>
 									<tbody>
 									@foreach ($detailOrders as $detailOrder)
+									@php
+										$total_orders += $detailOrder->product->price * $detailOrder->quantity;
+									@endphp
 										<tr>
 											<th scope="row"><a href="{{ route('admin.products.show', $detailOrder->product->id)}}">{{$detailOrder->product->name }}</a></th>
-											<td>{{$detailOrder->product->price }}</td>
+											<td>{{$detailOrder->product->price }} {{__('order.admin.currency')}}</td>
 											<td>{{$detailOrder->quantity}}</td>
-											<th scope="row">{{ count($detailOrders)}}</th>
+											<th scope="row">{{ $detailOrder->product->price * $detailOrder->quantity }} {{__('order.admin.currency')}}</th>
 										</tr>
 									@endforeach
 									</tbody>
@@ -116,7 +122,7 @@
 							</div>
 							<div class="align-right">
 								<h3 style="margin-right: 126px; padding-bottom: 25px;">
-									Thành tiền: ${total} VND</h3>
+									{{__('order.admin.show.total_orders')}}: {{$total_orders}} {{__('order.admin.currency')}}</h3>
 							</div>
 						</div>
 					</div>

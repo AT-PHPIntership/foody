@@ -6,27 +6,28 @@ return [
         'list' => [
             'title' => 'List Stores'
         ],
+        'id' => 'ID',
+        'name' => 'Name',
+        'address' => 'Address',
+        'phone' => 'Phone',
+        'describe' => 'Describe',
+        'image' => 'Image',
+        'active' => 'Active',
+        'uptime' => 'Uptime',
         'table' => [
-            'id' => 'ID',
-            'name' => 'Name',
-            'address' => 'Address',
-            'phone' => 'Phone',
-            'describe' => 'Describe',
-            'image' => 'Image',
-            'active' => 'Active',
-            'uptime' => 'Uptime',
             'show' => 'Show',
             'edit' => 'Edit',
             'delete' => 'Delete'
         ],
         'add' => [
             'title' => 'Add Store',
-            'name' => 'Name Store',
-            'parent_Store' => 'Parent Store',
-            'submit' => 'Submit',
-            'reset' => 'Reset',
-            'placeholder_name' => 'Store Name',
-            'create' => 'Create Store'
+            'create' => 'Create',
+            'enter_name' => 'Enter name of the store',
+            'enter_address' => 'Enter address of the store',
+            'enter_phone' => 'Enter phone of the store',
+            'enter_describe' => 'Enter describe of the store',
+            'enter_email' => 'Enter email of the store',
+            'enter_password' => 'Enter password of the store',
         ],
         'edit' => [
             'title' => 'Edit Store',
