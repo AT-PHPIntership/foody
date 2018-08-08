@@ -39,7 +39,7 @@
                     <i class="material-icons">border_color</i>
                     </a>
                   </td>
-                  <td class="js-sweetalert">
+                  <td>
                     <form class="del-form" action="{{ route('admin.categories.destroy', $category->id)}}" method="post">
                       @csrf
                       @method('DELETE')

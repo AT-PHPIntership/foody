@@ -38,6 +38,7 @@ return [
             'edit_fail' => 'Can not edit Category by this Child!',
             'del' => 'Delete Category Successfull!',
             'del_fail' => 'Can not Delete Category. Please check connect database!',
+            'del_no_permit' => 'Can not delete this Category!',
             'msg_del' => 'Do you want to delete this Category?',
         ]
     

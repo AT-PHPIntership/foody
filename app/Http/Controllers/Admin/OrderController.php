@@ -29,8 +29,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::with('user')->where('id', $id)->first();
-        $detailOrders = $order->orderDetails();
-        return view('admin.pages.orders.show', compact('order'));
+        $order = Order::with('user')->find($id);
+        $detailOrders = Order::find($id)->orderDetails()->with('product:id,name,price')->get();
+        return view('admin.pages.orders.show', compact('order', 'detailOrders'));
     }
 }

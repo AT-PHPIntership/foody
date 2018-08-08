@@ -103,12 +103,14 @@
 										</tr>
 									</thead>
 									<tbody>
-											<tr>
-												<th scope="row">${objDetail.name_book }</th>
-												<td>${objDetail.quantity }</td>
-												<td>${objDetail.price }</td>
-												<th scope="row">${sum }</th>
-											</tr>
+									@foreach ($detailOrders as $detailOrder)
+										<tr>
+											<th scope="row"><a href="{{ route('admin.products.show', $detailOrder->product->id)}}">{{$detailOrder->product->name }}</a></th>
+											<td>{{$detailOrder->product->price }}</td>
+											<td>{{$detailOrder->quantity}}</td>
+											<th scope="row">{{ count($detailOrders)}}</th>
+										</tr>
+									@endforeach
 									</tbody>
 								</table>
 							</div>
