@@ -41,7 +41,7 @@ return [
         'show' => [
             'title' => 'Show Detail Order',
             'list_products' => 'List of Products',
-            'total_orders' => 'Total Orders'
+            'total_orders' => 'Total Orders',
 
         ],
         'message' => [

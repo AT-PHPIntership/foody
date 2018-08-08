@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Carbon\Carbon;
+use App\Http\Requests\Admin\EditStatusOrderRequest;
 
 class OrderController extends Controller
 {
@@ -32,5 +33,25 @@ class OrderController extends Controller
         $order = Order::with('user')->find($id);
         $detailOrders = Order::find($id)->orderDetails()->with('product:id,name,price')->get();
         return view('admin.pages.orders.show', compact('order', 'detailOrders'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param EditStatusOrderRequest $request EditStatusOrderRequest
+     * @param Order                  $order   Order
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(EditStatusOrderRequest $request, Order $order)
+    {
+        try {
+            $order->status = $request->status;
+            $order->delivery_time = $request->delivery_time;
+            $order->save();
+            return redirect()->route('admin.orders.show', $order->id)->with('message', __('order.admin.message.edit'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.orders.show', $order->id)->with('message', __('order.admin.message.edit_fail'));
+        }
     }
 }
