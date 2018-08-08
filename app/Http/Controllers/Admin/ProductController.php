@@ -20,8 +20,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $categories = Category::pluck('name', 'id');
         $products = Product::with('images')->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
-        return view('admin.pages.products.index', compact('products'));
+        return view('admin.pages.products.index', compact('products', 'categories'));
     }
 
     /**
@@ -70,8 +71,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $stores = Store::all();
-        $categories = Category::all();
+        $stores = Store::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
         $images = Image::all();
         return view('admin.pages.products.edit', compact('product', 'stores', 'categories', 'images'));
     }
@@ -87,8 +88,18 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         try {
-            $updateProduct = $request->except(["_token", "_method", "submit"]);
-            $product->update($updateProduct);
+            $product->update($request->all());
+            if (is_array(request()->file('path'))) {
+                foreach (request()->file('path') as $image) {
+                    $newImage = $image->getClientOriginalName();
+                    $image->move(public_path(config('define.product.images_path_products')), $newImage);
+                    $imagesData[] = [
+                        'product_id' => $product->id,
+                        'path' => $newImage
+                    ];
+                }
+                $product->images()->createMany($imagesData);
+            }
             return redirect()->route('admin.products.index')->with('message', __('product.admin.edit.update_success'));
         } catch (Exception $e) {
             return redirect()->route('admin.products.index')->with('alert', __('product.admin.edit.update_fail'));
