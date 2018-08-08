@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\ShopOpeningStatus;
 
 class Store extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -45,4 +46,6 @@ class Store extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public $sortable = ['id'];
 }

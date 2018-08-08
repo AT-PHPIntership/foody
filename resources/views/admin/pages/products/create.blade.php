@@ -40,8 +40,8 @@
                 <label class="control-label">{{ __('product.admin.show.store') }}</label>
                 <select name="store_id" class="form-control">
                   <option value="">--- Choose a store ---</option>
-                  @foreach ($stores as $key => $name)
-                    <option value="{{ $key }}">{{ $name }}</option>
+                  @foreach ($stores as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
                   @endforeach
                 </select>
               </div>
