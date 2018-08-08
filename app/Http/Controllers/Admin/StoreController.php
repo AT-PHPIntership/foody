@@ -20,7 +20,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores = Store::sortable()->paginate(config('paginate.number_stores'));
+        $stores = Store::sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_stores'));
         return view('admin.pages.stores.index', compact('stores'));
     }
 
@@ -66,8 +66,7 @@ class StoreController extends Controller
                 $image->move($destinationPath, $newImage);
             }
             $store = Store::create($data);
-            ShopOpeningStatus::create([
-                'store_id' => $store->id,
+            $store->shopOpenStatus()->create([
                 'time_open' => $data['time_open'],
                 'time_close' => $data['time_close']
             ]);
@@ -109,17 +108,32 @@ class StoreController extends Controller
                 $data['image'] = $newImage;
                 $image->move($destinationPath, $newImage);
             }
-            $shopOpeningStatus = ShopOpeningStatus::where('store_id', $store->id)->first();
-            $dataShopOpenStatus = [
-                'store_id' => $store->id,
+            $store->shopOpenStatus()->update([
                 'time_open' => $data['time_open'],
                 'time_close' => $data['time_close']
-            ];
-            $shopOpeningStatus->update($dataShopOpenStatus);
+            ]);
             $store->update($data);
             return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.edit'));
         } catch (Exception $ex) {
             return redirect()->route('admin.stores.create')->with('message', __('store.admin.message.edit_fail'));
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Store $store store
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Store $store)
+    {
+        try {
+            $store->shopOpenStatus->delete();
+            $store->delete();
+            return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.del'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.del_fail'));
         }
     }
 }
