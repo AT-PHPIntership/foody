@@ -60,7 +60,7 @@ class StoreController extends Controller
             $data = $request->all();
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $newImage = config('define.images_path_stores')."/".time() . '-' . str_random(8) . '.' . $image->getClientOriginalExtension();
+                $newImage = config('define.images_path_stores').time() . '-' . str_random(8) . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path(config('define.images_path_stores'));
                 $data['image'] = $newImage;
                 $image->move($destinationPath, $newImage);
@@ -102,8 +102,11 @@ class StoreController extends Controller
         try {
             $data = $request->all();
             if ($request->hasFile('image')) {
+                if ($store->image&&File::exists(public_path($store->image))) {
+                    File::delete(public_path($store->image));
+                }
                 $image = $request->file('image');
-                $newImage = config('define.images_path_stores')."/".time() . '-' . str_random(8) . '.' . $image->getClientOriginalExtension();
+                $newImage = config('define.images_path_stores').time() . '-' . str_random(8) . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path(config('define.images_path_stores'));
                 $data['image'] = $newImage;
                 $image->move($destinationPath, $newImage);
@@ -115,7 +118,7 @@ class StoreController extends Controller
             $store->update($data);
             return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.edit'));
         } catch (Exception $ex) {
-            return redirect()->route('admin.stores.create')->with('message', __('store.admin.message.edit_fail'));
+            return redirect()->route('admin.stores.edit', $store->id)->with('message', __('store.admin.message.edit_fail'));
         }
     }
 

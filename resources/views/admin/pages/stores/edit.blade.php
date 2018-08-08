@@ -11,8 +11,8 @@
         <div class="row clearfix">
           <div class="col-sm-12">
             <form id="demo-form2" method="POST" action="{{ route('admin.stores.update', $store->id) }}" enctype="multipart/form-data">
-							@csrf
-							@method('PUT')
+              @csrf
+              @method('PUT')
               <div class="form-group">
                 <label for="name">{{ __('store.admin.name') }}</label>
                 <div class="form-line">
@@ -40,35 +40,34 @@
               <div class="form-group">
                 <label for="image">{{ __('store.admin.image') }}</label>
                 <div class="form-line row clearfix">
-									<div class="col-sm-6">
-										<input type="file" name="image" class="form-control" placeholder="{{ __('store.admin.create.enter_image') }}" />
-									</div>
-										<div class="col-sm-6">
-										<img class="img-responsive thumbnail" src="{{ $store->image }}">
-									</div>
-								</div>
-								
+                  <div class="col-sm-6">
+                    <input type="file" name="image" class="form-control" placeholder="{{ __('store.admin.create.enter_image') }}" />
+                  </div>
+                  <div class="col-sm-6">
+                    <img class="img-responsive thumbnail" src="{{ $store->image }}">
+                  </div>
+								</div>								
               </div>
               <div class="form-group row clearfix">
                 <div class="col-sm-4">
-                  <b>Time Open(24 hour)</b>
+                  <b>{{ __('store.admin.edit.time_open') }}</b>
                   <div class="input-group">
                     <span class="input-group-addon">
-                        <i class="material-icons">access_time</i>
+                      <i class="material-icons">access_time</i>
                     </span>
                     <div class="form-line">
-                        <input name="time_open" type="text" class="form-control time24" value="{{ $store->shopOpenStatus->time_open }}" placeholder="Ex: 23:59">
+                      <input name="time_open" type="text" class="form-control time24" value="{{ $store->shopOpenStatus->time_open }}" placeholder="Ex: 23:59">
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-4">
-                  <b>Time Close(24 hour)</b>
+                  <b>{{ __('store.admin.edit.time_close') }}</b>
                   <div class="input-group">
                     <span class="input-group-addon">
-                        <i class="material-icons">access_time</i>
+                      <i class="material-icons">access_time</i>
                     </span>
                     <div class="form-line">
-                        <input name="time_close" type="text" class="form-control time24" value="{{ $store->shopOpenStatus->time_close }}" placeholder="Ex: 23:59">
+                      <input name="time_close" type="text" class="form-control time24" value="{{ $store->shopOpenStatus->time_close }}" placeholder="Ex: 23:59">
                     </div>
                   </div>
                 </div>
