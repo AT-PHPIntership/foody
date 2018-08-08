@@ -24,11 +24,13 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param App\Models\User $user user
+     *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
-        return view('admin.pages.users.create');
+        return view('admin.pages.users.create', compact('user'));
     }
 
     /**

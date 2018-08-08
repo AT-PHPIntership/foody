@@ -15,7 +15,7 @@
               <div class="form-group">
                 <label>{{ __('product.admin.show.name') }}</label>
                 <div class="form-line">
-                  <input type="text" name="name" class="form-control" placeholder="{{ __('product.admin.create.enter_name') }}" />
+                  <input type="text" name="name" value="{{ old('name', $product->name)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_name') }}" />
                 </div>
               </div>
               <div class="form-group">
@@ -27,21 +27,21 @@
               <div class="form-group">
                 <label>{{ __('product.admin.show.describe') }}</label>
                 <div class="form-line">
-                  <textarea name="describe" class="form-control" placeholder="{{ __('product.admin.create.enter_describe') }}"></textarea>
+                  <textarea name="describe" value="{{ old('describe', $product->describe)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_describe') }}"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label>{{ __('product.admin.show.price') }}</label>
                 <div class="form-line">
-                  <input type="text" name="price" class="form-control" placeholder="{{ __('product.admin.create.enter_price') }}" />
+                  <input type="text" name="price" value="{{ old('price', $product->price)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_price') }}" />
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label">{{ __('product.admin.show.store') }}</label>
                 <select name="store_id" class="form-control">
                   <option value="">--- Choose a store ---</option>
-                  @foreach ($stores as $store)
-                    <option value="{{ $store->id }}">{{ $store->name }}</option>
+                  @foreach ($stores as $key => $name)
+                    <option value="{{ $key }}">{{ $name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -49,8 +49,8 @@
                 <label class="control-label">{{ __('product.admin.show.category') }}</label>
                 <select name="category_id" class="form-control">
                   <option value="">--- Choose a category ---</option>
-                  @foreach ($products as $product)
-                    <option value="{{ $product->id }}">{{ $product->name }}</option>
+                  @foreach ($categories as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
                   @endforeach
                 </select>
               </div>

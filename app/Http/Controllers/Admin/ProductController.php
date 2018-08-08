@@ -38,13 +38,15 @@ class ProductController extends Controller
     /**
     * Show the form for creating a new resource.
     *
+    * @param App\Models\Product $product product
+
     * @return \Illuminate\Http\Response
     */
-    public function create()
+    public function create(Product $product)
     {
-        $stores = Store::all();
-        $products = Product::all();
-        return view('admin.pages.products.create', compact('stores', 'products'));
+        $stores = Store::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
+        return view('admin.pages.products.create', compact('product', 'stores', 'categories'));
     }
 
     /**
@@ -58,15 +60,17 @@ class ProductController extends Controller
     {
         try {
             $product = Product::create($request->all());
-            foreach (request()->file('path') as $image) {
-                $newImage = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path(config('define.product.images_path_products')), $newImage);
-                $imagesData[] = [
-                    'product_id' => $product->id,
-                    'path' => $newImage
-                ];
+            if (is_array(request()->file('path'))) {
+                foreach (request()->file('path') as $image) {
+                    $newImage = $image->getClientOriginalName();
+                    $image->move(public_path(config('define.product.images_path_products')), $newImage);
+                    $imagesData[] = [
+                        'product_id' => $product->id,
+                        'path' => $newImage
+                    ];
+                }
+                $product->images()->createMany($imagesData);
             }
-            $product->images()->createMany($imagesData);
             return redirect()->route('admin.products.index')->with('message', __('product.admin.create.create_success'));
         } catch (Exception $ex) {
             return redirect()->route('admin.products.index')->with('alert', __('product.admin.create.create_fali'));
