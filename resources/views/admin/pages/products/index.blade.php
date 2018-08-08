@@ -47,9 +47,9 @@
                   class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
                     <i class="material-icons">border_color</i>
                 </a></td>
-                <td><form onsubmit="return confirm('{{__('user.admin.show.delete_confirm')}}');" 
-                          class="col-md-4" id="deleteUser-{{ $product->id }}" 
-                          action="{{ route('admin.users.destroy', $product->id) }}" method="POST">
+                <td><form onsubmit="return confirm('{{__('product.admin.show.delete_confirm')}}');" 
+                          class="col-md-4" id="deleteProduct-{{ $product->id }}" 
+                          action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger btn-circle waves-effect waves-circle waves-float" type="submit">

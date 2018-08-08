@@ -16,6 +16,9 @@
         'edit' => 'Edit',
         'delete' => 'Delete',
         'create_product' => 'Create Product',
+        'delete_confirm' => 'Are you sure want to delete?',
+        'delete_success' => 'Delete product successfully',
+        'delete_fail' => 'Delete product failed!'
       ],
       'create' => [
         'title' => 'Create Product',
