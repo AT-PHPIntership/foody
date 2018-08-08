@@ -64,8 +64,7 @@ class StoreController extends Controller
                 $image->move($destinationPath, $newImage);
             }
             $store = Store::create($data);
-            ShopOpeningStatus::create([
-                'store_id' => $store->id,
+            $store->shopOpenStatus()->create([
                 'time_open' => $data['time_open'],
                 'time_close' => $data['time_close']
             ]);
