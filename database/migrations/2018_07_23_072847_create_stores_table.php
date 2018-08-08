@@ -20,7 +20,7 @@ class CreateStoresTable extends Migration
             $table->string('phone');
             $table->text('describe')->charset('utf8')->collation('utf8_unicode_ci');
             $table->string('image');
-            $table->boolean('is_active')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });
