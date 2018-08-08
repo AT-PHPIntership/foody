@@ -68,7 +68,7 @@ class UpdateUserTest extends AdminTestCase
             $browser->loginAs($this->user)
                     ->visit(new UpdateUser)
                     ->type($name, $content)
-                    ->press('Update User')
+                    ->press(__('update_user'))
                     ->assertSee($message);
         });
     }
@@ -87,7 +87,7 @@ class UpdateUserTest extends AdminTestCase
                 ->type('full_name', 'Hien Pham')
                 ->type('birthday', '1995-08-15')
                 ->type('phone', '01214556631')
-                ->press('Update User')
+                ->press(__('update_user'))
                 ->assertPathIs('/admin/users')
                 ->assertSee(__('user.admin.edit.update_success'));
             $this->assertDatabaseHas('users', [

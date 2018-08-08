@@ -11,7 +11,7 @@
             <h2>{{__('product.admin.show.form_title')}}</h2>
             <a href="{{ route('admin.products.create') }}"
               class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
-              class="material-icons">playlist_add</i> <span>{{ __('product.admin.show.create_product') }}</span>
+              class="material-icons">playlist_add</i><span>{{ __('product.admin.show.create_product') }}</span>
             </a>
         </div>
         <div class="body table-responsive">
