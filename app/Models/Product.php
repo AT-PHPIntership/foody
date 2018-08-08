@@ -47,7 +47,7 @@ class Product extends Model
     {
         return $this->hasMany(Image::class, 'product_id', 'id');
     }
-    
+
     /**
      * Get OrderDetail Object
      *

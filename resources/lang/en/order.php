@@ -12,6 +12,10 @@ return [
         'total_products' => 'Total Products',
         'money_ship' => 'Money Ship',
         'delivery_status' => 'Deliveried ?',
+        'submit_time' => 'Submit time',
+        'delivery_time' => 'Delivery time',
+        'customer_note' => 'Customer Note',
+        'total' => 'Total',
         'status' => 'Status',
         'active' => 'Active',
         'currency' => 'VND',
@@ -36,6 +40,7 @@ return [
         ],
         'show' => [
             'title' => 'Show Detail Order',
+            'list_products' => 'List of Products'
             
 
         ],

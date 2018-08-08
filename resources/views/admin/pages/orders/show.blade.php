@@ -11,58 +11,77 @@
 			</div>
 			<div class="body">
 				<form id="form_advanced_validation">
-					<div class="form-group form-float">
+					<div class="form-group">
+            <b>{{__('user.admin.username')}}</b>
 						<div class="form-line">
 							<input type="text" class="form-control" disabled="disabled"
-								value="{{ $order->user->username }}"> <label class="form-label">{{__('user.admin.username')}}</label>
+								value="{{ $order->user->username }}">
 						</div>
 					</div>
-					<div class="form-group form-float">
+					<div class="form-group">
+            <b>{{__('user.admin.fullname')}}</b>
 						<div class="form-line">
 							<input type="text" class="form-control" disabled="disabled"
-								value="{{ $order->user->full_name }}"> <label class="form-label">{{__('user.admin.fullname')}}</label>
+								value="{{ $order->user->full_name }}">
 						</div>
 					</div>
-					<div class="form-group form-float">
+					<div class="form-group">
+            <b>{{__('order.admin.address')}}</b>
 						<div class="form-line">
 							<input type="text" class="form-control" disabled="disabled"
-								value="{{ $order->address }}"> <label class="form-label">{{__('order.admin.address')}}</label>
+								value="{{ $order->address }}">
 						</div>
 					</div>
-					<div class="form-group form-float">
+					<div class="form-group">
+            <b>{{__('user.admin.phone')}}</b>
 						<div class="form-line">
 							<input type="text" class="form-control" disabled="disabled"
-								value="{{ $order->user->phone }}"> <label class="form-label">{{__('user.admin.phone')}}</label>
+								value="{{ $order->user->phone }}">
 						</div>
 					</div>
-					<div class="form-group form-float">
+					<div class="form-group">
+            <b>{{__('user.admin.email')}}</b>
 						<div class="form-line">
 							<input type="text" class="form-control" disabled="disabled"
-								value="{{ $order->user->email }}"> <label class="form-label">{{__('user.admin.email')}}</label>
+								value="{{ $order->user->email }}">
 						</div>
 					</div>
-					<div class="form-group form-float">
+					<div class="form-group">
+            <b>{{__('order.admin.money_ship')}}</b>
 						<div class="form-line">
 							<input type="text" class="form-control" disabled="disabled"
-								value="{{ $order->money_ship }}"> <label
-								class="form-label">{{__('order.admin.money_ship')}}</label>
+                value="{{ $order->money_ship }}"> 
 						</div>
 					</div>
-					<div class="form-group form-float">
-						<div class="form-line">
-							<input type="text" class="form-control" disabled="disabled"
-								value="${objOrder.name_payment }"> <label
-								class="form-label">{{__('order.admin.show.title')}}</label>
+					<div class="form-group row clearfix">
+						<div class="col-sm-4">
+						  <b>{{__('order.admin.submit_time')}}</b>
+						  <div class="input-group">
+							<span class="input-group-addon">
+								<i class="material-icons">access_time</i>
+							</span>
+							<div class="form-line">
+								<input name="time_open" type="text" value="{{ $order->submit_time }}" class="form-control time24">
+							</div>
+						  </div>
 						</div>
-					</div>
-					<div class="form-group form-float">
+						<div class="col-sm-4">
+						  <b>{{__('order.admin.delivery_time')}}</b>
+						  <div class="input-group">
+							<span class="input-group-addon">
+								<i class="material-icons">access_time</i>
+							</span>
+							<div class="form-line">
+								<input name="time_close" type="text"  value="{{ $order->delivery_time }}" class="form-control time24">
+							</div>
+						  </div>
+						</div>
+					  </div>
+					<div class="form-group">
+            <b>{{__('order.admin.customer_note')}}</b>
 						<div class="form-line">
-							<select class="form-control show-tick" name="status">
-									<option <c:if test="${objOrder.status ==0 }">selected</c:if> value="0">Chưa giao</option>
-									<option <c:if test="${objOrder.status ==1 }">selected</c:if> value="1">Đã giao</option>
-							</select> 
-						 <label class="form-label" style="top: -19px">Trạng
-								thái giao hàng</label>
+                <input type="text" class="form-control" disabled="disabled"
+                value="{{ $order->customer_note }}">
 						</div>
 					</div>
 
@@ -70,52 +89,27 @@
 						<div class="card">
 							<div class="header">
 								<h2>
-									DANH SÁCH CÁC SẢN PHẨM ĐÃ MUA <small></small>
+                    {{__('order.admin.show.list_products')}}
 								</h2>
 							</div>
 							<div class="body table-responsive">
 								<table class="table table-striped">
 									<thead>
 										<tr>
-											<th>Tên Sách</th>
-											<th>Số lượng</th>
-											<th>Giá trên bìa</th>
-											<th>Giá khuyến mãi</th>
-											<th>Tổng</th>
+											<th>{{__('product.admin.show.name')}}</th>
+											<th>{{__('product.admin.show.price')}}</th>
+											<th>{{__('detail_order.admin.quantity')}}</th>
+											<th>{{__('order.admin.total')}}</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${alDetailOrders }" var="objDetail">
-											<c:choose>
-												<c:when test="${objDetail.promo_price ne 0 }">
-													<c:set var="sum"
-														value="${objDetail.promo_price*objDetail.quantity }"></c:set>
-												</c:when>
-												<c:otherwise>
-													<c:set var="sum"
-														value="${objDetail.price*objDetail.quantity }"></c:set>
-												</c:otherwise>
-											</c:choose>
 											<tr>
 												<th scope="row">${objDetail.name_book }</th>
 												<td>${objDetail.quantity }</td>
 												<td>${objDetail.price }</td>
-												<td>${objDetail.promo_price }</td>
 												<th scope="row">${sum }</th>
 											</tr>
-										</c:forEach>
 									</tbody>
-									<c:if test="${objOrder.coupon_id ne 0 }">
-										<tfoot>
-											<tr>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th>Mã giảm giá</th>
-												<th>-${objCoupon.percent } %</th>
-											</tr>
-										</tfoot>
-									</c:if>
 								</table>
 							</div>
 							<div class="align-right">
