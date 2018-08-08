@@ -21,7 +21,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('images')->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
-        return view('admin.pages.products.index', compact('products'));
+        $categories = Category::pluck('name', 'id');
+        return view('admin.pages.products.index', compact('products', 'categories'));
     }
 
     /**
@@ -33,18 +34,24 @@ class ProductController extends Controller
     */
     public function show($id)
     {
+        $stores = Store::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
         $product = Product::with('images')->find($id);
-        return view('admin.pages.products.show', compact('product'));
+        return view('admin.pages.products.show', compact('product', 'stores', 'categories'));
     }
 
     /**
     * Show the form for creating a new resource.
     *
+    * @param App\Models\Product $product product
+
     * @return \Illuminate\Http\Response
     */
-    public function create()
+    public function create(Product $product)
     {
-        return view('admin.pages.products.create');
+        $stores = Store::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
+        return view('admin.pages.products.create', compact('product', 'stores', 'categories'));
     }
 
     /**
@@ -56,9 +63,23 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
-        $userData = $request->all();
-        Product::create($userData);
-        return redirect()->route('admin.products.index')->with('message', __('product.admin.create.create_success'));
+        try {
+            $product = Product::create($request->all());
+            if (is_array(request()->file('path'))) {
+                foreach (request()->file('path') as $image) {
+                    $newImage = $image->getClientOriginalName();
+                    $image->move(public_path(config('define.product.images_path_products')), $newImage);
+                    $imagesData[] = [
+                        'product_id' => $product->id,
+                        'path' => $newImage
+                    ];
+                }
+                $product->images()->createMany($imagesData);
+            }
+            return redirect()->route('admin.products.index')->with('message', __('product.admin.create.create_success'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.products.index')->with('alert', __('product.admin.create.create_fali'));
+        }
     }
 
     /**
@@ -70,9 +91,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $stores = Store::all();
-        $categories = Category::all();
-        $images = Image::all();
+        $stores = Store::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
+        $images = $product->images;
         return view('admin.pages.products.edit', compact('product', 'stores', 'categories', 'images'));
     }
 
@@ -87,8 +108,18 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         try {
-            $updateProduct = $request->except(["_token", "_method", "submit"]);
-            $product->update($updateProduct);
+            $product->update($request->all());
+            if (is_array(request()->file('path'))) {
+                foreach (request()->file('path') as $image) {
+                    $newImage = $image->getClientOriginalName();
+                    $image->move(public_path(config('define.product.images_path_products')), $newImage);
+                    $imagesData[] = [
+                        'product_id' => $product->id,
+                        'path' => $newImage
+                    ];
+                }
+                $product->images()->createMany($imagesData);
+            }
             return redirect()->route('admin.products.index')->with('message', __('product.admin.edit.update_success'));
         } catch (Exception $e) {
             return redirect()->route('admin.products.index')->with('alert', __('product.admin.edit.update_fail'));
@@ -106,9 +137,12 @@ class ProductController extends Controller
     {
         try {
             $product->delete();
-            return redirect()->route('admin.products.index')->with('message', __('user.admin.delete_success'));
+            foreach ($product->images() as $image) {
+                Image::delete(public_path('/images/products/' . $image->path));
+            }
+            return redirect()->route('admin.products.index')->with('message', __('product.admin.show.delete_success'));
         } catch (Exception $e) {
-            return redirect()->route('admin.products.index')->with('alert', __('user.admin.delete_fail'));
+            return redirect()->route('admin.products.index')->with('alert', __('product.admin.show.delete_fail'));
         }
     }
 }

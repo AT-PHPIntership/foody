@@ -15,37 +15,43 @@
               <div class="form-group">
                 <label>{{ __('product.admin.show.name') }}</label>
                 <div class="form-line">
-                  <input type="text" name="name" class="form-control" placeholder="{{ __('product.admin.create.enter_name') }}" />
+                  <input type="text" name="name" value="{{ old('name', $product->name)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_name') }}" />
                 </div>
               </div>
               <div class="form-group">
+                  <label>{{ __('product.admin.show.images') }}</label>
+                  <div class="form-line">
+                    <input type="file" name="path[]" class="form-control" multiple/>
+                  </div>
+                </div>
+              <div class="form-group">
                 <label>{{ __('product.admin.show.describe') }}</label>
                 <div class="form-line">
-                  <textarea name="describe" class="form-control" placeholder="{{ __('product.admin.create.enter_describe') }}"></textarea>
+                  <textarea name="describe" value="{{ old('describe', $product->describe)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_describe') }}"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label>{{ __('product.admin.show.price') }}</label>
                 <div class="form-line">
-                  <input type="text" name="price" class="form-control" placeholder="{{ __('product.admin.create.enter_price') }}" />
+                  <input type="text" name="price" value="{{ old('price', $product->price)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_price') }}" />
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label">{{ __('product.admin.show.store') }}</label>
                 <select name="store_id" class="form-control">
                   <option value="">--- Choose a store ---</option>
-                  <option value="1">Shop 1</option>
-                  <option value="2">Shop 2</option>
-                  <option value="3">Shop 3</option>
+                  @foreach ($stores as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
+                  @endforeach
                 </select>
               </div>
               <div class="form-group">
                 <label class="control-label">{{ __('product.admin.show.category') }}</label>
                 <select name="category_id" class="form-control">
                   <option value="">--- Choose a category ---</option>
-                  <option value="1">Bánh tráng</option>
-                  <option value="2">Pizza</option>
-                  <option value="3">Trà sữa</option>
+                  @foreach ($categories as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
+                  @endforeach
                 </select>
               </div>
               <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.create.create_product') }}</button>&nbsp;

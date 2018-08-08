@@ -15,7 +15,7 @@
       <div class="body">
         <div class="row clearfix">
         	<div class="col-sm-3">
-           <h4>{{__('store.admin.table.name')}}:</h4>
+           <h4>{{__('store.admin.name')}}:</h4>
           </div>
           <div class="col-sm-9">
             <p class="font-22">{{ $store->name }}</p>
@@ -23,7 +23,7 @@
         </div>
         <div class="row clearfix">
           <div class="col-sm-3">
-            <h4>{{__('store.admin.table.address')}}:</h4>
+            <h4>{{__('store.admin.address')}}:</h4>
           </div>
           <div class="col-sm-9">
             <p class="font-20">{{$store->address}}</p>
@@ -31,7 +31,7 @@
         </div>
         <div class="row clearfix">
           <div class="col-sm-3">
-            <h4>{{__('store.admin.table.phone')}}:</h4>
+            <h4>{{__('store.admin.phone')}}:</h4>
           </div>
           <div class="col-sm-9">
             <p class="font-20">{{ $store->phone }}</p>
@@ -39,7 +39,7 @@
         </div>
         <div class="row clearfix">
           <div class="col-sm-3">
-            <h4>{{__('store.admin.table.uptime')}}:</h4>
+            <h4>{{__('store.admin.uptime')}}:</h4>
           </div>
           <div class="col-sm-9">
             <p class="font-20">{{ $store->shopOpenStatus->time_open }} - {{ $store->shopOpenStatus->time_close }}</p>
@@ -47,7 +47,7 @@
         </div>
         <div class="row clearfix">
           <div class="col-sm-3">
-            <h4>{{__('store.admin.table.describe')}}:</h4>
+            <h4>{{__('store.admin.describe')}}:</h4>
           </div>
           <div class="col-sm-9">
             <p class="font-20">{{ $store->describe }}</p>
@@ -55,10 +55,10 @@
         </div>
         <div class="row clearfix">
           <div class="col-sm-3">
-            <h4>{{__('store.admin.table.image')}}:</h4>
+            <h4>{{__('store.admin.image')}}:</h4>
           </div>
           <div class="col-sm-9">
-            <img class="img-responsive thumbnail" src="images/{{ $store->image }}">
+            <img class="img-responsive thumbnail" src="{{ $store->image }}">
           </div>
         </div>
         <div class="row clearfix">

@@ -39,7 +39,11 @@
                 @endif
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price }} VND</td>
-                <td>{{ $product->category_id }}</td>
+                @foreach ($categories as $id => $name)
+                    @if ($product->category_id == $id)
+                      <td>{{ $name }}</td>
+                    @endif
+                  @endforeach
                 <td><a id="details" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float"
                    href="{{route('admin.products.show', $product->id)}}"><i class="material-icons">remove_red_eye</i></a></td>
                 <td><a

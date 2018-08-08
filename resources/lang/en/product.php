@@ -28,7 +28,8 @@
         'enter_describe' => 'Describe something ...',
         'create_product' => 'Save',
         'reset_product' => 'Reset',
-        'create_success' => 'Create product successfully'
+        'create_success' => 'Create product successfully',
+        'create_fail' => 'Create product failed!'
       ],
       'edit' => [
         'title' => 'Edit Product',
