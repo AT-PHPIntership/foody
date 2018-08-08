@@ -40,18 +40,18 @@
                 <label class="control-label">{{ __('product.admin.show.store') }}</label>
                 <select name="store_id" class="form-control">
                   <option value="">--- Choose a store ---</option>
-                  <option value="1">Shop 1</option>
-                  <option value="2">Shop 2</option>
-                  <option value="3">Shop 3</option>
+                  @foreach ($stores as $store)
+                    <option value="{{ $store->id }}">{{ $store->name }}</option>
+                  @endforeach
                 </select>
               </div>
               <div class="form-group">
                 <label class="control-label">{{ __('product.admin.show.category') }}</label>
                 <select name="category_id" class="form-control">
                   <option value="">--- Choose a category ---</option>
-                  <option value="1">Bánh tráng</option>
-                  <option value="2">Pizza</option>
-                  <option value="3">Trà sữa</option>
+                  @foreach ($products as $product)
+                    <option value="{{ $product->id }}">{{ $product->name }}</option>
+                  @endforeach
                 </select>
               </div>
               <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.create.create_product') }}</button>&nbsp;
