@@ -13,6 +13,13 @@
             class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
             class="material-icons">playlist_add</i> <span>{{ __('product.admin.show.create_product') }}</span>
           </a>
+          <ul class="header-dropdown m-r--5">
+            <li><a href="{{ route('admin.products.index') }}"
+              class="btn btn-info waves-effect"
+              style="margin: -14px 14px 0 0px;"> <i class="material-icons"
+                style="color: white;">keyboard_backspace</i> <span>Back</span>
+            </a></li>
+          </ul>
         </div>
         <div class="row clearfix">
           <div class="col-sm-3">
@@ -43,7 +50,11 @@
             <h4>{{__('product.admin.show.category')}}:</h4>
           </div>
           <div class="col-sm-9">
-            <p class="font-20">{{ $product->category_id }}</p>
+            @foreach ($categories as $id => $name)
+              @if ($product->category_id == $id)
+                <p class="font-20">{{ $name }}</p>
+              @endif
+            @endforeach
           </div>
         </div>
         <div class="row clearfix">
@@ -51,7 +62,11 @@
             <h4>{{__('product.admin.show.store')}}:</h4>
           </div>
           <div class="col-sm-9">
-            <p class="font-20">{{ $product->store_id }}</p>
+            @foreach ($stores as $id => $name)
+              @if ($product->store_id == $id)
+                <p class="font-20">{{ $name }}</p>
+              @endif
+            @endforeach
           </div>
         </div>
         <div class="row clearfix">
@@ -70,14 +85,6 @@
                 </div>
               @endif
             @endforeach
-          </div>
-        </div>
-        <div class="row clearfix">
-          <div class="col-sm-12">
-            <a href="{{route('admin.users.edit', $product->id)}}"
-                class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
-              <i class="material-icons">border_color</i>
-            </a>
           </div>
         </div>
       </div>

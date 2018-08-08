@@ -19,7 +19,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('images')->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
-        return view('admin.pages.products.index', compact('products'));
+        $categories = Category::pluck('name', 'id');
+        return view('admin.pages.products.index', compact('products', 'categories'));
     }
 
     /**
@@ -31,8 +32,10 @@ class ProductController extends Controller
     */
     public function show($id)
     {
+        $stores = Store::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
         $product = Product::with('images')->find($id);
-        return view('admin.pages.products.show', compact('product'));
+        return view('admin.pages.products.show', compact('product', 'stores', 'categories'));
     }
 
     /**
