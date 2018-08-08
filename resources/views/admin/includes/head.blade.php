@@ -62,9 +62,9 @@
 <!-- noUISlider Css -->
     <link href="bower_components/adminbsb-materialdesign/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 
-<link href="bower_components/adminbsb-materialdesign/select2/dist/css/select2.min.css" rel="stylesheet" />
+{{-- <link href="bower_components/adminbsb-materialdesign/select2/dist/css/select2.min.css" rel="stylesheet" />
 <script src="bower_components/adminbsb-materialdesign/select2/dist/js/select2.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/select2.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/select2.min.css" rel="stylesheet" /> --}}
 
 <!-- Sweet Alert Css -->
 <link
