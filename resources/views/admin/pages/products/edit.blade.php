@@ -24,11 +24,9 @@
                 </div>
               </div>
               @foreach ($images as $image)
-                @if($product->id == $image->product_id)
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img class="img-responsive thumbnail"  src="images/products/{{ $image->path }}"/>
-                  </div>
-                @endif
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                  <img class="img-responsive thumbnail"  src="images/products/{{ $image->path }}"/>
+                </div>
               @endforeach
               <div class="form-group">
                 <label>{{ __('product.admin.show.describe') }}</label>
