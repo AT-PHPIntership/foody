@@ -14,9 +14,9 @@ class OrderDetailsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $inputIdOrder = Order::doesntHave('orderDetail')->pluck('id')->toArray();
-        $inputCountOrder = count($inputIdOrder);
-        for ($i = 1; $i <= $inputCountOrder; $i++) {
+        $inputId = Order::doesntHave('orderDetails')->pluck('id')->toArray();
+        $inputCount = count($inputId);
+        for ($i = 1; $i <= $inputCount; $i++) {
             factory(App\Models\OrderDetail::class,2)->create([
                 'order_id' => $i,
             ]);

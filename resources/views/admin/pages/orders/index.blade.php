@@ -35,7 +35,7 @@
                 <th>{{ $order->id }}</th>
                 <td>{{ $order->user->username }}</td>
                 <td>{{ $order->address }}</td>
-                <th>{{ $order->orderdetails_count }}</th>
+                <td>{{ $order->orderdetails_count }}</td>
                 <td>{{ $order->money_ship }} {{__('order.admin.currency')}}</td>
               @if (Carbon\Carbon::now() > $order->delivery_time)
                 <td>{{ __('order.admin.message.delivery_status.yes')}}</td>
