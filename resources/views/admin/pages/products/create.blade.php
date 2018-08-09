@@ -15,25 +15,25 @@
               <div class="form-group">
                 <label>{{ __('product.admin.show.name') }}</label>
                 <div class="form-line">
-                  <input type="text" name="name" value="{{ old('name', $product->name)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_name') }}" />
+                  <input type="text" name="name" value="{{ old('name')}}" class="form-control" placeholder="{{ __('product.admin.create.enter_name') }}" />
                 </div>
               </div>
               <div class="form-group">
                   <label>{{ __('product.admin.show.images') }}</label>
                   <div class="form-line">
-                    <input type="file" name="path[]" class="form-control" multiple/>
+                    <input type="file" name="image[]" class="form-control" multiple/>
                   </div>
                 </div>
               <div class="form-group">
                 <label>{{ __('product.admin.show.describe') }}</label>
                 <div class="form-line">
-                  <textarea name="describe" value="{{ old('describe', $product->describe)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_describe') }}"></textarea>
+                  <textarea name="describe" value="{{ old('describe')}}" class="form-control" placeholder="{{ __('product.admin.create.enter_describe') }}"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label>{{ __('product.admin.show.price') }}</label>
                 <div class="form-line">
-                  <input type="text" name="price" value="{{ old('price', $product->price)}}" class="form-control" placeholder="{{ __('product.admin.create.enter_price') }}" />
+                  <input type="text" name="price" value="{{ old('price')}}" class="form-control" placeholder="{{ __('product.admin.create.enter_price') }}" />
                 </div>
               </div>
               <div class="form-group">
@@ -41,7 +41,7 @@
                 <select name="store_id" class="form-control">
                   <option value="">--- Choose a store ---</option>
                   @foreach ($stores as $id => $name)
-                    <option value="{{ $id }}">{{ $name }}</option>
+                    <option value="{{ $id }}" {{old('store_id') == $id ? 'selected' : ''}}>{{ $name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -50,7 +50,7 @@
                 <select name="category_id" class="form-control">
                   <option value="">--- Choose a category ---</option>
                   @foreach ($categories as $id => $name)
-                    <option value="{{ $id }}">{{ $name }}</option>
+                    <option value="{{ $id }}" {{old('category_id') == $id ? 'selected' : ''}}>{{ $name }}</option>
                   @endforeach
                 </select>
               </div>
