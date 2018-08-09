@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use File;
 
 class ProductController extends Controller
 {
@@ -136,10 +137,12 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         try {
-            $product->delete();
-            foreach ($product->images() as $image) {
-                Image::delete(public_path('/images/products/' . $image->path));
+            foreach ($product->images as $image) {
+                if ($image->path&&File::exists(public_path('/images/products/' . $image->path))) {
+                    File::delete(public_path('/images/products/' . $image->path));
+                }
             }
+            $product->delete();
             return redirect()->route('admin.products.index')->with('message', __('product.admin.show.delete_success'));
         } catch (Exception $e) {
             return redirect()->route('admin.products.index')->with('alert', __('product.admin.show.delete_fail'));
