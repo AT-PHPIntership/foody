@@ -21,7 +21,7 @@
               <div class="form-group">
                   <label>{{ __('product.admin.show.images') }}</label>
                   <div class="form-line">
-                    <input type="file" name="path[]" class="form-control" multiple/>
+                    <input type="file" name="image[]" class="form-control" multiple/>
                   </div>
                 </div>
               <div class="form-group">

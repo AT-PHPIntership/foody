@@ -58,8 +58,8 @@ class ProductController extends Controller
     {
         try {
             $product = Product::create($request->all());
-            if (is_array(request()->file('name'))) {
-                foreach (request()->file('name') as $image) {
+            if (is_array(request()->file('image'))) {
+                foreach (request()->file('image') as $image) {
                     $newImage = $image->getClientOriginalName();
                     $image->move(public_path(config('define.product.images_path_products')), $newImage);
                     $imagesData[] = [
