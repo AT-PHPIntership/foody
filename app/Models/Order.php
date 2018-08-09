@@ -33,7 +33,7 @@ class Order extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function orderDetail()
+    public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class, 'order_id', 'id');
     }
