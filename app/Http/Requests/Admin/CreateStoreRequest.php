@@ -25,12 +25,11 @@ class CreateStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
-            'phone' => 'required|integer|regex:/\(?([0-9]{3})\)?([ . -]?)([0-9]{3})\2([0-9]{4})/',
+            'phone' => 'required|regex:/^0[0-9]{9,10}$/',
             'address' => 'required|string',
-            'describe' => 'string',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
-            'time_open' => 'date_format:"H:i:s"',
-            'time_close' => 'date_format:"H:i:s"'
+            'time_open' => 'required|date_format:"H:i:s"',
+            'time_close' => 'required|date_format:"H:i:s"'
         ];
     }
 }

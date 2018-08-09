@@ -37,21 +37,27 @@ class CreateStoreTest extends AdminTestCase
     }
 
     /**
-     * List case for Test validate for input Create Category
+     * List case for Test validate for input Create Store
      *
      * @return array
      */
-     public function list_test_case_validate_for_input()
-     {
-         return [
-             ['name', '', 'The name field is required.'],
-             ['name', '    ', 'The name field is required.'],
-             ['name', 'Mì Quảng', 'The name has already been taken.'],
-         ];
-     }
+    public function list_test_case_validate_for_input()
+    {
+        return [
+            ['name', '', 'The name field is required.'],
+            ['address', '', 'The address field is required.'],
+            ['phone', '', 'The phone field is required.'],
+            ['time_open', '', 'The time open field is required.'],
+            ['time_close', '', 'The time close field is required.'],
+            ['name', 'Moriah KuhnMoriah KuhnMoriah KuhnMoriah KuhnMoriah KuhnMoriah KuhnMoriah Moriah KuhnMoriah KuhnMoriah KuhnMoriah KuhnMoriah KuhnMoriah KuhnMoriah ', 'The name may not be greater than 100 characters.'],
+            ['phone', '3156556645', 'The phone format is invalid.'],
+            ['time_open', 'asdfdfg', 'The time open does not match the format H:i:s.'],
+            ['time_close', 'fsdgfdgf', 'The time close does not match the format H:i:s.'],
+        ];
+    }
  
      /**
-      * List case for Test validate for input Create Category Exist
+      * List case for Test validate for input Create Store
       *
       * @param string $name name of field
       * @param string $content content
@@ -59,64 +65,53 @@ class CreateStoreTest extends AdminTestCase
       *
       * @dataProvider list_test_case_validate_for_input
       *
-      * @return array
+      * @return void
       */
-    public function test_category_validate_for_input($name, $content, $message)
+    public function test_store_validate_for_input($name, $content, $message)
     {
-        factory('App\Models\Category')->create([
-            'name' => 'Mì Quảng'
-        ]);
+        // factory('App\Models\Category')->create([
+        //     'name' => 'Mì Quảng'
+        // ]);
         $this->browse(function (Browser $browser) use ($name, $content, $message) {
             $browser->loginAs($this->user)
-                    ->visit(new CreateCategory())
+                    ->visit(new CreateStore())
                     ->type($name, $content);
             $browser->press('Create')
                     ->assertSee($message);
         });
     }
  
-     /**
-      * Dusk test create parent category success.
-      *
-      * @return void
-      */
-    public function test_creates_parent_category_success()
-    {
-        $testContent = 'Trà Sữa';
-        $this->browse(function (Browser $browser) use ($testContent) {
-            $browser->loginAs($this->user)
-                    ->visit(new CreateCategory())
-                    ->type('name', $testContent);
-            $browser->press('Create')
-                    ->assertSee(__('category.admin.message.add'));
-            $this->assertDatabaseHas('categories', [
-                'id' => 1,
-                'name' => $testContent,
-                'parent_id' => 0,
-            ]);
-        });
-    }
-
     /**
-    * Dusk test create child category success.
-    *
-    * @return void
-    */
-    public function test_creates_child_category_success()
+     * Dusk test create store success.
+     *
+     * @return void
+     */
+    public function test_create_store_success()
     {
-        $testContent = 'Trà Sửa Thái Xanh';
-        $category = factory('App\Models\Category')->create();
-        $this->browse(function (Browser $browser) use ($testContent, $category) {
+        $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
-                    ->visit(new CreateCategory())
-                    ->type('name', $testContent)
-                    ->select('parent_id', $category->id);
+                    ->visit(new CreateStore())
+                    ->type('name', 'Riley Runolfsdottir Sr.')
+                    ->type('address', '982 Fisher Shoal Schummhaven, NJ 98391')
+                    ->type('phone', '0123456789')
+                    ->type('describe', 'Eos impedit amet provident tempora')
+                    ->attach('image', __DIR__.'/testing/store1.jpg')
+                    ->type('time_open', '07:00:00')
+                    ->type('time_close', '17:00:00');
             $browser->press('Create')
-                    ->assertSee(__('category.admin.message.add'));
-            $this->assertDatabaseHas('categories', [
-                'id' => 2,
-                'name' => $testContent,
-                'parent_id' => $category->id,
+                    ->assertSee(__('store.admin.message.add'));
+            $this->assertDatabaseHas('stores', [
+                'id' => 1,
+                'name' => 'Riley Runolfsdottir Sr.',
+                'address' => '982 Fisher Shoal Schummhaven, NJ 98391',
+                'phone' => '0123456789',
+                'describe' => 'Eos impedit amet provident tempora',
+            ]);
+            $this->assertDatabaseHas('shop_opening_statuses', [
+                'id' => 1,
+                'store_id' => 1,
+                'time_open' => '07:00:00',
+                'time_close' => '17:00:00',
             ]);
         });
     }
