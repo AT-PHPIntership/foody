@@ -23,10 +23,10 @@
         'enter_name' => 'Enter product name',
         'enter_price' => 'Enter price',
         'enter_describe' => 'Describe something ...',
-        'create_product' => 'Create product',
+        'create_product' => 'Save',
         'reset_product' => 'Reset',
         'create_success' => 'Create product successfully',
-        'create_fali' => 'Create product fail'
+        'create_fail' => 'Create product failed!'
       ]
     ]
   ];
