@@ -16,7 +16,8 @@ return [
         'delivery_time' => 'Delivery time',
         'customer_note' => 'Customer Note',
         'total' => 'Total',
-        'status' => 'Status',
+        'payment_status' => 'Payment Status',
+        'processing_status' => 'Processing Status',
         'active' => 'Active',
         'currency' => 'VND',
         'table' => [
@@ -52,6 +53,11 @@ return [
             'paid' => [
                 'yes' => 'Paid',
                 'no'  => 'Not Yet'
+            ],
+            'payment_status' => [
+                'approved' => 'Approved',
+                'cancel'  => 'Cancel',
+                'pending'  => 'Pending'
             ],
             'add' => 'Create New Order Successfull!',
             'add_fail' => 'Can not add New Order. Please check connect database!',

@@ -99,10 +99,20 @@
           </div>
           <div class="form-group row">
             <div class="col-sm-4">
-              <label class="control-label">{{ __('order.admin.status') }}</label>
-              <select name="status" class="form-control">
-                <option @if($order->status == 0) selected @endif value="0">{{ __('order.admin.message.paid.no')}}</option>
-                <option @if($order->status == 1) selected @endif value="1">{{ __('order.admin.message.paid.yes')}}</option>
+              <label class="control-label">{{ __('order.admin.processing_status') }}</label>
+              <select name="processing_status" class="form-control">
+                <option @if($order->processing_status == 1) selected @endif value="1">{{ __('order.admin.message.payment_status.approved')}}</option>
+                <option @if($order->processing_status == 2) selected @endif value="2">{{ __('order.admin.message.payment_status.cancel')}}</option>
+                <option @if($order->processing_status == 3) selected @endif value="3">{{ __('order.admin.message.payment_status.pending')}}</option>              
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-4">
+              <label class="control-label">{{ __('order.admin.payment_status') }}</label>
+              <select name="payment_status" class="form-control">
+                <option @if($order->payment_status == 0) selected @endif value="0">{{ __('order.admin.message.paid.no')}}</option>
+                <option @if($order->payment_status == 1) selected @endif value="1">{{ __('order.admin.message.paid.yes')}}</option>
               </select>
             </div>
           </div>

@@ -46,7 +46,8 @@ class OrderController extends Controller
     public function update(EditStatusOrderRequest $request, Order $order)
     {
         try {
-            $order->status = $request->status;
+            $order->processing_status = $request->processing_status;
+            $order->payment_status = $request->payment_status;
             $order->delivery_time = $request->delivery_time;
             $order->save();
             return redirect()->route('admin.orders.show', $order->id)->with('message', __('order.admin.message.edit'));
