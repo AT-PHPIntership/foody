@@ -54,4 +54,22 @@ class OrderController extends Controller
             return redirect()->route('admin.orders.show', $order->id)->with('message', __('order.admin.message.edit_fail'));
         }
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Order $order Order
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Order $order)
+    {
+        try {
+            $order->orderDetails()->delete();
+            $order->delete();
+            return redirect()->route('admin.orders.index')->with('message', __('order.admin.message.del'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.orders.index')->with('message', __('order.admin.message.del_fail'));
+        }
+    }
 }

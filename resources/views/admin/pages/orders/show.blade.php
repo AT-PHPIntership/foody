@@ -85,7 +85,7 @@
                 <i class="material-icons">access_time</i>
               </span>
               <div class="form-line">
-                <input name="delivery_time" type="text"  value="{{ $order->delivery_time }}" class="form-control time24">
+                <input name="delivery_time" type="text" value="{{ old('delivery_time', $order->delivery_time) }}" class="form-control time24">
               </div>
               </div>
             </div>

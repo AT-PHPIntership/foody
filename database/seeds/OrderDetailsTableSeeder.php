@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Order;
 use Faker\Generator as Faker;
+use App\Models\OrderDetail;
 
 class OrderDetailsTableSeeder extends Seeder
 {
