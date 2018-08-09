@@ -50,11 +50,7 @@
             <h4>{{__('product.admin.show.category')}}:</h4>
           </div>
           <div class="col-sm-9">
-            @foreach ($categories as $id => $name)
-              @if ($product->category_id == $id)
-                <p class="font-20">{{ $name }}</p>
-              @endif
-            @endforeach
+            <p class="font-20">{{ $product->category->name }}</p>
           </div>
         </div>
         <div class="row clearfix">
@@ -62,11 +58,7 @@
             <h4>{{__('product.admin.show.store')}}:</h4>
           </div>
           <div class="col-sm-9">
-            @foreach ($stores as $id => $name)
-              @if ($product->store_id == $id)
-                <p class="font-20">{{ $name }}</p>
-              @endif
-            @endforeach
+            <p class="font-20">{{ $product->store->name }}</p>
           </div>
         </div>
         <div class="row clearfix">
