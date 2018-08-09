@@ -18,9 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('images')->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
-        $categories = Category::pluck('name', 'id');
-        return view('admin.pages.products.index', compact('products', 'categories'));
+        $products = Product::with(['images','category'])->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.products.index', compact('products'));
     }
 
     /**
@@ -32,24 +31,20 @@ class ProductController extends Controller
     */
     public function show($id)
     {
-        $stores = Store::pluck('name', 'id');
-        $categories = Category::pluck('name', 'id');
-        $product = Product::with('images')->find($id);
-        return view('admin.pages.products.show', compact('product', 'stores', 'categories'));
+        $product = Product::with(['images','category','store'])->find($id);
+        return view('admin.pages.products.show', compact('product'));
     }
 
     /**
     * Show the form for creating a new resource.
     *
-    * @param App\Models\Product $product product
-
     * @return \Illuminate\Http\Response
     */
-    public function create(Product $product)
+    public function create()
     {
         $stores = Store::pluck('name', 'id');
         $categories = Category::pluck('name', 'id');
-        return view('admin.pages.products.create', compact('product', 'stores', 'categories'));
+        return view('admin.pages.products.create', compact('stores', 'categories'));
     }
 
     /**
@@ -63,8 +58,8 @@ class ProductController extends Controller
     {
         try {
             $product = Product::create($request->all());
-            if (is_array(request()->file('path'))) {
-                foreach (request()->file('path') as $image) {
+            if (is_array(request()->file('name'))) {
+                foreach (request()->file('name') as $image) {
                     $newImage = $image->getClientOriginalName();
                     $image->move(public_path(config('define.product.images_path_products')), $newImage);
                     $imagesData[] = [
