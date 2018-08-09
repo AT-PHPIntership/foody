@@ -8,6 +8,8 @@ use App\Models\Store;
 use App\Http\Requests\Admin\CreateStoreRequest;
 use Illuminate\Http\Response;
 use App\Models\ShopOpeningStatus;
+use App\Http\Requests\Admin\UpdateStoreRequest;
+use File;
 
 class StoreController extends Controller
 {
@@ -48,7 +50,7 @@ class StoreController extends Controller
     /**
     * Store a newly created resource in storage.
     *
-    * @param Http\Requests\CreateStoreRequest $request request
+    * @param Http\Requests\Admin\CreateStoreRequest $request request
     *
     * @return \Illuminate\Http\Response
     */
@@ -58,7 +60,7 @@ class StoreController extends Controller
             $data = $request->all();
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $newImage = config('define.images_path_stores')."/".time() . '-' . str_random(8) . '.' . $image->getClientOriginalExtension();
+                $newImage = config('define.images_path_stores').time() . '-' . str_random(8) . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path(config('define.images_path_stores'));
                 $data['image'] = $newImage;
                 $image->move($destinationPath, $newImage);
@@ -73,7 +75,53 @@ class StoreController extends Controller
             return redirect()->route('admin.stores.create')->with('message', __('store.admin.message.add_fail'));
         }
     }
-    
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id int
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $store = Store::with('shopOpenStatus')->where('id', $id)->first();
+        return view('admin.pages.stores.edit', compact('store'));
+    }
+
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param App\Http\Requests\Admin\UpdateStoreRequest $request UpdateStoreRequest
+    * @param App\Models\Store                           $store   Store
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function update(UpdateStoreRequest $request, Store $store)
+    {
+        try {
+            $data = $request->all();
+            if ($request->hasFile('image')) {
+                if ($store->image&&File::exists(public_path($store->image))) {
+                    File::delete(public_path($store->image));
+                }
+                $image = $request->file('image');
+                $newImage = config('define.images_path_stores').time() . '-' . str_random(8) . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path(config('define.images_path_stores'));
+                $data['image'] = $newImage;
+                $image->move($destinationPath, $newImage);
+            }
+            $store->shopOpenStatus()->update([
+                'time_open' => $data['time_open'],
+                'time_close' => $data['time_close']
+            ]);
+            $store->update($data);
+            return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.edit'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.stores.edit', $store->id)->with('message', __('store.admin.message.edit_fail'));
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
