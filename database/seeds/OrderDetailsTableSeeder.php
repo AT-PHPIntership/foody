@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Order;
+use Faker\Generator as Faker;
+use App\Models\OrderDetail;
 
 class OrderDetailsTableSeeder extends Seeder
 {
@@ -9,8 +12,14 @@ class OrderDetailsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        factory(App\Models\OrderDetail::class, 5)->create();
+        $inputId = Order::doesntHave('orderDetails')->pluck('id')->toArray();
+        $inputCount = count($inputId);
+        for ($i = 1; $i <= $inputCount; $i++) {
+            factory(App\Models\OrderDetail::class,2)->create([
+                'order_id' => $i,
+            ]);
+        }
     }
 }

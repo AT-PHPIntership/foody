@@ -31,6 +31,9 @@ return [
         ],
         'edit' => [
             'title' => 'Edit Store',
+            'update' => 'Update',
+            'time_open' => 'Time Open',
+            'time_close' => 'Time Close'
         ],
         'show' => [
             'title' => 'Show Store',
