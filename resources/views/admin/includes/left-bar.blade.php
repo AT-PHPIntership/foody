@@ -72,8 +72,8 @@
               <span>{{ __('left-bar.order') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="">{{ __('left-bar.create-order') }}</a></li>
-              <li><a href="">{{ __('left-bar.show-orders') }}</a></li>
+              <li><a href="{{ route('admin.orders.create')}}">{{ __('left-bar.create-order') }}</a></li>
+              <li><a href="{{ route('admin.orders.index')}}">{{ __('left-bar.show-orders') }}</a></li>
             </ul>
 
           </li>
