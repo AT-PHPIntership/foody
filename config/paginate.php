@@ -5,5 +5,4 @@ return [
     'number_orders' => 5,
     'number_products' => 5,
     'number_stores' => 5,
-    'number_detail_order' =>1,
 ];
