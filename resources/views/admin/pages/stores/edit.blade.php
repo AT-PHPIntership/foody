@@ -16,25 +16,25 @@
               <div class="form-group">
                 <label for="name">{{ __('store.admin.name') }}</label>
                 <div class="form-line">
-                <input type="text" name="name" class="form-control" value="{{ $store->name }}" placeholder="{{ __('store.admin.add.enter_name') }}" />
+                <input type="text" name="name" class="form-control" value="{{ old('name', $store->name) }}" placeholder="{{ __('store.admin.add.enter_name') }}" />
                 </div>
               </div>
               <div class="form-group">
                 <label for="address">{{ __('store.admin.address') }}</label>
                 <div class="form-line">
-                  <input type="text" name="address" class="form-control" value="{{ $store->address }}" placeholder="{{ __('store.admin.add.enter_address') }}" />
+                  <input type="text" name="address" class="form-control" value="{{ old('name', $store->address) }}" placeholder="{{ __('store.admin.add.enter_address') }}" />
                 </div>
               </div>
               <div class="form-group">
                 <label for="phone">{{ __('store.admin.phone') }}</label>
                 <div class="input-group">
-                  <input type="text" name="phone" class="form-control" value="{{ $store->phone }}" placeholder="{{ __('store.admin.add.enter_phone') }}"/>
+                  <input type="text" name="phone" class="form-control" value="{{ old('name', $store->phone) }}" placeholder="{{ __('store.admin.add.enter_phone') }}"/>
                 </div>
               </div>
               <div class="form-group">
                 <label for="describe">{{ __('store.admin.describe') }}</label>
                 <div class="form-line">
-                  <textarea name="describe" rows="4" class="form-control no-resize" placeholder="{{ __('store.admin.add.enter_describe') }}">{{ $store->describe }}</textarea>
+                  <textarea name="describe" rows="4" class="form-control no-resize" placeholder="{{ __('store.admin.add.enter_describe') }}">{{ old('describe', $store->describe) }}</textarea>
                 </div>
               </div>
               <div class="form-group">
@@ -56,7 +56,7 @@
                       <i class="material-icons">access_time</i>
                     </span>
                     <div class="form-line">
-                      <input name="time_open" type="text" class="form-control time24" value="{{ $store->shopOpenStatus->time_open }}" placeholder="Ex: 23:59">
+                      <input name="time_open" type="text" class="form-control time24" value="{{ old('time_open', $store->shopOpenStatus->time_open) }}" placeholder="Ex: 23:59">
                     </div>
                   </div>
                 </div>
@@ -67,7 +67,7 @@
                       <i class="material-icons">access_time</i>
                     </span>
                     <div class="form-line">
-                      <input name="time_close" type="text" class="form-control time24" value="{{ $store->shopOpenStatus->time_close }}" placeholder="Ex: 23:59">
+                      <input name="time_close" type="text" class="form-control time24" value="{{ old('time_close', $store->shopOpenStatus->time_close) }}" placeholder="Ex: 23:59">
                     </div>
                   </div>
                 </div>

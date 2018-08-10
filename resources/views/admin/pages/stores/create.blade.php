@@ -15,31 +15,31 @@
               <div class="form-group">
                 <label for="name">{{ __('store.admin.name') }}</label>
                 <div class="form-line">
-                  <input type="text" name="name" class="form-control" placeholder="{{ __('store.admin.add.enter_name') }}" />
+                  <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="{{ __('store.admin.add.enter_name') }}" />
                 </div>
               </div>
               <div class="form-group">
                 <label for="address">{{ __('store.admin.address') }}</label>
                 <div class="form-line">
-                  <input type="text" name="address" class="form-control" placeholder="{{ __('store.admin.add.enter_address') }}" />
+                  <input type="text" name="address" class="form-control" value="{{ old('address') }}" placeholder="{{ __('store.admin.add.enter_address') }}" />
                 </div>
               </div>
               <div class="form-group">
                 <label for="phone">{{ __('store.admin.phone') }}</label>
                 <div class="input-group">
-                  <input type="text" name="phone" class="form-control" placeholder="{{ __('store.admin.add.enter_phone') }}"/>
+                  <input type="text" name="phone" class="form-control" value="{{ old('phone') }}" placeholder="{{ __('store.admin.add.enter_phone') }}"/>
                 </div>
               </div>
               <div class="form-group">
                 <label for="describe">{{ __('store.admin.describe') }}</label>
                 <div class="form-line">
-                  <textarea name="describe" rows="4" class="form-control no-resize" placeholder="{{ __('store.admin.add.enter_describe') }}"></textarea>
+                  <textarea name="describe" rows="4" class="form-control no-resize" placeholder="{{ __('store.admin.add.enter_describe') }}"> {{ old('name') }}</textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label for="image">{{ __('store.admin.image') }}</label>
                 <div class="form-line">
-                  <input type="file" name="image" class="form-control" placeholder="{{ __('store.admin.create.enter_image') }}" />
+                  <input type="file" name="image" class="form-control"  placeholder="{{ __('store.admin.create.enter_image') }}" />
                 </div>
               </div>
               <div class="form-group row clearfix">
@@ -50,7 +50,7 @@
                         <i class="material-icons">access_time</i>
                     </span>
                     <div class="form-line">
-                        <input name="time_open" type="text" class="form-control time24" placeholder="Ex: 23:59">
+                        <input name="time_open" type="text" class="form-control time24" value="{{ old('time_open') }}" placeholder="Ex: 23:59">
                     </div>
                   </div>
                 </div>
@@ -61,7 +61,7 @@
                         <i class="material-icons">access_time</i>
                     </span>
                     <div class="form-line">
-                        <input name="time_close" type="text" class="form-control time24" placeholder="Ex: 23:59">
+                        <input name="time_close" type="text" class="form-control time24" value="{{ old('time_close') }}" placeholder="Ex: 23:59">
                     </div>
                   </div>
                 </div>
