@@ -29,6 +29,7 @@ class CreateProduct extends Page
                 ->assertSee(__('product.admin.create.title'))
                 ->assertSee(__('product.admin.create.form_title'))
                 ->assertSee(__('product.admin.show.name'))
+                ->assertSee(__('product.admin.show.images'))
                 ->assertSee(__('product.admin.show.describe'))
                 ->assertSee(__('product.admin.show.price'))
                 ->assertSee(__('product.admin.show.store'))
