@@ -32,6 +32,7 @@
         'title' => 'Edit Product',
         'form_title' => 'Edit Form',
         'update_product' => 'Save',
+        'cancel' => "Cancel",
         'update_success' => 'Update product successfully',
         'update_fail' => 'Update product failed!'
       ]

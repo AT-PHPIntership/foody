@@ -5,7 +5,7 @@ namespace Tests\Browser\Pages\Admin\Product;
 use Laravel\Dusk\Browser;
 use Laravel\Dusk\Page;
 
-class CreateProduct extends Page
+class UpdateProduct extends Page
 {
     /**
      * Get the URL for the page.
@@ -14,7 +14,7 @@ class CreateProduct extends Page
      */
     public function url()
     {
-        return '/admin/products/create';
+        return '/admin/products/1/edit';
     }
 
     /**
@@ -26,15 +26,16 @@ class CreateProduct extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->assertSee(__('product.admin.create.title'))
-                ->assertSee(__('product.admin.create.form_title'))
+                ->assertSee(__('product.admin.edit.title'))
                 ->assertSee(__('product.admin.show.name'))
                 ->assertSee(__('product.admin.show.describe'))
                 ->assertSee(__('product.admin.show.price'))
                 ->assertSee(__('product.admin.show.store'))
                 ->assertSee(__('product.admin.show.category'))
-                ->assertSee(__('product.admin.create.create_product'))
-                ->assertSee(__('product.admin.create.reset_product'));
+                ->assertSee(__('product.admin.show.image'))
+                ->assertSee(__('product.admin.edit.form_title'))
+                ->assertSee(__('product.admin.edit.update_product'))
+                ->assertSee(__('product.admin.edit.cancel'));
     }
 
     /**

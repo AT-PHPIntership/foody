@@ -44,7 +44,7 @@ class ListStores extends Page
     {
         $browser->assertPathIs($this->url())
                 ->assertSee('Store')
-                ->assertSee('Create Store')
+                ->assertSee('Create')
                 ->assertSee('ID')
                 ->assertSee('Name')
                 ->assertSee('Address')
