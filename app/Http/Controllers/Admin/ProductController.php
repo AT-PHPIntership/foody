@@ -104,8 +104,8 @@ class ProductController extends Controller
     {
         try {
             $product->update($request->all());
-            if (is_array(request()->file('path'))) {
-                foreach (request()->file('path') as $image) {
+            if (is_array(request()->file('image'))) {
+                foreach (request()->file('image') as $image) {
                     $newImage = $image->getClientOriginalName();
                     $image->move(public_path(config('define.product.images_path_products')), $newImage);
                     $imagesData[] = [
