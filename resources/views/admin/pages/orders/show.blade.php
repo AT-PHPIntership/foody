@@ -137,7 +137,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach ($detailOrders as $detailOrder)
+                  @foreach ($order->orderDetails as $detailOrder)
                   @php
                     $total_orders += $detailOrder->product->price * $detailOrder->quantity;
                   @endphp

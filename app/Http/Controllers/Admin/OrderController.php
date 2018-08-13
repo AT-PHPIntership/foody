@@ -30,9 +30,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::with('user')->find($id);
-        $detailOrders = Order::find($id)->orderDetails()->with('product:id,name,price')->get();
-        return view('admin.pages.orders.show', compact('order', 'detailOrders'));
+        $order = Order::with(['user','orderDetails.product:id,name,price'])->find($id);
+        return view('admin.pages.orders.show', compact('order'));
     }
 
     /**
