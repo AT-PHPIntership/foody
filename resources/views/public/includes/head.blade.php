@@ -1,5 +1,6 @@
   <meta name="robots" content="index, follow, all" />
   <meta name="p:domain_verify" content="73eb0f0e066e6b151806fd693a1fbf35" />
+  <base href="{{ asset('') }}">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="utf-8" />
@@ -7,16 +8,16 @@
   <meta name="viewport" content="width=device-width" />
   <title>FlyFood quảng b&#225; ẩm thực m&#243;n ăn truyền thống Việt Nam</title>
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" media="all" type="text/css" />
-  <link href="Content/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
-  <link href="Content/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+  <link href="user/Content/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="user/Content/font-awesome/css/font-awesome.css" rel="stylesheet"/>
 
-  <link href="Content/site.css" rel="stylesheet"/>
-  <script src="Scripts/jquery-1.11.1.js"></script>
-  <script src="Scripts/modernizr-2.6.2.js"></script>
+  <link href="user/Content/site.css" rel="stylesheet"/>
+  <script src="user/Scripts/jquery-1.11.1.js"></script>
+  <script src="user/Scripts/modernizr-2.6.2.js"></script>
 
-  <link href="Content/jquery.mCustomScrollbar.css" rel="stylesheet" />
-  <link href="Content/owl.carousel.css" rel="stylesheet" />
-  <link href="Content/Responsive.css" rel="stylesheet" />
+  <link href="user/Content/jquery.mCustomScrollbar.css" rel="stylesheet" />
+  <link href="user/Content/owl.carousel.css" rel="stylesheet" />
+  <link href="user/Content/Responsive.css" rel="stylesheet" />
   
   <meta name="description" content="Quảng bá ẩm thực món ăn truyền thống Việt Nam, dịch vụ món ngon tận nhà tại TP Hồ Chí Minh" />
   <meta name="keywords" content="FlyFood, ẩm thực truyền thống, món ngon tận nhà, món ăn truyền thống" />

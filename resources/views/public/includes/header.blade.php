@@ -3,7 +3,7 @@
     <section class="header-top">
       <div class="logo">
         <a href="index.html">
-            <img src="Files/Images/logo-flyfood-2017.png" alt="FlyFood" />
+            <img src="user/Files/Images/logo-flyfood-2017.png" alt="FlyFood" />
         </a>
       </div>
       <div class="search">
@@ -19,12 +19,12 @@
       <div class="right header-info">
         <ul class="list-inline">
           <li>
-            <img src="Files/Images/hotro.png">
+            <img src="user/Files/Images/hotro.png">
             <h2>Tổng đài đặt hàng</h2>
             <p>Vui lòng gọi: (028)39.911.911</p>
           </li>
           <li>
-            <img src="Files/Images/vanchuyen.png">
+            <img src="user/Files/Images/vanchuyen.png">
             <h2>Khu vực giao hàng</h2>
             <p>Đơn hàng từ 1000k - Miễn phí giao hàng</p>
           </li>

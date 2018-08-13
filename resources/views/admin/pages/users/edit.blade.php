@@ -15,18 +15,18 @@
               @method('PUT')
                 <div class="form-group">
                   <label for="username">{{ __('user.admin.username') }}</label>
-                    <input type="text" name="username" class="form-control" value="{{ $user->username }}" readonly="true" placeholder="{{ __('user.admin.create.enter_username') }}" />
+                    <input type="text" name="username" class="form-control" value="{{ $user->username }}" readonly="true" disabled placeholder="{{ __('user.admin.create.enter_username') }}" />
                 </div>
                 <div class="form-group">
                   <label for="full_name">{{ __('user.admin.fullname') }}</label>
                   <div class="form-line">
-                    <input type="text" name="full_name" class="form-control" value="{{ $user->full_name }}" placeholder="{{ __('user.admin.create.enter_fullname') }}" />
+                    <input type="text" name="full_name" class="form-control" value="{{ old('full_name', $user->full_name) }}" placeholder="{{ __('user.admin.create.enter_fullname') }}" />
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="birthday">{{ __('user.admin.birthday') }}</label>
                   <div class="input-group">
-                    <input type="text" name="birthday" class="form-control" value="{{ $user->birthday }}" placeholder="{{ __('user.admin.create.enter_birthday') }}"/>
+                    <input type="text" name="birthday" class="form-control" value="{{ old('birthday', $user->birthday) }}" placeholder="{{ __('user.admin.create.enter_birthday') }}"/>
                     <div class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                     </div>
@@ -44,12 +44,12 @@
                 <div class="form-group">
                   <label for="phone">{{ __('user.admin.phone') }}</label>
                   <div class="form-line">
-                    <input type="text" name="phone" class="form-control" value="{{ $user->phone }}" placeholder="{{ __('user.admin.create.enter_phone') }}" />
+                    <input type="text" name="phone" class="form-control" value="{{ old('phone', $user->phone) }}" placeholder="{{ __('user.admin.create.enter_phone') }}" />
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="email">{{ __('user.admin.email') }}</label>
-                    <input type="text" name="email" class="form-control" value="{{ $user->email }}" readonly="true" placeholder="{{ __('user.admin.create.enter_email') }}" />
+                    <input type="text" name="email" class="form-control" value="{{ old('email', $user->email) }}" readonly="true" disabled placeholder="{{ __('user.admin.create.enter_email') }}" />
                 </div>
                 <div class="form-group">
                   <div class="form-line">

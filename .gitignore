@@ -8,6 +8,7 @@
 /.vscode
 /.vagrant
 /public/images
+/public/user
 /public/bower_components
 Homestead.json
 Homestead.yaml

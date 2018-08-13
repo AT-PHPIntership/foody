@@ -12,7 +12,12 @@ return [
         'total_products' => 'Total Products',
         'money_ship' => 'Money Ship',
         'delivery_status' => 'Deliveried ?',
-        'status' => 'Status',
+        'submit_time' => 'Submit time',
+        'delivery_time' => 'Delivery time',
+        'customer_note' => 'Customer Note',
+        'total' => 'Total',
+        'payment_status' => 'Payment Status',
+        'processing_status' => 'Processing Status',
         'active' => 'Active',
         'currency' => 'VND',
         'table' => [
@@ -35,7 +40,10 @@ return [
             'update' => 'Update'
         ],
         'show' => [
-            'title' => 'Show Order',
+            'title' => 'Show Detail Order',
+            'list_products' => 'List of Products',
+            'total_orders' => 'Total Orders',
+
         ],
         'message' => [
             'delivery_status' =>[
@@ -45,6 +53,11 @@ return [
             'paid' => [
                 'yes' => 'Paid',
                 'no'  => 'Not Yet'
+            ],
+            'payment_status' => [
+                'approved' => 'Approved',
+                'cancel'  => 'Cancel',
+                'pending'  => 'Pending'
             ],
             'add' => 'Create New Order Successfull!',
             'add_fail' => 'Can not add New Order. Please check connect database!',
