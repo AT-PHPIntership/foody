@@ -18,17 +18,6 @@
                   <input type="text" name="name" class="form-control" value="{{ old('name', $product->name) }}" placeholder="{{ __('product.admin.create.enter_name') }}" />
               </div>
               <div class="form-group">
-                <label>{{ __('product.admin.show.images') }}</label>
-                <div class="form-line">
-                  <input type="file" name="path[]" class="form-control" multiple/>
-                </div>
-              </div>
-              @foreach ($images as $image)
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                  <img class="img-responsive thumbnail"  src="images/products/{{ $image->path }}"/>
-                </div>
-              @endforeach
-              <div class="form-group">
                 <label>{{ __('product.admin.show.describe') }}</label>
                 <div class="form-line">
                   <textarea name="describe" class="form-control" rows='4' placeholder="{{ __('product.admin.create.enter_describe') }}">{{ old('describe', $product->describe) }}</textarea>
@@ -59,8 +48,20 @@
                     @endforeach
                   </select>
                 </div>
+              </div>
+              <div class="form-group">
+                <label>{{ __('product.admin.show.images') }}</label>
+                <div class="form-line">
+                  <input type="file" name="image[]" class="form-control" multiple/>
                 </div>
+              </div>
+              @foreach ($images as $image)
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                  <img class="img-responsive thumbnail"  src="images/products/{{ $image->path }}"/>
+                </div>
+              @endforeach
               <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.edit.update_product') }}</button>&nbsp;
+              <a href="{{ route('admin.products.index') }}" name="submit" class="btn btn-info waves-effect">{{ __('product.admin.edit.cancel') }}</a>
             </form>
           </div>
         </div>

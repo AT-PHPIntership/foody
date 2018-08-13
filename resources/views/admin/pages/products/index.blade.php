@@ -33,7 +33,7 @@
               <tr>
                 <th>{{ $product->id }}</th>
                 @if (count($product->images))
-                  <th><img class="img-responsive thumbnail" src="images/products/{{ $product->images[0]->path }}"></th>
+                  <th style="width: 35%;"><img class="img-responsive thumbnail" src="images/products/{{ $product->images[0]->path }}" style="object-fit: contain;"></th>
                 @else
                   <th><img class="img-responsive thumbnail" src="images/products/no-image.jpg"></th>
                 @endif

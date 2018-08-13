@@ -66,17 +66,17 @@
             <h4>{{__('product.admin.show.images')}}:</h4>
           </div>
           <div class="col-sm-9">
-            @foreach ($product->images as $image)
-              @if ($image)
+            @if (!$product->images->isEmpty())
+              @foreach ($product->images as $image)
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                   <img class="img-responsive thumbnail" src="images/products/{{ $image->path }}">
                 </div>
-              @else
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                  <img class="img-responsive thumbnail" src="images/products/no-image.jpg">
-                </div>
-              @endif
-            @endforeach
+              @endforeach
+            @else
+              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <img class="img-responsive thumbnail" src="images/products/no-image.jpg">
+              </div>
+            @endif
           </div>
         </div>
       </div>
