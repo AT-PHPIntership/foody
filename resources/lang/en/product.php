@@ -27,6 +27,14 @@
         'reset_product' => 'Reset',
         'create_success' => 'Create product successfully',
         'create_fail' => 'Create product failed!'
+      ],
+      'edit' => [
+        'title' => 'Edit Product',
+        'form_title' => 'Edit Form',
+        'update_product' => 'Save',
+        'cancel' => "Cancel",
+        'update_success' => 'Update product successfully',
+        'update_fail' => 'Update product failed!'
       ]
     ]
   ];
