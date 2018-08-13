@@ -21,10 +21,11 @@ class CreateOrdersTable extends Migration
                     ->onDelete('no action');
             $table->string('address')->charset('utf8')->collation('utf8_unicode_ci');
             $table->unsignedInteger('money_ship');
-            $table->date('submit_time');
-            $table->date('delivery_time');
+            $table->unsignedInteger('processing_status')->default(1);
+            $table->dateTime('submit_time');
+            $table->dateTime('delivery_time');
             $table->string('customer_note')->charset('utf8')->collation('utf8_unicode_ci');
-            $table->unsignedInteger('status');
+            $table->unsignedInteger('payment_status');
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });

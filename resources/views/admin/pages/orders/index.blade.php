@@ -22,10 +22,10 @@
                 <th>{{__('order.admin.username')}}</th>
                 <th>{{__('order.admin.address')}}</th>
                 <th>{{__('order.admin.total_products')}}</th>
-                <th>{{__('order.admin.money_ship')}}</th>
+                <th>{{__('order.admin.processing_status')}}</th>
                 <th>{{__('order.admin.delivery_status')}}</th>
-                <th>{{__('order.admin.status')}}</th>
-                <th>{{__('order.admin.table.edit')}}</th>
+                <th>{{__('order.admin.payment_status')}}</th>
+                <th>{{__('order.admin.table.show')}}</th>
                 <th>{{__('order.admin.table.delete')}}</th>
               </tr>
             </thead>
@@ -36,30 +36,32 @@
                 <td>{{ $order->user->username }}</td>
                 <td>{{ $order->address }}</td>
                 <td>{{ $order->orderdetails_count }}</td>
-                <td>{{ $order->money_ship }} {{__('order.admin.currency')}}</td>
+                <td>{{ $order->processingStatus() }}</td>
               @if (Carbon\Carbon::now() > $order->delivery_time)
                 <td>{{ __('order.admin.message.delivery_status.yes')}}</td>
               @else
                 <td>{{ __('order.admin.message.delivery_status.no')}}</td>
               @endif
-              @if ($order->status)     
+              @if ($order->payment_status)     
                 <td>{{ __('order.admin.message.paid.yes')}}</td>
               @else
                 <td>{{ __('order.admin.message.paid.no')}}</td>
               @endif
-                <td><a
-                  href="{{route('admin.orders.edit', $order->id)}}"
-                  class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
-                    <i class="material-icons">border_color</i>
-                </a></td>
-              <td><form onsubmit="return confirm('{{__('order.admin.message.msg_del')}}');" class="col-md-4" 
-                id="deleteorder-{{ $order->id }}" action="{{ route('admin.orders.destroy', $order->id) }}" method="POST">
+                <td>
+                  <a id="details" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float" href="{{route('admin.orders.show', $order->id)}}">
+                    <i class="material-icons">remove_red_eye</i>
+                  </a>
+                </td>
+                <td>
+                  <form onsubmit="return confirm('{{__('order.admin.message.msg_del')}}');" class="col-md-4" 
+                  id="deleteorder-{{ $order->id }}" action="{{ route('admin.orders.destroy', $order->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-circle waves-effect waves-circle waves-float" type="submit">
                       <i class="material-icons">delete_sweep</i>
                     </button>
-                  </form></td>
+                  </form>
+                </td>
               </tr>
               @endforeach
             </tbody>
