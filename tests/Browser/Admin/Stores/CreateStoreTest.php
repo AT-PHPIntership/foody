@@ -69,9 +69,6 @@ class CreateStoreTest extends AdminTestCase
       */
     public function test_store_validate_for_input($name, $content, $message)
     {
-        // factory('App\Models\Category')->create([
-        //     'name' => 'Mì Quảng'
-        // ]);
         $this->browse(function (Browser $browser) use ($name, $content, $message) {
             $browser->loginAs($this->user)
                     ->visit(new CreateStore())

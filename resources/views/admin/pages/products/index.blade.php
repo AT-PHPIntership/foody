@@ -39,11 +39,11 @@
                 @endif
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price }} VND</td>
-                <td>{{ $product->category_id }}</td>
+                <td>{{ $product->category->name }}</td>
                 <td><a id="details" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float"
                    href="{{route('admin.products.show', $product->id)}}"><i class="material-icons">remove_red_eye</i></a></td>
                 <td><a
-                  href="{{route('admin.users.edit', $product->id)}}"
+                  href="{{route('admin.products.edit', $product->id)}}"
                   class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
                     <i class="material-icons">border_color</i>
                 </a></td>

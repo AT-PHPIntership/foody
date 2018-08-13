@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Store;
+use App\Models\Category;
+use App\Models\Image;
+use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -15,7 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('images')->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        $products = Product::with(['images','category'])->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
         return view('admin.pages.products.index', compact('products'));
     }
 
@@ -28,7 +33,91 @@ class ProductController extends Controller
     */
     public function show($id)
     {
-        $product = Product::with('images')->find($id);
+        $product = Product::with(['images','category','store'])->find($id);
         return view('admin.pages.products.show', compact('product'));
+    }
+
+    /**
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function create()
+    {
+        $stores = Store::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
+        return view('admin.pages.products.create', compact('stores', 'categories'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Http\Requests\CreateProductRequest $request request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CreateProductRequest $request)
+    {
+        try {
+            $product = Product::create($request->all());
+            if (is_array(request()->file('image'))) {
+                foreach (request()->file('image') as $image) {
+                    $newImage = $image->getClientOriginalName();
+                    $image->move(public_path(config('define.product.images_path_products')), $newImage);
+                    $imagesData[] = [
+                        'product_id' => $product->id,
+                        'path' => $newImage
+                    ];
+                }
+                $product->images()->createMany($imagesData);
+            }
+            return redirect()->route('admin.products.index')->with('message', __('product.admin.create.create_success'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.products.index')->with('alert', __('product.admin.create.create_fali'));
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param App\Models\Product $product product
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Product $product)
+    {
+        $stores = Store::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
+        $images = $product->images;
+        return view('admin.pages.products.edit', compact('product', 'stores', 'categories', 'images'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request request
+     * @param App\Models\Product       $product product
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateProductRequest $request, Product $product)
+    {
+        try {
+            $product->update($request->all());
+            if (is_array(request()->file('image'))) {
+                foreach (request()->file('image') as $image) {
+                    $newImage = $image->getClientOriginalName();
+                    $image->move(public_path(config('define.product.images_path_products')), $newImage);
+                    $imagesData[] = [
+                        'product_id' => $product->id,
+                        'path' => $newImage
+                    ];
+                }
+                $product->images()->createMany($imagesData);
+            }
+            return redirect()->route('admin.products.index')->with('message', __('product.admin.edit.update_success'));
+        } catch (Exception $e) {
+            return redirect()->route('admin.products.index')->with('alert', __('product.admin.edit.update_fail'));
+        }
     }
 }

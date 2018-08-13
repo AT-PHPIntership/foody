@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Carbon\Carbon;
+use App\Http\Requests\Admin\EditStatusOrderRequest;
 
 class OrderController extends Controller
 {
@@ -18,6 +19,40 @@ class OrderController extends Controller
     {
         $orders = Order::with('user')->withCount('orderdetails')->orderBy('created_at', 'desc')->paginate(config('paginate.number_orders'));
         return view('admin.pages.orders.index', compact('orders'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id int
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $order = Order::with(['user','orderDetails.product:id,name,price'])->find($id);
+        return view('admin.pages.orders.show', compact('order'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param EditStatusOrderRequest $request EditStatusOrderRequest
+     * @param Order                  $order   Order
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(EditStatusOrderRequest $request, Order $order)
+    {
+        try {
+            $order->processing_status = $request->processing_status;
+            $order->payment_status = $request->payment_status;
+            $order->delivery_time = $request->delivery_time;
+            $order->save();
+            return redirect()->route('admin.orders.show', $order->id)->with('message', __('order.admin.message.edit'));
+        } catch (Exception $ex) {
+            return redirect()->route('admin.orders.show', $order->id)->with('message', __('order.admin.message.edit_fail'));
+        }
     }
 
     /**
