@@ -1,42 +1,5 @@
 @extends('public.layout.master')
 @section('menu-banner')
-<div class="list-menu home-menu">
-    <ul class="list-inline">
-      <li>
-        <a href="thuc-don-mon-ga-sp-a49b241015103551773.html">Thực đơn m&#243;n g&#224;</a>
-      </li>
-      <li>
-        <a href="thuc-don-mon-lau-sp-caff241015103610505.html">Thực đơn m&#243;n lẩu</a>
-      </li>
-      <li>
-        <a href="thuc-don-mon-bo-heo-de-sp-bc74040516113328973.html">Thực đơn m&#243;n B&#242;, Heo, D&#234;</a>
-      </li>
-      <li>
-        <a href="thuc-don-mon-khai-vi-sp-acb1241115180300482.html">Thực đơn m&#243;n khai vị</a>
-      </li>
-      <li>
-        <a href="thuc-don-mon-sup-sp-29a4290816095253904.html">Thực đơn m&#243;n s&#250;p</a>
-      </li>
-      <li>
-        <a href="thuc-don-mon-goi-sp-87cc290816095207553.html">Thực đơn m&#243;n gỏi</a>
-      </li>
-      <li>
-        <a href="thuc-don-mon-ca-sp-1170241015103603808.html">Thực đơn m&#243;n c&#225;</a>
-      </li>
-      <li>
-        <a href="thuc-don-gia-re-sp-4ad4140418114644336.html">THỰC ĐƠN GI&#193; RẺ</a>
-      </li>
-      <li>
-        <a href="thuc-don-tiec-nho-nhanh.html">Thực đơn tiệc nhanh</a>
-      </li>
-      <li>
-        <a href="thuc-don-mon-tiec-tron-goi.html">Tiệc trọn gói</a>
-      </li>
-      <li>
-          <a href="bang-gia-cap-nhat-tat-ca-cac-mon-an-tiec-tai-flyfood-detail-830629061616161182.html">Bảng giá món ăn</a>
-      </li>
-    </ul>
-  </div>
   <div class="banner">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -249,46 +212,13 @@
         </div>
       </div>
     </div>
-  </div>    
-  <section class="product product-home feeling">
-    <div class="title border-bottom">
-      <i class="fa fa-fire"></i>
-      <h1 class="distance-none text-uppercase">
-        Cảm nhận khách hàng
-        <a href="goc-cam-nhan.html" class="btn btn-danger btn-sm">Xem Thêm</a>
-      </h1>
-    </div>
-    <div class="item">
-      <div class="item-img">
-        <a href="chi-nguyen-ngoc-hien-feeling-a371211215111144907.html">
-          <img class="img-circle camnhan-img" src="user/Files/Nguyen&#32;Van&#32;Tien&#32;Anh/21122015/nguyen-ngoc-hien-flyfood-1.jpg" alt="/Files/Nguyen Van Tien Anh/21122015/nguyen-ngoc-hien-flyfood-1.jpg" />
-        </a>
-
-      </div>
-      <div class="item-name">
-        <a href="chi-nguyen-ngoc-hien-feeling-a371211215111144907.html">
-          <h2 class="text-center text-uppercase distance-none">CHỊ NGUYỄN NGỌC HIỀN</h2>
-        </a>
-        <span class="text-center">QUẬN PH&#218; NHUẬN - TP.HCM</span>
-      </div>
-    </div>
-    <div class="item">
-      <div class="item-img">
-        <a href="chi-moc-mien-feeling-ab17211215154942182.html">
-          <img class="img-circle camnhan-img" src="user/Files/Nguyen&#32;Van&#32;Tien&#32;Anh/21122015/moc-mien-flyfood-0.jpg" alt="/Files/Nguyen Van Tien Anh/21122015/moc-mien-flyfood-0.jpg" />
-        </a>
-      </div>
-      <div class="item-name">
-        <a href="chi-moc-mien-feeling-ab17211215154942182.html">
-          <h2 class="text-center text-uppercase distance-none">Chị MỘC MI&#202;N</h2>
-        </a>
-        <span class="text-center">TP.HCM</span>
-      </div>
-    </div>
-  </section>
+  </div>
   <section class="bottom-banner">
     <a href="ban-muon-dat-tiec-flyfood-cung-cap-mon-an-cuc-nhanh-detail-fe4d181215170131137.html">
       <img src="user/Files/admin/02072016/Banner-flyfood-footer.png" />
     </a>
   </section>
+@endsection
+@section('js')
+  <script src="/js/public/category.js"></script>
 @endsection
