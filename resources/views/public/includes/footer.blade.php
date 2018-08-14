@@ -410,28 +410,55 @@
 <a id="linkTop" class="backtotop" href="javascript:;">
 <span></span>
 </a>
-<script src="user/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="user/Scripts/jquery-1.11.1.js"></script>
+
+    <script src="user/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script src="user/Scripts/jquery.validate.js"></script>
 <script src="user/Scripts/jquery.validate.unobtrusive.js"></script>
 
-<script src="user/Scripts/modernizr-2.6.2.js"></script>
+    <script src="user/Scripts/modernizr-2.6.2.js"></script>
 
-<script src="user/Content/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="user/Content/bootstrap/dist/js/bootstrap.js"></script>
 
-<script src="user/Scripts/_references.js"></script>
-<script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="user/Scripts/owl.carousel.min.js"></script>
-<script>
-  $(function () {
-    $('form').submit(function () {
-      if (!$(this).valid()) {
-        hideMark();
-        return false;
-      }
-    });
-    setInterval("heartBeat();", 1000 * 120); // 3phut gửi request một lần
-  });
-  function heartBeat() {
-    $.get("/KeepSession.ashx", function (data) { });
-  }
-</script>
+    <script src="user/Scripts/_references.js"></script>
+    <script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="user/Scripts/owl.carousel.min.js"></script>
+    <script>
+        $(function () {
+            $('form').submit(function () {
+                if (!$(this).valid()) {
+                    hideMark();
+                    return false;
+                }
+            });
+            setInterval("heartBeat();", 1000 * 120); // 3phut gửi request một lần
+        });
+        function heartBeat() {
+            $.get("/KeepSession.ashx", function (data) { });
+        }
+    </script>
+    
+    <script src="user/Scripts/jqzoom.js"></script>
+    <script src="user/Scripts/slide/jquery.bxslider.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#bestbuy').bxSlider({
+                adaptiveHeight: true,
+                nextSelector: 'null',
+                mode: 'vertical',
+                minSlides: 4,
+                auto: true,
+                maxSlides: 4,
+                slideMargin: 10,
+                slideWidth: 243,
+            });
+        });
+        $("#bzoom").zoom({
+            zoom_area_width: 450,
+            autoplay_interval: 3000,
+            small_thumbs: 4,
+            autoplay: false
+        });
+    </script>
+@yield('js')

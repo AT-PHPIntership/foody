@@ -1,3 +1,27 @@
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQ2T2H9"
+  height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+	<!-- End Google Tag Manager (noscript) -->	
+  <div id="fb-root"></div>
+	<script>
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=1650169558572376";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+	</script>
+  <div class="body-mark modal fade in">
+    <div class="modal-backdrop fade in">
+      <div id="loader-wrapper">
+        <div id="loader"></div>
+      </div>
+    </div>
+  </div>
 <header>
   <div class="container wrapper distance-none header-top-wrapper">
     <section class="header-top">
