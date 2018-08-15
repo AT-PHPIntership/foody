@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use File;
 
 class ProductController extends Controller
 {
@@ -118,6 +119,28 @@ class ProductController extends Controller
             return redirect()->route('admin.products.index')->with('message', __('product.admin.edit.update_success'));
         } catch (Exception $e) {
             return redirect()->route('admin.products.index')->with('alert', __('product.admin.edit.update_fail'));
+        }
+    }
+
+    /**
+      * Remove the specified resource from storage.
+      *
+      * @param App\Models\Product $product product
+      *
+      * @return \Illuminate\Http\Response
+      */
+    public function destroy(Product $product)
+    {
+        try {
+            foreach ($product->images as $image) {
+                if ($image->path&&File::exists(public_path('/images/products/' . $image->path))) {
+                    File::delete(public_path('/images/products/' . $image->path));
+                }
+            }
+            $product->delete();
+            return redirect()->route('admin.products.index')->with('message', __('product.admin.show.delete_success'));
+        } catch (Exception $e) {
+            return redirect()->route('admin.products.index')->with('alert', __('product.admin.show.delete_fail'));
         }
     }
 }
