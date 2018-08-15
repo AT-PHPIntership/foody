@@ -31,6 +31,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
 Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'HomeController@index')->name('user.home');
-    Route::get('/danh-muc', 'CategoryController@index')->name('user.category');
-    Route::get('/chi-tiet', 'ProductController@index')->name('user.product');
+    Route::get('/categories', 'CategoryController@index')->name('user.category');
+    Route::get('/products', 'ProductController@index')->name('user.product');
 });
