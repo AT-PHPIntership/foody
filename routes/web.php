@@ -28,3 +28,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('products', 'ProductController');
     Route::resource('orders', 'OrderController');
 });
+
+Route::group(['namespace' => 'Home'], function () {
+    Route::get('/', 'HomeController@index')->name('user.home');
+    Route::get('/danh-muc', 'CategoryController@index')->name('user.category');
+    Route::get('/chi-tiet', 'ProductController@index')->name('user.product');
+});
