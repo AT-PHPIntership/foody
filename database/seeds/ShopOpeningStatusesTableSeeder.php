@@ -16,9 +16,9 @@ class ShopOpeningStatusesTableSeeder extends Seeder
     {
         $inputId = Store::doesntHave('shopOpenStatus')->pluck('id')->toArray();
         $inputCount = count($inputId);
-        for ($i = 0; $i < $inputCount; $i++) {
+        for ($i = 1; $i <= $inputCount; $i++) {
             factory(App\Models\ShopOpeningStatus::class,1)->create([
-                'store_id' => $faker->unique()->randomElement($inputId),
+                'store_id' => $i
             ]);
         }
     }

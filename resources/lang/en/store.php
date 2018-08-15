@@ -22,6 +22,8 @@ return [
         'add' => [
             'title' => 'Add Store',
             'create' => 'Create',
+            'time_open' => 'Time Open',
+            'time_close' => 'Time Close',
             'enter_name' => 'Enter name of the store',
             'enter_address' => 'Enter address of the store',
             'enter_phone' => 'Enter phone of the store',

@@ -79,6 +79,10 @@
             @endif
           </div>
         </div>
+        <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-success waves-effect">
+            <i class="material-icons">mode_edit</i>
+            <span>{{ __('product.admin.show.edit') }}</span>
+          </a>
       </div>
     </div>
   </div>

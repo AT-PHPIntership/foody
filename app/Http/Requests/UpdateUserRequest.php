@@ -28,7 +28,7 @@ class UpdateUserRequest extends FormRequest
             'full_name'      => 'string|max:255',
             'birthday'       => 'date_format:"Y-m-d"',
             'gender'         => 'required|integer|min:0|max:1',
-            'phone'          => 'regex:/\(?([0-9]{3})\)?([ . -]?)([0-9]{3})\2([0-9]{4})/',
+            'phone'          => 'regex:/^0[0-9]{9,10}$/',
             'role_id'        => 'required|integer|min:1|max:3',
             'is_active'      => 'required|integer|min:0|max:1',
         ];
