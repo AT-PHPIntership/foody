@@ -7,30 +7,60 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
+use App\Http\Requests\User\RegisterRequest;
+use App\Http\Controllers\Auth\RegisterController;
 
 class LoginController extends ApiController
 {
     /**
      * Register user
      *
-     * @param App\Http\Requests\CreateUserRequest $request validated request
+     * @param App\Http\Requests\RegisterRequest $request validated request
      *
      * @return json authentication code with user info
      */
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $input = $request->only(['full_name', 'username', 'gender', 'phone', 'email', 'password']);
-        // $mail = new SendMailUser($input);
-        $input['password'] = bcrypt($input['password']);
-        // $userInfo = $request->except(['username', 'email', 'password']);
+        $input = $request->except('password');
+        $input['password'] = bcrypt($request->password);
         $user = User::create($input);
-        // $userInfo['user_id'] = $user->id;
-        // UserInfo::create($userInfoData);
-        // Mail::to($user->email)->send($mail);
-        //$data['token'] =  $user->createToken('token')->accessToken;
-        $data['input'] = $input;
-        return $request;
-        //$data['user'] =  $user->load('userInfo');
+        $data['token'] =  $user->createToken('token')->accessToken;
+        //dd($user->createToken('token')->accessToken);
+        $data['user'] =  $user;
+        return $this->successResponse($data, Response::HTTP_OK);
+        //return $user;
+        //return $data['token'];
+        // return $request;
+    }
+    // public function register(Request $request)
+    // {
+    //     // $user = User::find(1);
+    //     // $data['token'] =  $user->createToken('token')->accessToken;
+    //     //$data = $input;
+    //     //dd($request);
+    //     return $request;
+    //     // $data['user'] =  $user;
+    //     // return $this->successResponse($data, Response::HTTP_OK);
+    // }
+
+    public function test(Request $request)
+    {
+        
+        $user = User::create([
+            'username' => 'asasas',
+            'full_name' => 'asassd',
+            'gender' => 1,
+            'phone' => '01652638375',
+            'email' => 'lebavy1611@gmail.com',
+            'birthday' => '1996-11-16',
+            'role_id' => 3,
+            'password' => '$2y$10$oCwTHNtFvuj8p6XbjsGOreNl7HRmT0MHwK0D6gvPkg0RHbJua3oR.'
+        ]);
+        $data['token'] =  $user->createToken('token')->accessToken;
+        //dd($user->createToken('token')->accessToken);
+        //$data['user'] =  $user;
         //return $this->successResponse($data, Response::HTTP_OK);
+        return $data['token'];
+        //return $user->createToken('token')->accessToken;
     }
 }
