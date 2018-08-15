@@ -28,7 +28,7 @@
 <meta property="article:publisher" content="http://flyfood.vn" />
 <meta property="og:image" content="http://flyfood.vn/Files/admin/08082018/avt-ga-hap-nuoc-mam.png" />
 <meta property="og:description" content="Ngon kh&#244;ng cưỡng nổi vị g&#224; hấp nước mắm nhĩ đậm đ&#224;, thơm ngon c&#249;ng x&#244;i 3 m&#224;u, 3 vị đẹp mắt, ngon miệng. M&#243;n mới của Flyfood G&#224; hấp nước mắm sẽ để lại dấu ấn kh&#243; qu&#234;n với c&#225;c t&#237;n đồ m&#234; G&#224; n&#243;i chung v&#224; m&#234; G&#224; b&#243; x&#244;i của Flyfood n&#243;i ri&#234;ng bao l&#226;u nay. " />
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="user/Content/bzoom.css" rel="stylesheet" />
 <script src="https://apis.google.com/js/platform.js" async defer>
     { lang: 'vi' }

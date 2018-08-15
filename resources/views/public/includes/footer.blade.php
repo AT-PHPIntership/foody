@@ -165,12 +165,12 @@
                             <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
                             <div class="form-group input-group">
                               <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                              <input class="form-control" data-val="true" data-val-required="Vui lòng nhập Tên đăng nhập" id="UserName" name="UserName" placeholder="Tên đăng nhập" type="text" value="" />
+                              <input class="form-control" data-val="true" data-val-required="Vui lòng nhập Tên đăng nhập" id="userName" name="username" placeholder="Tên đăng nhập" type="text" value="" />
                             </div>
                             <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
                             <div class="form-group input-group">
                               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                              <input class="form-control" data-val="true" data-val-required="Vui lòng nhập Mật khẩu" id="Password" name="Password" placeholder="Mật khẩu" type="password" />
+                              <input class="form-control" data-val="true" data-val-required="Vui lòng nhập Mật khẩu" id="Password" name="password" placeholder="Mật khẩu" type="password" />
                             </div>
                             <div class="form-group">
                               <div class="checkbox">
@@ -247,33 +247,35 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-default">
-              <div class="panel-body">
+              <div class="panel-body register-form">
                 <p id="modal-message-reg">Vui lòng điền đầy đủ thông tin</p>
                 <div class="row">
-                  <form action="http://flyfood.vn/DangNhap/_register?Length=8" data-ajax="true" data-ajax-failure="checkLogin_reg" data-ajax-method="Post" data-ajax-success="checkLogin_reg" enctype="multipart/form-data" id="_singinForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="EJYasR6VVTAlso-GYCald9yMmpJh6YDFVlGwgChERmzOIf7LtoGCzSM9RYL1f3UuRfjnRTU-F61w-PMQbgroTs48jd-DeeTMMWipgbGFalQ1" />                                        
+                  <form action="" data-ajax="true" data-ajax-failure="checkLogin_reg" data-ajax-method="Post" data-ajax-success="checkLogin_reg" enctype="multipart/form-data" id="singinForm" method="post">
+                    {{-- <input name="__RequestVerificationToken" type="hidden" value="EJYasR6VVTAlso-GYCald9yMmpJh6YDFVlGwgChERmzOIf7LtoGCzSM9RYL1f3UuRfjnRTU-F61w-PMQbgroTs48jd-DeeTMMWipgbGFalQ1" />                                         --}}
+                     @csrf
                     <div class="col-lg-6">
                       <fieldset>
                         <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                          <input class="form-control" data-val="true" data-val-length="Chiều dài 1-50" data-val-length-max="50" data-val-regex="Tên đăng nhập phải là chữ hoặc số" data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required="Vui lòng nhập tên đăng nhập" id="UserName" name="UserName" placeholder="Tên đăng nhập" type="text" value="" />
+                          <input class="form-control" data-val="true" data-val-length="Chiều dài 1-50" data-val-length-max="50" data-val-regex="Tên đăng nhập phải là chữ hoặc số" data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required="Vui lòng nhập tên đăng nhập" id="UserName" name="username" placeholder="Tên đăng nhập" type="text" value="" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                          <input class="form-control" data-val="true" data-val-length="Chiều dài 8-50" data-val-length-max="50" data-val-length-min="8" data-val-required="Vui lòng nhập mật khẩu" id="Password" name="Password" placeholder="Mật khẩu" type="password" />
+                          <input class="form-control" data-val="true" data-val-length="Chiều dài 8-50" data-val-length-max="50" data-val-length-min="8" data-val-required="Vui lòng nhập mật khẩu" id="Password" name="password" placeholder="Mật khẩu" type="password" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="FullName" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                          <input class="form-control" data-val="true" data-val-length="Chiều dài 1-100" data-val-length-max="100" data-val-required="Vui lòng nhập họ tên" id="FullName" name="FullName" placeholder="Họ tên" type="text" value="" />
+                          <input class="form-control" data-val="true" data-val-length="Chiều dài 1-100" data-val-length-max="100" data-val-required="Vui lòng nhập họ tên" id="fullName" name="full_name" placeholder="Họ tên" type="text" value="" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="GIOITINH" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-female"></i></span>
-                          <select class="form-control" data-val="true" data-val-required="Vui lòng chọn giới tính" id="GIOITINH" name="GIOITINH"><option value="">Chọn giới t&#237;nh</option>
-                            <option selected="selected" value="False">Nữ</option>
-                            <option value="True">Nam</option>
+                          <select class="form-control" data-val="true" data-val-required="Vui lòng chọn giới tính" id="gender" name="gender"><option value="">Chọn giới t&#237;nh</option>
+                            <option value="1">Nữ</option>
+                            <option value="0">Nam</option>
                           </select>
                         </div>
                       </fieldset>
@@ -282,25 +284,26 @@
                       <span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
                       <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                        <input class="form-control" data-val="true" data-val-length="Chiều dài 1-20" data-val-length-max="20" data-val-regex="Điện thoại không đúng định dạng" data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" data-val-required="Vui lòng nhập điện thoại" id="PhoneNumber" name="PhoneNumber" placeholder="Điện thoại" type="text" value="" />
+                        <input class="form-control" data-val="true" data-val-length="Chiều dài 1-20" data-val-length-max="20" data-val-regex="Điện thoại không đúng định dạng" data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" data-val-required="Vui lòng nhập điện thoại" id="PhoneNumber" name="phone" placeholder="Điện thoại" type="text" value="" />
                       </div>
                       <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
                       <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input class="form-control" data-val="true" data-val-regex="Email không đúng định dạng!" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required="Vui lòng nhập Email" id="Email" name="Email" placeholder="Email" type="text" value="" />
-                      </div>
-                      <span class="field-validation-valid" data-valmsg-for="Address" data-valmsg-replace="true"></span>
-                      <div class="form-group input-group">
-                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                        <input class="form-control" data-val="true" data-val-length="Chiều dài 1-200" data-val-length-max="200" id="Address" name="Address" placeholder="Địa chỉ" type="text" value="" />
+                        <input class="form-control" data-val="true" data-val-regex="Email không đúng định dạng!" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required="Vui lòng nhập Email" id="Email" name="email" placeholder="Email" type="text" value="" />
                       </div>
                       <div class="form-group">
-                        <button onclick="showMark();" type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
+                        <button type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
                           <i class="fa fa-edit"></i>Đăng ký
                         </button>
                       </div>
                     </div>
-                  </form>                                
+                  </form>    
+                  <form action="" id="test-sm" method="post">
+                      @csrf
+                      @method('POST')
+                      <input type="text" name="test" id="test" value="1">
+                      <button type="submit">SM</button>
+                  </form>                            
                 </div>
               </div>
             </div>
@@ -347,7 +350,7 @@
               <div class="panel-body">
                 <p id="modal-message-forgot">Vui lòng điền đầy đủ thông tin</p>
                 <div class="row">
-                  <form action="http://flyfood.vn/DangNhap/QuenMatKhau?Length=8" data-ajax="true" data-ajax-failure="forgotPass" data-ajax-method="Post" data-ajax-success="forgotPass" enctype="multipart/form-data" id="_forgotPassForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="B_9_ZAsocnV4HzwyKtZeR95ZQ8HEpA5XqzxVZwMHMHOEFCrdmGBcFrfAkavf7qJ2dRsz-1ar91o9gvz_f2GTLY0WuUptydfkiHAiC55_UP81" />                                        
+                  <form action="#" data-ajax="true" data-ajax-failure="forgotPass" data-ajax-method="Post" data-ajax-success="forgotPass" enctype="multipart/form-data" id="_forgotPassForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="B_9_ZAsocnV4HzwyKtZeR95ZQ8HEpA5XqzxVZwMHMHOEFCrdmGBcFrfAkavf7qJ2dRsz-1ar91o9gvz_f2GTLY0WuUptydfkiHAiC55_UP81" />                                        
                     <div class="col-lg-6">
                       <fieldset>
                           <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
@@ -412,53 +415,54 @@
 </a>
 <script src="user/Scripts/jquery-1.11.1.js"></script>
 
-    <script src="user/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="user/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script src="user/Scripts/jquery.validate.js"></script>
 <script src="user/Scripts/jquery.validate.unobtrusive.js"></script>
 
-    <script src="user/Scripts/modernizr-2.6.2.js"></script>
+<script src="user/Scripts/modernizr-2.6.2.js"></script>
 
-    <script src="user/Content/bootstrap/dist/js/bootstrap.js"></script>
+<script src="user/Content/bootstrap/dist/js/bootstrap.js"></script>
 
-    <script src="user/Scripts/_references.js"></script>
-    <script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="user/Scripts/owl.carousel.min.js"></script>
-    <script>
-        $(function () {
-            $('form').submit(function () {
-                if (!$(this).valid()) {
-                    hideMark();
-                    return false;
-                }
-            });
-            setInterval("heartBeat();", 1000 * 120); // 3phut gửi request một lần
+<script src="user/Scripts/_references.js"></script>
+<script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="user/Scripts/owl.carousel.min.js"></script>
+<script src="js/public/register.js"></script>
+<script>
+    $(function () {
+        $('form').submit(function () {
+            if (!$(this).valid()) {
+                hideMark();
+                return false;
+            }
         });
-        function heartBeat() {
-            $.get("/KeepSession.ashx", function (data) { });
-        }
-    </script>
-    
-    <script src="user/Scripts/jqzoom.js"></script>
-    <script src="user/Scripts/slide/jquery.bxslider.js"></script>
+        setInterval("heartBeat();", 1000 * 120); // 3phut gửi request một lần
+    });
+    function heartBeat() {
+        $.get("/KeepSession.ashx", function (data) { });
+    }
+</script>
 
-    <script>
-        $(document).ready(function () {
-            $('#bestbuy').bxSlider({
-                adaptiveHeight: true,
-                nextSelector: 'null',
-                mode: 'vertical',
-                minSlides: 4,
-                auto: true,
-                maxSlides: 4,
-                slideMargin: 10,
-                slideWidth: 243,
-            });
+<script src="user/Scripts/jqzoom.js"></script>
+<script src="user/Scripts/slide/jquery.bxslider.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#bestbuy').bxSlider({
+            adaptiveHeight: true,
+            nextSelector: 'null',
+            mode: 'vertical',
+            minSlides: 4,
+            auto: true,
+            maxSlides: 4,
+            slideMargin: 10,
+            slideWidth: 243,
         });
-        $("#bzoom").zoom({
-            zoom_area_width: 450,
-            autoplay_interval: 3000,
-            small_thumbs: 4,
-            autoplay: false
-        });
-    </script>
+    });
+    $("#bzoom").zoom({
+        zoom_area_width: 450,
+        autoplay_interval: 3000,
+        small_thumbs: 4,
+        autoplay: false
+    });
+</script>
 @yield('js')
