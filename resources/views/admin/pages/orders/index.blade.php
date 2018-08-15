@@ -18,13 +18,13 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>{{__('order.admin.id')}}</th>
-                <th>{{__('order.admin.username')}}</th>
-                <th>{{__('order.admin.address')}}</th>
-                <th>{{__('order.admin.total_products')}}</th>
-                <th>{{__('order.admin.processing_status')}}</th>
-                <th>{{__('order.admin.delivery_status')}}</th>
-                <th>{{__('order.admin.payment_status')}}</th>
+                <th>@sortablelink('id', __('order.admin.id'))</th>
+                <th>@sortablelink('user.username', __('order.admin.username'))</th>
+                <th>@sortablelink('address', __('order.admin.address'))</th>
+                <th>@sortablelink('orderdetails_count', __('order.admin.total_products'))</th>
+                <th>@sortablelink('processing_status', __('order.admin.processing_status'))</th>
+                <th>@sortablelink('delivery_status', __('order.admin.delivery_status'))</th>
+                <th>@sortablelink('payment_status', __('order.admin.payment_status'))</th>
                 <th>{{__('order.admin.table.show')}}</th>
                 <th>{{__('order.admin.table.delete')}}</th>
               </tr>
@@ -66,7 +66,7 @@
               @endforeach
             </tbody>
           </table>
-          {{ $orders->render() }}
+          {{ $orders->appends(\Request::except('page'))->links() }}
         </div>
       </div>
     </div>

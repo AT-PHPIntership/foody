@@ -16,8 +16,8 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>{{ __('category.admin.table.id') }}</th>
-                <th>{{ __('category.admin.table.name') }}</th>
+                <th>@sortablelink('id', __('category.admin.table.id'))</th>
+                <th>@sortablelink('name', __('category.admin.table.name'))</th>
                 <th>{{ __('category.admin.table.view_children') }}</th>
                 <th>{{ __('category.admin.table.edit') }}</th>
                 <th>{{ __('category.admin.table.delete') }}</th>
@@ -52,7 +52,7 @@
               @endforeach
             </tbody>
           </table>
-          {{ $categoriesParent->links() }}
+          {{ $categoriesParent->appends(\Request::except('page'))->links() }}
 				</div>
 			</div>
 	</div>

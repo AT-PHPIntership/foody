@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kyslik\ColumnSortable\Sortable;
 
 class Category extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -17,6 +18,8 @@ class Category extends Model
     protected $fillable = [
         'name', 'parent_id'
     ];
+
+    public $sortable = ['id', 'name', 'created_at'];
 
     /**
      * Relationship hasMany with Like

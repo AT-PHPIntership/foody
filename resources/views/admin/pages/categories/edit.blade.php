@@ -27,7 +27,7 @@
             <div class="col-sm-6">
               <div class="form-group form-float">
                 <div class="form-line">
-                  <input type="text" class="form-control" name="name" value="{{ $category->name}}"
+                  <input type="text" class="form-control" name="name" value="{{ old('name', $category->name)}}"
                   minlength="3"> <label class="form-label">{{__('category.admin.table.name') }}</label>
                 </div>
               </div>

@@ -18,7 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categoriesParent = Category::where('parent_id', 0)->paginate(config('paginate.number_categories'));
+        $categoriesParent = Category::where('parent_id', 0)->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_categories'));
         return view('admin.pages.categories.index', compact('categoriesParent'));
     }
 
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function showChild(Category $category)
     {
-        $categoriesChild = $category->children()->paginate(config('paginate.number_categories'));
+        $categoriesChild = $category->children()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_categories'));
         $categoriesParent = $category;
         return view('admin.pages.categories.showChild', compact('categoriesChild', 'categoriesParent'));
     }
