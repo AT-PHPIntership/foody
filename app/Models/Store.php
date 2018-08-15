@@ -20,6 +20,8 @@ class Store extends Model
         'name', 'address', 'phone', 'describe', 'image', 'is_active'
     ];
 
+    public $sortable = ['id', 'name', 'created_at'];
+
     /**
      * Get ShopOpenStatus Object
      *
@@ -46,6 +48,4 @@ class Store extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
-    public $sortable = ['id'];
 }
