@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\User;
+use App\Models\Category;
 
-class UpdateUserRequest extends FormRequest
+class UpdateProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,12 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'full_name'      => 'string|max:255',
-            'birthday'       => 'date_format:"Y-m-d"',
-            'gender'         => 'required|integer|min:0|max:1',
-            'phone'          => 'regex:/^0[0-9]{9,10}$/',
-            'role_id'        => 'required|integer|min:1|max:3',
-            'is_active'      => 'required|integer|min:0|max:1',
+            'name'          => 'required|string|max:255',
+            'describe'      => 'required|string',
+            'price'         => 'required|integer|min:0',
+            'store_id'      => 'required|integer',
+            'category_id'   => 'required|integer',
+            'image.*'        => 'image|mimes:jpeg,png,jpg,gif,svg'
         ];
     }
 }

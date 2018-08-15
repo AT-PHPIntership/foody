@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Browser\Pages\Admin\User;
+namespace Tests\Browser\Pages\Admin\Product;
 
 use Laravel\Dusk\Browser;
 use Laravel\Dusk\Page;
 
-class UpdateUser extends Page
+class DeleteProduct extends Page
 {
     /**
      * Get the URL for the page.
@@ -14,7 +14,7 @@ class UpdateUser extends Page
      */
     public function url()
     {
-        return '/admin/users/2/edit';
+        return '/admin/products';
     }
 
     /**
@@ -26,8 +26,7 @@ class UpdateUser extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->assertSee(__('user.admin.edit.title'))
-                ->assertSee(__('user.admin.edit.update_user'));
+                ->assertSee(__('product.admin.show.form_title'));
     }
 
     /**
