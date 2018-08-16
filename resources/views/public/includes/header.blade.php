@@ -27,7 +27,7 @@
     <section class="header-top">
       <div class="logo">
         <a href="index.html">
-            <img src="user/Files/Images/logo-flyfood-2017.png" alt="FlyFood" />
+            <img src="user/Files/Images/logo-flyfood-2017.png" alt="Foody" />
         </a>
       </div>
       <div class="search">
@@ -82,9 +82,12 @@
   </div>
   <section class="header-bottom container-fluid">
     <div class="container distance-none wrapper">
-      <ul class="menu list-inline left distance-none">
+      <ul class="menu list-inline left distance-none" id="js-menu">
         <li>
-          <a href="Home/Index.html"><i style="font-size:20px;" class="fa fa-home"></i></a>
+          <a href="{{ route('user.home') }}"><i style="font-size:20px;" class="fa fa-home"></i></a>
+        </li>
+        <li>
+          <a href="gioi-thieu.html">Giới thiệu</a>
         </li>
       </ul>
     </div>

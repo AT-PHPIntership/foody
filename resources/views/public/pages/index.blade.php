@@ -214,3 +214,6 @@
     </a>
   </section>
 @endsection
+@section('js')
+  <script src="/js/public/category.js"></script>
+@endsection
