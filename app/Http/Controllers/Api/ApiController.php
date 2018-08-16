@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Traits\ApiResponser;
 
 class ApiController extends Controller
 {
@@ -17,6 +17,5 @@ class ApiController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth:api');
     }
 }

@@ -18,7 +18,7 @@ class ShopOpeningStatusesTableSeeder extends Seeder
         $inputCount = count($inputId);
         for ($i = 1; $i <= $inputCount; $i++) {
             factory(App\Models\ShopOpeningStatus::class,1)->create([
-                'store_id' => $i,
+                'store_id' => $i
             ]);
         }
     }

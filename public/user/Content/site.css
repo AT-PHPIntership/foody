@@ -234,7 +234,7 @@ header {
 }
 
     .header-bottom ul.menu li a {
-        color: #fff;
+        color: #020202;
         display: block;
         padding: 0 10px;
     }
@@ -245,7 +245,7 @@ header {
         }
 
 .menu-top {
-    width: 250px;
+    width: 145px;
     float: left;
     height: 45px;
     color: #fff;

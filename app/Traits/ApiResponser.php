@@ -80,7 +80,7 @@ trait ApiResponser
         ];
         return collect($result);
     }
-
+    
     /**
      * Paginator input data
      *
