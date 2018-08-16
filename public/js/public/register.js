@@ -6,7 +6,7 @@ $(document).ready(function () {
     event.preventDefault();
       $.ajax({
           url: "/api/register",
-          method: "POST",
+          type: "POST",
           headers: {
             'Accept': 'application/json',
           },
@@ -21,14 +21,25 @@ $(document).ready(function () {
             role_id: 3,
           },
           success: function (response) {
-            console.log(response.result.token);
+            // $('.register-form').html('Registration is successful, please login');
+            // $('.register-form').css('color', 'green');
+            // $('.register-form').show();
+            // $('.modal').fadeOut(3000,function() { 
+            //   $(this).remove();
+            //   $("body").removeClass("modal-open");
+            // });
+            console.log(response);
           },
           error: function (response) {
-            errors = Object.keys(response.responseJSON.errors);
+            errors = Object.keys(response.responseJSON.error);
+            //code = Object.keys(response.responseJSON.code);
+            //console.log(code);
+            console.log(response);
             errors.forEach(error => {
-                $('#valmsg-' + error).html(response.responseJSON.errors[error]);
-                $('#valmsg-' + error).css('color', 'red');
-                $('#valmsg-' + error).show();
+                // $('#valmsg-' + error).html(response.responseJSON.errors[error]);
+                // $('#valmsg-' + error).css('color', 'red');
+                // $('#valmsg-' + error).show();
+                //console.log(response.responseJSON.code);
             });
         }
       });

@@ -30,10 +30,10 @@ trait ApiResponser
      *
      * @return \Illuminate\Http\Response
      */
-    public function errorResponse($message, $code)
-    {
-      return response()->json(['errors' => $message, 'code' => $code], $code);
-    }
+     public function errorResponse($message, $code)
+     {
+         return response()->json(['error' => $message, 'code' => $code], $code);
+     }
 
     /**
      * Show All data of a Collection

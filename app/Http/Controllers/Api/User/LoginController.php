@@ -36,17 +36,4 @@ class LoginController extends ApiController
             return $this->successResponse($data, Response::HTTP_OK);
         }
     }
-    public function test()
-    {
-        //dd(1);
-        $str = User::where('username', 'luigi82')->first();
-        dd($str);
-        // $input = $request->except('password');
-        // $input['password'] = bcrypt($request->password);
-        // if(User::where('username', 'luigi82') || User::where('email', 'libbie.damore@example.org')) {
-        //     return 1;
-        // }else {
-        //     return 2;
-        // }
-    }
 }
