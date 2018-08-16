@@ -145,7 +145,7 @@
     <script src="http://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
 </footer>
 <!-- Modal -->
-{{-- <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
   <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -215,8 +215,8 @@
           </div>
       </div>
   </div>
-</div> --}}
-{{-- <script>
+</div>
+<script>
   var checkLogin = function (data) {
     showMark();
     if (data.result == 1) {
@@ -234,7 +234,7 @@
       $('#modal-message').html(data.message);
     }
   }
-</script> --}}
+</script>
 <!-- Modal -->
 <div class="modal fade" id="modalSingin" tabindex="-1" role="dialog" aria-labelledby="modalSinginLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -250,31 +250,82 @@
               <div class="panel-body register-form">
                 <p id="modal-message-reg">Vui lòng điền đầy đủ thông tin</p>
                 <div class="row">
+                  {{-- <form class="signinFrom" action="#" data-ajax="true" data-ajax-failure="checkLogin_reg" data-ajax-method="Post" data-ajax-success="checkLogin_reg" enctype="multipart/form-data" id="_singinForm" method="post" novalidate="novalidate">
+                    @csrf
+                    @method('POST')
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <span class="field-validation-error" data-valmsg-for="UserName" data-valmsg-replace="true">
+                          <span for="UserName" generated="true" class="">Vui lòng nhập tên đăng nhập</span>
+                        </span>
+                        <div class="form-group input-group">
+                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                          <input class="form-control input-validation-error" data-val="true" data-val-length="Chiều dài 1-50" data-val-length-max="50" data-val-regex="Tên đăng nhập phải là chữ hoặc số" data-val-regex-pattern="([a-zA-Z0-9 .&amp;'-]+)" 
+                          data-val-required="Vui lòng nhập tên đăng nhập" id="UserName" name="UserName" placeholder="Tên đăng nhập" type="text" value="">
+                        </div>
+                        <span class="field-validation-error" data-valmsg-for="Password" data-valmsg-replace="true"><span for="Password" generated="true" class="">Vui lòng nhập mật khẩu</span></span>
+                        <div class="form-group input-group">
+                          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                          <input class="form-control input-validation-error" data-val="true" data-val-length="Chiều dài 8-50" data-val-length-max="50" data-val-length-min="8" data-val-required="Vui lòng nhập mật khẩu" id="Password" name="Password" placeholder="Mật khẩu" type="password">
+                        </div>
+                        <span class="field-validation-error" data-valmsg-for="FullName" data-valmsg-replace="true"><span for="FullName" generated="true" class="">Vui lòng nhập họ tên</span></span>
+                        <div class="form-group input-group">
+                          <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                          <input class="form-control input-validation-error" data-val="true" data-val-length="Chiều dài 1-100" data-val-length-max="100" data-val-required="Vui lòng nhập họ tên" id="FullName" name="FullName" placeholder="Họ tên" type="text" value="">
+                        </div>
+                        <span class="field-validation-valid" data-valmsg-for="GIOITINH" data-valmsg-replace="true"></span>
+                        <div class="form-group input-group">
+                          <span class="input-group-addon"><i class="fa fa-female"></i></span>
+                          <select class="form-control valid" data-val="true" data-val-required="Vui lòng chọn giới tính" id="GIOITINH" name="GIOITINH"><option value="">Chọn giới tính</option>
+                            <option selected="selected" value="False">Nữ</option>
+                            <option value="True">Nam</option>
+                          </select>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-6">
+                      <span class="field-validation-error" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"><span for="PhoneNumber" generated="true" class="">Vui lòng nhập điện thoại</span></span>
+                      <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input class="form-control input-validation-error" data-val="true" data-val-length="Chiều dài 1-20" data-val-length-max="20" data-val-regex="Điện thoại không đúng định dạng" data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" data-val-required="Vui lòng nhập điện thoại" id="PhoneNumber" name="PhoneNumber" placeholder="Điện thoại" type="text" value="">
+                      </div>
+                      <span class="field-validation-error" data-valmsg-for="Email" data-valmsg-replace="true"><span for="Email" generated="true" class="">Vui lòng nhập Email</span></span>
+                      <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input class="form-control input-validation-error" data-val="true" data-val-regex="Email không đúng định dạng!" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required="Vui lòng nhập Email" id="Email" name="Email" placeholder="Email" type="text" value="">
+                      </div>
+                      <div class="form-group">
+                        <button onclick="showMark();" type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
+                          <i class="fa fa-edit"></i>Đăng ký
+                        </button>
+                      </div>
+                    </div>
+                  </form> --}}
                   <form action="" data-ajax="true" data-ajax-failure="checkLogin_reg" data-ajax-method="Post" data-ajax-success="checkLogin_reg" enctype="multipart/form-data" id="test-sm" method="post">
                     {{-- <input name="__RequestVerificationToken" type="hidden" value="EJYasR6VVTAlso-GYCald9yMmpJh6YDFVlGwgChERmzOIf7LtoGCzSM9RYL1f3UuRfjnRTU-F61w-PMQbgroTs48jd-DeeTMMWipgbGFalQ1" />                                         --}}
                     @csrf
                     @method('POST')
                     <div class="col-lg-6">
                       <fieldset>
-                        <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                        <span id="valmsg-username" class="field-validation-valid" data-valmsg-for="username" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-user"></i></span>
                           <input class="form-control" data-val="true" data-val-length="Chiều dài 1-50" data-val-length-max="50" data-val-regex="Tên đăng nhập phải là chữ hoặc số" 
-                          data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required="Vui lòng nhập tên đăng nhập" id="UserName" name="username" placeholder="Tên đăng nhập" type="text" value="" />
+                          data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required="Vui lòng nhập tên đăng nhập" id="username" name="username" placeholder="Tên đăng nhập" type="text" value="" />
                         </div>
-                        <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                        <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                           <input class="form-control" data-val="true" data-val-length="Chiều dài 8-50" data-val-length-max="50" data-val-length-min="8" 
-                          data-val-required="Vui lòng nhập mật khẩu" id="Password" name="password" placeholder="Mật khẩu" type="password" />
+                          data-val-required="Vui lòng nhập mật khẩu" id="password" name="password" placeholder="Mật khẩu" type="password" />
                         </div>
-                        <span class="field-validation-valid" data-valmsg-for="FullName" data-valmsg-replace="true"></span>
+                        <span class="field-validation-valid" data-valmsg-for="full_name" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-users"></i></span>
                           <input class="form-control" data-val="true" data-val-length="Chiều dài 1-100" data-val-length-max="100" 
-                          data-val-required="Vui lòng nhập họ tên" id="fullName" name="full_name" placeholder="Họ tên" type="text" value="" />
+                          data-val-required="Vui lòng nhập họ tên" id="full_name" name="full_name" placeholder="Họ tên" type="text" value="" />
                         </div>
-                        <span class="field-validation-valid" data-valmsg-for="GIOITINH" data-valmsg-replace="true"></span>
+                        <span class="field-validation-valid" data-valmsg-for="gender" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-female"></i></span>
                           <select class="form-control" data-val="true" data-val-required="Vui lòng chọn giới tính" id="gender" name="gender">
@@ -286,30 +337,24 @@
                       </fieldset>
                     </div>
                     <div class="col-lg-6">
-                      <span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+                      <span class="field-validation-valid" data-valmsg-for="phone" data-valmsg-replace="true"></span>
                       <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                         <input class="form-control" data-val="true" data-val-length="Chiều dài 1-20" data-val-length-max="20" data-val-regex="Điện thoại không đúng định dạng" data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" 
-                        data-val-required="Vui lòng nhập điện thoại" id="PhoneNumber" name="phone" placeholder="Điện thoại" type="text" value="" />
+                        data-val-required="Vui lòng nhập điện thoại" id="phone" name="phone" placeholder="Điện thoại" type="text" value="" />
                       </div>
-                      <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                      <span id="valmsg-email" class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
                       <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input class="form-control" data-val="true" data-val-regex="Email không đúng định dạng!" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required="Vui lòng nhập Email" id="Email" name="email" placeholder="Email" type="text" value="" />
+                        <input class="form-control" data-val="true" data-val-regex="Email không đúng định dạng!" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required="Vui lòng nhập Email" id="email" name="email" placeholder="Email" type="text" value="" />
                       </div>
                       <div class="form-group">
-                        <button type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
+                        <button onclick="showMark();" type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
                           <i class="fa fa-edit"></i>Đăng ký
                         </button>
                       </div>
                     </div>
-                  </form>    
-                  {{-- <form action="" id="test-sm" method="post">
-                      @csrf
-                      @method('POST')
-                      <input type="text" name="test" id="test" value="1">
-                      <button type="submit">SM</button>
-                  </form>                             --}}
+                  </form>
                 </div>
               </div>
             </div>

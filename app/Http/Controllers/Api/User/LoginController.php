@@ -23,44 +23,30 @@ class LoginController extends ApiController
     {
         $input = $request->except('password');
         $input['password'] = bcrypt($request->password);
-        $user = User::create($input);
-        $data['token'] =  $user->createToken('token')->accessToken;
-        //dd($user->createToken('token')->accessToken);
-        $data['user'] =  $user;
-        return $this->successResponse($data, Response::HTTP_OK);
-        //return $user;
-        //return $data['token'];
-        // return $request;
+        if(User::where('username', $input['username'])->first() || User::where('email', $input['email'])->first()) {
+            $error = [
+                'username' => 'The username has already been taken.',
+                'email' => 'The email has already been taken.',
+            ];
+            return $this->errorResponse($error, Response::HTTP_UNPROCESSABLE_ENTITY);
+        } else {
+            $user = User::create($input);
+            $data['token'] =  $user->createToken('token')->accessToken;
+            $data['user'] =  $user;
+            return $this->successResponse($data, Response::HTTP_OK);
+        }
     }
-    // public function register(Request $request)
-    // {
-    //     // $user = User::find(1);
-    //     // $data['token'] =  $user->createToken('token')->accessToken;
-    //     //$data = $input;
-    //     //dd($request);
-    //     return $request;
-    //     // $data['user'] =  $user;
-    //     // return $this->successResponse($data, Response::HTTP_OK);
-    // }
-
-    public function test(Request $request)
+    public function test()
     {
-        
-        $user = User::create([
-            'username' => 'asasas',
-            'full_name' => 'asassd',
-            'gender' => 1,
-            'phone' => '01652638375',
-            'email' => 'lebavy1611@gmail.com',
-            'birthday' => '1996-11-16',
-            'role_id' => 3,
-            'password' => '$2y$10$oCwTHNtFvuj8p6XbjsGOreNl7HRmT0MHwK0D6gvPkg0RHbJua3oR.'
-        ]);
-        $data['token'] =  $user->createToken('token')->accessToken;
-        //dd($user->createToken('token')->accessToken);
-        //$data['user'] =  $user;
-        //return $this->successResponse($data, Response::HTTP_OK);
-        return $data['token'];
-        //return $user->createToken('token')->accessToken;
+        //dd(1);
+        $str = User::where('username', 'luigi82')->first();
+        dd($str);
+        // $input = $request->except('password');
+        // $input['password'] = bcrypt($request->password);
+        // if(User::where('username', 'luigi82') || User::where('email', 'libbie.damore@example.org')) {
+        //     return 1;
+        // }else {
+        //     return 2;
+        // }
     }
 }

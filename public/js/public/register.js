@@ -6,7 +6,7 @@ $(document).ready(function () {
     event.preventDefault();
       $.ajax({
           url: "/api/register",
-          type: "post",
+          method: "POST",
           headers: {
             'Accept': 'application/json',
           },
@@ -23,9 +23,20 @@ $(document).ready(function () {
           success: function (response) {
             console.log(response.result.token);
           },
+          error: function (response) {
+            errors = Object.keys(response.responseJSON.errors);
+            errors.forEach(error => {
+                $('#valmsg-' + error).html(response.responseJSON.errors[error]);
+                $('#valmsg-' + error).css('color', 'red');
+                $('#valmsg-' + error).show();
+            });
+        }
       });
      
   });
+  // $('#singinForm').submit(function(event) {
+
+  //     });
 
   // $('#singinForm').submit(function(event) {
   //   event.preventDefault();
