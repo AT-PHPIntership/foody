@@ -7,7 +7,7 @@
       <i class="fa fa-angle-double-right"></i>
     </li>
       <li>
-      <a href="/san-pham.html">Sản phẩm</a>
+      <a href="/san-pham.html">{{ __('user/product.title')}}</a>
       <i class="fa fa-angle-double-right"></i>
     </li>
     <li>
@@ -74,13 +74,10 @@
             </h2>
             <ul class="list-inline distance-none spdetail">
               <li>
-                Mã SP: DFD0
+                <i class="fa fa-tags"></i>29 {{ __('user/product.number_orders')}}
               </li>
               <li>
-                <i class="fa fa-tags"></i>29 lượt mua
-              </li>
-              <li>
-                <i class="fa fa-eye"></i>156 lượt xem
+                <i class="fa fa-eye"></i>156 {{ __('user/product.views')}}
               </li>
             </ul>
           </div>
@@ -89,14 +86,11 @@
               Ngon kh&#244;ng cưỡng nổi vị g&#224; hấp nước mắm nhĩ đậm đ&#224;, thơm ngon c&#249;ng x&#244;i 3 m&#224;u, 3 vị đẹp mắt, ngon miệng. M&#243;n mới của Flyfood G&#224; hấp nước mắm sẽ để lại dấu ấn kh&#243; qu&#234;n với c&#225;c t&#237;n đồ m&#234; G&#224; n&#243;i chung v&#224; m&#234; G&#224; b&#243; x&#244;i của Flyfood n&#243;i ri&#234;ng bao l&#226;u nay. 
             </p>
             <div class="price left">
-              <span class="only-price">390.000 VNĐ</span>
+              <span class="only-price">390.000 {{ __('user/product.currency')}}</span>
             </div>
             <div class="right social text-right">
-              <p>
-                Mã SP: DFD0
-              </p>
               <p style="color:#ff0000">
-                <strong>Giá đã bao gồm 10% thuế VAT</strong>
+                <strong>{{ __('user/product.VAT')}}</strong>
               </p>
               <p>
                 <div class="ic">
@@ -115,20 +109,20 @@
             <div class="col-lg-12 distance-none left">
               <div class="col-lg-6 left spdetail distance-none">
                 <p>
-                  <b>Chọn loại:</b>
+                  <b>{{ __('user/product.choose')}}</b>
                   <span class="size active" data-val="1">Chuẩn</span>
                 </p>
                 <div>
                   <label class="sl-validate field-validation-error"></label>
                   <div class="form-group input-group col-lg-12">
-                    <span class="input-group-addon">Số lượng</span>
+                    <span class="input-group-addon">{{ __('user/product.quantity')}}</span>
                     <input id="Soluong" type="text" class="form-control" placeholder="Số lượng" value="1" onchange="CheckNumber(this);" />
                   </div>
                 </div>
                 <div>
                   <div class="form-group col-lg-12 distance-none">
                     <button id="btn-muangay" onclick="addToCart('dfd0080818181107251');" type="button" class="btn btn-lg btn-primary btn-block btn-success text-capitalize">
-                      <i class="fa fa-shopping-cart"></i>Mua Ngay
+                      <i class="fa fa-shopping-cart"></i>{{ __('user/product.buy_now')}}
                     </button>
                   </div>
                 </div>
@@ -145,7 +139,7 @@
     <div class="col-lg-12 full distance-none">
         <div class="col-lg-8 spcontent distance-none">
           <div class="title border-bottom">
-            <h1 class="distance-none text-uppercase" style="margin-left:0;">Thông tin chi tiết</h1>
+            <h1 class="distance-none text-uppercase" style="margin-left:0;">{{ __('user/product.detail')}}</h1>
           </div>
           <span class="show-more fa fa-angle-double-down" onclick="showcontent(this);"></span>
           <section class="left full">
@@ -175,20 +169,19 @@
             <br />
             &nbsp;</p>
             <div style="box-sizing: border-box; color: rgb(71, 71, 71); font-family: &quot;Open Sans&quot;, Arial; font-size: 14px; line-height: 20px; text-align: justify; clear: both;">&nbsp;</div>
-            <p style="text-align:center"><strong>Hấp dẫn v&ocirc; c&ugrave;ng, c&agrave;ng ăn c&agrave;ng ngon!</strong></p>
-            <p style="text-align:center"><span style="color:rgb(255, 0, 0)"><strong>Giao h&agrave;</strong><strong>ng cực nhanh, từ 60 đến 90 ph&uacute;t.</strong></span></p>
-            <p style="text-align:center"><span style="color:rgb(255, 0, 0)"><strong>Vui l&ograve;ng đặt h&agrave;ng trước 16h (sau 16h00 c&oacute; thể hết h&agrave;ng)</strong></span></p>
+            <p style="text-align:center"><strong>{{ __('user/product.line_1')}}</strong></p>
+            <p style="text-align:center"><span style="color:rgb(255, 0, 0)"><strong>{{ __('user/product.line_2')}}</strong></span></p>
+            <p style="text-align:center"><span style="color:rgb(255, 0, 0)"><strong>{{ __('user/product.line_3')}}</strong></span></p>
             <p style="text-align:center">&nbsp;</p>
             <p style="text-align:center"><strong><img alt="" src="image/data/card&#32;qua&#32;tang.png" style="border:0px; box-sizing:border-box; height:76px; vertical-align:middle; width:113.297px" /></strong></p>
-            <p style="text-align:center"><span style="font-size:22px"><span style="color:rgb(255, 0, 0)"><strong>Gọi ngay: 028 39 911 911</strong></span></span></p>
-            <p style="text-align:center"><span style="font-size:16px"><span style="color:rgb(0, 128, 0)"><strong><em>Flyfood &ndash; Fast &amp; Hot: &ldquo;Hiện tượng mới&rdquo; cho dịch vụ ăn uống S&agrave;i G&ograve;n 2014!</em></strong></span></span></p>
+            <p style="text-align:center"><span style="font-size:22px"><span style="color:rgb(255, 0, 0)"><strong>{{ __('user/product.line_4')}}</strong></span></span></p>
             <p style="text-align:center">&nbsp;</p>
-            <p style="text-align:right"><span style="color:rgb(255, 0, 0)"><strong>Flyfood.vn</strong></span></p>
+            <p style="text-align:right"><span style="color:rgb(255, 0, 0)"><strong>{{ __('user/product.domain')}}</strong></span></p>
           </section>
         </div>
         <div class="col-lg-4 sprelation">
           <div class="title border-bottom">
-            <h1 class="distance-none text-uppercase" style="margin-left:0;">Thực đơn món mới</h1>
+            <h1 class="distance-none text-uppercase" style="margin-left:0;">{{ __('user/product.newest_products')}}</h1>
           </div>
           <section class="product product-home">
             <ul id="bestbuy" class="left full distance-none" >

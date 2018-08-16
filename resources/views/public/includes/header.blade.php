@@ -32,7 +32,7 @@
       </div>
       <div class="search">
         <div class="form-group input-group distance-none">
-          <input id="txtsearchFull" type="text" class="form-control" placeholder="Từ khóa tìm kiếm...">
+          <input id="txtsearchFull" type="text" class="form-control" placeholder="{{ __('user/index.search')}}">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" onclick="Search('/');">
               <i class="fa fa-search"></i>
@@ -44,13 +44,13 @@
         <ul class="list-inline">
           <li>
             <img src="user/Files/Images/hotro.png">
-            <h2>Tổng đài đặt hàng</h2>
-            <p>Vui lòng gọi: (028)39.911.911</p>
+            <h2>{{ __('user/index.hotline')}}</h2>
+            <p>{{ __('user/index.please_call')}}</p>
           </li>
           <li>
             <img src="user/Files/Images/vanchuyen.png">
-            <h2>Khu vực giao hàng</h2>
-            <p>Đơn hàng từ 1000k - Miễn phí giao hàng</p>
+            <h2>{{ __('user/index.delivery_area')}}</h2>
+            <p>{{ __('user/index.free_delivery')}}</p>
           </li>
         </ul>
       </div>
@@ -60,14 +60,14 @@
     <div class="container wrapper">
       <ul class="menu-right list-inline right distance-none">
         <li class="login" onclick="LoginPopup();">
-            <i class="fa fa-sign-in"></i>Đăng nhập
+            <i class="fa fa-sign-in"></i>{{ __('user/index.login')}}
         </li>
         <li class="singin" onclick="SinginPopup();">
-            <i class="fa fa-edit"></i>Đăng ký
+            <i class="fa fa-edit"></i>{{ __('user/index.register')}}
         </li>
         <li class="shopping-cart" id="shopping-cart">
           <i class="fa fa-shopping-cart"></i>
-          <span class="shopping-cart-show"> Giỏ hàng (0)</span>
+          <span class="shopping-cart-show"> {{ __('user/index.cart')}} (0)</span>
           <script>
             $('.shopping-cart-show').click(function () {
               $('.box-cart').toggleClass("active");

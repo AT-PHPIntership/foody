@@ -16,8 +16,8 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>@sortablelink('id', 'ID')</th>
-              <th>{{ __('store.admin.name') }}</th>
+              <th>@sortablelink('id', __('store.admin.id'))</th>
+              <th>@sortablelink('name', __('store.admin.name'))</th>
               <th>{{ __('store.admin.address') }}</th>
               <th>{{ __('store.admin.active') }}</th>
               <th>{{ __('store.admin.table.show') }}</th>

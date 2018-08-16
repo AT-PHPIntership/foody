@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kyslik\ColumnSortable\Sortable;
 
 class Order extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Sortable;
 
     const APPROVED_ID = 1;
     const CANCEL_ID = 2;
@@ -26,6 +27,10 @@ class Order extends Model
         'user_id', 'address', 'money_ship', 'processing_status', 'submit_time', 'delivery_time', 'customer_note', 'payment_status'
     ];
 
+    protected $sortable = ['id', 'user_id', 'address', 'money_ship', 'processing_status', 'submit_time', 'delivery_time', 'customer_note', 'payment_status'];
+
+    protected $sortableAs = ['orderdetails_count'];
+
     /**
      * Get User Object
      *
@@ -37,11 +42,12 @@ class Order extends Model
     }
 
     /**
-     * Get OrderDetail for Order
+     * Get OrderDetail for Order, the name's function isn't the Camel, because Kyslik\ColumnSortable\Sortable
+     * doesn't allow the Camel when using withCount().
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function orderDetails()
+    public function orderdetails()
     {
         return $this->hasMany(OrderDetail::class, 'order_id', 'id');
     }
