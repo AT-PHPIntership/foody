@@ -411,20 +411,6 @@
 <script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="user/Scripts/owl.carousel.min.js"></script>
 <script src="js/public/register.js"></script>
-<script>
-    $(function () {
-        $('form').submit(function () {
-            if (!$(this).valid()) {
-                hideMark();
-                return false;
-            }
-        });
-        setInterval("heartBeat();", 1000 * 120); // 3phut gửi request một lần
-    });
-    function heartBeat() {
-        $.get("/KeepSession.ashx", function (data) { });
-    }
-</script>
 
 <script src="user/Scripts/jqzoom.js"></script>
 <script src="user/Scripts/slide/jquery.bxslider.js"></script>

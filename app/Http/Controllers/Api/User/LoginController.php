@@ -23,7 +23,7 @@ class LoginController extends ApiController
     {
         $input = $request->except('password');
         $input['password'] = bcrypt($request->password);
-        if(User::where('username', $input['username'])->first() || User::where('email', $input['email'])->first()) {
+        if (User::where('username', $input['username'])->first() || User::where('email', $input['email'])->first()) {
             $error = [
                 'username' => 'The username has already been taken.',
                 'email' => 'The email has already been taken.',
