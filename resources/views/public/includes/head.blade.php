@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width" />
-<title>G&#192; HẤP NƯỚC MẮM</title>
+<title>{{ __('user/index.title')}}</title>
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" media="all" type="text/css" />
 <link href="user/Content/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
 <link href="user/Content/font-awesome/css/font-awesome.css" rel="stylesheet"/>
