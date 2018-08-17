@@ -15,7 +15,7 @@ class CategoryController extends ApiController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function showMenu()
     {
         $categories = Category::where('parent_id', 0)->with('children')->get();
         return $this->showAll($categories, Response::HTTP_OK);

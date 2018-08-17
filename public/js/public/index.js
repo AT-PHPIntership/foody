@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "/api/categories",
+        url: "/api/categories/show-menu",
         type: "get",
         success: function(result) {
             let html = '';
@@ -32,6 +32,21 @@ $(document).ready(function() {
                 
             });
             $('#js-menu').append(html);
+        }
+    });
+    $.ajax({
+        url: "/api/products/show-newest?number_products=8",
+        type: "get",
+        success: function(result) {
+            let html = '';
+            let i = 1;
+            result.result.forEach(product => {
+                $('#img-pro-newest-' + i).attr('src', 'images/products/'+ product.images[1].path);
+                $('#name-pro-newest-' + i).html(product.name);
+                $('#store-pro-newest-' + i + ' span').html(product.store.name);
+                $('#price-pro-newest-' + i + ' span').html(product.price +' đ');
+                i++;
+            });
         }
     });
 });
