@@ -10,8 +10,6 @@ use App\Models\User;
 use App\Http\Requests\User\RegisterRequest;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
-use DB;
-use Carbon\Carbon;
 
 class LoginController extends ApiController
 {
@@ -30,5 +28,18 @@ class LoginController extends ApiController
         } else {
             return $this->errorResponse(config('define.login.unauthorised'), Response::HTTP_UNAUTHORIZED);
         }
+    }
+
+    /**
+     * Logout
+     *
+     * @return 204
+     */
+    public function logout()
+    {
+        $user = Auth::user();
+        $accessToken = $user->token();
+        $accessToken->revoke();
+        return $this->successResponse(null, Response::HTTP_NO_CONTENT);
     }
 }
