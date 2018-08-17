@@ -104,7 +104,12 @@ class RegisterTest extends TestCase
         $data = json_decode($response->getContent())->result->user;
         $userCompare = [
             'username' => $data->username,
+            'full_name' => $data->full_name,
+            'birthday' => $data->birthday,
+            'gender' => $data->gender,
+            'phone' => $data->phone,
             'email' => $data->email,
+            'role_id' => $data->role_id,
         ];
         $this->assertDatabaseHas('users', $userCompare);
     }
