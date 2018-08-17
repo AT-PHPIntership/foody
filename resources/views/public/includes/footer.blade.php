@@ -3,21 +3,20 @@
     <div class="container wrapper distance-none">
       <div class="panel panel-default distance-none">
         <div class="panel-heading">
-          <h3 class="text-uppercase">Thông tin liên hệ</h3>
+          <h3 class="text-uppercase">{{ __('user/index.register')}}</h3>
         </div>
         <div class="panel-body">
-          <p><b class="text-uppercase">flyfood - quảng bá ẩm thực truyền thống việt nam!</b></p>
-          <p><b><i class="fa fa-map-marker"></i> Trụ sở:</b> 7/3 Hồ Biểu Chánh, P.12, Q.Phú Nhuận, TP.HCM</p>
-          <p><b><i class="fa fa-phone"></i>Hotline:</b> (028)39.911.911</p>
-          <p><b><i class="fa fa-facebook"></i>Facebook:</b> <a href="http://facebook.com/flyfood.vn">facebook.com/flyfood.vn</a></p>
-          <p><b><i class="fa fa-globe"></i>Website:</b> <a href="index.html">flyfood.vn</a></p>
-          <p><b><i class="fa fa-envelope-o"></i>Email:</b> flyfoodhcm@gmail.com</p>
-          <p><b><i class="fa fa-skype"></i>Skype:</b> Flyfoodhcm</p>
+          <p><b class="text-uppercase">{{ __('user/index.contact_infor')}}</b></p>
+          <p><b><i class="fa fa-map-marker"></i> {{ __('user/index.sologan')}}</b>{{ __('user/index.address')}}</p>
+          <p><b><i class="fa fa-phone"></i>{{ __('user/index.hotline')}}</b> {{ __('user/index.hotline_phone')}}</p>
+          <p><b><i class="fa fa-facebook"></i>{{ __('user/index.facebook')}}</b> <a href="http://facebook.com/flyfood.vn">{{ __('user/index.facebook_acc')}}</a></p>
+          <p><b><i class="fa fa-globe"></i>{{ __('user/index.website')}}</b> <a href="index.html">{{ __('user/index.domain')}}</a></p>
+          <p><b><i class="fa fa-envelope-o"></i>{{ __('user/index.email')}}</b> {{ __('user/index.email_acc')}}</p>
         </div>
       </div>
       <div class="panel panel-default distance-none">
         <div class="panel-heading">
-          <h3 class="text-uppercase">Tin nhanh</h3>
+          <h3 class="text-uppercase">{{ __('user/index.hot_new')}}</h3>
         </div>
         <div class="panel-body">
           <ul>
@@ -96,12 +95,12 @@
       </div>
       <div class="panel panel-default distance-none">
         <div class="panel-heading">
-          <h3 class="text-uppercase">Facebook</h3>
+          <h3 class="text-uppercase">{{ __('user/index.hot_new')}}</h3>
         </div>
         <div class="panel-body">
           <div class="fb-page" data-href="https://www.facebook.com/flyfood.vn" data-width="100%" data-height="150px" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/flyfood.vn"><a href="https://www.facebook.com/flyfood.vn">Flyfood.vn</a></blockquote></div></div>
           <p style="margin-top:15px;">
-            <a href="https://www.facebook.com/flyfood.vn" class="text-uppercase distance-none" style="color: #fd7605;font-weight:600;font-size:14px;">Kết nối với flyfood</a>
+            <a href="https://www.facebook.com/flyfood.vn" class="text-uppercase distance-none" style="color: #fd7605;font-weight:600;font-size:14px;">{{ __('user/index.connect')}}</a>
             <a href="https://www.facebook.com/flyfood.vn" target="_blank" class="btn btn-primary btn-circle btn-lg">
               <i class="fa fa-facebook"></i>
             </a>
@@ -119,24 +118,11 @@
     <section class="footer-bottom">
       <div class="container wrapper ">
         <address class="left">
-          <div class="footer-mobile">
-              Hotline: <b>(028)39.911.911</b> 7:30 -20:00<br />
-              Miễn phí giao hàng đơn hàng >=1.000.000đ<br />
-          </div>
-          Copyright © 2018 <a href="index.html">flyfood.vn</a>. All rights reserved.
+            {{ __('user/index.copy_right')}}
         </address>
         <ul class="list-inline right">
           <li>
-            <a href="chinh-sach-bao-mat-flyfood-detail-4ed3180116110956315.html">Chính sách bảo mật</a>
-          </li>
-          <li>
-            <a href="dieu-khoan-su-dung-website-flyfood-detail-28cf180116111951153.html">Điều khoản sử dụng</a>
-          </li>
-          <li>
-            <a href="quy-trinh-huong-dan-dat-hang-online-tai-flyfoodvn-detail-81d1180116115450489.html">Hướng dẫn mua hàng</a>
-          </li>
-          <li>
-            <a href="nhan-dien-thuong-hieu-flyfood-detail-86ef180116110049580.html">Nhận diện thương hiệu</a>
+            <a href="chinh-sach-bao-mat-flyfood-detail-4ed3180116110956315.html">{{ __('user/index.privacy_policy')}}</a>
           </li>
         </ul>
       </div>
@@ -428,7 +414,6 @@
 <script src="user/Scripts/_references.js"></script>
 <script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="user/Scripts/owl.carousel.min.js"></script>
-<script src="js/public/register.js"></script>
 <script src="js/public/login.js"></script>
 <script src="js/public/logout.js"></script>
 <script>

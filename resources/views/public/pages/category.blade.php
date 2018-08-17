@@ -7,7 +7,7 @@
       <i class="fa fa-angle-double-right"></i>
     </li>
       <li>
-      <a href="/san-pham.html">Sản phẩm</a>
+      <a href="/san-pham.html">{{ __('user/category.title')}}</a>
       <i class="fa fa-angle-double-right"></i>
     </li>
     <li>
@@ -61,7 +61,7 @@
         </div>
         <div class="item-addCart-hover">
                     <span class="item-addCart btn btn-default btn-lg text-capitalize" onclick="muangay('eb91230418180811629','1','1');">
-                        <i class="fa fa-shopping-cart"></i>Mua ngay
+                        <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
                     </span>
             <div class="row">
                 <div class="col-lg-12">
@@ -76,7 +76,7 @@
                     <a href="javascript:;" onclick="ShareSocial('/ga-bo-xoi-2-mau-om-trung-hat-sen-%E2%80%93-vi-tieu-xanh-spdetail-eb91230418180811629.html','G&#192; B&#211; X&#212;I 2 M&#192;U &#212;M TRỨNG HẠT SEN – VỊ TI&#202;U XANH');">
                         <div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chia sẻ">
                             <p><i class="fa fa-share-alt"></i></p>
-                            <p>Share</p>
+                            <p>{{ __('user/index.share')}}</p>
                         </div>
                     </a>
                 </div>
@@ -101,7 +101,7 @@
         </div>
         <div class="item-addCart-hover">
                     <span class="item-addCart btn btn-default btn-lg text-capitalize" onclick="muangay('eb91230418180811629','1','1');">
-                        <i class="fa fa-shopping-cart"></i>Mua ngay
+                        <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
                     </span>
             <div class="row">
                 <div class="col-lg-12">
@@ -116,7 +116,7 @@
                     <a href="javascript:;" onclick="ShareSocial('/ga-bo-xoi-2-mau-om-trung-hat-sen-%E2%80%93-vi-tieu-xanh-spdetail-eb91230418180811629.html','G&#192; B&#211; X&#212;I 2 M&#192;U &#212;M TRỨNG HẠT SEN – VỊ TI&#202;U XANH');">
                         <div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chia sẻ">
                             <p><i class="fa fa-share-alt"></i></p>
-                            <p>Share</p>
+                            <p>{{ __('user/index.share')}}</p>
                         </div>
                     </a>
                 </div>
@@ -141,7 +141,7 @@
         </div>
         <div class="item-addCart-hover">
                     <span class="item-addCart btn btn-default btn-lg text-capitalize" onclick="muangay('eb91230418180811629','1','1');">
-                        <i class="fa fa-shopping-cart"></i>Mua ngay
+                        <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
                     </span>
             <div class="row">
                 <div class="col-lg-12">
@@ -156,7 +156,7 @@
                     <a href="javascript:;" onclick="ShareSocial('/ga-bo-xoi-2-mau-om-trung-hat-sen-%E2%80%93-vi-tieu-xanh-spdetail-eb91230418180811629.html','G&#192; B&#211; X&#212;I 2 M&#192;U &#212;M TRỨNG HẠT SEN – VỊ TI&#202;U XANH');">
                         <div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chia sẻ">
                             <p><i class="fa fa-share-alt"></i></p>
-                            <p>Share</p>
+                            <p>{{ __('user/index.share')}}</p>
                         </div>
                     </a>
                 </div>
@@ -181,7 +181,7 @@
         </div>
         <div class="item-addCart-hover">
                     <span class="item-addCart btn btn-default btn-lg text-capitalize" onclick="muangay('eb91230418180811629','1','1');">
-                        <i class="fa fa-shopping-cart"></i>Mua ngay
+                        <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
                     </span>
             <div class="row">
                 <div class="col-lg-12">
@@ -196,7 +196,7 @@
                     <a href="javascript:;" onclick="ShareSocial('/ga-bo-xoi-2-mau-om-trung-hat-sen-%E2%80%93-vi-tieu-xanh-spdetail-eb91230418180811629.html','G&#192; B&#211; X&#212;I 2 M&#192;U &#212;M TRỨNG HẠT SEN – VỊ TI&#202;U XANH');">
                         <div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chia sẻ">
                             <p><i class="fa fa-share-alt"></i></p>
-                            <p>Share</p>
+                            <p>{{ __('user/index.share')}}</p>
                         </div>
                     </a>
                 </div>
@@ -221,7 +221,7 @@
         </div>
         <div class="item-addCart-hover">
                     <span class="item-addCart btn btn-default btn-lg text-capitalize" onclick="muangay('eb91230418180811629','1','1');">
-                        <i class="fa fa-shopping-cart"></i>Mua ngay
+                        <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
                     </span>
             <div class="row">
                 <div class="col-lg-12">
@@ -236,7 +236,7 @@
                     <a href="javascript:;" onclick="ShareSocial('/ga-bo-xoi-2-mau-om-trung-hat-sen-%E2%80%93-vi-tieu-xanh-spdetail-eb91230418180811629.html','G&#192; B&#211; X&#212;I 2 M&#192;U &#212;M TRỨNG HẠT SEN – VỊ TI&#202;U XANH');">
                         <div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chia sẻ">
                             <p><i class="fa fa-share-alt"></i></p>
-                            <p>Share</p>
+                            <p>{{ __('user/index.share')}}</p>
                         </div>
                     </a>
                 </div>
