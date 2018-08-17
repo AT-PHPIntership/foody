@@ -145,78 +145,80 @@
     <script src="http://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
 </footer>
 <!-- Modal -->
-{{-- <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
   <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title text-center text-uppercase lead" id="modalLoginLabel">Đăng nhập</h3>
-        </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <p id="modal-message">Vui lòng điền đầy đủ thông tin</p>
-                    <div class="row">
-                      <form action="http://flyfood.vn/DangNhap/_login?Length=8" data-ajax="true" data-ajax-failure="checkLogin" data-ajax-method="Post" data-ajax-success="checkLogin" enctype="multipart/form-data" id="_loginForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="nscSvwm_bbeyCq3MO5SiiB3s85pHSK4nX7GDfvi5PRrTcS_TXN0QbKj7iimvlowv9XNTLxxf3W7ioxbCojXEO75yxtKX2nV-NpGEsAan7Aw1" />                                        
-                        <div class="col-lg-6">
-                          <fieldset>
-                            <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
-                            <div class="form-group input-group">
-                              <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                              <input class="form-control" data-val="true" data-val-required="Vui lòng nhập Tên đăng nhập" id="userName" name="username" placeholder="Tên đăng nhập" type="text" value="" />
-                            </div>
-                            <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
-                            <div class="form-group input-group">
-                              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                              <input class="form-control" data-val="true" data-val-required="Vui lòng nhập Mật khẩu" id="Password" name="password" placeholder="Mật khẩu" type="password" />
-                            </div>
-                            <div class="form-group">
-                              <div class="checkbox">
-                                <label>
-                                  <input data-val="true" data-val-required="The Ghi nhớ lần sau field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" /> Ghi nhớ lần sau
-                                </label>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <button onclick="showMark();" type="submit" class="btn btn-sm flyfood-btn btn-block text-capitalize">
-                                <i class="fa fa-sign-in"></i>Đăng nhập
-                              </button>
-                            </div>
-                          </fieldset>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3 class="modal-title text-center text-uppercase lead" id="modalLoginLabel">{{__('user/login.title')}}</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-body login-form">
+                <p id="modal-message">{{__('user/login.require')}}</p>
+                <div class="row">
+                  <form action="#" data-ajax="true" data-ajax-failure="checkLogin" data-ajax-method="Post" data-ajax-success="checkLogin" enctype="multipart/form-data" id="_loginForm" method="post">
+                    @csrf
+                    @method('POST')
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <span class="field-validation-valid" data-valmsg-for="username" data-valmsg-replace="true"></span>
+                        <div class="form-group input-group">
+                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                          <input class="form-control" data-val="true" data-val-required="Vui lòng nhập Tên đăng nhập" id="username" name="username" placeholder={{__('user/login.placeholder_username')}} type="text" value="" />
                         </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <button type="button" onclick="checkLoginState();" class="btn btn-sm btn-primary btn-block text-uppercase"><i class="fa fa-facebook"></i>đăng nhập facebook</button>
-                          </div>
-                          <div class="form-group">
-                            <button type="button" onclick="gpluslogin();" class="btn btn-sm btn-primary btn-social btn-danger btn-block text-uppercase"><i class="fa fa-google-plus"></i>đăng nhập g plus</button>
-                          </div>
-                          <div class="form-group">
-                            <label class="none-margin">
-                              <a href="javascript:;" onclick="popupForgot();">
-                                <i class="fa fa-eye-slash"></i> Quên mật khẩu
-                              </a>
+                        <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
+                        <div class="form-group input-group">
+                          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                          <input class="form-control" data-val="true" data-val-required="Vui lòng nhập Mật khẩu" id="password" name="password" placeholder={{__('user/login.placeholder_password')}} type="password" />
+                        </div>
+                        <div class="form-group">
+                          <div class="checkbox">
+                            <label>
+                              <input data-val="true" data-val-required="The Ghi nhớ lần sau field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />{{__('user/login.remember_me')}}
                             </label>
                           </div>
-                          <div class="form-group">
-                            <button type="button" class="btn-reg btn btn-sm btn-primary btn-block btn-danger text-capitalize">
-                              <i class="fa fa-edit"></i>Đăng ký
-                            </button>
-                          </div>
                         </div>
-                      </form>                                
+                        <div class="form-group">
+                          <button id="loginBtn" type="submit" class="btn btn-sm flyfood-btn btn-block text-uppercase">
+                            <i class="fa fa-sign-in"></i> {{__('user/login.title')}}
+                          </button>
+                        </div>
+                      </fieldset>
                     </div>
-                  </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <button type="button" onclick="checkLoginState();" class="btn btn-sm btn-primary btn-block text-uppercase"><i class="fa fa-facebook"></i>{{__('user/login.login_fb')}}</button>
+                      </div>
+                      <div class="form-group">
+                        <button type="button" onclick="gpluslogin();" class="btn btn-sm btn-primary btn-social btn-danger btn-block text-uppercase"><i class="fa fa-google-plus"></i>{{__('user/login.login_plus')}}</button>
+                      </div>
+                      <div class="form-group">
+                        <label class="none-margin">
+                          <a href="javascript:;" onclick="popupForgot();">
+                            <i class="fa fa-eye-slash"></i> {{__('user/login.forgot_password')}}
+                          </a>
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <button type="button" class="btn-reg btn btn-sm btn-primary btn-block btn-danger text-uppercase">
+                          <i class="fa fa-edit"></i>{{__('user/login.register')}}
+                        </button>
+                      </div>
+                    </div>
+                  </form>                                
                 </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
+    </div>
   </div>
-</div> --}}
-{{-- <script>
+</div>
+<script>
   var checkLogin = function (data) {
     showMark();
     if (data.result == 1) {
@@ -234,7 +236,7 @@
       $('#modal-message').html(data.message);
     }
   }
-</script> --}}
+</script>
 <!-- Modal -->
 <div class="modal fade" id="modalSingin" tabindex="-1" role="dialog" aria-labelledby="modalSinginLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -247,7 +249,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-default">
-              <div class="panel-body register-form">
+              <div class="panel-body">
                 <p id="modal-message-reg">Vui lòng điền đầy đủ thông tin</p>
                 <div class="row">
                   <form action="" data-ajax="true" data-ajax-failure="checkLogin_reg" data-ajax-method="Post" data-ajax-success="checkLogin_reg" enctype="multipart/form-data" id="test-sm" method="post">
@@ -260,19 +262,19 @@
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-user"></i></span>
                           <input class="form-control" data-val="true" data-val-length="Chiều dài 1-50" data-val-length-max="50" data-val-regex="Tên đăng nhập phải là chữ hoặc số" 
-                          data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required="Vui lòng nhập tên đăng nhập" id="UserName" name="username" placeholder="Tên đăng nhập" type="text" value="" />
+                          data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required="Vui lòng nhập tên đăng nhập" id="UserName" name="UserName" placeholder="Tên đăng nhập" type="text" value="" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                           <input class="form-control" data-val="true" data-val-length="Chiều dài 8-50" data-val-length-max="50" data-val-length-min="8" 
-                          data-val-required="Vui lòng nhập mật khẩu" id="Password" name="password" placeholder="Mật khẩu" type="password" />
+                          data-val-required="Vui lòng nhập mật khẩu" id="Password" name="Password" placeholder="Mật khẩu" type="Password" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="FullName" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-users"></i></span>
                           <input class="form-control" data-val="true" data-val-length="Chiều dài 1-100" data-val-length-max="100" 
-                          data-val-required="Vui lòng nhập họ tên" id="fullName" name="full_name" placeholder="Họ tên" type="text" value="" />
+                          data-val-required="Vui lòng nhập họ tên" id="FullName" name="FullName" placeholder="Họ tên" type="text" value="" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="GIOITINH" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
@@ -290,7 +292,7 @@
                       <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                         <input class="form-control" data-val="true" data-val-length="Chiều dài 1-20" data-val-length-max="20" data-val-regex="Điện thoại không đúng định dạng" data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" 
-                        data-val-required="Vui lòng nhập điện thoại" id="PhoneNumber" name="phone" placeholder="Điện thoại" type="text" value="" />
+                        data-val-required="Vui lòng nhập điện thoại" id="PhoneNumber" name="PhoneNumber" placeholder="Điện thoại" type="text" value="" />
                       </div>
                       <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
                       <div class="form-group input-group">
@@ -304,12 +306,6 @@
                       </div>
                     </div>
                   </form>    
-                  {{-- <form action="" id="test-sm" method="post">
-                      @csrf
-                      @method('POST')
-                      <input type="text" name="test" id="test" value="1">
-                      <button type="submit">SM</button>
-                  </form>                             --}}
                 </div>
               </div>
             </div>
@@ -319,7 +315,7 @@
     </div>
   </div>
 </div>
-<script>
+{{-- <script>
   var checkLogin_reg = function (data) {
     $('form').submit(function () {
       if (!$(this).valid()) {
@@ -340,7 +336,7 @@
       $('#modal-message-reg').html(data.message);
     }
   }
-</script>
+</script> --}}
 <!-- Modal -->
 <div class="modal fade" id="modalForgot" tabindex="-1" role="dialog" aria-labelledby="modalForgotLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -433,6 +429,8 @@
 <script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="user/Scripts/owl.carousel.min.js"></script>
 <script src="js/public/register.js"></script>
+<script src="js/public/login.js"></script>
+<script src="js/public/logout.js"></script>
 <script>
     $(function () {
         $('form').submit(function () {

@@ -9,58 +9,26 @@ use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 use App\Http\Requests\User\RegisterRequest;
 use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Auth;
+use DB;
+use Carbon\Carbon;
 
 class LoginController extends ApiController
 {
     /**
-     * Register user
+     * Login as user
      *
-     * @param App\Http\Requests\RegisterRequest $request validated request
-     *
-     * @return json authentication code with user info
+     * @return json authentication code
      */
-    public function register(RegisterRequest $request)
+    public function login()
     {
-        $input = $request->except('password');
-        $input['password'] = bcrypt($request->password);
-        $user = User::create($input);
-        $data['token'] =  $user->createToken('token')->accessToken;
-        //dd($user->createToken('token')->accessToken);
-        $data['user'] =  $user;
-        return $this->successResponse($data, Response::HTTP_OK);
-        //return $user;
-        //return $data['token'];
-        // return $request;
-    }
-    // public function register(Request $request)
-    // {
-    //     // $user = User::find(1);
-    //     // $data['token'] =  $user->createToken('token')->accessToken;
-    //     //$data = $input;
-    //     //dd($request);
-    //     return $request;
-    //     // $data['user'] =  $user;
-    //     // return $this->successResponse($data, Response::HTTP_OK);
-    // }
-
-    public function test(Request $request)
-    {
-        
-        $user = User::create([
-            'username' => 'asasas',
-            'full_name' => 'asassd',
-            'gender' => 1,
-            'phone' => '01652638375',
-            'email' => 'lebavy1611@gmail.com',
-            'birthday' => '1996-11-16',
-            'role_id' => 3,
-            'password' => '$2y$10$oCwTHNtFvuj8p6XbjsGOreNl7HRmT0MHwK0D6gvPkg0RHbJua3oR.'
-        ]);
-        $data['token'] =  $user->createToken('token')->accessToken;
-        //dd($user->createToken('token')->accessToken);
-        //$data['user'] =  $user;
-        //return $this->successResponse($data, Response::HTTP_OK);
-        return $data['token'];
-        //return $user->createToken('token')->accessToken;
+        if (Auth::attempt(['username' => request('username'), 'password' => request('password')])) {
+            $user = Auth::user();
+            $data['token'] =  $user->createToken('token')->accessToken;
+            $data['user'] = $user;
+            return $this->successResponse($data, Response::HTTP_OK);
+        } else {
+            return $this->errorResponse(config('define.login.unauthorised'), Response::HTTP_UNAUTHORIZED);
+        }
     }
 }

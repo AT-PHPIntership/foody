@@ -41,7 +41,7 @@
 .fa-heart:before{content:"\f004";}
 .fa-star:before{content:"\f005";}
 .fa-star-o:before{content:"\f006";}
-.fa-user:before{content:"\f007";}
+.fa-user:before{content:"\f007";padding: 15%;}
 .fa-film:before{content:"\f008";}
 .fa-th-large:before{content:"\f009";}
 .fa-th:before{content:"\f00a";}
