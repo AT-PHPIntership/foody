@@ -19,7 +19,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'full_name' => $faker->name,
         'birthday' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'gender' => $faker->numberBetween($min = 0, $max = 1),
-        'phone' => $faker->phoneNumber,
+        'phone' => '01652638375',
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('12345'),
         'role_id' => $faker->numberBetween($min = 1, $max = 3),
