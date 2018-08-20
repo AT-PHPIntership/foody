@@ -23,17 +23,9 @@ class LoginController extends ApiController
     {
         $input = $request->except('password');
         $input['password'] = bcrypt($request->password);
-        if (User::where('username', $input['username'])->first() || User::where('email', $input['email'])->first()) {
-            $error = [
-                'username' => 'The username has already been taken.',
-                'email' => 'The email has already been taken.',
-            ];
-            return $this->errorResponse($error, Response::HTTP_UNPROCESSABLE_ENTITY);
-        } else {
-            $user = User::create($input);
-            $data['token'] =  $user->createToken('token')->accessToken;
-            $data['user'] =  $user;
-            return $this->successResponse($data, Response::HTTP_OK);
-        }
+        $user = User::create($input);
+        $data['token'] =  $user->createToken('token')->accessToken;
+        $data['user'] =  $user;
+        return $this->successResponse($data, Response::HTTP_OK);
     }
 }
