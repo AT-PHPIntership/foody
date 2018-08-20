@@ -29,7 +29,7 @@ $(document).ready(function() {
                                 '<a href="">'+category.name+'</a>';
                     html +=  '</li>';
                 }
-                
+                generateProductsHomePage(category);
             });
             $('#js-menu').append(html);
         }
@@ -49,4 +49,26 @@ $(document).ready(function() {
             });
         }
     });
+    function generateProductsHomePage(category) {
+        $("#products-hot-"+ (category.id-1)).clone().attr({'id':'products-hot-'+category.id}).insertBefore(".bottom-banner");
+        console.log(1);
+        $.ajax({
+            url: "/api/products/show-index-products" +"?category_id=" +category.id,
+            type: "get",
+            success: function(result) {
+                console.log(result);
+                
+                // let html = '';
+                // let i = 1;
+                // result.result.forEach(product => {
+                //     $('#img-pro-newest-' + i).attr('src', 'images/products/'+ product.images[1].path);
+                //     $('#name-pro-newest-' + i).html(product.name);
+                //     $('#store-pro-newest-' + i + ' span').html(product.store.name);
+                //     $('#price-pro-newest-' + i + ' span').html(product.price +' đ');
+                //     i++;
+                // });
+            }
+        });
+    }
+    
 });

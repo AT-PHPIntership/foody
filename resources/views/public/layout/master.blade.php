@@ -10,7 +10,7 @@
     @yield('breadcrumb')
     @yield('banner-ad')
   </div>
-  <div class="container wrapper">
+  <div id="container" class="container wrapper">
     @yield('content')
   </div>
   @include('public.includes.footer')

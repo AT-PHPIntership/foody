@@ -239,7 +239,7 @@
       </div>
     </div>
   </section>
-  <div class="product product-home product-wrapper">
+  <div id="products-hot-0" class="product product-home product-wrapper">
     <div class="title border-bottom">
       <i class="fa fa-fire"></i>
       <h1 class="distance-none text-uppercase">
@@ -288,6 +288,7 @@
       </div>
     </div>
   </div>
+  
   <section class="bottom-banner">
     <a href="ban-muon-dat-tiec-flyfood-cung-cap-mon-an-cuc-nhanh-detail-fe4d181215170131137.html">
       <img src="user/Files/admin/02072016/Banner-flyfood-footer.png" />

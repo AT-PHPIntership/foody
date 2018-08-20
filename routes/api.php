@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::get('categories/show-menu', 'CategoryController@showMenu');
     Route::get('products/show-newest', 'ProductController@newestProductsSlide');
-    Route::get('products/newest-products-{number_products}', 'ProductController@newestProductsSlide')->name('products.newestSlide');
+    Route::get('products/show-index-products', 'ProductController@showHomePageProducts');
 }); 
