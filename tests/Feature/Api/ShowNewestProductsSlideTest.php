@@ -99,7 +99,6 @@ class ShowNewestProductsSlideTest extends TestCase
     public function test_json_structure($url, $structure)
     {
         $response = $this->json('GET', $url);
-        //dd($response);
         $response->assertJsonStructure($structure);
     }
 
