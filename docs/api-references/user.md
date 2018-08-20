@@ -55,6 +55,6 @@ Register user
             "created_at": "2018-06-13 09:10:01",
         }
     },
-    "code": 200
+    "code": 200,
 }
 ```
