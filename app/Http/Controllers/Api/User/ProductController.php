@@ -33,7 +33,7 @@ class ProductController extends ApiController
      */
     public function showHomePageProducts(Request $request)
     {
-        $productsInCategory = Product::with(['store', 'images'])->where('category_id', $request->category_id)->orderBy('created_at')->take(8)->get();
+        $productsInCategory = Product::with(['store', 'images'])->productsParentCategory($request->category_id);
         return $this->showAll($productsInCategory, Response::HTTP_OK);
     }
 }

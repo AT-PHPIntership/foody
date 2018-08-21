@@ -64,4 +64,22 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query      Builder
+     * @param int                                   $categoryId int
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeProductsParentCategory($query, $categoryId)
+    {
+        return $query->join('categories', function ($join) {
+            $join->on('categories.id', '=', 'products.category_id');
+        })
+        ->select('products.*')
+        ->where('categories.parent_id', $categoryId)->take(8)
+        ->get();
+    }
 }
