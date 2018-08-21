@@ -20,4 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::apiResource('categories', 'CategoryController');
     Route::post('register', 'LoginController@register');
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::put('users/profile', 'UserInfoController@update');
+    });
 }); 
