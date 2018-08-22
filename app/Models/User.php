@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable, SoftDeletes, Sortable;
+    use Notifiable, SoftDeletes, Sortable, HasApiTokens;
     
     const ROLE_ADMIN = 1;
     const ROLE_SHOP_MANAGER = 2;
