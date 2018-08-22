@@ -26,7 +26,7 @@
   <div class="container wrapper distance-none header-top-wrapper">
     <section class="header-top">
       <div class="logo">
-        <a href="index.html">
+      <a id="test" href="{{route('user.info')}}">
             <img src="user/Files/Images/logo-flyfood-2017.png" alt="Foody" />
         </a>
       </div>
@@ -59,16 +59,21 @@
   <div class="header-line container distance-none full">
     <div class="container wrapper">
       <ul class="menu-right list-inline right distance-none">
-        <button id="test" href=""></button>
-        <li class="login" onclick="LoginPopup();">
-            <i class="fa fa-sign-in"></i>{{ __('user/index.login')}}
+        <li class="login" id="userLogin" onclick="LoginPopup();">
+          <i class="fa fa-sign-in"></i>{{__('user/login.title')}}
         </li>
-        <li class="singin" onclick="SinginPopup();">
-            <i class="fa fa-edit"></i>{{ __('user/index.register')}}
+        <li class="user-name">
+          <i class="fa fa-user" id="userName" style="font-size: larger;"></i>
+        </li>
+        <li class="logout" id="userLogout">
+          <i class="fa fa-sign-out"></i>{{__('user/login.logout')}}
+        </li>
+        <li class="signin" id="userSignin" onclick="SinginPopup();">
+            <i class="fa fa-edit"></i>{{__('user/login.register')}}
         </li>
         <li class="shopping-cart" id="shopping-cart">
           <i class="fa fa-shopping-cart"></i>
-          <span class="shopping-cart-show"> {{ __('user/index.cart')}} (0)</span>
+          <span class="shopping-cart-show"> {{__('user/login.cart')}} (0)</span>
           <script>
             $('.shopping-cart-show').click(function () {
               $('.box-cart').toggleClass("active");

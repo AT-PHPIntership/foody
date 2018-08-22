@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\UpdateUserRequest;
+use Auth;
 
 class UserInfoController extends ApiController
 {
@@ -35,7 +36,16 @@ class UserInfoController extends ApiController
         } catch (Exception $e) {
             return $this->errorResponse(trans('messages.update_user_fail'), Response::HTTP_BAD_REQUEST);
         }
-        // return view('public.pages.account-info.update');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $user = Auth::user();
+        return $this->showOne($user, Response::HTTP_OK);
+    }
 }
