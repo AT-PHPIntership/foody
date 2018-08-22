@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\User;
 use Auth;
 
 class UserInfoController extends ApiController
@@ -20,32 +21,13 @@ class UserInfoController extends ApiController
      */
     public function update(UpdateUserRequest $request)
     {
-        $updatedUser = $request->only(['full_name', 'address', 'gender', 'phone', 'identity_card', 'avatar', 'dob']);
+        $updatedUser = $request->only(['full_name', 'gender', 'phone', 'email', 'password']);
         $user = Auth::user();
         try {
-            if ($request->hasFile('avatar')) {
-                $image = $request->file('avatar');
-                $newImage = time() . '-' . str_random(8) . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path(config('define.images_path_users'));
-                $updatedUser['avatar'] = $newImage;
-                $image->move($destinationPath, $newImage);
-            }
-            UserInfo::updateOrCreate(['user_id' => $user->id], $updatedUser);
-            $user->load('userinfo');
+            User::update(['id' => $user->id], $updatedUser);
             return $this->showOne($user, Response::HTTP_OK);
         } catch (Exception $e) {
             return $this->errorResponse(trans('messages.update_user_fail'), Response::HTTP_BAD_REQUEST);
         }
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $user = Auth::user();
-        return $this->showOne($user, Response::HTTP_OK);
     }
 }
