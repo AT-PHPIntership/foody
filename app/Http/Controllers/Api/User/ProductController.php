@@ -17,9 +17,9 @@ class ProductController extends ApiController
      *
      * @return \Illuminate\Http\Response
      */
-    public function newestProductsSlide(Request $request)
+    public function index(Request $request)
     {
-        $newestProductsSlide = Product::with(['store','images'])->orderBy('created_at')->take($request->number_products)->get();
+        $newestProductsSlide = Product::with('store', 'images')->filter($request);
         return $this->showAll($newestProductsSlide, Response::HTTP_OK);
     }
 }
