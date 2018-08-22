@@ -14,6 +14,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('public.pages.product');
+        return view('public.pages.products');
+    }
+
+    /**
+    * Display detail of product.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function show()
+    {
+        return view('public.pages.detailproduct');
     }
 }

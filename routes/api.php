@@ -22,4 +22,5 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::get('categories/show-menu', 'CategoryController@showMenu');
     Route::get('products/show-newest', 'ProductController@newestProductsSlide');
     Route::get('products/show-index-products', 'ProductController@showHomePageProducts');
+    Route::get('categories/{category_id}', 'ProductController@categoryProducts');
 }); 
