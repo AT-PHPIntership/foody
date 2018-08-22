@@ -5,7 +5,7 @@ return [
       'images_path_products' => '/images/products/',
     ],
     'login' => [
-      'unauthorised' => 'Unauthorised Access',
+      'unauthorised' => 'Please fill in all information!',
       'success' => 'You have login successfully!'
     ]
 ];

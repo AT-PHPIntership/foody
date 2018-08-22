@@ -42,4 +42,21 @@ class LoginController extends ApiController
         $accessToken->revoke();
         return $this->successResponse(null, Response::HTTP_NO_CONTENT);
     }
+
+    /**
+     * Register user
+     *
+     * @param App\Http\Requests\RegisterRequest $request validated request
+     *
+     * @return json authentication code with user info
+     */
+    public function register(RegisterRequest $request)
+    {
+        $input = $request->except('password');
+        $input['password'] = bcrypt($request->password);
+        $user = User::create($input);
+        $data['token'] =  $user->createToken('token')->accessToken;
+        $data['user'] =  $user;
+        return $this->successResponse($data, Response::HTTP_OK);
+    }
 }

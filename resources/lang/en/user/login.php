@@ -3,7 +3,7 @@ return [
   'title' => 'Login',
   'logout' => 'Logout',
   'require' => 'Please fill in all information',
-  'placeholder_username' => 'User Name',
+  'placeholder_username' => 'UserName',
   'placeholder_password' => 'Password',
   'remember_me' => 'Remember me',
   'login_fb' => 'login facabook',

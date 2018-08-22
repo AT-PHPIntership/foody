@@ -8,7 +8,7 @@ $(document).ready(function () {
     $('#userLogout').hide();
     $('#userSignin').show();
     $('#userName').hide();
-    $('.user-mame').hide();
+    $('.user-name').hide();
   }
   $(document).on('click', '#loginBtn', function (event) {
     event.preventDefault();
@@ -30,13 +30,11 @@ $(document).ready(function () {
         $('#userName').html(response.result.user.username);
         window.location.href = 'http://' + window.location.hostname;
       },
-      statusCode: {
-        401: function (response) {
-          alert(response.responseJSON.error);
-          $('.login-form input[type="password"]').val('');
-        }
+      error: function (response) {
+        alert(response.responseJSON.error);
+        $('.login-form input[type="password"]').val('');
       }
-      });
+    });
   })
   name = localStorage.getItem("username");
   $('#userName').html(name);

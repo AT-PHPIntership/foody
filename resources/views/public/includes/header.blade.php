@@ -62,7 +62,7 @@
         <li class="login" id="userLogin" onclick="LoginPopup();">
           <i class="fa fa-sign-in"></i>{{__('user/login.title')}}
         </li>
-        <li class="user-mame">
+        <li class="user-name">
           <i class="fa fa-user" id="userName" style="font-size: larger;"></i>
         </li>
         <li class="logout" id="userLogout">
