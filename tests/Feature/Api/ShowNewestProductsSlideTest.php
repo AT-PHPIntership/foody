@@ -31,7 +31,7 @@ class ShowNewestProductsSlideTest extends TestCase
      */
     public function test_status_code_for_show_newest_products_sldie()
     {
-        $response = $this->json('GET', '/api/products/show-newest?number_products=8');
+        $response = $this->json('GET', '/api/products?newest_products=8');
         $response->assertStatus(200);
     }
 
@@ -44,7 +44,7 @@ class ShowNewestProductsSlideTest extends TestCase
     { 
         return [
             [
-                'url' => '/api/products/show-newest?number_products=8',
+                'url' => '/api/products?newest_products=8',
                 'structure' => [
                     'result' => [
                         [
@@ -109,7 +109,7 @@ class ShowNewestProductsSlideTest extends TestCase
      */
     public function test_compare_with_database()
     {
-        $response = $this->json('GET', '/api/products/show-newest?number_products=8');
+        $response = $this->json('GET', '/api/products?newest_products=8');
         $data = json_decode($response->getContent())->result;
         foreach ($data as $product) {
             $arrayCompare = [
