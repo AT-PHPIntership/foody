@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\FilterTrait;
 
 class Product extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, FilterTrait;
 
     /**
      * The attributes that are mass assignable.
