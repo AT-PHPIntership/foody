@@ -68,7 +68,7 @@
         <li class="logout" id="userLogout">
           <i class="fa fa-sign-out"></i>{{__('user/login.logout')}}
         </li>
-        <li class="signin" id="userSignin" onclick="SinginPopup();">
+        <li class="signup" id="userSignup" onclick="SignupPopup();">
             <i class="fa fa-edit"></i>{{__('user/login.register')}}
         </li>
         <li class="shopping-cart" id="shopping-cart">

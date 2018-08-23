@@ -1,15 +1,34 @@
 $(document).ready(function () {
-  if (localStorage.getItem('token-login')) {
-    $('#userLogin').hide();
-    $('#userLogout').show();
-    $('#userSignin').hide();
+  if(localStorage.getItem('token-login')) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/checkLoginToken',
+      headers: ({
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token-login'),
+      }),
+      success: function(response) {
+        $('#userLogin').hide();
+        $('#userLogout').show();
+        $('#userSignup').hide();
+      },
+      error: function (response) {
+        window.localStorage.removeItem('token-login');
+        $('#userLogin').show();
+        $('#userLogout').hide();
+        $('#userSignup').show();
+        $('#userName').hide();
+        $('.user-name').hide();
+      }
+    });
   } else {
     $('#userLogin').show();
     $('#userLogout').hide();
-    $('#userSignin').show();
+    $('#userSignup').show();
     $('#userName').hide();
     $('.user-name').hide();
   }
+
   $(document).on('click', '#loginBtn', function (event) {
     event.preventDefault();
     $.ajax({
