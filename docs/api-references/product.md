@@ -118,6 +118,6 @@ Get list hotest products in category home page
             ],
         },
     ],
-    "code": 200
+    "code": 200,
 }
 ```
