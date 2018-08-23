@@ -66,94 +66,174 @@
         <a href="san-pham.html" class="btn btn-danger btn-sm">{{ __('user/index.see_more')}}</a>
       </h1>
     </div>
-    <div class="carousel_best_buy owl-carousel owl-theme" style="padding: 20px 0; background: rgb(220, 220, 220);">
+    <div class="carousel_best_buy owl-carousel owl-theme" style="padding: 20px 0px; background: rgb(220, 220, 220); opacity: 1; display: block;">
       <div class="item">
         <div class="item-img">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html">
-            <img src="user/Files/admin/08082018/avt-ga-hap-nuoc-mam.png" alt="G&#192; HẤP NƯỚC MẮM" />
+          <a href="">
+            <img id="img-pro-newest-1" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="muangay('dfd0080818181107251','1','1');">
+            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.register')}}
             </span>
           </p>
         </div>
         <div class="item-name">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html"><h2 class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2></a>
-          <div class="price text-center">
-            <span>390.000 đ</span>
+          <a href="ml"><h2 id="name-pro-newest-1" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <div id="store-pro-newest-1" class="store text-center">
+              <a href=""><span></span></a>
+          </div>
+          <div id="price-pro-newest-1" class="price text-center">
+            <span></span>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html">
-            <img src="user/Files/admin/08082018/avt-ga-hap-nuoc-mam.png" alt="G&#192; HẤP NƯỚC MẮM" />
+          <a href="">
+            <img id="img-pro-newest-2" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="muangay('dfd0080818181107251','1','1');">
+            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
         </div>
         <div class="item-name">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html"><h2 class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2></a>
-          <div class="price text-center">
-            <span>390.000 đ</span>
+          <a href=""><h2 id="name-pro-newest-2" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <div id="store-pro-newest-2" class="store text-center">
+              <a href=""><span></span></a>
+          </div>
+          <div id="price-pro-newest-2" class="price text-center">
+            <span></span>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html">
-            <img src="user/Files/admin/08082018/avt-ga-hap-nuoc-mam.png" alt="G&#192; HẤP NƯỚC MẮM" />
+          <a href="">
+            <img id="img-pro-newest-3" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="muangay('dfd0080818181107251','1','1');">
+            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
         </div>
         <div class="item-name">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html"><h2 class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2></a>
-          <div class="price text-center">
-            <span>390.000 đ</span>
+          <a href=""><h2 id="name-pro-newest-3" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <div id="store-pro-newest-3" class="store text-center">
+              <a href=""><span></span></a>
+          </div>
+          <div id="price-pro-newest-3" class="price text-center">
+            <span></span>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html">
-            <img src="user/Files/admin/08082018/avt-ga-hap-nuoc-mam.png" alt="G&#192; HẤP NƯỚC MẮM" />
+          <a href="">
+            <img id="img-pro-newest-4" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="muangay('dfd0080818181107251','1','1');">
+            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
         </div>
         <div class="item-name">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html"><h2 class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2></a>
-          <div class="price text-center">
-            <span>390.000 đ</span>
+          <a href=""><h2 id="name-pro-newest-4" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <div id="store-pro-newest-4" class="store text-center">
+              <a href=""><span></span></a>
+          </div>
+          <div id="price-pro-newest-4" class="price text-center">
+            <span></span>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html">
-            <img src="user/Files/admin/08082018/avt-ga-hap-nuoc-mam.png" alt="G&#192; HẤP NƯỚC MẮM" />
+          <a href="">
+            <img id="img-pro-newest-5" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="muangay('dfd0080818181107251','1','1');">
+            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
         </div>
         <div class="item-name">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html"><h2 class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2></a>
-          <div class="price text-center">
-            <span>390.000 đ</span>
+          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html">
+            <h2 id="name-pro-newest-5" class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2>
+          </a>
+          <div id="store-pro-newest-5" class="store text-center">
+              <a href=""><span></span></a>
+          </div>
+          <div id="price-pro-newest-5" class="price text-center">
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-img">
+          <a href="">
+            <img id="img-pro-newest-6" src="" alt="" />
+          </a>
+          <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
+            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+              <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
+            </span>
+          </p>
+        </div>
+        <div class="item-name">
+          <a href=""><h2 id="name-pro-newest-6" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <div id="store-pro-newest-6" class="store text-center">
+              <a href=""><span></span></a>
+          </div>
+          <div id="price-pro-newest-6" class="price text-center">
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-img">
+          <a href="">
+            <img id="img-pro-newest-7" src="" alt="" />
+          </a>
+          <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
+            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+              <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
+            </span>
+          </p>
+        </div>
+        <div class="item-name">
+          <a href=""><h2 id="name-pro-newest-7" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <div id="store-pro-newest-7" class="store text-center">
+              <a href=""><span></span></a>
+          </div>
+          <div id="price-pro-newest-7" class="price text-center">
+            <span></span>
+          </div> 
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-img">
+          <a href="">
+            <img id="img-pro-newest-8" src="" alt="" />
+          </a>
+          <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
+            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+              <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
+            </span>
+          </p>
+        </div>
+        <div class="item-name">
+          <a href=""><h2 id="name-pro-newest-8" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <div id="store-pro-newest-8" class="store text-center">
+              <a href=""><span></span></a>
+          </div>
+          <div id="price-pro-newest-8" class="price text-center">
+            <span></span>
           </div>
         </div>
       </div>
@@ -215,5 +295,5 @@
   </section>
 @endsection
 @section('js')
-  <script src="/js/public/category.js"></script>
+<script src="/js/public/index.js"></script>
 @endsection
