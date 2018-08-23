@@ -17,8 +17,7 @@ trait FilterTrait
     public function scopeFilter($query, Request $request)
     {
         if ($request->newest_products) {
-            return $query->orderBy('created_at', 'desc')->limit($request->newest_products)
-            ->get();
+            return $query->orderBy('created_at', 'desc')->limit($request->newest_products);
         }
     }
 }

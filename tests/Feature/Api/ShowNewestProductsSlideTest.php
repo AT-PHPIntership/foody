@@ -29,7 +29,7 @@ class ShowNewestProductsSlideTest extends TestCase
      *
      * @return void
      */
-    public function test_status_code_for_show_newest_products_sldie()
+    public function test_status_code()
     {
         $response = $this->json('GET', '/api/products?newest_products=8');
         $response->assertStatus(200);
