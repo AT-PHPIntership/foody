@@ -20,11 +20,20 @@ trait FilterTrait
             return $query->orderBy('created_at', 'desc')->limit($request->newest_products);
         }
         if ($request->category_id) {
-            return $query->join('categories', function ($join) {
-                $join->on('categories.id', '=', 'products.category_id');
-            })
-            ->select('products.*')
-            ->where('categories.parent_id', $request->category_id)->take(8);
+            if (isset($request->page)) {
+                return $query->join('categories', function ($join) {
+                    $join->on('categories.id', '=', 'products.category_id');
+                })
+                ->select('products.*')
+                ->where('categories.parent_id', $request->category_id)
+                ->orWhere('products.category_id', $request->category_id);
+            } else {
+                return $query->join('categories', function ($join) {
+                    $join->on('categories.id', '=', 'products.category_id');
+                })
+                ->select('products.*')
+                ->where('categories.parent_id', $request->category_id);
+            }
         }
     }
 }

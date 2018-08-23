@@ -245,6 +245,3 @@
     </a>
   </section>
 @endsection
-@section('js')
-<script src="/js/public/index.js"></script>
-@endsection

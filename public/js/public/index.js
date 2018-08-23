@@ -11,7 +11,7 @@ $(document).ready(function() {
                                         '<ul class="list-inline">';
                     category.children.forEach(childsCategory => {
                         //url = api.products_index+"?category="+childsCategory.id;
-                        childsHtml += '<li><a href="">'+ childsCategory.name +'</a></li>';
+                        childsHtml += '<li><a href="'+api.products_index+"?category_id="+childsCategory.id+'">'+ childsCategory.name +'</a></li>';
                     });
                     childsHtml += '</ul>' +
                                 '</div>';
@@ -19,17 +19,21 @@ $(document).ready(function() {
                 
                 if (category.children) {
                     html += '<li class="menu-top">' +
-                                '<a href="">'+category.name+'</a>';
+                                '<a href="'+api.products_index+"?category_id="+category.id+'">'+category.name+'</a>';
                                 if (category.children) {
                                     html += childsHtml;
                                 }
                     html +=  '</li>';
                 }else {
                     html += '<li>' +
-                                '<a href="">'+category.name+'</a>';
+                                '<a href="'+api.products_index+"?category_id="+category.id+'">'+category.name+'</a>';
                     html +=  '</li>';
                 }
-                generateProductsHomePage(category);
+                if(window.location.search == '') {
+                    generateProductsHomePage(category);
+                    console.log(window.location.pathname);
+                }
+                
             });
             $('#js-menu').append(html);
         }
@@ -60,7 +64,7 @@ $(document).ready(function() {
                       '<i class="fa fa-fire"></i>'+
                       '<h1 class="distance-none text-uppercase">'+
                         '<span>'+category.name+'</span>'+
-                        '<a href="thuc-don-mon-ga-sp-a49b241015103551773.html" class="btn btn-danger btn-sm">See More</a>'+
+                        '<a href="'+api.products_index +'?category_id=' + category.id+'" class="btn btn-danger btn-sm">See More</a>'+
                       '</h1>'+
                     '</div>';
                     if(result.result) {

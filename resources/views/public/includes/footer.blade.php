@@ -412,6 +412,8 @@
 <script src="user/Scripts/_references.js"></script>
 <script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="user/Scripts/owl.carousel.min.js"></script>
+<script src="js/public/route.js"></script>
+<script src="/js/public/index.js"></script>
 <script src="js/public/login.js"></script>
 <script src="js/public/logout.js"></script>
 <script src="js/public/register.js"></script>
