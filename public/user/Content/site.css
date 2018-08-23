@@ -1820,3 +1820,4 @@ a, a:hover {
 .btn-sm, .btn-group-sm > .btn {
     padding: 5px 8px;
 }
+.fa-user:before{padding: 15%;}

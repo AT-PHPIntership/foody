@@ -24,6 +24,7 @@ Register user
 * _Error_
 ``` json
 {
+
     "error": [
         "username": [
             "The username has already been taken."
@@ -37,24 +38,79 @@ Register user
 ```
 
 * _Success_
-``` json
+```json
 {
     "result": {
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmZjIzMzRmM2Q3ZDg0ZWQxMWIyZWFjNmE5ZTVlNTNkMmE2NmI2YWRkMzY0NGIzNDlkMmZkMGQ3MmQzNTdiM2UyMmQ1MjEzYzM2ZjExM2JmIn0.eyJhdWQiOiIxIiwianRpIjoiMmZmMjMzNGYzZDdkODRlZDExYjJlYWM2YTllNWU1M2QyYTY2YjZhZGQzNjQ0YjM0OWQyZmQwZDcyZDM1N2IzZTIyZDUyMTNjMzZmMTEzYmYiLCJpYXQiOjE1Mjg4ODEwMDIsIm5iZiI6MTUyODg4MTAwMiwiZXhwIjoxNTYwNDE3MDAxLCJzdWIiOiIxOCIsInNjb3BlcyI6W119.i_7h910vahjYqrYKLrBV0foKZ3-D89vCqNYtzePbJXWka6doC8PsrQxsuRLIyN2pmTAuMtH8ypF3z9QR25z7QWOaV09QsHIyQcIvSPIMr4toXB4j9rfareH2xmtGFLsDH186b7iwsuDU-nCykzdgJnTiSLMfNKuk2bE4igMDc8czeytvf2Dp2fx2piMYyvrx3ShVbx1x3d-udF31zYJv8fQhls0Ez6lG4egBgv42Lnse585_P3smF10sD8olpqAoFc0YnZKxPBJnkK6JfigOPpI0mDNOfBTh97UGtpjqIsscr1hwp-qvAzdGw4Pzh9PcT8ABpJH6erQwK9xp9toGi6new-LGXTFacO_stv6bitawN5N9pXW7yazJVimPsHFoCrSCIfnVaBBqfw-JCZRaPM0oBwwEdHETepnzvF1SDAGjHFEU2b7VbOmB_bdM3yA-MCS-iGZ2rk_KwKGSzPm2jOwGIreSPG3RLyx4A2k6-JNxXxVsqvZqyLQM31q50x4YvTMwhOTuqY1S1bThxVABFN9-EWyuEslRS76dvY9B2k0p9T9WUH18D5V6ngcf3PC_WP56Wt0p8qNTdAgHw6GOllyOnMytxNmgO0I1LknXr4Lrm2oveI8Zivutsp3zfiQqg_NAhDeGlYKftmesFNrSArawUoLesZNfbQr1Y4Pz5jc",
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImIxMjg2YjJmMjQ4MWE1ZTIzMGUxYjcwZGM2ZWE3YmQ5OTBkNWI3YmY0Y2VlNDdkNWU0MGEzOTU0ZjM1NTY1NTA3OGUxZGY4NTRhYmMzZjdmIn0.eyJhdWQiOiI1IiwianRpIjoiYjEyODZiMmYyNDgxYTVlMjMwZTFiNzBkYzZlYTdiZDk5MGQ1YjdiZjRjZWU0N2Q1ZTQwYTM5NTRmMzU1NjU1MDc4ZTFkZjg1NGFiYzNmN2YiLCJpYXQiOjE1MzQ3MDA3NjksIm5iZiI6MTUzNDcwMDc2OSwiZXhwIjoxNTY2MjM2NzY4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.c_13C90PxxAl8AvZItrW-IFSVJkvbKSPn4reat5qm_xgY-Fd3YpidMsqye_p6SPN1b5mBSLlWOt7BC3Gsw1z4qaZuChSSJ4ZDP6rW_pz2rujU3dRxKf1s7Y-ZB4z2xdAXLaxeVcniWSPLYiBacAUQQURs7_8c6cF9mJvcrk6A4iGdXytu3sCzc3nHyiPhzs3u-MBjpIa4kP_1jdN4udEbbCtbezpq6I6OF-1EWS5LTnfK9PDvckw9AYNk0M5As2-Yxqz045lUnGEVxNwHrvN9LoREIvscBTBc_SkIuNygw-8BQBlHHwlzQP5ZMOJhZ2JUDJiteumcGq2ui48CqgXk2usczF_DSeiOHrFKkpqmuTj_hBNvYHDH_yJFvQIZjjbnHOWud2qlotEtAszjE-sI3nfJBTuOMK0rTSBngdgcp3usa932TkL1XK6LisT14FHiVCjXUn_QlUfS7Q9h31oWM5c0YcmQYbK7qrbiPOhlDNu7tOusaEu3CZixg_QCDzPVfpjthtyZ0gUYZek1phuo_dlNVjwct1UedIKKbWrAy9qH2SRI84laNIsGGnJfWf5kVQPVZf76wa9O57ovSIiZPiNjhr09r1MzjJOsLwP9biQ0BnMMbfiKaTmMsMVQ1pC_KsvRt5I9eYa7E9FLUfdluiBmGDXihkBN-R5kDKi0cg",
         "user": {
             "id": 1,
-            "username": "abcde",
-            "full_name": "dfdfdfd dfdf",
-            "birthday": "1996-11-16",
-            "gender": 1,
-            "phone": "01652637385",
-            "email": "abc@abc.abcde",
-            "role_id": 3,
+            "username": "rdare",
+            "email": "heloise54@example.net",
+            "password": "",
             "is_active": 1,
-            "updated_at": "2018-06-13 09:10:01",
-            "created_at": "2018-06-13 09:10:01",
+            "role_id": 3,
+            "created_at": "2018-08-07 04:27:02",
+            "updated_at": "2018-08-07 16:38:23",
+            "deleted_at": null,
         }
     },
-    "code": 200,
+    "code": 200
 }
 ```
+
+### `POST` Login
+```
+/api/login
+```
+Login User
+#### Request Headers
+| Key | Value |
+|---|---|
+|Accept|application/json
+ #### Query Param
+| Key | Value | Description |
+|---|---|---|
+| username | username | User's Username |
+| password | password | User's Password |
+ #### Response
+* _Error_
+``` json
+{
+    "error": "Unauthorised",
+    "code": 401
+}
+```
+ * _Success_
+```json
+{
+    "result": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImIxMjg2YjJmMjQ4MWE1ZTIzMGUxYjcwZGM2ZWE3YmQ5OTBkNWI3YmY0Y2VlNDdkNWU0MGEzOTU0ZjM1NTY1NTA3OGUxZGY4NTRhYmMzZjdmIn0.eyJhdWQiOiI1IiwianRpIjoiYjEyODZiMmYyNDgxYTVlMjMwZTFiNzBkYzZlYTdiZDk5MGQ1YjdiZjRjZWU0N2Q1ZTQwYTM5NTRmMzU1NjU1MDc4ZTFkZjg1NGFiYzNmN2YiLCJpYXQiOjE1MzQ3MDA3NjksIm5iZiI6MTUzNDcwMDc2OSwiZXhwIjoxNTY2MjM2NzY4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.c_13C90PxxAl8AvZItrW-IFSVJkvbKSPn4reat5qm_xgY-Fd3YpidMsqye_p6SPN1b5mBSLlWOt7BC3Gsw1z4qaZuChSSJ4ZDP6rW_pz2rujU3dRxKf1s7Y-ZB4z2xdAXLaxeVcniWSPLYiBacAUQQURs7_8c6cF9mJvcrk6A4iGdXytu3sCzc3nHyiPhzs3u-MBjpIa4kP_1jdN4udEbbCtbezpq6I6OF-1EWS5LTnfK9PDvckw9AYNk0M5As2-Yxqz045lUnGEVxNwHrvN9LoREIvscBTBc_SkIuNygw-8BQBlHHwlzQP5ZMOJhZ2JUDJiteumcGq2ui48CqgXk2usczF_DSeiOHrFKkpqmuTj_hBNvYHDH_yJFvQIZjjbnHOWud2qlotEtAszjE-sI3nfJBTuOMK0rTSBngdgcp3usa932TkL1XK6LisT14FHiVCjXUn_QlUfS7Q9h31oWM5c0YcmQYbK7qrbiPOhlDNu7tOusaEu3CZixg_QCDzPVfpjthtyZ0gUYZek1phuo_dlNVjwct1UedIKKbWrAy9qH2SRI84laNIsGGnJfWf5kVQPVZf76wa9O57ovSIiZPiNjhr09r1MzjJOsLwP9biQ0BnMMbfiKaTmMsMVQ1pC_KsvRt5I9eYa7E9FLUfdluiBmGDXihkBN-R5kDKi0cg",
+        "user": {
+            "id": 1,
+            "username": "rdare",
+            "email": "heloise54@example.net",
+            "password": "",
+            "is_active": 1,
+            "role_id": 3,
+            "created_at": "2018-08-07 04:27:02",
+            "updated_at": "2018-08-07 16:38:23",
+            "deleted_at": null,
+        }
+    },
+    "code": 200
+}
+```
+ ### `POST` Logout
+```
+/api/logout
+```
+Logout user
+#### Request Headers
+| Key | Value |
+|---|---|
+|Accept|application/json
+|Authorization|Bearer $token
+ #### Response
+* _Success_
+ ```
+ 
