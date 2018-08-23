@@ -28,7 +28,7 @@ class ShowCategoriesMenuTest extends TestCase
      */
     public function test_status_code_for_category()
     {
-        $response = $this->json('GET', '/api/categories/show-menu');
+        $response = $this->json('GET', '/api/categories');
         $response->assertStatus(200);
     }
 
@@ -41,7 +41,7 @@ class ShowCategoriesMenuTest extends TestCase
     { 
         return [
             [
-                'url' => '/api/categories/show-menu',
+                'url' => '/api/categories',
                 'structure' => [
                     'result' => [
                         [
@@ -91,7 +91,7 @@ class ShowCategoriesMenuTest extends TestCase
      */
     public function test_compare_with_database()
     {
-        $response = $this->json('GET', 'api/categories/show-menu');
+        $response = $this->json('GET', 'api/categories');
         $data = json_decode($response->getContent())->result;
         foreach ($data as $category) {
             $arrayCompare = [

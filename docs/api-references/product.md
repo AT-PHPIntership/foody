@@ -2,7 +2,7 @@
 
 ### `GET` List Newest products
 ```
-/api/products/show-newest?number_products={number_products}
+/api/products?newest_products={newest_products}
 ```
 Get list newest products with limited items
 #### Request Headers
