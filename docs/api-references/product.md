@@ -2,7 +2,7 @@
 
 ### `GET` List Newest products
 ```
-/api/products/show-newest?number_products={number_products}
+/api/products?newest_products={newest_products}
 ```
 Get list newest products with limited items
 #### Request Headers
@@ -63,7 +63,7 @@ Get list newest products with limited items
 
 ### `GET` List Hotest products in Category Home page
 ```
-/api/products/show-index-products?category_id={category.id}
+/api/products?index_category_id={category.id}
 ```
 Get list hotest products in category home page
 #### Request Headers

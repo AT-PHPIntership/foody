@@ -50,7 +50,7 @@ $(document).ready(function() {
     });
     function generateProductsHomePage(category) {
         $.ajax({
-            url: "/api/products?category_id=" +category.id,
+            url: "/api/products?index_category_id=" +category.id,
             type: "get",
             success: function(result) {
                 let i = 1;

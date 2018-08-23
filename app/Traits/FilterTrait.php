@@ -19,12 +19,12 @@ trait FilterTrait
         if ($request->newest_products) {
             return $query->orderBy('created_at', 'desc')->limit($request->newest_products);
         }
-        if ($request->category_id) {
+        if ($request->index_category_id) {
             return $query->join('categories', function ($join) {
                 $join->on('categories.id', '=', 'products.category_id');
             })
             ->select('products.*')
-            ->where('categories.parent_id', $request->category_id)->take(8);
+            ->where('categories.parent_id', $request->index_category_id)->take(8);
         }
     }
 }
