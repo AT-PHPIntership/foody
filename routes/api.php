@@ -21,4 +21,8 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::post('register', 'LoginController@register');
     Route::apiResource('categories', 'CategoryController');
     Route::apiResource('products', 'ProductController');
+    Route::post('login', 'LoginController@login');
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('logout', 'LoginController@logout');
+    });
 }); 
