@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "/api/categories/show-menu",
+        url: "/api/categories",
         type: "get",
         success: function(result) {
             let html = '';
@@ -35,7 +35,7 @@ $(document).ready(function() {
         }
     });
     $.ajax({
-        url: "/api/products/show-newest?number_products=8",
+        url: "/api/products?newest_products=8",
         type: "get",
         success: function(result) {
             let i = 1;
@@ -50,7 +50,7 @@ $(document).ready(function() {
     });
     function generateProductsHomePage(category) {
         $.ajax({
-            url: "/api/products/show-index-products" +"?category_id=" +category.id,
+            url: "/api/products?category_id=" +category.id,
             type: "get",
             success: function(result) {
                 let i = 1;

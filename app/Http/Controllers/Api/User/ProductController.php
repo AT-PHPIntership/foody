@@ -18,35 +18,11 @@ class ProductController extends ApiController
      *
      * @return \Illuminate\Http\Response
      */
-    public function newestProductsSlide(Request $request)
+    public function index(Request $request)
     {
-        $newestProductsSlide = Product::with(['store','images'])->orderBy('created_at')->take($request->number_products)->get();
-        return $this->showAll($newestProductsSlide, Response::HTTP_OK);
-    }
-
-    /**
-     * Display a listing of the newest products for slide show.
-     *
-     * @param Illuminate\Http\Request $request Request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function showHomePageProducts(Request $request)
-    {
-        $productsInCategory = Product::with(['store', 'images'])->productsParentCategory($request->category_id);
-        return $this->showAll($productsInCategory, Response::HTTP_OK);
-    }
-
-    /**
-     * Display a listing of the products in a category.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function categoryProducts(Request $request)
-    {
-        // dd($request->category_id);
-        $productsInCategory = Product::with(['store', 'images'])->productsCategoryPaginate($request->category_id, $request->offset);
-        return $this->showAll($productsInCategory, Response::HTTP_OK);
+        $offset = isset($request->offset) ? $request->offset : 0;
+        $products = Product::with('store', 'images')->filter($request)->get();
+        return $this->showAll($products, Response::HTTP_OK);
     }
 
     /**
