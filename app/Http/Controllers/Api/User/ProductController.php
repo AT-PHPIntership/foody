@@ -19,7 +19,7 @@ class ProductController extends ApiController
      */
     public function index(Request $request)
     {
-        $newestProductsSlide = Product::with('store', 'images')->filter($request);
+        $newestProductsSlide = Product::with('store', 'images')->filter($request)->get();
         return $this->showAll($newestProductsSlide, Response::HTTP_OK);
     }
 }
