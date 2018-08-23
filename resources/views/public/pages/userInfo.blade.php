@@ -37,11 +37,8 @@
       <img src="user/Files/admin/27042018/banner-phai.gif" />
     </a>
   </div>
-  {{-- <div class="banner" style="margin-top:10px; display:block !important;">
-    <p class="message full left text-center">{{__('user/login.userInfo.not_login')}}</p>
-  </div> --}}
   <div class="banner" style="margin-top:10px; display:block !important;">
-  <p class="message full left text-center">{{__('user/login.userInfo.messsage')}}</p>
+  <p class="message full left text-center"></p>
     <div class="row">
       <div class="col-lg-12 left full">
         <div class="panel panel-default">
