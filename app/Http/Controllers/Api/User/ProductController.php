@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\ApiController;
 use App\Models\Product;
 use Illuminate\Http\Response;
+use App\Models\Category;
 
 class ProductController extends ApiController
 {
@@ -19,7 +20,15 @@ class ProductController extends ApiController
      */
     public function index(Request $request)
     {
-        $products = Product::with('store', 'images')->filter($request)->get();
-        return $this->showAll($products, Response::HTTP_OK);
+        if ($request->filter == 'hotest') {
+            $categories = Category::where('parent_id', 0)->get();
+            foreach ($categories as $category) {
+                $category['products'] = Product::with(['store', 'images'])->filter($request, $category->id)->get();
+            }
+            return $this->showAll($categories, Response::HTTP_OK);
+        } else {
+            $products = Product::with('category.parent', 'store', 'images')->filter($request)->get();
+            return $this->showAll($products, Response::HTTP_OK);
+        }
     }
 }

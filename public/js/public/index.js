@@ -29,7 +29,6 @@ $(document).ready(function() {
                                 '<a href="">'+category.name+'</a>';
                     html +=  '</li>';
                 }
-                generateProductsHomePage(category);
             });
             $('#js-menu').append(html);
         }
@@ -48,72 +47,71 @@ $(document).ready(function() {
             });
         }
     });
-    function generateProductsHomePage(category) {
-        $.ajax({
-            url: "/api/products?index_category_id=" +category.id,
-            type: "get",
-            success: function(result) {
-                let i = 1;
-                html ='';
-                    html+='<div id="products-hot-0" class="product product-home product-wrapper">'+
-                    '<div class="title border-bottom">'+
-                      '<i class="fa fa-fire"></i>'+
-                      '<h1 class="distance-none text-uppercase">'+
-                        '<span>'+category.name+'</span>'+
-                        '<a href="thuc-don-mon-ga-sp-a49b241015103551773.html" class="btn btn-danger btn-sm">See More</a>'+
-                      '</h1>'+
-                    '</div>';
-                    if(result.result) {
-                    result.result.forEach(product => {
+    $.ajax({
+        url: "/api/products?filter=hotest",
+        type: "get",
+        success: function(result) {
+            let i = 1;
+            html ='';
+                if(result.result) {
+                result.result.forEach(category => {
+                html+='<div id="products-hot-0" class="product product-home product-wrapper">'+
+                '<div class="title border-bottom">'+
+                    '<i class="fa fa-fire"></i>'+
+                    '<h1 class="distance-none text-uppercase">'+
+                    '<span>'+category.name+'</span>'+
+                    '<a href="thuc-don-mon-ga-sp-a49b241015103551773.html" class="btn btn-danger btn-sm">See More</a>'+
+                    '</h1>'+
+                '</div>';
+                category.products.forEach(product => {
                     html += '<div id="item-wrapper-0-0" class="item-wrapper">'+
                     '<div class="item">'+
-                      '<div class="item-img">'+
+                        '<div class="item-img">'+
                         '<a href="">'+
-                          '<img src="images/products/'+product.images[0].path+'" alt="" />'+
+                            '<img src="images/products/'+product.images[0].path+'" alt="" />'+
                         '</a>'+
-                      '</div>'+
-                      '<div class="item-name">'+
+                        '</div>'+
+                        '<div class="item-name">'+
                         '<a href="">'+
-                          '<h2 class="text-center text-uppercase distance-none" title="">'+product.name+'</h2>'+
+                            '<h2 class="text-center text-uppercase distance-none" title="">'+product.name+'</h2>'+
                         '</a>'+
                         '<div class="store text-center">'+
-                          '<a href=""><span>'+product.store.name+'</span></a>'+
+                            '<a href=""><span>'+product.store.name+'</span></a>'+
                         '</div>'+
                         '<div class="price text-center">'+
                         '<span>'+product.price+' đ</span>'+
                         '</div>'+
-                      '</div>'+
-                      '<div class="item-addCart-hover">'+
+                        '</div>'+
+                        '<div class="item-addCart-hover">'+
                         '<span class="item-addCart btn btn-default btn-lg text-capitalize" onclick="">'+
                             '<i class="fa fa-shopping-cart"></i>Buy Now'+
                         '</span>'+
                         '<div class="row">'+
-                          '<div class="col-lg-12">'+
+                            '<div class="col-lg-12">'+
                             '<div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lượt xem">'+
-                              '<p><i class="fa fa-eye"></i></p>'+
-                              '<p>126</p>'+
+                                '<p><i class="fa fa-eye"></i></p>'+
+                                '<p>126</p>'+
                             '</div>'+
                             '<div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lượt mua">'+
-                              '<p><i class="fa fa-tags"></i></p>'+
-                              '<p>28</p>'+
+                                '<p><i class="fa fa-tags"></i></p>'+
+                                '<p>28</p>'+
                             '</div>'+
                             '<a href="javascript:;">'+
-                              '<div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chia sẻ">'+
+                                '<div class="col-lg-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chia sẻ">'+
                                 '<p><i class="fa fa-share-alt"></i></p>'+
                                 '<p>Share</p>'+
-                              '</div>'+
+                                '</div>'+
                             '</a>'+
-                          '</div>'+
-                       ' </div>'+
-                      '</div>'+
+                            '</div>'+
+                        ' </div>'+
+                        '</div>'+
                     '</div>'+
-                  '</div>';
+                    '</div>';
                     });
-                }
-                html+='</div>';
-                $(html).insertBefore('.bottom-banner');
+                });
             }
-        });
-    }
-    
+            html+='</div>';
+            $(html).insertBefore('.bottom-banner');
+        }
+    });
 });

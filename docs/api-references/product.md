@@ -63,7 +63,7 @@ Get list newest products with limited items
 
 ### `GET` List Hotest products in Category Home page
 ```
-/api/products?index_category_id={category.id}
+/api/products?category_id={category.id}
 ```
 Get list hotest products in category home page
 #### Request Headers
