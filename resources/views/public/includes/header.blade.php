@@ -73,15 +73,33 @@
         </li>
         <li class="shopping-cart" id="shopping-cart">
           <i class="fa fa-shopping-cart"></i>
-          <span class="shopping-cart-show"> {{__('user/login.cart')}} (0)</span>
-          <script>
-            $('.shopping-cart-show').click(function () {
-              $('.box-cart').toggleClass("active");
-            });
-            $('.thugon-cart').click(function () {
-              $('.box-cart').toggleClass("active");
-            });
-          </script>
+          <span class="shopping-cart-show"> {{__('user/index.cart.title')}} (0)</span>
+          <div class="box-cart">
+            <div class="box-cart-detail">
+              <p class="title text-uppercase">
+                  {{__('user/index.cart.your_cart')}} 
+              </p>
+              <div class="popup-cart box-cart-scroll">
+                <table class="table">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <table class="table">
+                <tfoot>
+                  <tr>
+                    <td colspan="3" class="bold"><b>{{__('user/index.cart.total')}} </b></td>
+                    <td id="total-money" class="text-right"><b class="bold" style="color:#f00;font-size:15px;">1.180.000 </b>VNĐ</td>
+                  </tr>
+                </tfoot>
+              </table>
+              <p class="cart-options">
+                <a href="javascript:;" class="thugon-cart btn btn-sm btn-primary btn-warning text-capitalize"><i class="fa fa-close"></i>{{__('user/index.cart.exit')}} </a>
+                <a href="javascript:;" onclick="modifyCart(0,'clear');" class="btn btn-sm btn-primary btn-danger text-capitalize"><i class="fa fa-trash"></i>{{__('user/index.cart.cancel')}} </a>
+                <a href="/thong-tin-gio-hang.html" class="btn btn-sm btn-primary btn-success text-capitalize"><i class="fa fa-shopping-cart"></i>{{__('user/index.cart.order')}} </a>
+              </p>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

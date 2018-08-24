@@ -74,7 +74,7 @@
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
             <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
-              <i class="fa fa-shopping-cart"></i>{{ __('user/index.register')}}
+              <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
         </div>

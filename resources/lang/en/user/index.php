@@ -8,7 +8,15 @@ return [
     'please_call' => 'Please call: 0165.263.8375',
     'login' => 'Login',
     'register' => 'Register',
-    'cart' => 'Cart',
+    'cart' => [
+        'title' => 'Cart',
+        'your_cart' => 'Your Cart',
+        'total' => 'Total',
+        'order' => 'Order',
+        'exit' => 'Exit',
+        'cancel' => 'Cancel'
+    ],
+
     'newest' => 'Newest Foods & Drinks',
     'see_more' => 'See more',
     'buy_now' => 'Buy Now',

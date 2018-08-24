@@ -417,6 +417,7 @@
 <script src="js/public/login.js"></script>
 <script src="js/public/logout.js"></script>
 <script src="js/public/register.js"></script>
+<script src="js/public/cart.js"></script>
 <script src="user/Scripts/jqzoom.js"></script>
 <script src="user/Scripts/slide/jquery.bxslider.js"></script>
 
