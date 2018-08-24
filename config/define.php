@@ -7,5 +7,6 @@ return [
     'login' => [
       'unauthorised' => 'Please fill in all information!',
       'success' => 'You have login successfully!'
-    ]
+    ],
+    'limit_row_slide' => 8,
 ];
