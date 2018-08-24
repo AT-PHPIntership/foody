@@ -95,12 +95,12 @@ trait ApiResponser
         ];
         Validator::validate(request()->all(), $rules);
         $page = LengthAwarePaginator::resolveCurrentPage();
-        $perpage = config('define.limit_rows');
+        $prePage = config('define.limit_rows');
         if (request()->has('perpage')) {
-            $perpage = request()->perpage;
+            $prePage = request()->perpage;
         }
-        $result = $collection->slice(($page - 1) * $perpage, $perpage);
-        $paginated = new LengthAwarePaginator($result->values(), $collection->count(), $perpage, $page, [
+        $result = $collection->slice(($page - 1) * $prePage, $prePage);
+        $paginated = new LengthAwarePaginator($result->values(), $collection->count(), $prePage, $page, [
             'path' => LengthAwarePaginator::resolveCurrentPath()
         ]);
         $paginated->appends(request()->all());

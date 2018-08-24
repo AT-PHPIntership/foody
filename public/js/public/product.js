@@ -66,7 +66,7 @@ $(document).ready(function() {
           $('.breadcrumb ul li:nth-child(3) a').attr('href', api.products_index +'?category_id=' + id);
           if(id===result.result.data[0].category.parent.id) {
             $('.breadcrumb ul li:nth-child(3) a').html(result.result.data[0].category.parent.name);
-            html+='<div id="products-hot-0" class="product product-home product-wrapper">'+
+            html+='<div id="category-products" class="product product-home product-wrapper">'+
             '<div class="title border-bottom">'+
               '<i class="fa fa-fire"></i>'+
               '<h1 class="distance-none text-uppercase">'+
@@ -84,7 +84,7 @@ $(document).ready(function() {
             '</div>';
           }
           html = loadProducts(result, html, current_page);
-        $('.product-home').append(html);
+          $('.product-home').append(html);
         }
     });
     $(document).on('click', '.page-readmore', function (event) {
@@ -96,7 +96,7 @@ $(document).ready(function() {
           let html = '';
           $('.page-readmore').remove();
           html = loadProducts(result, html, current_page);
-          $('#products-hot-0').append(html);
+          $('#category-products').append(html);
         }
     });
     })
