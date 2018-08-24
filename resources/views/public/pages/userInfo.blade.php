@@ -37,8 +37,8 @@
       <img src="user/Files/admin/27042018/banner-phai.gif" />
     </a>
   </div>
-  <div class="banner" style="margin-top:10px; display:block !important;">
-  <p class="message full left text-center"></p>
+  <div class="banner" style="margin-top:10px;">
+  <p class="message full left text-center" id="textMessage"></p>
     <div class="row">
       <div class="col-lg-12 left full">
         <div class="panel panel-default">
@@ -47,56 +47,47 @@
               <div class="col-lg-6" style="width:100%;">
                 <form method="POST" data-ajax="true" data-ajax-failure="checkMember" data-ajax-method="Post" data-ajax-success="checkMember" enctype="multipart/form-data" id="profileForm" method="post">
                   <div class="row">
-                  <div class="col-lg-4">
-                    <span class="field-validation-valid" data-valmsg-for="username" data-valmsg-replace="true"></span>
-                    <div class="form-group">
-                    <label for="disabledSelect">{{__('user/login.userInfo.username')}}</label>
-                    <input class="form-control" data-val="true" data-val-length="chiều dài 1-100" data-val-length-max="100" data-val-regex={{__('user/login.userInfo.username_regex')}} data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required={{__('user/login.userInfo.username_require')}} id="userNameInfo" name="username" placeholder={{__('user/login.userInfo.username')}} readonly="readonly" type="text" value="" />
+                    <div class="col-lg-4">
+                      <span class="field-validation-valid" data-valmsg-for="username" data-valmsg-replace="true"></span>
+                      <div class="form-group">
+                      <label for="disabledSelect">{{__('user/login.userInfo.username')}}</label>
+                      <input class="form-control" data-val="true" data-val-length="chiều dài 1-100" data-val-length-max="100" data-val-regex={{__('user/login.userInfo.username_regex')}} data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required={{__('user/login.userInfo.username_require')}} id="userNameInfo" name="username" placeholder={{__('user/login.userInfo.username')}} readonly="readonly" type="text" value="" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <span class="field-validation-valid" data-valmsg-for="full_name" data-valmsg-replace="true"></span>
+                      <div class="form-group">
+                        <label for="disabledSelect">{{__('user/login.userInfo.full_name')}}</label>
+                        <input class="form-control" data-val="true" data-val-length={{__('user/login.userInfo.full_name_length')}} data-val-length-max="100" data-val-required={{__('user/login.userInfo.full-name-length')}} id="fullNameInfo" name="full_name" placeholder={{__('user/login.userInfo.full_name')}} type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <span class="field-validation-valid" data-valmsg-for="gender" data-valmsg-replace="true"></span>
+                      <div class="form-group">
+                        <label for="disabledSelect">{{__('user/login.userInfo.gender')}}</label>
+                        <select class="form-control" data-val="true" data-val-required={{__('user/login.userInfo.gender_require')}} id="genderInfo" name="gender">
+                          <option value="1">{{__('user/login.userInfo.female')}}</option>
+                          <option value="0">{{__('user/login.userInfo.male')}}</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-lg-4">
-                    <input data-val="true" data-val-length={{__('user/login.userInfo.password_length')}} data-val-length-max="50" data-val-length-min="8" data-val-required={{__('user/login.userInfo.password_require')}} id="password" name="password" type="hidden" value="" />
-                    <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
-                    <div class="form-group">
-                    <label>{{__('user/login.userInfo.password')}}</label>
-                      <input class="form-control" name="password" placeholder={{__('user/login.userInfo.new_password')}} type="password" />
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <span class="field-validation-valid" data-valmsg-for="phone" data-valmsg-replace="true"></span>
+                      <div class="form-group">
+                        <label for="disabledSelect">{{__('user/login.userInfo.phone')}}</label>
+                        <input class="form-control" data-val="true" data-val-length={{__('user/login.userInfo.phone_length')}} data-val-length-max="20" data-val-regex={{__('user/login.userInfo.phone_regex')}} data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" id="phoneNumberInfo" name="phone" placeholder={{__('user/login.userInfo.phone')}} type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
+                      <div class="form-group">
+                        <label for="disabledSelect">{{__('user/login.userInfo.email')}}</label>
+                        <input class="form-control" data-val="true" data-val-regex={{__('user/login.userInfo.email_regex')}} data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required={{__('user/login.userInfo.email_require')}} id="emailInfo" name="email" placeholder={{__('user/login.userInfo.email')}} type="text"/>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-lg-4">
-                    <span class="field-validation-valid" data-valmsg-for="full_name" data-valmsg-replace="true"></span>
-                    <div class="form-group">
-                      <label for="disabledSelect">{{__('user/login.userInfo.full_name')}}</label>
-                      <input class="form-control" data-val="true" data-val-length={{__('user/login.userInfo.full_name_length')}} data-val-length-max="100" data-val-required={{__('user/login.userInfo.full-name-length')}} id="fullNameInfo" name="full_name" placeholder={{__('user/login.userInfo.full_name')}} type="text"/>
-                    </div>
-                  </div>
-                    </div>
-                <div class="row">
-                  <div class="col-lg-4">
-                    <span class="field-validation-valid" data-valmsg-for="gender" data-valmsg-replace="true"></span>
-                    <div class="form-group">
-                      <label for="disabledSelect">{{__('user/login.userInfo.gender')}}</label>
-                      <select class="form-control" data-val="true" data-val-required={{__('user/login.userInfo.gender_require')}} id="genderInfo" name="gender">
-                        <option value="1">{{__('user/login.userInfo.female')}}</option>
-                        <option value="0">{{__('user/login.userInfo.male')}}</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <span class="field-validation-valid" data-valmsg-for="phone" data-valmsg-replace="true"></span>
-                    <div class="form-group">
-                      <label for="disabledSelect">{{__('user/login.userInfo.phone')}}</label>
-                      <input class="form-control" data-val="true" data-val-length={{__('user/login.userInfo.phone_length')}} data-val-length-max="20" data-val-regex={{__('user/login.userInfo.phone_regex')}} data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" id="phoneNumberInfo" name="phone" placeholder={{__('user/login.userInfo.phone')}} type="text"/>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
-                    <div class="form-group">
-                      <label for="disabledSelect">{{__('user/login.userInfo.email')}}</label>
-                      <input class="form-control" data-val="true" data-val-regex={{__('user/login.userInfo.email_regex')}} data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required={{__('user/login.userInfo.email_require')}} id="emailInfo" name="email" placeholder={{__('user/login.userInfo.email')}} type="text"/>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
                   <button type="submit" id="btnUpdateInfo" class="btn btn btn-success"><i class="fa fa-sign-in" ></i>{{__('user/login.userInfo.save')}}</button>
                   <a href={{ route('user.home') }} class="btn btn btn-danger"><i class="fa fa-close"></i>{{__('user/login.userInfo.cancel')}}</a>
                 </form>

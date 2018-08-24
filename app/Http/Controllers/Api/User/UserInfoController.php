@@ -21,10 +21,10 @@ class UserInfoController extends ApiController
      */
     public function update(UpdateUserRequest $request)
     {
-        $updatedUser = $request->only(['full_name', 'gender', 'phone', 'email', 'password']);
+        $updatedUser = $request->only(['full_name', 'gender', 'phone', 'email']);
         $user = Auth::user();
         try {
-            User::update(['id' => $user->id], $updatedUser);
+            User::where('id', $user->id)->update($updatedUser);
             return $this->showOne($user, Response::HTTP_OK);
         } catch (Exception $e) {
             return $this->errorResponse(trans('messages.update_user_fail'), Response::HTTP_BAD_REQUEST);
