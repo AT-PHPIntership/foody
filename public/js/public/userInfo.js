@@ -30,10 +30,10 @@ function editUserInfo() {
       'gender' : $('#genderInfo').val(),
     },
     success: function(response) {
-      $('#textMessage').show();
+      $('#textMessage').show().text('Your profile was updated successfully!');
     },
     error: function (response) {
-      alert(response.responseJSON.message);
+      $('#textMessage').show().text(response.responseJSON.message);
     }
   });
 }
@@ -56,7 +56,6 @@ $(document).ready(function () {
     $(document).on('click', '#btnUpdateInfo', function(event) {
       event.preventDefault();
       editUserInfo();
-      $('#textMessage').text('Your profile was updated successfully!');
     });
   } else {
     $('#textMessage').text('You are not sign in or do not have account. Please sign in or sign up account!');
