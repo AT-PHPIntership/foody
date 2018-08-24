@@ -8,9 +8,11 @@ $(document).ready(function () {
         Authorization: 'Bearer ' + localStorage.getItem('token-login'),
       }),
       success: function(response) {
-        $('#userLogin').hide();
-        $('#userLogout').show();
-        $('#userSignup').hide();
+        if(response.code == 200) {
+          $('#userLogin').hide();
+          $('#userLogout').show();
+          $('#userSignup').hide();
+        }
       },
       error: function (response) {
         window.localStorage.removeItem('token-login');
