@@ -32,4 +32,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'HomeController@index')->name('user.home');
     Route::resource('products', 'ProductController');
+    Route::get('/profile', 'UserController@index')->name('user.info');
 });
