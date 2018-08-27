@@ -6,6 +6,7 @@ $(document).ready(function() {
             let i = 1;
             result.result.forEach(product => {
                 $('#img-pro-newest-' + i).attr('src', 'images/products/'+ product.images[0].path);
+                $('#buy-now-newest-' + i).attr('onclick', 'addToCart('+product.id+')');
                 $('#name-pro-newest-' + i).html(product.name);
                 $('#store-pro-newest-' + i + ' span').html(product.store.name);
                 $('#price-pro-newest-' + i + ' span').html(formatNumber(product.price) +' đ');

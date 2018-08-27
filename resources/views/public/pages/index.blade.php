@@ -73,7 +73,7 @@
             <img id="img-pro-newest-1" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+            <span id="buy-now-newest-1" class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
@@ -94,7 +94,7 @@
             <img id="img-pro-newest-2" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+            <span id="buy-now-newest-2" class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
@@ -115,7 +115,7 @@
             <img id="img-pro-newest-3" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+            <span id="buy-now-newest-3" class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
@@ -136,7 +136,7 @@
             <img id="img-pro-newest-4" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+            <span id="buy-now-newest-4" class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
@@ -157,7 +157,7 @@
             <img id="img-pro-newest-5" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+            <span id="buy-now-newest-5" class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
@@ -180,7 +180,7 @@
             <img id="img-pro-newest-6" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+            <span id="buy-now-newest-6" class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
@@ -201,7 +201,7 @@
             <img id="img-pro-newest-7" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+            <span id="buy-now-newest-7" class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
@@ -222,7 +222,7 @@
             <img id="img-pro-newest-8" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
-            <span class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
+            <span id="buy-now-newest-8" class="item-addCart btn btn-default btn-lg text-uppercase" onclick="">
               <i class="fa fa-shopping-cart"></i>{{ __('user/index.buy_now')}}
             </span>
           </p>
