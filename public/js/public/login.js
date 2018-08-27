@@ -23,7 +23,7 @@ $(document).ready(function () {
         password: $('.login-form input[type="password"]').val()
       },
       success: function (response) {
-        $('.login-form').html('You have login successfully!')
+        $('.login-form').html(Lang.get('user/login.login_success'));
         $('.login-form').css('color', 'green');
         localStorage.setItem('token-login', response.result.token);
         localStorage.setItem('username', response.result.user.username);

@@ -26,7 +26,7 @@
   <div class="container wrapper distance-none header-top-wrapper">
     <section class="header-top">
       <div class="logo">
-        <a href="index.html">
+      <a href="{{route('user.home')}}">
             <img src="user/Files/Images/logo-flyfood-2017.png" alt="Foody" />
         </a>
       </div>
@@ -63,7 +63,8 @@
           <i class="fa fa-sign-in"></i>{{__('user/login.title')}}
         </li>
         <li class="user-name">
-          <i class="fa fa-user" id="userName" style="font-size: larger;"></i>
+            <a href="{{route('user.info')}}">
+          <i class="fa fa-user" id="userName" style="font-size: larger;"></i></a>
         </li>
         <li class="logout" id="userLogout">
           <i class="fa fa-sign-out"></i>{{__('user/login.logout')}}

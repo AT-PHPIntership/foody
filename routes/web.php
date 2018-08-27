@@ -33,4 +33,5 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'HomeController@index')->name('user.home');
     Route::get('/categories', 'CategoryController@index')->name('user.category');
     Route::get('/products', 'ProductController@index')->name('user.product');
+    Route::get('/profile', 'UserController@index')->name('user.info');
 });
