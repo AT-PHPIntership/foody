@@ -54,7 +54,7 @@ class UpdateUserInfoTest extends TestCase
     *
     * @return void
     */
-   public function testGetUserInfo()
+   public function test_get_user_info()
    {
        $user = User::find(1);
        $login = [
@@ -72,7 +72,7 @@ class UpdateUserInfoTest extends TestCase
     *
     * @return void
     */
-   public function testCompareDatabase()
+   public function test_compare_database()
    {
        $user = User::find(1);
        $login = [
