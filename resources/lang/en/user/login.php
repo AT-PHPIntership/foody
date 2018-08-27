@@ -11,8 +11,8 @@ return [
   'forgot_password' => 'Forgot password',
   'register' => 'Register',
   'cart' => 'Cart',
+  'login_success' => 'You have login successfully!',
   'userInfo' => [
-    'not_login' => 'You are not login',
     'messsage' => 'Please fill in all information',
     'username' => 'User Name',
     'username_regex' => 'User name must be character or number',
@@ -35,6 +35,8 @@ return [
     'email_regex' => 'Email is not format correct',
     'email_require' => 'Please input email',
     'cancel' => 'Cancel',
-    'save' => 'Save'
+    'save' => 'Save',
+    'update_success' => 'Your profile was updated successfully!',
+    'not_login' => 'You are not sign in or do not have account. Please sign in or sign up account!'
   ],
 ];
