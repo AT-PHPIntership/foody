@@ -16,4 +16,14 @@ class ProductController extends Controller
     {
         return view('public.pages.product');
     }
+
+    /**
+    * Display detail of product.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function show()
+    {
+        return view('public.pages.detailsProduct');
+    }
 }
