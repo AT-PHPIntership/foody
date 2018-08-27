@@ -25,5 +25,7 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::post('logout', 'LoginController@logout');
         Route::get('checkLoginToken', 'LoginController@checkLoginToken');
+        Route::put('users/profile', 'UserInfoController@update');
+        Route::get('users/info', 'UserController@index');
     });
 }); 
