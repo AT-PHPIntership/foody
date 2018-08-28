@@ -69,7 +69,7 @@
     <div class="carousel_best_buy owl-carousel owl-theme" style="padding: 20px 0px; background: rgb(220, 220, 220); opacity: 1; display: block;">
       <div class="item">
         <div class="item-img">
-          <a href="">
+          <a class="img-newest-1" href="">
             <img id="img-pro-newest-1" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
@@ -79,7 +79,7 @@
           </p>
         </div>
         <div class="item-name">
-          <a href="ml"><h2 id="name-pro-newest-1" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <a class="img-newest-1" href=""><h2 id="name-pro-newest-1" class="text-center text-uppercase distance-none" title=""></h2></a>
           <div id="store-pro-newest-1" class="store text-center">
               <a href=""><span></span></a>
           </div>
@@ -90,7 +90,7 @@
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="">
+          <a class="img-newest-2" href="">
             <img id="img-pro-newest-2" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
@@ -100,7 +100,7 @@
           </p>
         </div>
         <div class="item-name">
-          <a href=""><h2 id="name-pro-newest-2" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <a class="img-newest-2" href=""><h2 id="name-pro-newest-2" class="text-center text-uppercase distance-none" title=""></h2></a>
           <div id="store-pro-newest-2" class="store text-center">
               <a href=""><span></span></a>
           </div>
@@ -111,7 +111,7 @@
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="">
+          <a class="img-newest-3" href="">
             <img id="img-pro-newest-3" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
@@ -121,7 +121,7 @@
           </p>
         </div>
         <div class="item-name">
-          <a href=""><h2 id="name-pro-newest-3" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <a class="img-newest-3" href=""><h2 id="name-pro-newest-3" class="text-center text-uppercase distance-none" title=""></h2></a>
           <div id="store-pro-newest-3" class="store text-center">
               <a href=""><span></span></a>
           </div>
@@ -132,7 +132,7 @@
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="">
+          <a class="img-newest-4" href="">
             <img id="img-pro-newest-4" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
@@ -142,7 +142,7 @@
           </p>
         </div>
         <div class="item-name">
-          <a href=""><h2 id="name-pro-newest-4" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <a class="img-newest-4" href=""><h2 id="name-pro-newest-4" class="text-center text-uppercase distance-none" title=""></h2></a>
           <div id="store-pro-newest-4" class="store text-center">
               <a href=""><span></span></a>
           </div>
@@ -153,7 +153,7 @@
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="">
+          <a class="img-newest-5" href="">
             <img id="img-pro-newest-5" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
@@ -163,7 +163,7 @@
           </p>
         </div>
         <div class="item-name">
-          <a href="ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html">
+          <a class="img-newest-5" href="">
             <h2 id="name-pro-newest-5" class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2>
           </a>
           <div id="store-pro-newest-5" class="store text-center">
@@ -176,7 +176,7 @@
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="">
+          <a class="img-newest-6" href="">
             <img id="img-pro-newest-6" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
@@ -186,7 +186,7 @@
           </p>
         </div>
         <div class="item-name">
-          <a href=""><h2 id="name-pro-newest-6" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <a href=""><h2 id="name-pro-newest-6" class="text-center text-uppercase distance-none img-newest-6" title=""></h2></a>
           <div id="store-pro-newest-6" class="store text-center">
               <a href=""><span></span></a>
           </div>
@@ -197,7 +197,7 @@
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="">
+          <a class="img-newest-7" href="">
             <img id="img-pro-newest-7" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
@@ -207,7 +207,7 @@
           </p>
         </div>
         <div class="item-name">
-          <a href=""><h2 id="name-pro-newest-7" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <a class="img-newest-7" href=""><h2 id="name-pro-newest-7" class="text-center text-uppercase distance-none" title=""></h2></a>
           <div id="store-pro-newest-7" class="store text-center">
               <a href=""><span></span></a>
           </div>
@@ -218,7 +218,7 @@
       </div>
       <div class="item">
         <div class="item-img">
-          <a href="">
+          <a class="img-newest-8" href="">
             <img id="img-pro-newest-8" src="" alt="" />
           </a>
           <p style="display:block; position:absolute;top:50%;" class="full left text-center" >
@@ -228,7 +228,7 @@
           </p>
         </div>
         <div class="item-name">
-          <a href=""><h2 id="name-pro-newest-8" class="text-center text-uppercase distance-none" title=""></h2></a>
+          <a class="img-newest-8" href=""><h2 id="name-pro-newest-8" class="text-center text-uppercase distance-none" title=""></h2></a>
           <div id="store-pro-newest-8" class="store text-center">
               <a href=""><span></span></a>
           </div>

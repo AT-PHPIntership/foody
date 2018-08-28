@@ -224,7 +224,7 @@
   }
 </script>
 <!-- Modal -->
-<div class="modal fade" id="modalSingin" tabindex="-1" role="dialog" aria-labelledby="modalSinginLabel" aria-hidden="true">
+<div class="modal fade" id="modalSignup" tabindex="-1" role="dialog" aria-labelledby="modalSinginLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -413,6 +413,7 @@
 <script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="user/Scripts/owl.carousel.min.js"></script>
 <script src="js/public/route.js"></script>
+<script src="/js/public/main.js"></script>
 <script src="js/public/login.js"></script>
 <script src="js/public/logout.js"></script>
 <script src="js/public/register.js"></script>

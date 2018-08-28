@@ -1,44 +1,11 @@
 $(document).ready(function() {
     $.ajax({
-        url: "/api/categories",
-        type: "get",
-        success: function(result) {
-            let html = '';
-            result.result.forEach(category => {
-                let childsHtml = '';
-                if (category.children) {
-                    childsHtml += '<div class="list-menu">' +
-                                        '<ul class="list-inline">';
-                    category.children.forEach(childsCategory => {
-                        //url = api.products_index+"?category="+childsCategory.id;
-                        childsHtml += '<li><a href="">'+ childsCategory.name +'</a></li>';
-                    });
-                    childsHtml += '</ul>' +
-                                '</div>';
-                }
-                
-                if (category.children) {
-                    html += '<li class="menu-top">' +
-                                '<a href="">'+category.name+'</a>';
-                                if (category.children) {
-                                    html += childsHtml;
-                                }
-                    html +=  '</li>';
-                }else {
-                    html += '<li>' +
-                                '<a href="">'+category.name+'</a>';
-                    html +=  '</li>';
-                }
-            });
-            $('#js-menu').append(html);
-        }
-    });
-    $.ajax({
         url: "/api/products?newest_products=8",
         type: "get",
         success: function(result) {
             let i = 1;
             result.result.forEach(product => {
+                $('.img-newest-' + i).attr('href', api.products_index + '/' + product['id']);
                 $('#img-pro-newest-' + i).attr('src', 'images/products/'+ product.images[0].path);
                 $('#name-pro-newest-' + i).html(product.name);
                 $('#store-pro-newest-' + i + ' span').html(product.store.name);
@@ -60,7 +27,7 @@ $(document).ready(function() {
                     '<i class="fa fa-fire"></i>'+
                     '<h1 class="distance-none text-uppercase">'+
                     '<span>'+category.name+'</span>'+
-                    '<a href="thuc-don-mon-ga-sp-a49b241015103551773.html" class="btn btn-danger btn-sm">See More</a>'+
+                    '<a href="'+api.products_index+"?category_id="+category.id+'" class="btn btn-danger btn-sm">See More</a>'+
                     '</h1>'+
                 '</div>';
                 category.products.forEach(product => {
