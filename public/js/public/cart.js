@@ -109,12 +109,13 @@ function modifyCart(id, option) {
                         cart.splice(j, 1);
                         break;
                     case 'change':
-                        var number;
+                        var number, numberCheckout, numberCart;
                         if(window.location.pathname == '/checkout/cart') {
-                            number = parseInt($('#cart-detail-checkout tbody tr td span .number-product-' +id).val());
-                        } else {
-                            number = parseInt($('#number-product-' +id).val());
+                            numberCheckout = parseInt($('#cart-detail-checkout tbody tr td span .number-product-' +id).val());
                         }
+                        numberCart = parseInt($('#number-product-' +id).val());
+                        number = numberCart != cart[j].quanlity ? numberCart : numberCheckout;
+                        console.log('a '+numberCheckout+ ' ' +numberCart);
                         if(number <=0) modifyCart(id, 'delete'); 
                         cart[j].quanlity = number;
                         break;
