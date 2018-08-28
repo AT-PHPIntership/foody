@@ -1,5 +1,6 @@
 <meta name="robots" content="index, follow, all" />
 <meta name="p:domain_verify" content="73eb0f0e066e6b151806fd693a1fbf35" />
+<base href="{{ asset('') }}">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <meta charset="utf-8" />
