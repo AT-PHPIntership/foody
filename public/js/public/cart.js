@@ -1,6 +1,7 @@
 var cart = JSON.parse(localStorage.getItem('cart'));
 $(document).ready(function() {
     if(!cart){
+        $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
         cart = [];
     }else{
         showCart(cart);
@@ -8,13 +9,9 @@ $(document).ready(function() {
     $('.shopping-cart-show').click(function () {
         $('.box-cart').toggleClass("active");
     });
-    $('.thugon-cart').click(function () {
-        $('.box-cart').toggleClass("active");
-    });
 });
 function addToCart(idProduct) {
     if(!cart){
-        $('.box-cart').addClass("active");
         cart = [];
     }
     var img = $('#item-product-' + idProduct +' .item .item-img a img').attr('src');
@@ -39,7 +36,7 @@ function addToCart(idProduct) {
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     showCart(cart);
-    $('.box-cart').addClass("active");
+    expandCart();
 }
 function searchById(id, data){
     for (var i=0; i < data.length; i++) {
@@ -51,6 +48,12 @@ function searchById(id, data){
 function showCart(cart) {
     var html = '', total = 0;
     if(cart.length){
+        html += '<div class="box-cart-detail">'+
+              '<p class="title text-uppercase">'+Lang.get('user/index.cart.your_cart')+
+              '</p>'+
+              '<div class="popup-cart box-cart-scroll">'+
+                '<table class="table">'+
+                 ' <tbody>';
         cart.forEach(cartItem => {
             total += cartItem.price * cartItem.quanlity;
             html += '<tr>' +
@@ -70,11 +73,28 @@ function showCart(cart) {
             '<td class="text-right bold">'+formatNumber(cartItem.price*cartItem.quanlity)+' VNĐ</td>'+
         '</tr>';
         });
-        $('#total-money b').html(formatNumber(total)+ ' ');
+        html += '</tbody>'+
+                '</table>'+
+              '</div>'+
+              '<table class="table">'+
+                '<tfoot>'+
+                  '<tr>'+
+                    '<td colspan="3" class="bold"><b>'+Lang.get('user/index.cart.total')+'</b></td>'+
+                    '<td id="total-money" class="text-right"><b class="bold" style="color:#f00;font-size:15px;">'+formatNumber(total)+' </b>VNĐ</td>'+
+                  '</tr>'+
+                '</tfoot>'+
+              '</table>'+
+              '<p class="cart-options">'+
+                '<a href="javascript:;" class="thugon-cart btn btn-sm btn-primary btn-warning text-capitalize" onclick="collapseCart();"><i class="fa fa-close"></i>'+Lang.get('user/index.cart.exit')+' </a>'+
+                '<a href="javascript:;" onclick="modifyCart(0,\'clear\');" class="btn btn-sm btn-primary btn-danger text-capitalize"><i class="fa fa-trash"></i>'+Lang.get('user/index.cart.cancel')+'</a>'+
+                '<a href="/thong-tin-gio-hang.html" class="btn btn-sm btn-primary btn-success text-capitalize"><i class="fa fa-shopping-cart"></i>'+Lang.get('user/index.cart.order')+'</a>'+
+              '</p>'+
+            '</div>';
         changeNumberCart(cart);
-        $('.popup-cart table tbody').html(html);
+        $('.box-cart').html(html);
     }else {
-        $('.box-cart').removeClass("active");
+        collapseCart();
+        $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
         changeNumberCart(cart);
     }
 }
@@ -86,7 +106,8 @@ function modifyCart(id, option) {
         localStorage.removeItem('cart');
         cart = null;
         $('.shopping-cart .shopping-cart-show').html('Cart (0)');
-        $('.box-cart').removeClass("active");
+        collapseCart();
+        $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
     } else {
         for (var j = 0; j < cart.length; j++) {
             if(id === cart[j].id){
@@ -114,4 +135,10 @@ function modifyCart(id, option) {
         localStorage.setItem("cart", JSON.stringify(cart));
         showCart(cart);
     }
+}
+function collapseCart() {
+    $('.box-cart').removeClass("active");
+}
+function expandCart() {
+    $('.box-cart').addClass("active");
 }
