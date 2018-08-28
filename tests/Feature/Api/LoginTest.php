@@ -40,7 +40,6 @@ class LoginTest extends TestCase
             'gender',
             'phone',
             'email',
-            'password',
             'created_at',
             'updated_at',
             'deleted_at',

@@ -30,5 +30,15 @@ trait FilterTrait
                 ->where('categories.parent_id', $id)->take(config('define.limit_row_slide'));
             }
         }
+        if ($request->category_id) {
+            if (isset($request->page)) {
+                return $query->join('categories', function ($join) {
+                    $join->on('categories.id', '=', 'products.category_id');
+                })
+                ->select('products.*')
+                ->where('categories.parent_id', $request->category_id)
+                ->orWhere('products.category_id', $request->category_id);
+            }
+        }
     }
 }

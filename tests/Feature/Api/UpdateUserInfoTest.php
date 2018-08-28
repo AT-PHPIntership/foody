@@ -15,16 +15,6 @@ class UpdateUserInfoTest extends TestCase
    use DatabaseMigrations;
 
    /**
-    * Set up user
-    *
-    * @return void
-    */
-   public function setUp()
-   {
-       parent::setUp();
-   }
-
-   /**
     * Return structure of json.
     *
     * @return array
@@ -54,13 +44,6 @@ class UpdateUserInfoTest extends TestCase
     */
    public function test_get_user_info()
    {
-       $user = User::find(1);
-       $login = [
-           'username' => $user->username,
-           'password' => '12345'
-       ];
-       $response = $this->json('POST', '/api/login', $login, ['Accept' => 'application/json']);
-       $token = json_decode($response->getContent())->result->token;
        $this->jsonUser('GET', 'api/users/info',[], [])
            ->assertStatus(200)
            ->assertJsonStructure($this->jsonStructureGetProfile());
@@ -73,15 +56,7 @@ class UpdateUserInfoTest extends TestCase
     */
    public function test_compare_database()
    {
-       $user = User::find(1);
-       $login = [
-           'username' => $user->username,
-           'password' => '12345'
-       ];
-       $responseLogin = $this->json('POST', '/api/login', $login, ['Accept' => 'application/json']);
-       $token = json_decode($responseLogin->getContent())->result->token;
        $responseProfie = $this->jsonUser('GET', 'api/users/info',[], []);
-
        $data = json_decode($responseProfie->getContent())->result;
        $arrayUser = [
            'id' => $data->id,
