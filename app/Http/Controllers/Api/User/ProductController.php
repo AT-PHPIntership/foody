@@ -26,6 +26,10 @@ class ProductController extends ApiController
                 $category['products'] = Product::with(['store', 'images'])->filter($request, $category->id)->get();
             }
             return $this->showAll($categories, Response::HTTP_OK);
+        } else if ($request->page) {
+            $products = Product::with('category.parent', 'store', 'images')->filter($request)->paginate(config('define.limit_rows'));
+            $products = $this->formatPaginate($products);
+            return $this->showAll($products, Response::HTTP_OK);
         } else {
             $products = Product::with('category.parent', 'store', 'images')->filter($request)->get();
             return $this->showAll($products, Response::HTTP_OK);
