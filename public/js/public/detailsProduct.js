@@ -1,18 +1,19 @@
 $(document).ready(function() {
   $.ajax({
-    url: "/api/products",
+    url: "/api" + window.location.pathname,
     type: "get",
-    success: function(result){
-      html = '';
-
-      result.result.forEach(product => {
-        console.log(product);
-        $('#productName').html(product.name);
-        $('#details').html(product.describe);
-        $('#productPrice').html(product.price + ' VND');
-        // html+= '<div class="panel-body none-border">' + '<p id="details">' + product.describe + '</p></div>';
-    });
-      
+    success: function(response){
+      $('#productName').html(response.result.name);
+      $('#details').html(response.result.describe);
+      $('#productPrice').html(response.result.price + ' VND');
+      let i = 1;
+        response.result.images.forEach(image => {
+          $('#bzoom-thumb-image-' + i).attr('src', 'images/products/'+ image.path);
+          $('#bzoom-big-image-' + i).attr('src', 'images/products/'+ image.path);
+          smallImg=$('.bzoom_smallthumb_active').parent().find( "li" ).children()[i-1];
+          $(smallImg).attr('src','images/products/'+ image.path);
+          i++;
+        });
     }
-  })
+  });
 });
