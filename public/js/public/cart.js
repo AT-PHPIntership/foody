@@ -1,6 +1,7 @@
-var cart = JSON.parse(sessionStorage.getItem('cart'));
+var cart = JSON.parse(localStorage.getItem('cart'));
 $(document).ready(function() {
     if(!cart){
+        $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
         cart = [];
     }else{
         showCart(cart);
@@ -8,13 +9,9 @@ $(document).ready(function() {
     $('.shopping-cart-show').click(function () {
         $('.box-cart').toggleClass("active");
     });
-    $('.thugon-cart').click(function () {
-        $('.box-cart').toggleClass("active");
-    });
 });
 function addToCart(idProduct) {
     if(!cart){
-        $('.box-cart').addClass("active");
         cart = [];
     }
     var img = $('#item-product-' + idProduct +' .item .item-img a img').attr('src');
@@ -23,7 +20,6 @@ function addToCart(idProduct) {
     var cartItem;
     if(cart.length > 0){
         var resultObject = searchById(idProduct, cart);
-        var cartItem;
         if(!resultObject){
             cartItem = {id:idProduct, name:name, img:img, price:price, quanlity: 1};
             cart.push(cartItem);
@@ -38,20 +34,26 @@ function addToCart(idProduct) {
     cartItem  = {id:idProduct, name:name, img:img, price:price, quanlity: 1};
     cart.push(cartItem);
     }
-    sessionStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     showCart(cart);
-    $('.box-cart').addClass("active");
+    expandCart();
 }
-function searchById(nameKey, myArray){
-    for (var i=0; i < myArray.length; i++) {
-        if (myArray[i].id === nameKey) {
-          return myArray[i];
+function searchById(id, data){
+    for (var i=0; i < data.length; i++) {
+        if (data[i].id === id) {
+          return data[i];
         }
     }
 }
 function showCart(cart) {
     var html = '', total = 0;
-    if(cart){
+    if(cart.length){
+        html += '<div class="box-cart-detail">'+
+              '<p class="title text-uppercase">'+Lang.get('user/index.cart.your_cart')+
+              '</p>'+
+              '<div class="popup-cart box-cart-scroll">'+
+                '<table id="cart-detail-checkout" class="table">'+
+                 ' <tbody>';
         cart.forEach(cartItem => {
             total += cartItem.price * cartItem.quanlity;
             html += '<tr>' +
@@ -67,31 +69,49 @@ function showCart(cart) {
             '<td width="100" class="text-right td_soluong">'+
             '<i class="fa fa-minus " onclick="modifyCart('+cartItem.id+',\'subone\')"></i> <span><input class="number-product-'+cartItem.id+'" id="number-product-'+cartItem.id+'" type="number" style="width:40px" onchange="modifyCart('+cartItem.id+',\'change\')" value="'+cartItem.quanlity+'"></span><i class="fa fa-plus " onclick="modifyCart('+cartItem.id+',\'addone\')"></i>'+
             '</td>'+
-            '<td class="text-right">'+formatNumber(cartItem.price)+' VNĐ</td>'+
-            '<td class="text-right bold">'+formatNumber(cartItem.price*cartItem.quanlity)+' VNĐ</td>'+
+            '<td class="text-right">'+cartItem.price+' VNĐ</td>'+
+            '<td class="text-right bold">'+(cartItem.price*cartItem.quanlity).toFixed(3)+' VNĐ</td>'+
         '</tr>';
         });
-        $('#total-money b').html(formatNumber(total)+ ' ');
+        html += '</tbody>'+
+                '</table>'+
+              '</div>'+
+              '<table class="table">'+
+                '<tfoot>'+
+                  '<tr>'+
+                    '<td colspan="3" class="bold"><b>'+Lang.get('user/index.cart.total')+'</b></td>'+
+                    '<td id="total-money" class="text-right"><b class="bold" style="color:#f00;font-size:15px;">'+total.toFixed(3)+' </b>VNĐ</td>'+
+                  '</tr>'+
+                '</tfoot>'+
+              '</table>'+
+              '<p class="cart-options">'+
+                '<a href="javascript:;" class="thugon-cart btn btn-sm btn-primary btn-warning text-capitalize" onclick="collapseCart();"><i class="fa fa-close"></i>'+Lang.get('user/index.cart.exit')+' </a>'+
+                '<a href="javascript:;" onclick="modifyCart(0,\'clear\');" class="btn btn-sm btn-primary btn-danger text-capitalize"><i class="fa fa-trash"></i>'+Lang.get('user/index.cart.cancel')+'</a>'+
+                '<a id="checkout-btn" onclick="checkLogin(\'/checkout/cart\')" class="btn btn-sm btn-primary btn-success text-capitalize"><i class="fa fa-shopping-cart"></i>'+Lang.get('user/index.cart.order')+'</a>'+
+              '</p>'+
+            '</div>';
         changeNumberCart(cart.length);
-        $('.box-cart-scroll table tbody').html(html);
+        $('.box-cart').html(html);
     }else {
-        $('.box-cart').removeClass("active");
-        $('.cart-detail-wrapper').remove();
-        changeNumberCart(0);
+        collapseCart();
+        $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
+        changeNumberCart(cart);
     }
+    $('#cart-detail-checkout .box-cart-detail p').remove();
+    $('#thanhtien').html(total.toFixed(3));
+    $('#phivc').html(formatNumber(50000));
+    $('#tongthanhtoan').html((total+50.000).toFixed(3));
 }
 function changeNumberCart(length) {
     $('.shopping-cart .shopping-cart-show').html('Cart ('+length+')');
 }
 function modifyCart(id, option) {
     if(option == 'clear') {
-        sessionStorage.removeItem('cart');
-        console.log(1);
+        localStorage.removeItem('cart');
         cart = null;
         $('.shopping-cart .shopping-cart-show').html('Cart (0)');
-        $('.box-cart').removeClass("active");
-        $('.cart-detail-wrapper').remove();
-        showCart(cart);
+        collapseCart();
+        $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
     } else {
         for (var j = 0; j < cart.length; j++) {
             if(id === cart[j].id){
@@ -111,7 +131,7 @@ function modifyCart(id, option) {
                     case 'change':
                         var number, numberCheckout, numberCart;
                         if(window.location.pathname == '/checkout/cart') {
-                            numberCheckout = parseInt($('#cart-detail-checkout tbody tr td span .number-product-' +id).val());
+                            numberCheckout = parseInt($('#cart-detail-checkout .box-cart-detail .box-cart-scroll table tbody tr td span .number-product-' +id).val());
                         }
                         numberCart = parseInt($('#number-product-' +id).val());
                         number = numberCart != cart[j].quanlity ? numberCart : numberCheckout;
@@ -122,7 +142,13 @@ function modifyCart(id, option) {
                 }
             }
         }
-        sessionStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem("cart", JSON.stringify(cart));
         showCart(cart);
     }
+}
+function collapseCart() {
+    $('.box-cart').removeClass("active");
+}
+function expandCart() {
+    $('.box-cart').addClass("active");
 }

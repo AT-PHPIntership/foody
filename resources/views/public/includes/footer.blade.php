@@ -223,6 +223,27 @@
     }
   }
 </script>
+<div class="modal fade" id="modalRequestLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3 class="modal-title text-center text-uppercase lead" id="modalLoginLabel">{{__('user/login.title')}}</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-body login-form">
+                <p id="modal-message">{{__('user/login.userInfo.messsage_request_login')}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="modalSignup" tabindex="-1" role="dialog" aria-labelledby="modalSinginLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -247,13 +268,13 @@
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-user"></i></span>
                           <input class="form-control" data-val="true" data-val-length="{{ __('user/register.username.length')}}" data-val-length-max="50" data-val-regex="{{ __('user/register.username.regex-msg')}}" 
-                          data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required="{{ __('user/register.username.require-msg')}}" id="username" name="username" placeholder="{{ __('user/register.username.placeholder')}}" type="text" value="" />
+                          data-val-regex-pattern="([a-zA-Z0-9 .&amp;&#39;-]+)" data-val-required="{{ __('user/register.username.require-msg')}}" name="username" placeholder="{{ __('user/register.username.placeholder')}}" type="text" value="" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                           <input class="form-control" data-val="true" data-val-length="{{ __('user/register.password.length')}}" data-val-length-max="50" data-val-length-min="8" 
-                          data-val-required="{{ __('user/register.password.require-msg')}}" id="password" name="password" placeholder="{{ __('user/register.password.placeholder')}}" type="password" />
+                          data-val-required="{{ __('user/register.password.require-msg')}}" name="password" placeholder="{{ __('user/register.password.placeholder')}}" type="password" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="full_name" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">

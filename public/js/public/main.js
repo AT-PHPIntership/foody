@@ -11,7 +11,9 @@ function checkLogin(link) {
       }),
       success: function(response) {
         if(response.code == 200) {
-        location.href = link;
+          if(window.location.pathname !== link) {
+            location.href = link;
+          }
         }
       },
       error: function (response) {
@@ -20,9 +22,14 @@ function checkLogin(link) {
       }
     });
   } else {
-    $('.login-form #modal-message').html(Lang.get('user/login.userInfo.messsage_request_login'));
-    $('.login-form #modal-message').css('color','red');
-    LoginPopup();
+    if(window.location.pathname != '/') {
+      ModalRequestLogin();
+      location.href = '/';
+    }else{
+      $('.login-form #modal-message').html(Lang.get('user/login.userInfo.messsage_request_login'));
+      $('.login-form #modal-message').css('color','red');
+      LoginPopup();
+    }
   }
 }
 $(document).ready(function() {

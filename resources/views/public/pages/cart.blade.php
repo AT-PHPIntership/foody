@@ -37,152 +37,102 @@
   </a>
 </div>
 <div class="product product-home product-wrapper">
-  <p class="message full left text-center">Vui lòng điền các thông tin yêu cầu</p>
+  <p class="message full left text-center">{{__('user/cart.required_fill')}}</p>
   <div class="dat-hang col-sm-12 distance-none" style="margin-bottom:10px;">
     <form action="/thong-tin-gio-hang.html?Length=6" data-ajax="true" data-ajax-failure="hideMark" data-ajax-method="Post" data-ajax-success="checkOrder" enctype="multipart/form-data" id="_loginForm" method="post" novalidate="novalidate">
       <div class="chi-tiet-gh col-sm-12">
         <h3 class="title text-capitalize">
-          <i class="fa fa-shopping-cart"></i> Thông tin giỏ hàng
+          <i class="fa fa-shopping-cart"></i>{{__('user/cart.cart_infor')}}
         </h3>
         <div class="cart-detail-wrapper">
-          <div class="box-cart cart-detail">
+          <div id="cart-detail-checkout" class="box-cart cart-detail">
             <div class="box-cart-detail">
-              <div class="box-cart-scroll">
-                <table id="cart-detail-checkout" class="table">
-                  <tbody>
-                  </tbody>
-                </table>
-              </div>
-              <table class="table">
-                <tfoot>
-                  <tr>
-                    <td colspan="3" class="bold"><b>{{__('user/index.cart.total')}}</b></td>
-                    <td id="total-money" class="text-right"><b id="total-cart" class="bold" style="color:#f00;font-size:15px;" data-val="800000">800.000</b>VNĐ</td>
-                  </tr>
-                </tfoot>
-              </table>
+              
             </div>
           </div>
         </div>
       </div>
       <div class="thong-tin col-sm-6">
         <h3 class="title text-capitalize">
-          <i class="fa fa-edit"></i> Thông tin người nhận
+          <i class="fa fa-edit"></i> {{__('user/cart.order_infor')}}
         </h3>
-        <span class="field-validation-valid" data-valmsg-for="DIENTHOAI" data-valmsg-replace="true"></span>
-        <div class="form-group">
-          <input class="form-control" data-val="true" data-val-length="Chiều dài 1-20" data-val-length-max="20" data-val-regex="Điện thoại không đúng định dạng" data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" data-val-required="Vui lòng nhập điện thoại" id="DIENTHOAI"
-              name="DIENTHOAI" placeholder="Nhập điện thoại" type="text" value="">
-        </div>
         <span class="field-validation-valid" data-valmsg-for="NGUOINHAN" data-valmsg-replace="true"></span>
         <div class="form-group">
-          <input class="form-control" data-val="true" data-val-length="Chiều dài 1-100" data-val-length-max="100" data-val-required="Vui lòng nhập người nhận" id="NGUOINHAN" name="NGUOINHAN" placeholder="Tên người nhận" type="text" value="">
-        </div>
-        <span class="field-validation-valid" data-valmsg-for="DIACHI" data-valmsg-replace="true"></span>
-        <div class="form-group">
-          <input class="form-control" data-val="true" data-val-length="Chiều dài 1-300" data-val-length-max="300" data-val-required="Vui lòng nhập địa chỉ" id="DIACHI" name="DIACHI" placeholder="Số nhà - Tên đường" type="text" value="">
-        </div>
-        <span class="field-validation-valid" data-valmsg-for="PHUONGXA" data-valmsg-replace="true"></span>
-        <div class="form-group">
-          <input class="form-control" data-val="true" data-val-length="Chiều dài 1-300" data-val-length-max="300" data-val-required="Vui lòng nhập phường (xã)" id="PHUONGXA" name="PHUONGXA" placeholder="Phường(xã)" type="text" value="">
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <span class="field-validation-valid" data-valmsg-for="TINHTHANH" data-valmsg-replace="true"></span>
-            <div class="form-group input-group">
-              <select class="form-control" data-val="true" data-val-required="Vui lòng chọn tỉnh thành" id="TINHTHANH" name="TINHTHANH">
-                <option value="">Chọn tỉnh thành</option>
-                <option value="TPHCM">TP. Hồ Chí Minh</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <span class="field-validation-valid" data-valmsg-for="QUANHUYEN" data-valmsg-replace="true"></span>
-            <div class="form-group input-group">
-              <select class="form-control" data-val="true" data-val-required="Vui lòng chọn Quận (Huyện)" id="QUANHUYEN" name="QUANHUYEN">
-                <option value="">Chọn Quận (Huyện)</option>
-              </select>
-            </div>
-          </div>
+          <input class="form-control" data-val="true" data-val-required="{{__('user/cart.name_required')}}" 
+          id="NGUOINHAN" name="NGUOINHAN" placeholder="{{__('user/cart.name_orderer')}}" type="text" value="">
         </div>
         <span class="field-validation-valid" data-valmsg-for="EMAIL" data-valmsg-replace="true"></span>
         <div class="form-group">
-          <input class="form-control" data-val="true" data-val-regex="Email không đúng định dạng" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" id="EMAIL" name="EMAIL" placeholder="Nhập email" type="text" value="">
+          <input class="form-control" data-val="true" data-val-regex="{{__('user/cart.email_regex_orderer')}}" data-val-required="{{__('user/cart.email_required')}}"  data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" 
+          id="EMAIL" name="EMAIL" placeholder="{{__('user/cart.email_orderer')}}" type="text" value="">
+        </div>
+        <span class="field-validation-valid" data-valmsg-for="DIENTHOAI" data-valmsg-replace="true"></span>
+        <div class="form-group">
+          <input class="form-control" data-val="true" data-val-regex="{{__('user/cart.phone_regex_orderer')}}" 
+          data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" data-val-required="{{__('user/cart.phone_regex_orderer')}}" id="DIENTHOAI"
+              name="DIENTHOAI" placeholder="{{__('user/cart.phone_orderer')}}" type="text" value="">
+        </div>
+        <span class="field-validation-valid" data-valmsg-for="DIACHI" data-valmsg-replace="true"></span>
+        <div class="form-group">
+          <input class="form-control" data-val="true" data-val-required="{{__('user/cart.address_required')}}" 
+          id="DIACHI" name="DIACHI" placeholder="{{__('user/cart.address_orderer')}}" type="text" value="">
         </div>
         <div class="form-group">
-          <textarea class="form-control" cols="20" id="GHICHU" name="GHICHU" placeholder="Ghi chú đơn hàng" rows="3"></textarea>
+          <textarea class="form-control" cols="20" id="GHICHU" name="GHICHU" placeholder="{{__('user/cart.note_orderer')}}" rows="3"></textarea>
         </div>
       </div>
       <div class="hinh-thuc col-sm-6">
         <h3 class="title text-capitalize">
-          <i class="fa fa-money"></i> Hình thức thanh toán
+          <i class="fa fa-money"></i> {{__('user/cart.payments')}}
         </h3>
         <span class="field-validation-valid" data-valmsg-for="NGAYGIAO" data-valmsg-replace="true"></span>
         <div class="form-group">
           <div class="input-group date" id="NgayGiao">
-            <input value="" class="form-control" data-val="true" data-val-date="The field NGAYGIAO must be a date." data-val-required="Vui lòng nhập chính xác NGÀY VÀ GIỜ giao hàng" id="NGAYGIAO" name="NGAYGIAO" placeholder="Ngày giao hàng" type="text">
+            <input value="" class="form-control" data-val="true" data-val-date="The field NGAYGIAO must be a date." data-val-required="Vui lòng nhập chính xác NGÀY VÀ GIỜ giao hàng" id="NGAYGIAO" name="NGAYGIAO" placeholder="{{__('user/cart.delivery_date')}}" type="text">
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
           </div>
         </div>
-        <span class="field-validation-valid" data-valmsg-for="HINHTHUC" data-valmsg-replace="true"></span>
-        <div class="form-group">
-          <select class="form-control" data-val="true" data-val-required="Vui lòng chọn hình thức thanh toán" id="HINHTHUC" name="HINHTHUC">
-            <option value="">Chọn hình thức thanh toán</option>
-            <option value="COD">Thanh toán khi nhận hàng</option>
-            <option value="Online">Chuyển khoản ATM Online</option>
-          </select>
-        </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group input-group">
-              <b>Tổng tiền</b>
+              <b>{{__('user/index.cart.total')}}</b>
             </div>
           </div>
           <div class="col-sm-6 text-right">
-            <span id="thanhtien" class="bold" data-val="800000">800.000</span> VNĐ
+            <span id="thanhtien" class="bold"></span> {{__('user/cart.vnd')}}
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group input-group">
-              Phí vận chuyển
+                {{__('user/cart.money_ship')}}
             </div>
           </div>
           <div class="col-sm-6 text-right">
-            <span id="phivc" class="bold">-</span> VNĐ
+            <span id="phivc" class="bold"></span> {{__('user/cart.vnd')}}
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group input-group">
-              Khấu trừ
+              <b>{{__('user/cart.total_payment')}}</b>
             </div>
           </div>
           <div class="col-sm-6 text-right">
-            <span id="khautru" class="bold">-</span> VNĐ
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group input-group">
-              <b>Tổng thanh toán</b>
-            </div>
-          </div>
-          <div class="col-sm-6 text-right">
-            <span id="tongthanhtoan" data-val="800000" class="bold">800.000</span> VNĐ
+            <span id="tongthanhtoan" class="bold"></span> {{__('user/cart.vnd')}}
           </div>
         </div>
         <div class="form-group">
           <button onclick="showMark();" type="submit" class="right btn btn-sm btn-block btn-success text-capitalize text-center">
-            Xác nhận đơn hàng
+              {{__('user/cart.submit')}}
           </button>
-          <a href="/san-pham.html" class="right btn btn-sm btn-block btn-warning text-capitalize text-center">
-                Mua thêm hàng
+          <a href="/" class="right btn btn-sm btn-block btn-warning text-capitalize text-center">
+            {{__('user/cart.buy_more')}}
           </a>
-          <button type="button" onclick="ModifyCart('clear','clear');" class="right btn btn-sm btn-block btn-danger text-capitalize text-center">
-            Hủy đơn hàng
+          <button type="button" onclick="modifyCart(0,'clear');" class="right btn btn-sm btn-block btn-danger text-capitalize text-center">
+              {{__('user/cart.cancel_order')}}
           </button>
         </div>
       </div>
