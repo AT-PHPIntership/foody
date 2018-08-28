@@ -69,7 +69,7 @@
         <li class="logout" id="userLogout">
           <i class="fa fa-sign-out"></i>{{__('user/login.logout')}}
         </li>
-        <li class="signin" id="userSignin" onclick="SinginPopup();">
+        <li class="signup" id="userSignup" onclick="SignupPopup();">
             <i class="fa fa-edit"></i>{{__('user/login.register')}}
         </li>
         <li class="shopping-cart" id="shopping-cart">
@@ -97,7 +97,7 @@
               <p class="cart-options">
                 <a href="javascript:;" class="thugon-cart btn btn-sm btn-primary btn-warning text-capitalize"><i class="fa fa-close"></i>{{__('user/index.cart.exit')}} </a>
                 <a href="javascript:;" onclick="modifyCart(0,'clear');" class="btn btn-sm btn-primary btn-danger text-capitalize"><i class="fa fa-trash"></i>{{__('user/index.cart.cancel')}} </a>
-                <a href="{{ route('cart.info') }}"" class="btn btn-sm btn-primary btn-success text-capitalize"><i class="fa fa-shopping-cart"></i>{{__('user/index.cart.order')}} </a>
+                <a id="checkout-btn" onclick="checkLogin('{{ route('cart.info') }}')" class="btn btn-sm btn-primary btn-success text-capitalize"><i class="fa fa-shopping-cart"></i>{{__('user/index.cart.order')}} </a>
               </p>
             </div>
           </div>

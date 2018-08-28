@@ -83,27 +83,3 @@ $(document).ready(function() {
         }
     });
 });
-var token = localStorage.getItem('token-login');
-function checkLogin() {
-    $.ajax({
-        type: 'GET',
-        url: '/api/checkAccessToken',
-        headers: ({
-            Accept: 'application/json',
-            Authorization: 'Bearer ' + token,
-        }),
-        success: function(response) {
-            $('.agile-login #header-logout').show();
-            $('.agile-login #header-login').hide();
-            localStorage.setItem('userLogin', JSON.stringify(response.result));
-        },
-        statusCode: {
-            401: function() {
-                window.localStorage.removeItem('login-token');
-                localStorage.removeItem('userLogin');
-                $('.agile-login #header-logout').hide();
-                $('.agile-login #header-login').show();
-            }
-        }
-    });
-}

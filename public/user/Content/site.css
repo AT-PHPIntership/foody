@@ -1571,15 +1571,15 @@ tr {
     border-color: inherit;
 }
 
-.dat-hang .col-sm-4, .dat-hang .cart-detail-wrapper {
+.dat-hang .col-sm-12, .dat-hang .cart-detail-wrapper {
     float: left;
 }
 
-    .dat-hang .col-sm-4 h3.title {
-        color: #0E9803;
-        font-size: 18px;
-        border-bottom: solid 1px #FD7605;
-    }
+.dat-hang .col-sm-6 h3.title, .dat-hang .col-sm-12 h3.title {
+    color: #0E9803;
+    font-size: 18px;
+    border-bottom: solid 1px #FD7605;
+}
 
 p.message {
     border: solid 1px #ff0404;

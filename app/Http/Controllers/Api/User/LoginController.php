@@ -59,4 +59,17 @@ class LoginController extends ApiController
         $data['user'] =  $user;
         return $this->successResponse($data, Response::HTTP_OK);
     }
+
+    /**
+     * Check login token api
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function checkLoginToken()
+    {
+        if (Auth::user()) {
+            $user = Auth::user();
+            return $this->successResponse($user, Response::HTTP_OK);
+        }
+    }
 }

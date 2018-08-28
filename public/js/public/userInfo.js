@@ -1,6 +1,5 @@
 function showUserInfo(response) {
   let user = response.result;
-  token = localStorage.getItem('token-login');
   if(token) {
     if (user.gender == 1) {
       $('#genderInfo option[value=1]').attr('selected','selected');
@@ -39,7 +38,6 @@ function editUserInfo() {
 }
 
 $(document).ready(function () {
-  token = localStorage.getItem('token-login');
   if(token) {
     $.ajax({
       url: "/api/users/info",

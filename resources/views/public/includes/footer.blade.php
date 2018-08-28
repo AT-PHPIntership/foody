@@ -224,7 +224,7 @@
   }
 </script>
 <!-- Modal -->
-<div class="modal fade" id="modalSingin" tabindex="-1" role="dialog" aria-labelledby="modalSinginLabel" aria-hidden="true">
+<div class="modal fade" id="modalSignup" tabindex="-1" role="dialog" aria-labelledby="modalSinginLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
