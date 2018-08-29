@@ -59,20 +59,20 @@
         <span class="field-validation-valid" data-valmsg-for="NGUOINHAN" data-valmsg-replace="true"></span>
         <div class="form-group">
           <input class="form-control" data-val="true" data-val-required="{{__('user/cart.name_required')}}" 
-          id="NGUOINHAN" name="NGUOINHAN" placeholder="{{__('user/cart.name_orderer')}}" type="text" value="">
+          id="NGUOINHAN" name="NGUOINHAN" placeholder="{{__('user/cart.name_orderer')}}" type="text" value="" disabled>
         </div>
         <span class="field-validation-valid" data-valmsg-for="EMAIL" data-valmsg-replace="true"></span>
         <div class="form-group">
           <input class="form-control" data-val="true" data-val-regex="{{__('user/cart.email_regex_orderer')}}" data-val-required="{{__('user/cart.email_required')}}"  data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" 
-          id="EMAIL" name="EMAIL" placeholder="{{__('user/cart.email_orderer')}}" type="text" value="">
+          id="EMAIL" name="EMAIL" placeholder="{{__('user/cart.email_orderer')}}" type="text" value="" disabled>
         </div>
         <span class="field-validation-valid" data-valmsg-for="DIENTHOAI" data-valmsg-replace="true"></span>
         <div class="form-group">
           <input class="form-control" data-val="true" data-val-regex="{{__('user/cart.phone_regex_orderer')}}" 
           data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" data-val-required="{{__('user/cart.phone_regex_orderer')}}" id="DIENTHOAI"
-              name="DIENTHOAI" placeholder="{{__('user/cart.phone_orderer')}}" type="text" value="">
+              name="DIENTHOAI" placeholder="{{__('user/cart.phone_orderer')}}" type="text" value="" disabled>
         </div>
-        <span class="field-validation-valid" data-valmsg-for="DIACHI" data-valmsg-replace="true"></span>
+        <span id="valmsg-address" class="field-validation-valid" data-valmsg-for="DIACHI" data-valmsg-replace="true"></span>
         <div class="form-group">
           <input class="form-control" data-val="true" data-val-required="{{__('user/cart.address_required')}}" 
           id="DIACHI" name="DIACHI" placeholder="{{__('user/cart.address_orderer')}}" type="text" value="">
@@ -85,7 +85,7 @@
         <h3 class="title text-capitalize">
           <i class="fa fa-money"></i> {{__('user/cart.payments')}}
         </h3>
-        <span class="field-validation-valid" data-valmsg-for="NGAYGIAO" data-valmsg-replace="true"></span>
+        <span id="valmsg-delivery_time" class="field-validation-valid" data-valmsg-for="NGAYGIAO" data-valmsg-replace="true"></span>
         <div class="form-group">
           <div class="input-group date" id="NgayGiao">
             <input value="" class="form-control" data-val="true" data-val-date="The field NGAYGIAO must be a date." data-val-required="Vui lòng nhập chính xác NGÀY VÀ GIỜ giao hàng" id="NGAYGIAO" name="NGAYGIAO" placeholder="{{__('user/cart.delivery_date')}}" type="text">
@@ -125,7 +125,7 @@
           </div>
         </div>
         <div class="form-group">
-          <button onclick="showMark();" type="submit" class="right btn btn-sm btn-block btn-success text-capitalize text-center">
+          <button id="submit-cart-btn" type="submit" class="right btn btn-sm btn-block btn-success text-capitalize text-center">
               {{__('user/cart.submit')}}
           </button>
           <a href="/" class="right btn btn-sm btn-block btn-warning text-capitalize text-center">
