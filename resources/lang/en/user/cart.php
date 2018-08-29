@@ -23,5 +23,23 @@ return [
     'vnd' => 'VND',
     'submit' => 'Submit',
     'buy_more' => 'Buy more',
-    'cancel_order' => 'Cancel order'
+    'cancel_order' => 'Cancel order',
+    'orders' => [
+        'product_name' => 'Name',
+        'quantity' => 'Quantity',
+        'price' => 'Price',
+        'total' => 'Total',
+        'payments' => 'Payments',
+        'money_ship' => 'Money ship',
+        'delete_order' => 'Delete order',
+        'deleted_order' => 'Deleted order',
+        'not_buy' => 'You never buy at Foody. Thank you for visiting Foody'
+    ],
+    'left-menu' => [
+        'account-info' => 'Account information',
+        'order-info' => 'Order information',
+        'shopping_guide' => 'Shopping guide',
+        'term-of-use' => 'Term of use',
+        'privacy-policy' => 'Privacy Policy'
+    ]
 ];
