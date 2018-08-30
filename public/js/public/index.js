@@ -7,9 +7,10 @@ $(document).ready(function() {
             result.result.forEach(product => {
                 $('.img-newest-' + i).attr('href', api.products_index + '/' + product['id']);
                 $('#img-pro-newest-' + i).attr('src', 'images/products/'+ product.images[0].path);
+                $('#buy-now-newest-' + i).attr('onclick', 'addToCart('+product.id+')');
                 $('#name-pro-newest-' + i).html(product.name);
                 $('#store-pro-newest-' + i + ' span').html(product.store.name);
-                $('#price-pro-newest-' + i + ' span').html(product.price +' đ');
+                $('#price-pro-newest-' + i + ' span').html(formatNumber(product.price) +' đ');
                 i++;
             });
         }
@@ -22,14 +23,14 @@ $(document).ready(function() {
             html ='';
                 if(result.result) {
                 result.result.forEach(category => {
-                html+='<div id="products-hot-0" class="product product-home product-wrapper">'+
-                '<div class="title border-bottom">'+
-                    '<i class="fa fa-fire"></i>'+
-                    '<h1 class="distance-none text-uppercase">'+
-                    '<span>'+category.name+'</span>'+
-                    '<a href="'+api.products_index+"?category_id="+category.id+'" class="btn btn-danger btn-sm">See More</a>'+
-                    '</h1>'+
-                '</div>';
+                html+='<div class="product product-home product-wrapper">'+
+                        '<div class="title border-bottom">'+
+                            '<i class="fa fa-fire"></i>'+
+                            '<h1 class="distance-none text-uppercase">'+
+                                '<span>'+category.name+'</span>'+
+                                '<a href="'+api.products_index+"?category_id="+category.id+'" class="btn btn-danger btn-sm">See More</a>'+
+                            '</h1>'+
+                        '</div>';
                 category.products.forEach(product => {
                     html += '<div id="item-wrapper-0-0" class="item-wrapper">'+
                     '<div class="item">'+
@@ -46,7 +47,7 @@ $(document).ready(function() {
                             '<a href=""><span>'+product.store.name+'</span></a>'+
                         '</div>'+
                         '<div class="price text-center">'+
-                        '<span>'+product.price+' đ</span>'+
+                        '<span>'+formatNumber(product.price)+' </span> VND'+
                         '</div>'+
                         '</div>'+
                         '<div class="item-addCart-hover">'+
@@ -68,16 +69,12 @@ $(document).ready(function() {
                                 '<p><i class="fa fa-share-alt"></i></p>'+
                                 '<p>Share</p>'+
                                 '</div>'+
-                            '</a>'+
                             '</div>'+
-                        ' </div>'+
-                        '</div>'+
-                    '</div>'+
-                    '</div>';
+                        '</div>';
+                        });
+                        html+='</div>';
                     });
-                });
             }
-            html+='</div>';
             $(html).insertBefore('.bottom-banner');
         }
     });
