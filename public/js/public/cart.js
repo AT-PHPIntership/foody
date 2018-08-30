@@ -52,7 +52,7 @@ function showCart(cart) {
               '<p class="title text-uppercase">'+Lang.get('user/index.cart.your_cart')+
               '</p>'+
               '<div class="popup-cart box-cart-scroll">'+
-                '<table id="cart-detail-checkout" class="table">'+
+                '<table class="table">'+
                  ' <tbody>';
         cart.forEach(cartItem => {
             total += cartItem.price * cartItem.quanlity;
