@@ -15,4 +15,14 @@ return [
     'line_4' => 'Please call: 0165.263.8375',
     'domain' => 'Food.test',
     'newest_products' => 'Newest Foods & Drinks',
+    'details' => [
+        'code' => 'Code',
+        'purchases' => 'Purchases',
+        'view' => 'View',
+        'VAT' => 'Rates are inclusive of 10% VAT',
+        'select_type' => 'Select type',
+        'standard' => 'Standard',
+        'quantity' => 'Quantity',
+        'buy_now' => 'buy now'
+    ],
 ];

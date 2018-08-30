@@ -56,39 +56,39 @@
         <h3 class="title text-capitalize">
           <i class="fa fa-edit"></i> {{__('user/cart.order_infor')}}
         </h3>
-        <span class="field-validation-valid" data-valmsg-for="NGUOINHAN" data-valmsg-replace="true"></span>
+        <span class="field-validation-valid" data-valmsg-for="name-orderer" data-valmsg-replace="true"></span>
         <div class="form-group">
           <input class="form-control" data-val="true" data-val-required="{{__('user/cart.name_required')}}" 
-          id="NGUOINHAN" name="NGUOINHAN" placeholder="{{__('user/cart.name_orderer')}}" type="text" value="">
+          id="name-orderer" name="name-orderer" placeholder="{{__('user/cart.name_orderer')}}" type="text" value="">
         </div>
         <span class="field-validation-valid" data-valmsg-for="EMAIL" data-valmsg-replace="true"></span>
         <div class="form-group">
           <input class="form-control" data-val="true" data-val-regex="{{__('user/cart.email_regex_orderer')}}" data-val-required="{{__('user/cart.email_required')}}"  data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" 
           id="EMAIL" name="EMAIL" placeholder="{{__('user/cart.email_orderer')}}" type="text" value="">
         </div>
-        <span class="field-validation-valid" data-valmsg-for="DIENTHOAI" data-valmsg-replace="true"></span>
+        <span class="field-validation-valid" data-valmsg-for="phone-orderer" data-valmsg-replace="true"></span>
         <div class="form-group">
           <input class="form-control" data-val="true" data-val-regex="{{__('user/cart.phone_regex_orderer')}}" 
-          data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" data-val-required="{{__('user/cart.phone_regex_orderer')}}" id="DIENTHOAI"
-              name="DIENTHOAI" placeholder="{{__('user/cart.phone_orderer')}}" type="text" value="">
+          data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" data-val-required="{{__('user/cart.phone_regex_orderer')}}" id="phone-orderer"
+              name="phone-orderer" placeholder="{{__('user/cart.phone_orderer')}}" type="text" value="">
         </div>
-        <span class="field-validation-valid" data-valmsg-for="DIACHI" data-valmsg-replace="true"></span>
+        <span class="field-validation-valid" data-valmsg-for="address-orderer" data-valmsg-replace="true"></span>
         <div class="form-group">
           <input class="form-control" data-val="true" data-val-required="{{__('user/cart.address_required')}}" 
-          id="DIACHI" name="DIACHI" placeholder="{{__('user/cart.address_orderer')}}" type="text" value="">
+          id="address-orderer" name="address-orderer" placeholder="{{__('user/cart.address_orderer')}}" type="text" value="">
         </div>
         <div class="form-group">
-          <textarea class="form-control" cols="20" id="GHICHU" name="GHICHU" placeholder="{{__('user/cart.note_orderer')}}" rows="3"></textarea>
+          <textarea class="form-control" cols="20" id="note-orderer" name="note-orderer" placeholder="{{__('user/cart.note_orderer')}}" rows="3"></textarea>
         </div>
       </div>
       <div class="hinh-thuc col-sm-6">
         <h3 class="title text-capitalize">
           <i class="fa fa-money"></i> {{__('user/cart.payments')}}
         </h3>
-        <span class="field-validation-valid" data-valmsg-for="NGAYGIAO" data-valmsg-replace="true"></span>
+        <span class="field-validation-valid" data-valmsg-for="delivery-time" data-valmsg-replace="true"></span>
         <div class="form-group">
-          <div class="input-group date" id="NgayGiao">
-            <input value="" class="form-control" data-val="true" data-val-date="The field NGAYGIAO must be a date." data-val-required="Vui lòng nhập chính xác NGÀY VÀ GIỜ giao hàng" id="NGAYGIAO" name="NGAYGIAO" placeholder="{{__('user/cart.delivery_date')}}" type="text">
+          <div class="input-group date" id="delivery-time">
+            <input value="" class="form-control" data-val="true" data-val-date="{{__('user/cart.delivery_time_date')}}" data-val-required="{{__('user/cart.delivery_time_required')}}" id="delivery-time" name="delivery-time" placeholder="{{__('user/cart.delivery_date')}}" type="text">
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -101,7 +101,7 @@
             </div>
           </div>
           <div class="col-sm-6 text-right">
-            <span id="thanhtien" class="bold"></span> {{__('user/cart.vnd')}}
+            <span id="total" class="bold"></span> {{__('user/cart.vnd')}}
           </div>
         </div>
         <div class="row">
@@ -111,7 +111,7 @@
             </div>
           </div>
           <div class="col-sm-6 text-right">
-            <span id="phivc" class="bold"></span> {{__('user/cart.vnd')}}
+            <span id="money-ship" class="bold"></span> {{__('user/cart.vnd')}}
           </div>
         </div>
         <div class="row">
@@ -121,7 +121,7 @@
             </div>
           </div>
           <div class="col-sm-6 text-right">
-            <span id="tongthanhtoan" class="bold"></span> {{__('user/cart.vnd')}}
+            <span id="total-payments" class="bold"></span> {{__('user/cart.vnd')}}
           </div>
         </div>
         <div class="form-group">
@@ -139,50 +139,6 @@
     </form>
   </div>
 </div>
-<div class="modal fade" id="modalbank" tabindex="-1" role="dialog" aria-labelledby="modalbank" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h3 class="modal-title text-center text-uppercase lead" id="modalbank">Thông tin chuyển khoản</h3>
-            </div>
-            <div class="modal-body">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="modal-message">Quý khách thanh toán ATM Online, vui lòng chuyển khoản theo thông tin sau</p>
-                                <p>
-                                    <b>1. Ngân hàng Vietcombank</b>
-                                    <br> Số Tài Khoản: 0441000696530
-                                    <br> Chủ Tài Khoản: Trần Thị Phương Diễm
-                                    <br> Chi nhánh: Vietcombank Lê Văn Sỹ - Tân Bình - TP.HCM
-                                    <br>
-                                </p>
-                                <p>
-                                    <b>2. Ngân hàng Sacombank</b>
-                                    <br> Số Tài Khoản: 060091907197
-                                    <br> Chủ Tài Khoản: Trần Thị Phương Diễm
-                                    <br> Chi nhánh: Sacombank Lê Văn Sỹ - Tân Bình - TP.HCM
-                                    <br>
-                                </p>
-                                <p>
-                                    <b>3. Ngân hàng Techcombank</b>
-                                    <br> Số Tài Khoản: 19032522344011
-                                    <br> Chủ Tài Khoản: Trần Thị Phương Diễm
-                                    <br> Chi nhánh: Techcombank Tân Bình - TP.HCM
-                                    <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <section class="bottom-banner">
     <a href="http://flyfood.vn/ban-muon-dat-tiec-flyfood-cung-cap-mon-an-cuc-nhanh-detail-fe4d181215170131137.html">
         <img src="/Files/admin/02072016/Banner-flyfood-footer.png">

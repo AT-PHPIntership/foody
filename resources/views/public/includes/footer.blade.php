@@ -434,14 +434,14 @@
 <script src="user/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="user/Scripts/owl.carousel.min.js"></script>
 <script src="js/public/route.js"></script>
-<script src="/js/public/main.js"></script>
+<script src="js/public/main.js"></script>
 <script src="js/public/login.js"></script>
 <script src="js/public/logout.js"></script>
 <script src="js/public/register.js"></script>
+<script src="js/messages.js"></script>
 <script src="js/public/cart.js"></script>
 <script src="user/Scripts/jqzoom.js"></script>
 <script src="user/Scripts/slide/jquery.bxslider.js"></script>
-<script src="js/messages.js"></script>
 
 <script>
     $(document).ready(function () {

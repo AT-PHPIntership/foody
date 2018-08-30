@@ -98,9 +98,9 @@ function showCart(cart) {
         changeNumberCart(cart);
     }
     $('#cart-detail-checkout .box-cart-detail p').remove();
-    $('#thanhtien').html(total.toFixed(3));
-    $('#phivc').html(formatNumber(50000));
-    $('#tongthanhtoan').html((total+50.000).toFixed(3));
+    $('#total').html(total.toFixed(3));
+    $('#money-ship').html(formatNumber(50000));
+    $('#total-payments').html((total+50.000).toFixed(3));
 }
 function changeNumberCart(length) {
     $('.shopping-cart .shopping-cart-show').html('Cart ('+length+')');
@@ -135,7 +135,6 @@ function modifyCart(id, option) {
                         }
                         numberCart = parseInt($('#number-product-' +id).val());
                         number = numberCart != cart[j].quanlity ? numberCart : numberCheckout;
-                        console.log('a '+numberCheckout+ ' ' +numberCart);
                         if(number <=0) modifyCart(id, 'delete'); 
                         cart[j].quanlity = number;
                         break;
