@@ -58,12 +58,38 @@
       </ul>
     </div>
     <div class="banner" style="margin-top:10px;">
-      {{-- <section class="chitiethd"> --}}
+
+      <section class="chitiethd">
         <p class="message full left text-center" id="warningMsg"></p>
-    <div id="productInfo" class="panel panel-default">
-  </div>
-{{-- </section> --}}
-</div>
+        <div id="productInfo" class="panel panel-default">
+        </div>
+      </section>
+    </div>
+
+    <div class="panel-body login-form">
+      <p id="message">{{__('user/login.userInfo.messsage_request_login')}}</p>
+    </div>
+   
+    <div class="modal fade" id="confirmModal" role="dialog">
+			<div class="modal-dialog">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2 class="modal-title">Confirm</h2>
+					</div>
+					<div class="modal-body">
+						<h4 id="confirmMsg"></h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal" id="btnYes">Yes</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" id="btnNo">No</button>
+					</div>
+				</div>
+
+			</div>
+    </div>
+	
   {{-- </div> --}}
 <section class="bottom-banner">
   <a href="ban-muon-dat-tiec-flyfood-cung-cap-mon-an-cuc-nhanh-detail-fe4d181215170131137.html">

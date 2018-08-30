@@ -16,6 +16,10 @@ return [
     'address_required' => 'Please enter the address of Orderer',
     'note_orderer' => 'Note \'s Orderer',
     'note_required' => 'Please enter the note of Orderer',
+    'delivery_time_orderer' => 'Email \'s Orderer',
+    'delivery_time_required' => 'Please enter the exact DATE AND TIME of delivery',
+    'delivery_time_date' => 'The field delivery-time must be a date.',
+    'delivery_time_regex_orderer' => 'Email is not format correct',
     'payments' => 'Payments',
     'delivery_date' => 'Delivery Date',
     'money_ship' => 'Money ship',
@@ -31,8 +35,10 @@ return [
         'total' => 'Total',
         'payments' => 'Payments',
         'money_ship' => 'Money ship',
-        'delete_order' => 'Delete order',
-        'deleted_order' => 'Deleted order',
+        'cancel_order' => 'Cancel order',
+        'canceled_order' => 'Canceled',
+        'confirm_message' => 'Are you sure want to cancel this order?',
+        'cancel_success' => 'Cancel order successfully!',
         'not_buy' => 'You never buy at Foody. Thank you for visiting Foody'
     ],
     'left-menu' => [

@@ -9,9 +9,9 @@ $(document).ready(function() {
         },
         success: function(response) {
             var user = response.result;
-          $('#NGUOINHAN').val(user.full_name);
+          $('#name-orderer').val(user.full_name);
           $('#EMAIL').val(user.email);
-          $('#DIENTHOAI').val(user.phone);
+          $('#phone-orderer').val(user.phone);
         }
       });
 });

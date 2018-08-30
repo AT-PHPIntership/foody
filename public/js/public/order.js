@@ -1,5 +1,24 @@
+function updateOrder(order_id){
+    $('#confirmMsg').text(Lang.get('user/cart.orders.confirm_message'));
+    $('#btnYes').on('click', function(){
+        $.ajax({
+            url: 'api/orders/' + order_id,
+            type: "put",
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            success: function(response) {
+                location.reload();
+            },
+            error: function(response) {
+                alert(response.responseJSON.message);
+            }
+        });
+    });
+}
+
 $(document).ready(function(){
-    
 var totalMoney = 0;
   $('#warningMsg').hide();
   $.ajax({
@@ -12,14 +31,11 @@ var totalMoney = 0;
     success: function(response) {
       orderHtml = '';
       orders = response.result.data;
-      console.log(orders);
       if (orders.length == 0) {
         $('#productInfo').hide();
-        $('#warningMsg').show().text('aaassss');
+        $('#warningMsg').show().text(Lang.get('user/cart.orders.not_buy'));
       } else {
         orders.forEach(order => {
-          console.log(order.order_details);
-          console.log(order.processing_status)
           orderHtml += '<div class="panel-heading left full"><div class="col-lg-12 distance-none">\
             <div class="col-lg-3">\
                 <p>\
@@ -45,14 +61,14 @@ var totalMoney = 0;
               <div class="col-lg-3">';
               if(order.processing_status == 3) {
                 orderHtml += '<p>\
-                    <b style="cursor:pointer;"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Hủy đơn hàng">\
-                    <i class="fa fa-trash"></i>'+Lang.get('user/cart.orders.delete_order')+'</b><button id="cancel">aaa</button></p>\
+                    <b  style="cursor:pointer;" onclick="updateOrder('+ order.id +');" data-toggle="modal" data-target="#confirmModal" data-placement="top" title="" data-original-title="Hủy đơn hàng">\
+                    <i class="fa fa-trash"></i>'+Lang.get('user/cart.orders.cancel_order')+'</b></p>\
                     </div></div></div>';
               } else if(order.processing_status == 2) {
                 orderHtml += '<p>\
                     <i class="fa fa-info-circle"></i>\
                     <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
-                        <span >'+Lang.get('user/cart.orders.deleted_order')+'</span>\
+                        <span >'+Lang.get('user/cart.orders.canceled_order')+'</span>\
                     </b></p></div></div></div>';
               }
                 order.order_details.forEach(products => {
@@ -73,25 +89,9 @@ var totalMoney = 0;
                             <div class="col-lg-6 right text-right"><p>'+Lang.get('user/cart.orders.payments')+': <b>CARD</b></p>\
                             <p>'+Lang.get('user/cart.orders.money_ship')+': <b>' + formatNumber(order.money_ship) + ' VND</b></p>\
                             <p>'+Lang.get('user/cart.orders.total')+': <b>' + formatNumber(order.money_ship+totalMoney) + ' VND</b></p></div></div></div>';
-                $('#cancel').on('click', function(){
-                $.ajax({
-                    url: 'api/orders/' + order.id,
-                    type: "put",
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': 'Bearer ' + token
-                    },
-                    success: function(response) {
-
-                    }
-                });
-                });
         $('#productInfo').html(orderHtml);
-
-    });
+        });
       }
     }
   });
 });
-
-

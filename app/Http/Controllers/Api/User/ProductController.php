@@ -35,4 +35,17 @@ class ProductController extends ApiController
             return $this->showAll($products, Response::HTTP_OK);
         }
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param App\Models\Product $product product
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Product $product)
+    {
+        $product->images;
+        return $this->showOne($product, Response::HTTP_OK);
+    }
 }
