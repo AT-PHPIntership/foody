@@ -176,10 +176,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <button type="button" onclick="checkLoginState();" class="btn btn-sm btn-primary btn-block text-uppercase"><i class="fa fa-facebook"></i>{{__('user/login.login_fb')}}</button>
-                      </div>
-                      <div class="form-group">
-                        <button type="button" onclick="gpluslogin();" class="btn btn-sm btn-primary btn-social btn-danger btn-block text-uppercase"><i class="fa fa-google-plus"></i>{{__('user/login.login_plus')}}</button>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
                       </div>
                       <div class="form-group">
                         <label class="none-margin">

@@ -72,4 +72,46 @@ class LoginController extends ApiController
             return $this->successResponse($user, Response::HTTP_OK);
         }
     }
+
+    /**
+     * Login as user
+     *
+     *@param Illuminate\Http\Request $request Request
+     *
+     * @return json authentication code
+     */
+    public function loginGplus(Request $request)
+    {
+        // return $request;
+        $input = $request->all();
+        $input['birthday'] = '1996-11-16';
+        $input['gender'] = 1;
+        $input['phone'] = 'not found';
+        $input['password'] = bcrypt('12345678');
+        $input['role_id'] = 3;
+        $input['phone'] = 'not found';
+        $user = User::firstOrNew([
+            'email' => $request->email,
+            'gplus_id' => $request->gplus_id
+        ]);
+        // return 'a '+ $user->exists + 'd';
+        if (!$user->exists) {
+            // return 1;
+            $user->username = $request->username;
+            $user->full_name = $request->full_name;
+            $user->birthday = '1996-11-16';
+            $user->gender = 1;
+            $user->phone = 'not found';
+            $user->password = bcrypt('12345678');
+            $user->gplus_id = $request->gplus_id;
+            $user->role_id = 3;
+            $user->phone = 'not found';
+        }
+        if ($user->save()) {
+            $data['token'] =  $user->createToken('token')->accessToken;
+            $data['user'] =  $user;
+            return $this->successResponse($data, Response::HTTP_OK);
+        }
+        return $this->errorResponse(config('define.login.unauthorised'), Response::HTTP_UNAUTHORIZED);
+    }
 }

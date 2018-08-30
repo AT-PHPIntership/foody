@@ -9,9 +9,9 @@ $(document).ready(function() {
         },
         success: function(response) {
             var user = response.result;
-            $('#NGUOINHAN').val(user.full_name);
-            $('#EMAIL').val(user.email);
-            $('#DIENTHOAI').val(user.phone);
+          $('#name-orderer').val(user.full_name);
+          $('#EMAIL').val(user.email);
+          $('#phone-orderer').val(user.phone);
         }
     });
     $(document).on('click', '#submit-cart-btn', function(event) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
                 'Authorization': 'Bearer ' + token
             },
             data: {
-                'products' : cart,
+                'products' : JSON.stringify(cart),
                 'address' : $('#DIACHI').val(),
                 'customer_note'  : $('#GHICHU').val(),
                 'delivery_time'  : $('#NGAYGIAO').val(),

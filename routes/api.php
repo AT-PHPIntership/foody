@@ -22,6 +22,7 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
     Route::apiResource('categories', 'CategoryController');
     Route::apiResource('products', 'ProductController');
     Route::post('login', 'LoginController@login');
+    Route::get('login/gplus', 'LoginController@loginGplus');
     Route::group(['middleware' => 'auth:api'], function () {
         Route::post('logout', 'LoginController@logout');
         Route::get('checkLoginToken', 'LoginController@checkLoginToken');
