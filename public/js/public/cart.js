@@ -58,7 +58,7 @@ function showCart(cart) {
             total += cartItem.price * cartItem.quanlity;
             html += '<tr>' +
             '<td rowspan="2" width="50">'+
-            '<img src="'+cartItem.img+'" alt="" width="50" height="50">'+
+            '<img src="'+cartItem.img+'" alt="" width="75" height="75">'+
             '</td>'+
             '<td colspan="3" class="cart-name bold">'+
             '<span>'+cartItem.name+'</span>'+
@@ -67,10 +67,10 @@ function showCart(cart) {
         '</tr>'+
         '<tr>'+
             '<td width="100" class="text-right td_soluong">'+
-            '<i class="fa fa-minus " onclick="modifyCart('+cartItem.id+',\'subone\')"></i> <span><input id="number-product-'+cartItem.id+'" type="number" style="width:40px" onchange="modifyCart('+cartItem.id+',\'change\')" value="'+cartItem.quanlity+'"></span><i class="fa fa-plus " onclick="modifyCart('+cartItem.id+',\'addone\')"></i>'+
+            '<i class="fa fa-minus " onclick="modifyCart('+cartItem.id+',\'subone\')"></i> <span><input class="number-product-'+cartItem.id+'" id="number-product-'+cartItem.id+'" type="number" style="width:40px" onchange="modifyCart('+cartItem.id+',\'change\')" value="'+cartItem.quanlity+'"></span><i class="fa fa-plus " onclick="modifyCart('+cartItem.id+',\'addone\')"></i>'+
             '</td>'+
-            '<td class="text-right">'+formatNumber(cartItem.price)+' VNĐ</td>'+
-            '<td class="text-right bold">'+formatNumber(cartItem.price*cartItem.quanlity)+' VNĐ</td>'+
+            '<td class="text-right">'+cartItem.price+' VNĐ</td>'+
+            '<td class="text-right bold">'+(cartItem.price*cartItem.quanlity).toFixed(3)+' VNĐ</td>'+
         '</tr>';
         });
         html += '</tbody>'+
@@ -80,26 +80,30 @@ function showCart(cart) {
                 '<tfoot>'+
                   '<tr>'+
                     '<td colspan="3" class="bold"><b>'+Lang.get('user/index.cart.total')+'</b></td>'+
-                    '<td id="total-money" class="text-right"><b class="bold" style="color:#f00;font-size:15px;">'+formatNumber(total)+' </b>VNĐ</td>'+
+                    '<td id="total-money" class="text-right"><b class="bold" style="color:#f00;font-size:15px;">'+total.toFixed(3)+' </b>VNĐ</td>'+
                   '</tr>'+
                 '</tfoot>'+
               '</table>'+
               '<p class="cart-options">'+
                 '<a href="javascript:;" class="thugon-cart btn btn-sm btn-primary btn-warning text-capitalize" onclick="collapseCart();"><i class="fa fa-close"></i>'+Lang.get('user/index.cart.exit')+' </a>'+
                 '<a href="javascript:;" onclick="modifyCart(0,\'clear\');" class="btn btn-sm btn-primary btn-danger text-capitalize"><i class="fa fa-trash"></i>'+Lang.get('user/index.cart.cancel')+'</a>'+
-                '<a href="/thong-tin-gio-hang.html" class="btn btn-sm btn-primary btn-success text-capitalize"><i class="fa fa-shopping-cart"></i>'+Lang.get('user/index.cart.order')+'</a>'+
+                '<a id="checkout-btn" onclick="checkLogin(\'/checkout/cart\')" class="btn btn-sm btn-primary btn-success text-capitalize"><i class="fa fa-shopping-cart"></i>'+Lang.get('user/index.cart.order')+'</a>'+
               '</p>'+
             '</div>';
-        changeNumberCart(cart);
+        changeNumberCart(cart.length);
         $('.box-cart').html(html);
     }else {
         collapseCart();
         $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
         changeNumberCart(cart);
     }
+    $('#cart-detail-checkout .box-cart-detail p').remove();
+    $('#total').html(total.toFixed(3));
+    $('#money-ship').html(formatNumber(50000));
+    $('#total-payments').html((total+50.000).toFixed(3));
 }
-function changeNumberCart(cart) {
-    $('.shopping-cart .shopping-cart-show').html('Cart ('+cart.length+')');
+function changeNumberCart(length) {
+    $('.shopping-cart .shopping-cart-show').html('Cart ('+length+')');
 }
 function modifyCart(id, option) {
     if(option == 'clear') {
@@ -125,8 +129,13 @@ function modifyCart(id, option) {
                         cart.splice(j, 1);
                         break;
                     case 'change':
-                        var number = $('#number-product-' + id).val();
-                        if(number <=0) modifyCart(id, 'delete');
+                        var number, numberCheckout, numberCart;
+                        if(window.location.pathname == '/checkout/cart') {
+                            numberCheckout = parseInt($('#cart-detail-checkout .box-cart-detail .box-cart-scroll table tbody tr td span .number-product-' +id).val());
+                        }
+                        numberCart = parseInt($('#number-product-' +id).val());
+                        number = numberCart != cart[j].quanlity ? numberCart : numberCheckout;
+                        if(number <=0) modifyCart(id, 'delete'); 
                         cart[j].quanlity = number;
                         break;
                 }

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  if(localStorage.getItem('token-login')) {
+  if(token) {
     $.ajax({
       type: 'GET',
       url: '/api/checkLoginToken',

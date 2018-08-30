@@ -33,5 +33,5 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'HomeController@index')->name('user.home');
     Route::resource('products', 'ProductController');
     Route::get('/profile', 'UserController@index')->name('user.info');
-    Route::resource('products', 'ProductController');
+    Route::get('/checkout/cart', 'CartController@index')->name('cart.info');
 });

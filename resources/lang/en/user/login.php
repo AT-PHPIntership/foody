@@ -14,6 +14,7 @@ return [
   'login_success' => 'You have login successfully!',
   'userInfo' => [
     'messsage' => 'Please fill in all information',
+    'messsage_request_login' => 'Please login before checkouting your cart',
     'username' => 'User Name',
     'username_regex' => 'User name must be character or number',
     'username_require' => 'Please input user name',

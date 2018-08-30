@@ -1,3 +1,37 @@
+var token = localStorage.getItem('token-login');
+function checkLogin(link) {
+  event.preventDefault();
+  if(token) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/checkLoginToken',
+      headers: ({
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+      success: function(response) {
+        if(response.code == 200) {
+          if(window.location.pathname !== link) {
+            location.href = link;
+          }
+        }
+      },
+      error: function (response) {
+        window.localStorage.removeItem('token-login');
+        LoginPopup();
+      }
+    });
+  } else {
+    if(window.location.pathname != '/') {
+      ModalRequestLogin();
+      location.href = '/';
+    }else{
+      $('.login-form #modal-message').html(Lang.get('user/login.userInfo.messsage_request_login'));
+      $('.login-form #modal-message').css('color','red');
+      LoginPopup();
+    }
+  }
+}
 $(document).ready(function() {
   $.ajax({
     url: "/api/categories",
