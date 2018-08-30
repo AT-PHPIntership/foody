@@ -1462,6 +1462,13 @@ li.bx-clone {
         font-weight: 600;
         margin-bottom: 0;
     }
+    .box-cart p.title {
+        color: #0E9803;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 0;
+        text-align: center;
+    }
 
     .box-cart .box-cart-detail .table tfoot td {
         background: #eee;
@@ -1819,6 +1826,7 @@ a, a:hover {
 
 .btn-sm, .btn-group-sm > .btn {
     padding: 7px 10px;
+    margin: 0px 20px;
     float:  right;
 }
 .fa-user:before{padding: 15%;}

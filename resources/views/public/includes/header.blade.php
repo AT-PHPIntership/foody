@@ -74,15 +74,10 @@
         </li>
         <li class="shopping-cart" id="shopping-cart">
           <i class="fa fa-shopping-cart"></i>
-          <span class="shopping-cart-show"> {{__('user/login.cart')}} (0)</span>
-          <script>
-            $('.shopping-cart-show').click(function () {
-              $('.box-cart').toggleClass("active");
-            });
-            $('.thugon-cart').click(function () {
-              $('.box-cart').toggleClass("active");
-            });
-          </script>
+          <span class="shopping-cart-show"> {{__('user/index.cart.title')}} (0)</span>
+          <div class="box-cart">
+            
+          </div>
         </li>
       </ul>
     </div>
