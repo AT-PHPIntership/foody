@@ -54,7 +54,8 @@ function showCart(cart) {
               '<div class="popup-cart box-cart-scroll">'+
                 '<table class="table">'+
                  ' <tbody>';
-        cart.forEach(cartItem => {
+        for(var i=0; i<cart.length; i++) {
+            var cartItem = cart[i];
             total += cartItem.price * cartItem.quantity;
             html += '<tr>' +
             '<td rowspan="2" width="50">'+
@@ -72,7 +73,7 @@ function showCart(cart) {
             '<td class="text-right">'+cartItem.price+' VNĐ</td>'+
             '<td class="text-right bold">'+(cartItem.price*cartItem.quantity).toFixed(3)+' VNĐ</td>'+
         '</tr>';
-        });
+        }
         html += '</tbody>'+
                 '</table>'+
               '</div>'+

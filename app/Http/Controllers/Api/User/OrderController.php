@@ -24,9 +24,7 @@ class OrderController extends ApiController
     public function store(CreateOrderRequest $request)
     {
         $user = Auth::user();
-        $products = json_encode($request->products);//return string
-        //because $request->products has two parameter not be string (id, quantity), for example {id: 13, name: "Prof. Willie Rath", img: "images/products/image1.jpg", price: "77.612", quantity: 2}
-        $products = json_decode($products);
+        $products = json_decode($request->products);
         $request['user_id'] = $user->id;
         $request['payment_status'] = 0;
         $request['submit_time'] = Carbon::now()->toDateTimeString();

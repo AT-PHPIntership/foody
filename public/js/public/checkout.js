@@ -24,10 +24,10 @@ $(document).ready(function() {
                 'Authorization': 'Bearer ' + token
             },
             data: {
-                'products' : cart,
-                'address' : $('#DIACHI').val(),
-                'customer_note'  : $('#GHICHU').val(),
-                'delivery_time'  : $('#NGAYGIAO').val(),
+                'products' : localStorage.getItem('cart'),
+                'address' : $('#address-orderer').val(),
+                'customer_note'  : $('#note-orderer').val(),
+                'delivery_time'  : $('#delivery-time input').val(),
                 'money_ship' : 50000,
             },
             success: function(response) {
