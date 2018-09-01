@@ -56,6 +56,12 @@ $(document).ready(function() {
     var url = api.api_products_index + window.location.search;
     var id = parseInt(window.location.search.substring(13));
     var current_page;
+    var url = '';
+    if (window.location.search == "") {
+      url = api.api_products_index;
+    } else {
+      url = api.api_products_index + window.location.search;
+    }
     $.ajax({
         url: url+'&page=1',
         type: "get",

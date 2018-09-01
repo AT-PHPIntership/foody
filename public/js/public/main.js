@@ -33,6 +33,13 @@ function checkLogin(link) {
   }
 }
 $(document).ready(function() {
+  $('#productSearch').on('submit', function (event) {
+    event.preventDefault();
+    query = $('#productSearch').find('input[name="name"]').val();
+    url = api.products_index + "?name=" + query;
+    window.location.href = url;
+  });
+
   $.ajax({
     url: "/api/categories",
     type: "get",
