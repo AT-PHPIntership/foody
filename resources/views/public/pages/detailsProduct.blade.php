@@ -3,15 +3,15 @@
 <div class="breadcrumb distance-none">
   <ul class="list-inline text-uppercase distance-none">
     <li>
-      <a href="/"><i class="fa fa-home"></i></a>
+      <a href=""><i class="fa fa-home"></i></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
       <li>
-      <a href="/san-pham.html">{{ __('user/category.title')}}</a>
+      <a href=""></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
     <li>
-      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;">Thực đơn món gà</h1></a>
+      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;"></h1></a>
     </li>
   </ul>
 </div>
@@ -48,29 +48,25 @@
                                   <div class="item">
                                       <div class="item-img">
                                           <a href="javascript:;">
-                                              <img src="images/products/food.jpg" alt="images/products/food.jpg" />
+                                              <img id="mobile-image-1"/>
                                           </a>
-  
                                       </div>
   
                                   </div>
                                   <div class="item">
                                       <div class="item-img">
                                           <a href="javascript:;">
-                                              <img src="images/products/food1.jpg" alt="images/products/food.jpg" />
+                                              <img id="mobile-image-2"/>
                                           </a>
-  
                                       </div>
   
                                   </div>
                                   <div class="item">
                                       <div class="item-img">
                                           <a href="javascript:;">
-                                              <img src="images/products/food2.jpg" alt="images/products/food.jpg" />
+                                              <img id="mobile-image-3"/>
                                           </a>
-  
                                       </div>
-  
                                   </div>
                       </div>
   
@@ -185,6 +181,5 @@
 </section>
 @endsection
 @section('js')
-  <script src="/js/public/category.js"></script>
   <script type="text/javascript" src="/js/public/detailsProduct.js"></script>
 @endsection

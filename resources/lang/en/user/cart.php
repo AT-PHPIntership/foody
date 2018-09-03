@@ -37,6 +37,7 @@ return [
         'money_ship' => 'Money ship',
         'cancel_order' => 'Cancel order',
         'canceled_order' => 'Canceled',
+        'approved_order' => 'Approved order',
         'confirm_message' => 'Are you sure want to cancel this order?',
         'cancel_success' => 'Cancel order successfully!',
         'not_buy' => 'You never buy at Foody. Thank you for visiting Foody'

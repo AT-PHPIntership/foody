@@ -1830,3 +1830,7 @@ a, a:hover {
     float:  right;
 }
 .fa-user:before{padding: 15%;}
+
+#orderStatus:hover {
+    color: red;
+}

@@ -36,7 +36,9 @@ var totalMoney = 0;
         $('#warningMsg').show().text(Lang.get('user/cart.orders.not_buy'));
       } else {
         orders.forEach(order => {
-          orderHtml += '<div class="panel-heading left full"><div class="col-lg-12 distance-none">\
+            if(order.processing_status == 3) {
+                orderHtml += 
+                '<div class="panel-heading left full" style="background-color:  powderblue;"><div class="col-lg-12 distance-none">\
             <div class="col-lg-3">\
                 <p>\
                     <i class="fa fa-barcode"></i>\
@@ -48,7 +50,7 @@ var totalMoney = 0;
                   <p>\
                       <i class="fa fa-money"></i>\
                       <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền">\
-                      '+ order.money_ship+'</b>\
+                      '+ formatNumber(order.money_ship)+' VND</b>\
                   </p>\
               </div>\
               <div class="col-lg-3">\
@@ -58,14 +60,65 @@ var totalMoney = 0;
                       '+ order.submit_time+'</b>\
                   </p>\
               </div>\
-              <div class="col-lg-3">';
-              if(order.processing_status == 3) {
-                orderHtml += '<p>\
-                    <b  style="cursor:pointer;" onclick="updateOrder('+ order.id +');" data-toggle="modal" data-target="#confirmModal" data-placement="top" title="" data-original-title="Hủy đơn hàng">\
+              <div class="col-lg-3">\
+                <p>\
+                    <b id="orderStatus" style="cursor:pointer;" onclick="updateOrder('+ order.id +');" data-toggle="modal" data-target="#confirmModal" data-placement="top" title="" data-original-title="Hủy đơn hàng">\
                     <i class="fa fa-trash"></i>'+Lang.get('user/cart.orders.cancel_order')+'</b></p>\
                     </div></div></div>';
-              } else if(order.processing_status == 2) {
-                orderHtml += '<p>\
+            } else if(order.processing_status == 2) {
+                orderHtml += '<div class="panel-heading left full" style="background-color:  chartreuse;"><div class="col-lg-12 distance-none">\
+                <div class="col-lg-3">\
+                    <p>\
+                        <i class="fa fa-barcode"></i>\
+                        <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Mã đơn hàng">#\
+                        '+order.id+'</b>\
+                    </p>\
+                </div>\
+                <div class="col-lg-3">\
+                      <p>\
+                          <i class="fa fa-money"></i>\
+                          <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền">\
+                          '+ formatNumber(order.money_ship)+' VND</b>\
+                      </p>\
+                  </div>\
+                  <div class="col-lg-3">\
+                      <p>\
+                          <i class="fa fa-calendar"></i>\
+                          <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Ngày mua">\
+                          '+ order.submit_time+'</b>\
+                      </p>\
+                  </div>\
+                  <div class="col-lg-3">\
+                <p>\
+                    <i class="fa fa-info-circle"></i>\
+                    <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
+                        <span >'+Lang.get('user/cart.orders.approved_order')+'</span>\
+                    </b></p></div></div></div>';
+            } else {
+                orderHtml += '<div class="panel-heading left full" style="background-color:  red;"><div class="col-lg-12 distance-none">\
+                <div class="col-lg-3">\
+                    <p>\
+                        <i class="fa fa-barcode"></i>\
+                        <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Mã đơn hàng">#\
+                        '+order.id+'</b>\
+                    </p>\
+                </div>\
+                <div class="col-lg-3">\
+                      <p>\
+                          <i class="fa fa-money"></i>\
+                          <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền">\
+                          '+ formatNumber(order.money_ship)+' VND</b>\
+                      </p>\
+                  </div>\
+                  <div class="col-lg-3">\
+                      <p>\
+                          <i class="fa fa-calendar"></i>\
+                          <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Ngày mua">\
+                          '+ order.submit_time+'</b>\
+                      </p>\
+                  </div>\
+                  <div class="col-lg-3">\
+                <p>\
                     <i class="fa fa-info-circle"></i>\
                     <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
                         <span >'+Lang.get('user/cart.orders.canceled_order')+'</span>\

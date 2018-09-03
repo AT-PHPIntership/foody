@@ -6,12 +6,8 @@
       <a href="/"><i class="fa fa-home"></i></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
-      <li>
-      <a href="/san-pham.html">{{ __('user/category.title')}}</a>
-      <i class="fa fa-angle-double-right"></i>
-    </li>
     <li>
-      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;">Thực đơn món gà</h1></a>
+      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;">{{__('user/cart.left-menu.account-info')}}</h1></a>
     </li>
   </ul>
 </div>
@@ -126,6 +122,5 @@
 </section>
 @endsection
 @section('js')
-  <script src="/js/public/category.js"></script>
   <script src="/js/public/userInfo.js"></script>
 @endsection

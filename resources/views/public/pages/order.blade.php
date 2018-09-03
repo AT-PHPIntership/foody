@@ -6,12 +6,8 @@
       <a href="/"><i class="fa fa-home"></i></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
-      <li>
-      <a href="/san-pham.html">{{ __('user/category.title')}}</a>
-      <i class="fa fa-angle-double-right"></i>
-    </li>
     <li>
-      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;">Thực đơn món gà</h1></a>
+      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;">{{__('user/cart.left-menu.order-info')}}</h1></a>
     </li>
   </ul>
 </div>
@@ -37,7 +33,6 @@
       <img src="user/Files/admin/27042018/banner-phai.gif" />
     </a>
   </div>
-  {{-- <div class="container wrapper distance-none header-responsive"> --}}
     <div class="list-menu home-menu" style="top:10px;">
       <ul class="list-inline">
         <li>
@@ -66,10 +61,6 @@
       </section>
     </div>
 
-    <div class="panel-body login-form">
-      <p id="message">{{__('user/login.userInfo.messsage_request_login')}}</p>
-    </div>
-   
     <div class="modal fade" id="confirmModal" role="dialog">
 			<div class="modal-dialog">
 
@@ -90,7 +81,6 @@
 			</div>
     </div>
 	
-  {{-- </div> --}}
 <section class="bottom-banner">
   <a href="ban-muon-dat-tiec-flyfood-cung-cap-mon-an-cuc-nhanh-detail-fe4d181215170131137.html">
     <img src="user/Files/admin/02072016/Banner-flyfood-footer.png" />
@@ -98,6 +88,5 @@
 </section>
 @endsection
 @section('js')
-  {{-- <script src="/js/public/category.js"></script> --}}
   <script src="/js/public/userInfo.js"></script>
 @endsection
