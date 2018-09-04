@@ -18,17 +18,6 @@
 <link href="user/Content/jquery.mCustomScrollbar.css" rel="stylesheet" />
 <link href="user/Content/owl.carousel.css" rel="stylesheet" />
 <link href="user/Content/Responsive.css" rel="stylesheet" />
-
-<meta property="og:title" content="G&#224; hấp nước mắm Flyfood" />
-<meta property="og:site_name" content="G&#192; HẤP NƯỚC MẮM" />
-<meta property="og:url" content="http://flyfood.vn/ga-hap-nuoc-mam-spdetail-dfd0080818181107251.html" />
-<meta name="description" content="Ngon kh&#244;ng cưỡng nổi vị g&#224; hấp nước mắm nhĩ đậm đ&#224;, thơm ngon c&#249;ng x&#244;i 3 m&#224;u, 3 vị đẹp mắt, ngon miệng. M&#243;n mới của Flyfood G&#224; hấp nước mắm sẽ để lại dấu ấn kh&#243; qu&#234;n với c&#225;c t&#237;n đồ m&#234; G&#224; n&#243;i chung v&#224; m&#234; G&#224; b&#243; x&#244;i của Flyfood n&#243;i ri&#234;ng bao l&#226;u nay. " />
-<meta property="fb:app_id" content="192962204368178" />
-<meta property="og:type" content="article" />
-<meta property="article:author" content="http://flyfood.vn" />
-<meta property="article:publisher" content="http://flyfood.vn" />
-<meta property="og:image" content="http://flyfood.vn/Files/admin/08082018/avt-ga-hap-nuoc-mam.png" />
-<meta property="og:description" content="Ngon kh&#244;ng cưỡng nổi vị g&#224; hấp nước mắm nhĩ đậm đ&#224;, thơm ngon c&#249;ng x&#244;i 3 m&#224;u, 3 vị đẹp mắt, ngon miệng. M&#243;n mới của Flyfood G&#224; hấp nước mắm sẽ để lại dấu ấn kh&#243; qu&#234;n với c&#225;c t&#237;n đồ m&#234; G&#224; n&#243;i chung v&#224; m&#234; G&#224; b&#243; x&#244;i của Flyfood n&#243;i ri&#234;ng bao l&#226;u nay. " />
 <link href="user/Content/bzoom.css" rel="stylesheet" />
 <script src="https://apis.google.com/js/platform.js" async defer>
     { lang: 'vi' }
@@ -36,10 +25,6 @@
 
 
 <link href="user/Scripts/slide/jquery.bxslider.css" rel="stylesheet"/>
-
-
-
-
 
 <!--Start of Zendesk Chat Script-->
 <script type="text/javascript">
@@ -53,30 +38,3 @@
         type = "text/javascript"; e.parentNode.insertBefore($, e)
     })(document, "script");
 </script>
-<!--End of Zendesk Chat Script-->
-
-<!-- Chặn nội dung chữ trong bài viết  
-<script type="text/JavaScript">
-    function killCopy(e)
-    {
-        return false;
-    }
-    function reEnable()
-    {
-        return true;
-    }
-    document.onselectstart = new Function("return false")
-    if (window.sidebar)
-    {
-        document.onmousedown = killCopy;
-        document.onclick = reEnable;
-    }
-</script>
--->
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TQ2T2H9');</script>
-<!-- End Google Tag Manager -->
