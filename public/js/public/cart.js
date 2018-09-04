@@ -21,17 +21,17 @@ function addToCart(idProduct) {
     if(cart.length > 0){
         var resultObject = searchById(idProduct, cart);
         if(!resultObject){
-            cartItem = {id:idProduct, name:name, img:img, price:price, quanlity: 1};
+            cartItem = {id:idProduct, name:name, img:img, price:price, quantity: 1};
             cart.push(cartItem);
         }else{
           for (var j = 0; j < cart.length; j++) {
             if(idProduct === cart[j].id){
-                cart[j].quanlity += 1;
+                cart[j].quantity += 1;
             }
           }
         }
     }else {
-    cartItem  = {id:idProduct, name:name, img:img, price:price, quanlity: 1};
+    cartItem  = {id:idProduct, name:name, img:img, price:price, quantity: 1};
     cart.push(cartItem);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -54,8 +54,9 @@ function showCart(cart) {
               '<div class="popup-cart box-cart-scroll">'+
                 '<table class="table">'+
                  ' <tbody>';
-        cart.forEach(cartItem => {
-            total += cartItem.price * cartItem.quanlity;
+        for(var i=0; i<cart.length; i++) {
+            var cartItem = cart[i];
+            total += cartItem.price * cartItem.quantity;
             html += '<tr>' +
             '<td rowspan="2" width="50">'+
             '<img src="'+cartItem.img+'" alt="" width="75" height="75">'+
@@ -67,12 +68,12 @@ function showCart(cart) {
         '</tr>'+
         '<tr>'+
             '<td width="100" class="text-right td_soluong">'+
-            '<i class="fa fa-minus " onclick="modifyCart('+cartItem.id+',\'subone\')"></i> <span><input class="number-product-'+cartItem.id+'" id="number-product-'+cartItem.id+'" type="number" style="width:40px" onchange="modifyCart('+cartItem.id+',\'change\')" value="'+cartItem.quanlity+'"></span><i class="fa fa-plus " onclick="modifyCart('+cartItem.id+',\'addone\')"></i>'+
+            '<i class="fa fa-minus " onclick="modifyCart('+cartItem.id+',\'subone\')"></i> <span><input class="number-product-'+cartItem.id+'" id="number-product-'+cartItem.id+'" type="number" style="width:40px" onchange="modifyCart('+cartItem.id+',\'change\')" value="'+cartItem.quantity+'"></span><i class="fa fa-plus " onclick="modifyCart('+cartItem.id+',\'addone\')"></i>'+
             '</td>'+
             '<td class="text-right">'+cartItem.price+' VNĐ</td>'+
-            '<td class="text-right bold">'+(cartItem.price*cartItem.quanlity).toFixed(3)+' VNĐ</td>'+
+            '<td class="text-right bold">'+(cartItem.price*cartItem.quantity).toFixed(3)+' VNĐ</td>'+
         '</tr>';
-        });
+        }
         html += '</tbody>'+
                 '</table>'+
               '</div>'+
@@ -95,7 +96,7 @@ function showCart(cart) {
     }else {
         collapseCart();
         $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
-        changeNumberCart(cart);
+        changeNumberCart(0);
     }
     $('#cart-detail-checkout .box-cart-detail p').remove();
     $('#total').html(total.toFixed(3));
@@ -112,16 +113,17 @@ function modifyCart(id, option) {
         $('.shopping-cart .shopping-cart-show').html('Cart (0)');
         collapseCart();
         $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
+        changeNumberCart(0);
     } else {
         for (var j = 0; j < cart.length; j++) {
             if(id === cart[j].id){
                 switch (option) {
                     case 'addone':
-                        cart[j].quanlity += 1;
+                        cart[j].quantity += 1;
                         break;
                     case 'subone':
-                        cart[j].quanlity -= 1;
-                        if(cart[j].quanlity == 0) {
+                        cart[j].quantity -= 1;
+                        if(cart[j].quantity == 0) {
                             modifyCart(id, 'delete');
                         }
                         break;
@@ -136,13 +138,14 @@ function modifyCart(id, option) {
                         numberCart = parseInt($('#number-product-' +id).val());
                         number = numberCart != cart[j].quanlity ? numberCart : numberCheckout;
                         if(number <=0) modifyCart(id, 'delete'); 
-                        cart[j].quanlity = number;
+                        cart[j].quantity = number;
                         break;
                 }
             }
         }
         localStorage.setItem("cart", JSON.stringify(cart));
         showCart(cart);
+        changeNumberCart(cart.length);
     }
 }
 function collapseCart() {
