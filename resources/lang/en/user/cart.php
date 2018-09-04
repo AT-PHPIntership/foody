@@ -48,5 +48,10 @@ return [
         'shopping_guide' => 'Shopping guide',
         'term-of-use' => 'Term of use',
         'privacy-policy' => 'Privacy Policy'
-    ]
+    ],
+    'thank_you' => 'Thank You! Have a good day!',
+    'message_susscess' => 'Your order has been successfully submitted. The order will be delivered on time. Thank you very much.',
+    'message_fail' => 'There was an error, please try again. Thank you',
+    'empty_cart' => 'Oh, your cart is empty',
+    'message_empty_cart' => 'Your cart is empty.',
 ];

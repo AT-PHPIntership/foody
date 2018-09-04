@@ -28,5 +28,6 @@ Route::group(['as' => 'api.', 'namespace' => 'Api\User'], function () {
         Route::get('checkLoginToken', 'LoginController@checkLoginToken');
         Route::put('users/profile', 'UserInfoController@update');
         Route::get('users/info', 'UserController@index');
+        Route::apiResource('orders', 'OrderController');
     });
 }); 

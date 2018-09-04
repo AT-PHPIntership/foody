@@ -39,7 +39,7 @@
           <a href={{route('user.info')}}>{{__('user/cart.left-menu.account-info')}}</a>
         </li>
         <li>
-          <a href={{route('order.info')}}>{{__('user/cart.left-menu.order-info')}}</a>
+          <a href={{route('orders.info')}}>{{__('user/cart.left-menu.order-info')}}</a>
         </li>
         <li>
           <a href="http://flyfood.vn/quy-trinh-huong-dan-dat-hang-online-tai-flyfoodvn-detail-81d1180116115450489.html">{{__('user/cart.left-menu.shopping_guide')}}</a>

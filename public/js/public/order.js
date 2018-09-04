@@ -29,16 +29,14 @@ var totalMoney = 0;
         'Authorization': 'Bearer ' + token
     },
     success: function(response) {
-      orderHtml = '';
       orders = response.result.data;
       if (orders.length == 0) {
         $('#productInfo').hide();
         $('#warningMsg').show().text(Lang.get('user/cart.orders.not_buy'));
       } else {
         orders.forEach(order => {
-            if(order.processing_status == 3) {
-                orderHtml += 
-                '<div class="panel-heading left full" style="background-color:  powderblue;"><div class="col-lg-12 distance-none">\
+            orderHtml = '';
+            orderHtml += '<div class="panel-heading left full" id="panelHeading-'+order.id+'"><div class="col-lg-12 distance-none">\
             <div class="col-lg-3">\
                 <p>\
                     <i class="fa fa-barcode"></i>\
@@ -47,102 +45,69 @@ var totalMoney = 0;
                 </p>\
             </div>\
             <div class="col-lg-3">\
-                  <p>\
-                      <i class="fa fa-money"></i>\
-                      <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền">\
-                      '+ formatNumber(order.money_ship)+' VND</b>\
-                  </p>\
-              </div>\
-              <div class="col-lg-3">\
-                  <p>\
-                      <i class="fa fa-calendar"></i>\
-                      <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Ngày mua">\
-                      '+ order.submit_time+'</b>\
-                  </p>\
-              </div>\
-              <div class="col-lg-3">\
                 <p>\
-                    <b id="orderStatus" style="cursor:pointer;" onclick="updateOrder('+ order.id +');" data-toggle="modal" data-target="#confirmModal" data-placement="top" title="" data-original-title="Hủy đơn hàng">\
+                    <i class="fa fa-money"></i>\
+                    <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền">\
+                    '+ formatNumber(order.money_ship)+' VND</b>\
+                </p>\
+            </div>\
+            <div class="col-lg-3">\
+                <p>\
+                    <i class="fa fa-calendar"></i>\
+                    <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Ngày mua">\
+                    '+ order.submit_time+'</b>\
+                </p>\
+            </div>\
+            <div class="col-lg-3">';
+
+            if(order.processing_status == 3) { 
+                orderHtml += '<p><b id="orderStatus" style="cursor:pointer;" onclick="updateOrder('+ order.id +');" data-toggle="modal" data-target="#confirmModal" data-placement="top" title="" data-original-title="Hủy đơn hàng">\
                     <i class="fa fa-trash"></i>'+Lang.get('user/cart.orders.cancel_order')+'</b></p>\
                     </div></div></div>';
-            } else if(order.processing_status == 2) {
-                orderHtml += '<div class="panel-heading left full" style="background-color:  chartreuse;"><div class="col-lg-12 distance-none">\
-                <div class="col-lg-3">\
-                    <p>\
-                        <i class="fa fa-barcode"></i>\
-                        <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Mã đơn hàng">#\
-                        '+order.id+'</b>\
-                    </p>\
-                </div>\
-                <div class="col-lg-3">\
-                      <p>\
-                          <i class="fa fa-money"></i>\
-                          <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền">\
-                          '+ formatNumber(order.money_ship)+' VND</b>\
-                      </p>\
-                  </div>\
-                  <div class="col-lg-3">\
-                      <p>\
-                          <i class="fa fa-calendar"></i>\
-                          <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Ngày mua">\
-                          '+ order.submit_time+'</b>\
-                      </p>\
-                  </div>\
-                  <div class="col-lg-3">\
-                <p>\
-                    <i class="fa fa-info-circle"></i>\
-                    <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
-                        <span >'+Lang.get('user/cart.orders.approved_order')+'</span>\
-                    </b></p></div></div></div>';
-            } else {
-                orderHtml += '<div class="panel-heading left full" style="background-color:  red;"><div class="col-lg-12 distance-none">\
-                <div class="col-lg-3">\
-                    <p>\
-                        <i class="fa fa-barcode"></i>\
-                        <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Mã đơn hàng">#\
-                        '+order.id+'</b>\
-                    </p>\
-                </div>\
-                <div class="col-lg-3">\
-                      <p>\
-                          <i class="fa fa-money"></i>\
-                          <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền">\
-                          '+ formatNumber(order.money_ship)+' VND</b>\
-                      </p>\
-                  </div>\
-                  <div class="col-lg-3">\
-                      <p>\
-                          <i class="fa fa-calendar"></i>\
-                          <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Ngày mua">\
-                          '+ order.submit_time+'</b>\
-                      </p>\
-                  </div>\
-                  <div class="col-lg-3">\
-                <p>\
-                    <i class="fa fa-info-circle"></i>\
+            }
+            if(order.processing_status == 2) { 
+                orderHtml += '<p><i class="fa fa-info-circle"></i>\
                     <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
                         <span >'+Lang.get('user/cart.orders.canceled_order')+'</span>\
                     </b></p></div></div></div>';
-              }
-                order.order_details.forEach(products => {
-                    orderHtml+='<div class="panel-body distance-none">\
-                                <div class="col-lg-12 border-none distance-none">\
-                                <div class="col-lg-4" style="padding-left:0">\
-                                <img src="images/products/'+products.product.images[0].path +'"/>\
-                                </div>\
-                                <div class="col-lg-8"><h2>'+Lang.get('user/cart.orders.product_name')+': '+products.product.name+'</h2>\
-                                <p class="col-lg-12">'+Lang.get('user/cart.orders.quantity')+': <b>'+ products.quantity+'</b></p>\
-                                <p class="col-lg-12">'+Lang.get('user/cart.orders.price')+': <b>'+ formatNumber(products.product.price) +' VND</b></p>\
-                                <p class="col-lg-12">'+Lang.get('user/cart.orders.total')+': <b>'+ formatNumber(products.product.price*products.quantity) +' VND</b></p>\
-                                </div></div></div>';
-                                totalMoney += products.product.price*products.quantity;
-                });
-                orderHtml += '<div class="panel-footer left full none-border none-background">\
-                            <div class="col-lg-12"><p><b>'+name+'</b></p><p><b>'+order.address+'</b></p>\
-                            <div class="col-lg-6 right text-right"><p>'+Lang.get('user/cart.orders.payments')+': <b>CARD</b></p>\
-                            <p>'+Lang.get('user/cart.orders.money_ship')+': <b>' + formatNumber(order.money_ship) + ' VND</b></p>\
-                            <p>'+Lang.get('user/cart.orders.total')+': <b>' + formatNumber(order.money_ship+totalMoney) + ' VND</b></p></div></div></div>';
-        $('#productInfo').html(orderHtml);
+            }
+            else {
+                orderHtml += '<p><i class="fa fa-info-circle"></i>\
+                    <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
+                        <span >'+Lang.get('user/cart.orders.approved_order')+'</span>\
+                    </b></p></div></div></div>';
+            }
+
+            order.order_details.forEach(products => {
+                orderHtml+='<div class="panel-body distance-none">\
+                            <div class="col-lg-12 border-none distance-none">\
+                            <div class="col-lg-4" style="padding-left:0">\
+                            <img src="images/products/'+products.product.images[0].path +'"/>\
+                            </div>\
+                            <div class="col-lg-8"><h2>'+Lang.get('user/cart.orders.product_name')+': '+products.product.name+'</h2>\
+                            <p class="col-lg-12">'+Lang.get('user/cart.orders.quantity')+': <b>'+ products.quantity+'</b></p>\
+                            <p class="col-lg-12">'+Lang.get('user/cart.orders.price')+': <b>'+ formatNumber(products.product.price) +' VND</b></p>\
+                            <p class="col-lg-12">'+Lang.get('user/cart.orders.total')+': <b>'+ formatNumber(products.product.price*products.quantity) +' VND</b></p>\
+                            </div></div></div>';
+                            totalMoney += products.product.price*products.quantity;
+            });
+            orderHtml += '<div class="panel-footer left full none-border none-background">\
+                        <div class="col-lg-12"><p><b>'+name+'</b></p><p><b>'+order.address+'</b></p>\
+                        <div class="col-lg-6 right text-right"><p>'+Lang.get('user/cart.orders.payments')+': <b>CARD</b></p>\
+                        <p>'+Lang.get('user/cart.orders.money_ship')+': <b>' + formatNumber(order.money_ship) + ' VND</b></p>\
+                        <p>'+Lang.get('user/cart.orders.total')+': <b>' + formatNumber(order.money_ship+totalMoney) + ' VND</b></p></div></div></div>';
+      
+            $('#productInfo').append(orderHtml);
+            if(order.processing_status == 3) { 
+                $('#panelHeading-'+order.id).css({'background-color': 'powderblue',
+                                        'cursor': 'pointer'});
+            } else if(order.processing_status == 2) {
+                $('#panelHeading-'+order.id).css('background-color', 'red');
+            }  
+            else { 
+                console.log(order.processing_status);
+                $('#panelHeading-'+order.id).css('background-color', 'chartreuse');
+            }
         });
       }
     }
