@@ -32,10 +32,7 @@ class ProductController extends ApiController
             return $this->showAll($products, Response::HTTP_OK);
         } else {
             $products = Product::with('category.parent', 'store', 'images')->filter($request)->get();
-            return $this->showAll($products, Response::HTTP_OK);
-        }
-
-        $perPage = isset($request->perpage) ? $request->perpage : config('define.limit_rows');
+            $perPage = isset($request->perpage) ? $request->perpage : config('define.limit_rows');
 
         $products = Product::filter($request)->with('category.parent', 'images')
              ->when(isset($request->sortBy), function ($query) use ($request) {
@@ -45,10 +42,12 @@ class ProductController extends ApiController
                  return $query->limit($request->limit);
              })->paginate($perPage);
 
-             $products->appends(request()->query());
+        $products->appends(request()->query());
 
         $products = $this->formatPaginate($products);
-        return $this->showAll($products, Response::HTTP_OK);
+            return $this->showAll($products, Response::HTTP_OK);
+        }
+
     }
 
     /**

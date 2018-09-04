@@ -4,19 +4,19 @@ function loadProducts(result, html, current_page) {
     html += '<div class="item-wrapper">'+
     '<div class="item">'+
       '<div class="item-img">'+
-        '<a href="">'+
+        '<a href="'+ api.products_index +'/'+ product['id'] +'">'+
           '<img src="images/products/'+product.images[0].path+'" alt="" />'+
         '</a>'+
       '</div>'+
       '<div class="item-name">'+
-        '<a href="">'+
+        '<a href="'+ api.products_index +'/'+ product['id'] +'">'+
           '<h2 class="text-center text-uppercase distance-none" title="">'+product.name+'</h2>'+
         '</a>'+
         '<div class="store text-center">'+
           '<a href=""><span>'+product.store.name+'</span></a>'+
         '</div>'+
         '<div class="price text-center">'+
-        '<span>'+product.price+' đ</span>'+
+        '<span>'+product.price+' VND</span>'+
         '</div>'+
       '</div>'+
       '<div class="item-addCart-hover">'+

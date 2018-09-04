@@ -42,7 +42,7 @@ trait FilterTrait
         }
 
         if ($request->name) {
-            $query->where('name', 'like', '%'.$request->name.'%');
+            return $query->where('name', 'like', '%'.$request->name.'%');
         }
     }
 }

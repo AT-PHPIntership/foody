@@ -31,10 +31,10 @@
         </a>
       </div>
       <div class="search">
-        <form id="productSearch" action="/products" method="get">
+        <form class="form-inline typeahead" id="productSearch" action="/products" method="get">
           @csrf
         <div class="form-group input-group distance-none">
-            <input id="txtsearchFull" type="text" name="name" class="form-control" placeholder="{{ __('user/index.search')}}">
+            <input id="txtsearchFull" type="text" name="name" autocomplete="off" class="form-control" placeholder="{{ __('user/index.search')}}">
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">
                 <i class="fa fa-search"></i>
