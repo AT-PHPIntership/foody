@@ -32,19 +32,6 @@ class ProductController extends ApiController
             return $this->showAll($products, Response::HTTP_OK);
         } else {
             $products = Product::with('category.parent', 'store', 'images')->filter($request)->get();
-            $perPage = isset($request->perpage) ? $request->perpage : config('define.limit_rows');
-
-        $products = Product::filter($request)->with('category.parent', 'images')
-             ->when(isset($request->sortBy), function ($query) use ($request) {
-                 return $query->orderBy($request->sortBy, $request->order);
-             })
-             ->when(isset($request->limit), function ($query) use ($request) {
-                 return $query->limit($request->limit);
-             })->paginate($perPage);
-
-        $products->appends(request()->query());
-
-        $products = $this->formatPaginate($products);
             return $this->showAll($products, Response::HTTP_OK);
         }
 
