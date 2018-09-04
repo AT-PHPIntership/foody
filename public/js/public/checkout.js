@@ -24,16 +24,14 @@ $(document).ready(function() {
                 'Authorization': 'Bearer ' + token
             },
             data: {
-                'products' : JSON.stringify(cart),
-                'address' : $('#DIACHI').val(),
-                'customer_note'  : $('#GHICHU').val(),
-                'delivery_time'  : $('#NGAYGIAO').val(),
+                'products' : localStorage.getItem('cart'),
+                'address' : $('#address-orderer').val(),
+                'customer_note'  : $('#note-orderer').val(),
+                'delivery_time'  : $('#delivery-time input').val(),
                 'money_ship' : 50000,
             },
             success: function(response) {
                 if(response.code == 200) {
-                    $('#modalMessageCart h3').html(Lang.get('user/cart.thank_you'));
-                    $('#modalMessageCart #modal-message').html(Lang.get('user/cart.message_susscess'));
                     ModalMessageCart();
                     modifyCart(0, 'clear')
                 }
