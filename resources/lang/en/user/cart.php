@@ -28,6 +28,27 @@ return [
     'submit' => 'Submit',
     'buy_more' => 'Buy more',
     'cancel_order' => 'Cancel order',
+    'orders' => [
+        'product_name' => 'Name',
+        'quantity' => 'Quantity',
+        'price' => 'Price',
+        'total' => 'Total',
+        'payments' => 'Payments',
+        'money_ship' => 'Money ship',
+        'cancel_order' => 'Cancel order',
+        'canceled_order' => 'Canceled',
+        'approved_order' => 'Approved order',
+        'confirm_message' => 'Are you sure want to cancel this order?',
+        'cancel_success' => 'Cancel order successfully!',
+        'not_buy' => 'You never buy at Foody. Thank you for visiting Foody'
+    ],
+    'left-menu' => [
+        'account-info' => 'Account information',
+        'order-info' => 'Order information',
+        'shopping_guide' => 'Shopping guide',
+        'term-of-use' => 'Term of use',
+        'privacy-policy' => 'Privacy Policy'
+    ],
     'thank_you' => 'Thank You! Have a good day!',
     'message_susscess' => 'Your order has been successfully submitted. The order will be delivered on time. Thank you very much.',
     'message_fail' => 'There was an error, please try again. Thank you',
