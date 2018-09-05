@@ -92,7 +92,7 @@ var totalMoney = 0;
                             totalMoney += products.product.price*products.quantity;
             });
             orderHtml += '<div class="panel-footer left full none-border none-background">\
-                        <div class="col-lg-12"><p><b>'+name+'</b></p><p><b>'+order.address+'</b></p>\
+                        <div class="col-lg-12"><p><b>'+localStorage.getItem("username")+'</b></p><p><b>'+order.address+'</b></p>\
                         <div class="col-lg-6 right text-right"><p>'+Lang.get('user/cart.orders.payments')+': <b>CARD</b></p>\
                         <p>'+Lang.get('user/cart.orders.money_ship')+': <b>' + formatNumber(order.money_ship) + ' VND</b></p>\
                         <p>'+Lang.get('user/cart.orders.total')+': <b>' + formatNumber(order.money_ship+totalMoney) + ' VND</b></p></div></div></div>';
@@ -105,7 +105,6 @@ var totalMoney = 0;
                 $('#panelHeading-'+order.id).css('background-color', 'red');
             }  
             else { 
-                console.log(order.processing_status);
                 $('#panelHeading-'+order.id).css('background-color', 'chartreuse');
             }
         });

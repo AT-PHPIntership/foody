@@ -52,7 +52,7 @@
         </li>
       </ul>
     </div>
-    <div class="banner" style="margin-top:10px;">
+    <div class="banner-user">
 
       <section class="chitiethd">
         <p class="message full left text-center" id="warningMsg"></p>
@@ -89,4 +89,5 @@
 @endsection
 @section('js')
   <script src="/js/public/userInfo.js"></script>
+  <script src="js/public/order.js"></script>
 @endsection

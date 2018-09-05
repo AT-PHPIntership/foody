@@ -5,7 +5,7 @@ function loadProducts(result, html, current_page) {
     '<div class="item">'+
       '<div class="item-img">'+
         '<a href="'+ api.products_index +'/'+ product['id'] +'">'+
-          '<img src="images/products/'+product.images[0].path+'" alt="" />'+
+          '<img height="200" src="images/products/'+product.images[0].path+'" alt="" />'+
         '</a>'+
       '</div>'+
       '<div class="item-name">'+
@@ -63,37 +63,39 @@ $(document).ready(function() {
       url = api.api_products_index + window.location.search;
     }
     $.ajax({
-        url: url+'&page=1',
-        type: "get",
-        success: function(result) {
-          console.log(result)
-          var html = '';
-          current_page = result.result.paginator.current_page;
-          // $('.breadcrumb ul li:nth-child(2) a').html('category');
-          $('.breadcrumb ul li:nth-child(2) a').attr('href', api.products_index +'?category_id=' + id);
-          if(id===result.result.data[0].category.parent.id) {
-            $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
-            html+='<div id="category-products" class="product product-home product-wrapper">'+
-            '<div class="title border-bottom">'+
-              '<i class="fa fa-fire"></i>'+
-              '<h1 class="distance-none text-uppercase">'+
-                '<span>'+result.result.data[0].category.parent.name+'</span>'+
-              '</h1>'+
-            '</div>';
-          }else{
-            $('.breadcrumb ul li:nth-child(3) a').html(result.result.data[0].category.name);
-            html+='<div id="products-hot-0" class="product product-home product-wrapper">'+
-            '<div class="title border-bottom">'+
-              '<i class="fa fa-fire"></i>'+
-              '<h1 class="distance-none text-uppercase">'+
-                '<span>'+result.result.data[0].category.name+'</span>'+
-              '</h1>'+
-            '</div>';
-          }
-          html = loadProducts(result, html, current_page);
-          $('.product-home').append(html);
+      url: url+'&page=1',
+      type: "get",
+      success: function(result) {
+        console.log(result)
+        var html = '';
+        current_page = result.result.paginator.current_page;
+        $('.breadcrumb ul li:nth-child(2) a').attr('href', api.products_index +'?category_id=' + id);
+        if(id===result.result.data[0].category.parent.id) {
+          $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
+          $('.breadcrumb ul li:nth-child(2) i').hide();
+          html+='<div id="category-products" class="product product-home product-wrapper">'+
+          '<div class="title border-bottom">'+
+            '<i class="fa fa-fire"></i>'+
+            '<h1 class="distance-none text-uppercase">'+
+              '<span>'+result.result.data[0].category.parent.name+'</span>'+
+            '</h1>'+
+          '</div>';
+        } else {
+          $('.breadcrumb ul li:nth-child(3) a').attr('href', api.products_index +'?category_id=' + id);
+          $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
+          $('.breadcrumb ul li:nth-child(3) a').html(result.result.data[0].category.name);
+          html+='<div id="category-products" class="product product-home product-wrapper">'+
+          '<div class="title border-bottom">'+
+            '<i class="fa fa-fire"></i>'+
+            '<h1 class="distance-none text-uppercase">'+
+              '<span>'+result.result.data[0].category.name+'</span>'+
+            '</h1>'+
+          '</div>';
         }
-    });
+        html = loadProducts(result, html, current_page);
+        $('.product-home').append(html);
+      }
+  });
     $(document).on('click', '.page-readmore', function (event) {
       event.preventDefault();
       $.ajax({

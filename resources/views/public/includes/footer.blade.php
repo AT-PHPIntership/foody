@@ -443,9 +443,7 @@
 </a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script> --}}
 <script src="user/Scripts/jquery-1.11.1.js"></script>
-<script src="user/Scripts/typeahead.bundle.js"></script>
 <script src="user/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script src="user/Scripts/jquery.validate.js"></script>
 <script src="user/Scripts/jquery.validate.unobtrusive.js"></script>
@@ -464,7 +462,6 @@
 <script src="js/public/register.js"></script>
 <script src="js/messages.js"></script>
 <script src="js/public/cart.js"></script>
-<script src="js/public/order.js"></script>
 <script src="user/Scripts/jqzoom.js"></script>
 <script src="user/Scripts/slide/jquery.bxslider.js"></script>
 

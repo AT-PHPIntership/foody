@@ -34,7 +34,6 @@ class ProductController extends ApiController
             $products = Product::with('category.parent', 'store', 'images')->filter($request)->get();
             return $this->showAll($products, Response::HTTP_OK);
         }
-
     }
 
     /**
@@ -47,7 +46,7 @@ class ProductController extends ApiController
     public function show(Product $product)
     {
         $product->images;
-        $product->category;
+        $product->category->parent;
         return $this->showOne($product, Response::HTTP_OK);
     }
 }

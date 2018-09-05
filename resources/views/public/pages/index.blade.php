@@ -164,7 +164,7 @@
         </div>
         <div class="item-name">
           <a class="img-newest-5" href="">
-            <h2 id="name-pro-newest-5" class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2>
+            <h2 id="name-pro-newest-5" class="text-center text-uppercase distance-none" title=""></h2>
           </a>
           <div id="store-pro-newest-5" class="store text-center">
               <a href=""><span></span></a>

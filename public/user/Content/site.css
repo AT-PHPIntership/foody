@@ -374,7 +374,7 @@ header {
     width: -webkit-calc(100% - 270px);
     width: -webkit-calc(100% - 270px);
     width: -o-calc(100% - 270px);
-    /* width: 100%; */
+    width: 100%;
     float: right;
     margin-top: 30px;
 }
@@ -1833,4 +1833,11 @@ a, a:hover {
 
 #orderStatus:hover {
     color: red;
+}
+
+.banner-user {
+    width: -webkit-calc(100% - 270px);
+    width: -webkit-calc(100% - 270px);
+    width: -o-calc(100% - 270px);
+    float: right;
 }
