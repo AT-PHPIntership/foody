@@ -3,13 +3,13 @@
 <div class="breadcrumb distance-none">
   <ul class="list-inline text-uppercase distance-none">
     <li>
-      <a href="/"><i class="fa fa-home"></i></a>
+      <a href=""><i class="fa fa-home"></i></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
-    <li>
-      <a href="">{{ __('user/category.title')}}</a>
+    {{-- <li>
+      <a href=""></a>
       <i class="fa fa-angle-double-right"></i>
-    </li>
+    </li> --}}
     <li>
       <a href=""><h1 style="font-size:14px;padding:0;margin:0;"></h1></a>
     </li>

@@ -10,7 +10,7 @@ $(document).ready(function() {
                 $('#buy-now-newest-' + i).attr('onclick', 'addToCart('+product.id+')');
                 $('#name-pro-newest-' + i).html(product.name);
                 $('#store-pro-newest-' + i + ' span').html(product.store.name);
-                $('#price-pro-newest-' + i + ' span').html(formatNumber(product.price) +' đ');
+                $('#price-pro-newest-' + i + ' span').html(formatNumber(product.price) +' VND');
                 i++;
             });
         }
