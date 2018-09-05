@@ -176,10 +176,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <button type="button" onclick="checkLoginState();" class="btn btn-sm btn-primary btn-block text-uppercase"><i class="fa fa-facebook"></i>{{__('user/login.login_fb')}}</button>
-                      </div>
-                      <div class="form-group">
-                        <button type="button" onclick="gpluslogin();" class="btn btn-sm btn-primary btn-social btn-danger btn-block text-uppercase"><i class="fa fa-google-plus"></i>{{__('user/login.login_plus')}}</button>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
                       </div>
                       <div class="form-group">
                         <label class="none-margin">
@@ -257,8 +254,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-default">
-              <div class="panel-body login-form">
-                <p id="modal-message" style="color:  green;font-size: 18px;">{{__('user/cart.message_susscess')}}</p>
+              <div class="panel-body">
+                <p id="modal-cart-message" style="color:  green;font-size: 18px;">{{__('user/cart.message_susscess')}}</p>
                 <p style="text-align:center;font-size: 18px;"> Please <a href="/" style="color:  blue;">continue</a> to order</p>
               </div>
             </div>
@@ -444,8 +441,9 @@
 <a id="linkTop" class="backtotop" href="javascript:;">
 <span></span>
 </a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="user/Scripts/jquery-1.11.1.js"></script>
-
 <script src="user/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script src="user/Scripts/jquery.validate.js"></script>
 <script src="user/Scripts/jquery.validate.unobtrusive.js"></script>
@@ -464,7 +462,6 @@
 <script src="js/public/register.js"></script>
 <script src="js/messages.js"></script>
 <script src="js/public/cart.js"></script>
-<script src="js/public/order.js"></script>
 <script src="user/Scripts/jqzoom.js"></script>
 <script src="user/Scripts/slide/jquery.bxslider.js"></script>
 

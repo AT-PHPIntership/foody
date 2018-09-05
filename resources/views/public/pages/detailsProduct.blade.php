@@ -6,7 +6,11 @@
       <a href=""><i class="fa fa-home"></i></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
-      <li>
+    <li>
+      <a href=""></a>
+      <i class="fa fa-angle-double-right"></i>
+    </li>
+    <li>
       <a href=""></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
@@ -150,11 +154,11 @@
                                       </div>
                                   </div>
                                   <div>
-                                              <div class="form-group col-lg-12 distance-none">
-                                                  <button id="btn-muangay" onclick="addToCart('7127310816120859758');" type="button" class="btn btn-lg btn-primary btn-block btn-success text-capitalize">
-                                                      <i class="fa fa-shopping-cart"></i>{{__('user/product.details.buy_now')}}
-                                                  </button>
-                                              </div>
+                                    <div class="form-group col-lg-12 distance-none">
+                                        <button id="btn-muangay" type="button" class="btn btn-lg btn-primary btn-block btn-success text-capitalize">
+                                            <i class="fa fa-shopping-cart"></i>{{__('user/product.details.buy_now')}}
+                                        </button>
+                                    </div>
                                   </div>
   
                           </div>

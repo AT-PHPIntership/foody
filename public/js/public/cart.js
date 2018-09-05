@@ -14,9 +14,17 @@ function addToCart(idProduct) {
     if(!cart){
         cart = [];
     }
-    var img = $('#item-product-' + idProduct +' .item .item-img a img').attr('src');
-    var name = $('#item-product-' + idProduct +' .item .item-name a h2').text();
-    var price = $('#item-product-' + idProduct +' .item .item-name .price span').text();
+    
+    if(window.location.pathname.substring(10) == idProduct){
+        var img = $('#bzoom-thumb-image-1').attr('src');
+        var name = $('#productName').text();
+        var price = $('#productPrice').text();
+    } else {
+        var img = $('#item-product-' + idProduct +' .item .item-img a img').attr('src');
+        var name = $('#item-product-' + idProduct +' .item .item-name a h2').text();
+        var price = $('#item-product-' + idProduct +' .item .item-name .price span').text();
+    }
+
     var cartItem;
     if(cart.length > 0){
         var resultObject = searchById(idProduct, cart);

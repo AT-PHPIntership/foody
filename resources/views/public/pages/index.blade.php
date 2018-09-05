@@ -11,18 +11,18 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <a href="ga-bo-xoi-3-mau-om-trung-non-hat-sen-spdetail-c1e9290618102459696.html">
-            <img src="user/Files/admin/03072018/GA&#32;BO&#32;XOI&#32;3&#32;MAU&#32;745x380.png" alt="/Files/admin/03072018/GA BO XOI 3 MAU 745x380.png">
+          <a href="https://kfcvietnam.com.vn/vn/khuyen-mai/70/123-chickenista-hoi-cuong-ga-kfc.html?utm_source=Foody&utm_medium=CPD&utm_campaign=Chickenista">
+            <img src="user/Files/Images/kfc.jpg" alt="KFC.jpg">
           </a>
         </div>
         <div class="item">
-          <a href="ga-bo-xoi-3-mau-om-trung-non-hat-sen-spdetail-c1e9290618102459696.html">
-            <img src="user/Files/admin/03072018/GA&#32;BO&#32;XOI&#32;3&#32;MAU&#32;745x380.png" alt="/Files/admin/03072018/GA BO XOI 3 MAU 745x380.png">
+          <a href="https://abcbakery.co/">
+            <img src="user/Files/Images/trung-thu.jpg" alt="moon-cake.jpg">
           </a>
         </div>
         <div class="item">
-          <a href="ga-bo-xoi-3-mau-om-trung-non-hat-sen-spdetail-c1e9290618102459696.html">
-            <img src="user/Files/admin/03072018/GA&#32;BO&#32;XOI&#32;3&#32;MAU&#32;745x380.png" alt="/Files/admin/03072018/GA BO XOI 3 MAU 745x380.png">
+          <a href="https://www.foody.vn/ho-chi-minh/pho-hotpot-pham-hung">
+            <img src="user/Files/Images/pho.jpg" alt="pho.jpg">
           </a>
         </div>
       </div>
@@ -164,7 +164,7 @@
         </div>
         <div class="item-name">
           <a class="img-newest-5" href="">
-            <h2 id="name-pro-newest-5" class="text-center text-uppercase distance-none" title="G&#192; HẤP NƯỚC MẮM">G&#192; HẤP NƯỚC MẮM</h2>
+            <h2 id="name-pro-newest-5" class="text-center text-uppercase distance-none" title=""></h2>
           </a>
           <div id="store-pro-newest-5" class="store text-center">
               <a href=""><span></span></a>
