@@ -19,6 +19,7 @@
 <link href="user/Content/owl.carousel.css" rel="stylesheet" />
 <link href="user/Content/Responsive.css" rel="stylesheet" />
 <link href="user/Content/bzoom.css" rel="stylesheet" />
+<link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 <script src="https://apis.google.com/js/platform.js" async defer>
     { lang: 'vi' }
 </script>

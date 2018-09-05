@@ -27,7 +27,7 @@ $(document).ready(function() {
                 'products' : localStorage.getItem('cart'),
                 'address' : $('#address-orderer').val(),
                 'customer_note'  : $('#note-orderer').val(),
-                'delivery_time'  : $('#delivery-time input').val(),
+                'delivery_time'  : $('#datetimepicker1 input').val(),
                 'money_ship' : 50000,
             },
             success: function(response) {

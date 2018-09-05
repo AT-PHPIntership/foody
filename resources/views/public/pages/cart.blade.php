@@ -86,14 +86,18 @@
           <i class="fa fa-money"></i> {{__('user/cart.payments')}}
         </h3>
         <span id="valmsg-delivery_time" class="field-validation-valid" data-valmsg-for="delivery-time" data-valmsg-replace="true"></span>
-        <div class="form-group">
-          <div class="input-group date" id="delivery-time">
-            <input value="" class="form-control" data-val="true" data-val-date="{{__('user/cart.delivery_time_date')}}" data-val-required="{{__('user/cart.delivery_time_required')}}" id="delivery-time" name="delivery-time" placeholder="{{__('user/cart.delivery_date')}}" type="text">
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+        <div class="row">
+          <div class='col-sm-12'>
+              <div class="form-group">
+                  <div class='input-group date' id='datetimepicker1'>
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                  </div>
+              </div>
           </div>
-        </div>
+      </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group input-group">
