@@ -53,6 +53,7 @@
 <!-- Waves Effect Plugin Js -->
 <script
 	src="bower_components/adminbsb-materialdesign/plugins/node-waves/waves.js"></script>
+<script src="bower_components/adminbsb-materialdesign/plugins/jquery-countto/jquery.countTo.js"></script>
 <!-- Jquery DataTable Plugin Js -->
 <!-- Autosize Plugin Js -->
 <script
