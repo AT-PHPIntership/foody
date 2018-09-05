@@ -10,4 +10,7 @@ return [
       'success' => 'You have login successfully!'
     ],
     'limit_row_slide' => 8,
+    'order' => [
+      'limit_rows' => 5,
+    ]
 ];
