@@ -44,19 +44,32 @@
                   <td>{{__('user.admin.male')}}</td>
                 @endif
                 <td>{{ $userInfo->phone }}</td>
-                <td>{{ $userInfo->nameRole() }}</td>
-                <td><a
-                  href="{{route('admin.users.edit', $userInfo->id)}}"
-                  class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
-                    <i class="material-icons">border_color</i>
-                </a></td>
-              <td><form onsubmit="return confirm('{{__('user.admin.show.delete_confirm')}}');" class="col-md-4" id="deleteUser-{{ $userInfo->id }}" action="{{ route('admin.users.destroy', $userInfo->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger btn-circle waves-effect waves-circle waves-float" type="submit">
-                      <i class="material-icons">delete_sweep</i>
-                    </button>
-                  </form></td>
+                <td>
+                  {{ $userInfo->nameRole() }}
+                  @if ($userInfo->role_id == 2)
+                    <br><a href="{{route('admin.users.showStores', $userInfo->id)}}">Show list stores</a>
+                  @endif
+                </td>
+                <td>
+                  @if (Auth::user()->id == $userInfo->id)
+                    <a
+                    href="{{route('admin.users.edit', $userInfo->id)}}"
+                    class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
+                      <i class="material-icons">border_color</i>
+                    </a>
+                  @endif
+                  </td>
+                  <td>
+                  @if (Auth::user()->role_id == 1 && $userInfo->role_id !=1)
+                    <form onsubmit="return confirm('{{__('user.admin.show.delete_confirm')}}');" class="col-md-4" id="deleteUser-{{ $userInfo->id }}" action="{{ route('admin.users.destroy', $userInfo->id) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button class="btn btn-danger btn-circle waves-effect waves-circle waves-float" type="submit">
+                        <i class="material-icons">delete_sweep</i>
+                      </button>
+                    </form>
+                  @endif
+                </td>
               </tr>
               @endforeach
             </tbody>

@@ -9,10 +9,6 @@
       <div class="body">
         <div class="header">
             <h2>{{__('order.admin.list.title')}}</h2>
-            <a href="{{ route('admin.orders.create') }}"
-              class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
-              class="material-icons">person_add</i> <span>{{ __('order.admin.add.title') }}</span>
-            </a>
         </div>
         <div class="body table-responsive">
           <table class="table table-bordered table-striped">

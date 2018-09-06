@@ -254,7 +254,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-default">
-              <div class="panel-body">
+              <div id="panel-body" class="panel-body">
                 <p id="modal-cart-message" style="color:  green;font-size: 18px;">{{__('user/cart.message_susscess')}}</p>
                 <p style="text-align:center;font-size: 18px;"> Please <a href="/" style="color:  blue;">continue</a> to order</p>
               </div>
@@ -326,7 +326,7 @@
                         <input class="form-control" data-val="true" data-val-regex="{{ __('user/register.email.regex-msg')}}" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required="{{ __('user/register.email.require-msg')}}" id="email" name="email" placeholder="{{ __('user/register.email.placeholder')}}" type="text" value="" />
                       </div>
                       <div class="form-group">
-                        <button onclick="showMark();" type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
+                        <button type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
                           <i class="fa fa-edit"></i>{{ __('user/register.title')}}
                         </button>
                       </div>

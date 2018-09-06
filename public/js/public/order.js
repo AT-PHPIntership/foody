@@ -19,7 +19,6 @@ function updateOrder(order_id){
 }
 
 $(document).ready(function(){
-var totalMoney = 0;
   $('#warningMsg').hide();
   $.ajax({
     url: 'api/orders',
@@ -35,6 +34,7 @@ var totalMoney = 0;
         $('#warningMsg').show().text(Lang.get('user/cart.orders.not_buy'));
       } else {
         orders.forEach(order => {
+            var totalMoney = 0;
             orderHtml = '';
             orderHtml += '<div class="panel-heading left full" id="panelHeading-'+order.id+'"><div class="col-lg-12 distance-none">\
             <div class="col-lg-3">\
@@ -47,8 +47,7 @@ var totalMoney = 0;
             <div class="col-lg-3">\
                 <p>\
                     <i class="fa fa-money"></i>\
-                    <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền">\
-                    '+ formatNumber(order.money_ship)+' VND</b>\
+                    <b id="total-money-'+order.id+'" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tổng tiền"></b>\
                 </p>\
             </div>\
             <div class="col-lg-3">\
@@ -98,6 +97,7 @@ var totalMoney = 0;
                         <p>'+Lang.get('user/cart.orders.total')+': <b>' + formatNumber(order.money_ship+totalMoney) + ' VND</b></p></div></div></div>';
       
             $('#productInfo').append(orderHtml);
+            $('#total-money-'+order.id).html(formatNumber(order.money_ship+totalMoney) + ' VND');
             if(order.processing_status == 3) { 
                 $('#panelHeading-'+order.id).css({'background-color': 'powderblue',
                                         'cursor': 'pointer'});

@@ -8,7 +8,7 @@
     <div class="card">
       <div class="body">
         <div class="header">
-            <h2>{{__('product.admin.show.form_title')}}</h2>
+        <h2>List your Products</h2>
             <a href="{{ route('admin.products.create') }}"
               class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
               class="material-icons">playlist_add</i><span>{{ __('product.admin.show.create_product') }}</span>
@@ -41,7 +41,7 @@
                 <td>{{ $product->price }} VND</td>
                 <td><a href="{{route('admin.stores.showProducts', $product->store->id)}}">{{ $product->store->name }}</a></td>
                 <td><a id="details" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float"
-                   href="{{route('admin.products.show', $product->id)}}"><i class="material-icons">remove_red_eye</i></a></td>
+                  href="{{route('admin.products.show', $product->id)}}"><i class="material-icons">remove_red_eye</i></a></td>
                 <td><a
                   href="{{route('admin.products.edit', $product->id)}}"
                   class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">

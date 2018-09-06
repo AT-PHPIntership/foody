@@ -121,22 +121,25 @@ function modifyCart(id, option) {
         $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
         changeNumberCart(0);
     } else {
-        for (var j = 0; j < cart.length; j++) {
-            if(id === cart[j].id){
-                switch (option) {
-                    case 'addone':
-                        cart[j].quantity += 1;
-                        break;
-                    case 'subone':
-                        cart[j].quantity -= 1;
-                        if(cart[j].quantity == 0) {
-                            modifyCart(id, 'delete');
-                        }
-                        break;
-                    case 'delete':
-                        cart.splice(j, 1);
-                        break;
-                    case 'change':
+    for (var j = 0; j < cart.length; j++) {
+        if(id === cart[j].id){
+            switch (option) {
+                case 'addone':
+                    cart[j].quantity += 1;
+                    break;
+                case 'subone':
+                    cart[j].quantity -= 1;
+                    if(cart[j].quantity == 0) {
+                        modifyCart(id, 'delete');
+                    }
+                    break;
+                case 'delete':
+                    cart.splice(j, 1);
+                    break;
+                case 'change':
+                    if($('#number-product-' +id).val() ==  '' || $('#cart-detail-checkout .box-cart-detail .box-cart-scroll table tbody tr td span .number-product-' +id).val() == '') {
+                        modifyCart(id, 'delete'); 
+                    }else{
                         var number, numberCheckout, numberCart;
                         if(window.location.pathname == '/checkout/cart') {
                             numberCheckout = parseInt($('#cart-detail-checkout .box-cart-detail .box-cart-scroll table tbody tr td span .number-product-' +id).val());
@@ -145,13 +148,23 @@ function modifyCart(id, option) {
                         number = numberCart != cart[j].quanlity ? numberCart : numberCheckout;
                         if(number <=0) modifyCart(id, 'delete'); 
                         cart[j].quantity = number;
-                        break;
-                }
+                    }
+                    break;
             }
         }
+    }
+    if(cart.length == 0) {
+        localStorage.removeItem('cart');
+        cart = null;
+        $('.shopping-cart .shopping-cart-show').html('Cart (0)');
+        collapseCart();
+        $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
+        changeNumberCart(0);
+    }else{
         localStorage.setItem("cart", JSON.stringify(cart));
         showCart(cart);
         changeNumberCart(cart.length);
+        }
     }
 }
 function collapseCart() {
