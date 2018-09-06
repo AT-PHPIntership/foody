@@ -31,14 +31,16 @@
         </a>
       </div>
       <div class="search">
-        <div class="form-group input-group distance-none">
-          <input id="txtsearchFull" type="text" class="form-control" placeholder="{{ __('user/index.search')}}">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" onclick="Search('/');">
-              <i class="fa fa-search"></i>
-            </button>
-          </span>
-        </div>
+        <form id="productSearch" method="GET">
+          <div class="form-group input-group distance-none">
+            <input id="txtsearchFull" name="name" autocomplete="off" type="text" class="form-control" placeholder="{{ __('user/index.search')}}">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
       </div>
       <div class="right header-info">
         <ul class="list-inline">
