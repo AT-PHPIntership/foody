@@ -32,8 +32,6 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if(response.code == 200) {
-                    $('#modalMessageCart h3').html(Lang.get('user/cart.thank_you'));
-                    $('#modalMessageCart #modal-message').html(Lang.get('user/cart.message_susscess'));
                     ModalMessageCart();
                     modifyCart(0, 'clear')
                 }

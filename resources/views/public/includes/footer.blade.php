@@ -176,10 +176,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <button type="button" onclick="checkLoginState();" class="btn btn-sm btn-primary btn-block text-uppercase"><i class="fa fa-facebook"></i>{{__('user/login.login_fb')}}</button>
-                      </div>
-                      <div class="form-group">
-                        <button type="button" onclick="gpluslogin();" class="btn btn-sm btn-primary btn-social btn-danger btn-block text-uppercase"><i class="fa fa-google-plus"></i>{{__('user/login.login_plus')}}</button>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
                       </div>
                       <div class="form-group">
                         <label class="none-margin">
@@ -257,8 +254,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-default">
-              <div class="panel-body login-form">
-                <p id="modal-message" style="color:  green;font-size: 18px;">{{__('user/cart.message_susscess')}}</p>
+              <div class="panel-body">
+                <p id="modal-cart-message" style="color:  green;font-size: 18px;">{{__('user/cart.message_susscess')}}</p>
                 <p style="text-align:center;font-size: 18px;"> Please <a href="/" style="color:  blue;">continue</a> to order</p>
               </div>
             </div>

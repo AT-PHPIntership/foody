@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('gplus_id')->nullable();
             $table->unsignedInteger('role_id');
             $table->boolean('is_active')->default(1);
             $table->rememberToken();
