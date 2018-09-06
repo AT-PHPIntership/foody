@@ -12,7 +12,7 @@
             <i class="material-icons">add</i>{{__('category.admin.add.title') }}
           </h2>
           <ul class="header-dropdown m-r--5">
-            <li><a href=""
+            <li><a href="{{route('admin.categories.index')}}"
               class="btn btn-info waves-effect"
               style="margin: -14px 14px 0 0px;"> <i class="material-icons"
                 style="color: white;">keyboard_backspace</i> <span>Back</span>

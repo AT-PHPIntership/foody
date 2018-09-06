@@ -26,19 +26,41 @@ function addToCart(idProduct) {
     var cartItem;
     if(cart.length > 0){
         var resultObject = searchById(idProduct, cart);
-        if(!resultObject){
-            cartItem = {id:idProduct, name:name, img:img, price:price, quantity: 1};
-            cart.push(cartItem);
-        }else{
-          for (var j = 0; j < cart.length; j++) {
-            if(idProduct === cart[j].id){
-                cart[j].quantity += 1;
+        if(window.location.pathname.substring(10) == idProduct){
+            if(!resultObject){
+                var quantityProduct = $('#Soluong').val();
+                for(var i=0; i<=quantityProduct; i++){
+                    quantityProduct += quantityProduct;
+                    cartItem = {id:idProduct, name:name, img:img, price:price, quantity: quantityProduct};
+                    cart.push(cartItem);
+                }
+            } else {
+              for (var j = 0; j < cart.length; j++) {
+                if(idProduct === cart[j].id){
+                    cart[j].quantity += $('#Soluong').val();
+                }
+              }
             }
-          }
+        } else {
+            if(!resultObject){
+                cartItem = {id:idProduct, name:name, img:img, price:price, quantity: 1};
+                cart.push(cartItem);
+            } else {
+              for (var j = 0; j < cart.length; j++) {
+                if(idProduct === cart[j].id){
+                    cart[j].quantity += 1;
+                }
+              }
+            }
         }
-    }else {
-    cartItem  = {id:idProduct, name:name, img:img, price:price, quantity: 1};
-    cart.push(cartItem);
+    } else {
+        if(window.location.pathname.substring(10) == idProduct){
+            cartItem  = {id:idProduct, name:name, img:img, price:price, quantity: $('#Soluong').val()};
+            cart.push(cartItem);
+        } else {
+            cartItem  = {id:idProduct, name:name, img:img, price:price, quantity: 1};
+            cart.push(cartItem);
+        }
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     showCart(cart);

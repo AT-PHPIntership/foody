@@ -100,11 +100,23 @@
           <div class="form-group row">
             <div class="col-sm-4">
               <label class="control-label">{{ __('order.admin.processing_status') }}</label>
-              <select name="processing_status" class="form-control">
-                <option @if($order->processing_status == 1) selected @endif value="1">{{ __('order.admin.message.payment_status.approved')}}</option>
-                <option @if($order->processing_status == 2) selected @endif value="2">{{ __('order.admin.message.payment_status.cancel')}}</option>
-                <option @if($order->processing_status == 3) selected @endif value="3">{{ __('order.admin.message.payment_status.pending')}}</option>              
-              </select>
+              @if ($order->processing_status == 3)
+                <select name="processing_status" class="form-control">
+                  <option @if($order->processing_status == 3) selected @endif value="3">{{ __('order.admin.message.payment_status.pending')}}</option>              
+                  <option @if($order->processing_status == 1) @endif value="1">{{ __('order.admin.message.payment_status.approved')}}</option>
+                  <option @if($order->processing_status == 2) @endif value="2">{{ __('order.admin.message.payment_status.cancel')}}</option>
+                </select>
+              @else
+                @if ($order->processing_status == 1)
+                  <div class="form-line">
+                    <input class="form-control" disabled="disabled" value="{{ __('order.admin.message.payment_status.approved')}}">
+                  </div>
+                @else
+                  <div class="form-line">
+                    <input class="form-control" disabled="disabled" value="{{ __('order.admin.message.payment_status.cancel')}}">
+                  </div>
+                @endif
+              @endif
             </div>
           </div>
           <div class="form-group row">

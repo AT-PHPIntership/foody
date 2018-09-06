@@ -11,6 +11,7 @@ function showUserInfo(response) {
     $('#fullNameInfo').val(user.full_name);
     $('#phoneNumberInfo').val(user.phone);
     $('#emailInfo').val(user.email);
+    $('#birthdayInfo').val(user.birthday);
   }
 }
 

@@ -18,7 +18,7 @@
             <tr>
               <th>@sortablelink('id', __('store.admin.id'))</th>
               <th>@sortablelink('name', __('store.admin.name'))</th>
-              <th>{{ __('store.admin.address') }}</th>
+              <th>@sortablelink('address',__('store.admin.address'))</th>
               <th>{{ __('store.admin.products') }}</th>
               <th>{{ __('store.admin.table.show') }}</th>
               <th>{{ __('store.admin.table.edit') }}</th>

@@ -1,6 +1,7 @@
 <?php
     return [
         'admin' => [
+            'id' => 'ID',
             'username' => 'User Name',
             'fullname' => 'Full Name',
             'birthday' => 'Birthday',

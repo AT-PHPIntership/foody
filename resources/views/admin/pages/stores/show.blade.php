@@ -66,7 +66,7 @@
             <h4>{{__('store.admin.image')}}:</h4>
           </div>
           <div class="col-sm-9">
-            <img class="img-responsive thumbnail" src="{{ $store->image }}">
+            <img class="img-responsive thumbnail" src="images/stores/{{ $store->image }}">
           </div>
         </div>
         <div class="row clearfix">

@@ -40,7 +40,7 @@ $(document).ready(function(){
             <div class="col-lg-3">\
                 <p>\
                     <i class="fa fa-barcode"></i>\
-                    <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Mã đơn hàng">#\
+                    <b id="statusOrder-'+order.id+'" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mã đơn hàng">#\
                     '+order.id+'</b>\
                 </p>\
             </div>\
@@ -64,7 +64,7 @@ $(document).ready(function(){
                     <i class="fa fa-trash"></i>'+Lang.get('user/cart.orders.cancel_order')+'</b></p>\
                     </div></div></div>';
             }
-            if(order.processing_status == 2) { 
+            else if(order.processing_status == 2) { 
                 orderHtml += '<p><i class="fa fa-info-circle"></i>\
                     <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
                         <span >'+Lang.get('user/cart.orders.canceled_order')+'</span>\
@@ -98,7 +98,9 @@ $(document).ready(function(){
       
             $('#productInfo').append(orderHtml);
             $('#total-money-'+order.id).html(formatNumber(order.money_ship+totalMoney) + ' VND');
-            if(order.processing_status == 3) { 
+            if(order.processing_status == 3) {
+                $('#statusOrder-'+order.id).html('Pending Order');
+                $('#statusOrder-'+order.id).css('color', 'red');
                 $('#panelHeading-'+order.id).css({'background-color': 'powderblue',
                                         'cursor': 'pointer'});
             } else if(order.processing_status == 2) {

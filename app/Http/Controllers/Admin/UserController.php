@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -41,8 +42,8 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        $userData = $request->all();
-        User::create($userData);
+        $request['birthday'] = Carbon::parse($request['birthday'])->format('Y-m-d');
+        User::create($request->all());
         return redirect()->route('admin.users.index')->with('message', __('user.admin.create.create_success'));
     }
 

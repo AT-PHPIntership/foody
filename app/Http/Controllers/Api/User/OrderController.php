@@ -54,7 +54,7 @@ class OrderController extends ApiController
     {
         $user = Auth::user();
         $perPage = isset($request->perpage) ? $request->perpage : config('define.order.limit_rows');
-        $orders = Order::with('user', 'orderDetails.product.images')->withCount('orderDetails')->where('user_id', $user->id)->paginate($perPage);
+        $orders = Order::with('user', 'orderDetails.product.images')->withCount('orderDetails')->where('user_id', $user->id)->orderBy('submit_time', 'desc')->paginate($perPage);
         $data = $this->formatPaginate($orders);
         return $this->showAll($data, Response::HTTP_OK);
     }

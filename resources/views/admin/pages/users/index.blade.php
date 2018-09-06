@@ -18,14 +18,14 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>ID</th>
+                <th>@sortablelink('id', __('user.admin.id'))</th>
                 <th>@sortablelink('username', __('user.admin.username'))</th>
-                <th>{{__('user.admin.fullname')}}</th>
-                <th>{{__('user.admin.email')}}</th>
-                <th>{{__('user.admin.birthday')}}</th>
-                <th>{{__('user.admin.gender')}}</th>
-                <th>{{__('user.admin.phone')}}</th>
-                <th>{{__('user.admin.role')}}</th>
+                <th>@sortablelink('fullname',__('user.admin.fullname'))</th>
+                <th>@sortablelink('email',__('user.admin.email'))</th>
+                <th>@sortablelink('birthday',__('user.admin.birthday'))</th>
+                <th>@sortablelink('gender',__('user.admin.gender'))</th>
+                <th>@sortablelink('phone',__('user.admin.phone'))</th>
+                <th>@sortablelink('role',__('user.admin.role'))</th>
                 <th>{{__('user.admin.show.edit')}}</th>
                 <th>{{__('user.admin.show.delete')}}</th>
               </tr>

@@ -75,7 +75,7 @@
                       <span class="field-validation-valid" data-valmsg-for="full_name" data-valmsg-replace="true"></span>
                       <div class="form-group">
                         <label for="disabledSelect">{{__('user/login.userInfo.full_name')}}</label>
-                        <input class="form-control" data-val="true" data-val-length={{__('user/login.userInfo.full_name_length')}} data-val-length-max="100" data-val-required={{__('user/login.userInfo.full-name-length')}} id="fullNameInfo" name="full_name" placeholder={{__('user/login.userInfo.full_name')}} type="text"/>
+                        <input class="form-control" data-val="true" data-val-length="Length 1-100" data-val-length-max="100" data-val-required="Please input full name" id="fullNameInfo" name="full_name" placeholder={{__('user/login.userInfo.full_name')}} type="text"/>
                       </div>
                     </div>
                     <div class="col-lg-4">
@@ -94,16 +94,23 @@
                       <span class="field-validation-valid" data-valmsg-for="phone" data-valmsg-replace="true"></span>
                       <div class="form-group">
                         <label for="disabledSelect">{{__('user/login.userInfo.phone')}}</label>
-                        <input class="form-control" data-val="true" data-val-length={{__('user/login.userInfo.phone_length')}} data-val-length-max="20" data-val-regex={{__('user/login.userInfo.phone_regex')}} data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" id="phoneNumberInfo" name="phone" placeholder={{__('user/login.userInfo.phone')}} type="text"/>
+                        <input class="form-control" data-val="true" data-val-required="Please input your phone number" data-val-length="Length 1-20" data-val-length-max="20" data-val-regex="Phone number is not format correct" data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" id="phoneNumberInfo" name="phone" placeholder={{__('user/login.userInfo.phone')}} type="text"/>
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
                       <div class="form-group">
                         <label for="disabledSelect">{{__('user/login.userInfo.email')}}</label>
-                        <input class="form-control" data-val="true" data-val-regex={{__('user/login.userInfo.email_regex')}} data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required={{__('user/login.userInfo.email_require')}} id="emailInfo" name="email" placeholder={{__('user/login.userInfo.email')}} type="text"/>
+                        <input class="form-control" data-val="true" data-val-regex="Email is not format correct" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required="Please input email" id="emailInfo" name="email" placeholder={{__('user/login.userInfo.email')}} type="text"/>
                       </div>
                     </div>
+                    <div class="col-lg-4">
+                        <span class="field-validation-valid" data-valmsg-for="birthday" data-valmsg-replace="true"></span>
+                        <div class="form-group">
+                          <label for="disabledSelect">{{__('user/login.userInfo.birthday')}}</label>
+                          <input class="form-control" data-val="true" data-val-required="Please input your birthday" id="birthdayInfo" name="birthday" placeholder={{__('user/login.userInfo.birthday')}} type="text"/>
+                        </div>
+                      </div>
                   </div>
                   <button type="submit" id="btnUpdateInfo" class="btn btn btn-success"><i class="fa fa-sign-in" ></i>{{__('user/login.userInfo.save')}}</button>
                   <a href={{ route('user.home') }} class="btn btn btn-danger"><i class="fa fa-close"></i>{{__('user/login.userInfo.cancel')}}</a>

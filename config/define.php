@@ -11,6 +11,6 @@ return [
     ],
     'limit_row_slide' => 8,
     'order' => [
-      'limit_rows' => 5,
+      'limit_rows' => 8,
     ]
 ];

@@ -59,9 +59,9 @@ return [
                 'cancel'  => 'Cancel',
                 'pending'  => 'Pending'
             ],
-            'add' => 'Create New Order Successfull!',
+            'add' => 'Create New Order Successfully!',
             'add_fail' => 'Can not add New Order. Please check connect database!',
-            'edit' => 'Update Order Successfull!',
+            'edit' => 'Update Order Successfully!',
             'edit_fail' => 'Can not edit Order by this Child!',
             'del' => 'Delete Order Successfull!',
             'del_fail' => 'Can not Delete Order. Please check connect database!',
