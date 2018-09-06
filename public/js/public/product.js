@@ -1,7 +1,7 @@
 function loadProducts(result, html, current_page) {
   if(result.result) {
   result.result.data.forEach(product => {
-    html += '<div class="item-wrapper">'+
+    html += '<div id="item-product-'+product.id+'" class="item-wrapper">'+
     '<div class="item">'+
       '<div class="item-img">'+
         '<a href="'+ api.products_index +'/'+ product['id'] +'">'+
@@ -16,11 +16,11 @@ function loadProducts(result, html, current_page) {
           '<a href=""><span>'+product.store.name+'</span></a>'+
         '</div>'+
         '<div class="price text-center">'+
-        '<span>'+formatNumber(product.price)+' VND</span>'+
+        '<span>'+formatNumber(product.price)+'</span> VND'+
         '</div>'+
       '</div>'+
       '<div class="item-addCart-hover">'+
-        '<span class="item-addCart btn btn-default btn-lg text-capitalize" onclick="">'+
+        '<span class="item-addCart btn btn-default btn-lg text-capitalize" onclick="addToCart('+product.id+')">'+
             '<i class="fa fa-shopping-cart"></i>Buy Now'+
         '</span>'+
         '<div class="row">'+

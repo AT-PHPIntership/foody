@@ -19,6 +19,15 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="control-label">{{ __('store.admin.manager') }}</label>
+                <select name="manager_id" class="form-control">
+                  <option value="">--- Choose a manager ---</option>
+                  @foreach ($managers as $id => $name)
+                    <option value="{{ $id }}" {{old('store_id') == $id ? 'selected' : ''}}>{{ $name }}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="address">{{ __('store.admin.address') }}</label>
                 <div class="form-line">
                   <input type="text" name="address" class="form-control" value="{{ old('address') }}" placeholder="{{ __('store.admin.add.enter_address') }}" />

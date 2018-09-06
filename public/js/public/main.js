@@ -1,5 +1,6 @@
 var token = localStorage.getItem('token-login');
 function checkLogin(link) {
+  token = localStorage.getItem('token-login');
   event.preventDefault();
   if(token) {
     $.ajax({

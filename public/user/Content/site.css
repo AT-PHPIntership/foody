@@ -220,6 +220,7 @@ header {
 
         .header-line .menu-right li a {
             color: #fff;
+            margin: 0px 25px;
         }
 
 /*.header-line .menu-right li:hover {
@@ -1826,7 +1827,6 @@ a, a:hover {
 
 .btn-sm, .btn-group-sm > .btn {
     padding: 7px 10px;
-    margin: 0px 20px;
     float:  right;
 }
 .fa-user:before{padding: 15%;}

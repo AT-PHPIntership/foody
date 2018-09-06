@@ -32,6 +32,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if(response.code == 200) {
+                    console.log(response.result);
                     ModalMessageCart();
                     modifyCart(0, 'clear')
                 }
@@ -39,7 +40,7 @@ $(document).ready(function() {
             error: function (response) {
                 if(response.responseJSON.error.products&&response.responseJSON.error.products.length >0){
                     $('#modalMessageCart h3').html(Lang.get('user/cart.empty_cart'));
-                    $('#modalMessageCart #modal-message').html(Lang.get('user/cart.message_empty_cart'));
+                    $('#panel-body').html(Lang.get('user/cart.message_empty_cart'));
                     ModalMessageCart();
                 }else{
                     errors = Object.keys(response.responseJSON.error);

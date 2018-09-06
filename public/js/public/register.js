@@ -21,10 +21,6 @@ $(document).ready(function () {
             $('.register-form').html('Registration is successful, please login');
             $('.register-form').css('color', 'green');
             $('.register-form').show();
-            $('.modal').fadeOut(3000,function() { 
-              $(this).remove();
-              $("body").removeClass("modal-open");
-            });
           },
           error: function (response) {
             errors = Object.keys(response.responseJSON.error);

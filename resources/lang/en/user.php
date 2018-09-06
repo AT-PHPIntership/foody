@@ -15,6 +15,7 @@
             'actived' => 'Yes',
             'deactived' => 'No',
             'delete_success' => 'Delete user successfully',
+            'delete_no_permit' => 'Can not delete this User!',
             'delete_fail' => 'Delete user failed!',
             'create' => [
                 'title' => 'Create User',
@@ -35,6 +36,7 @@
                 'update_user' => 'Save',
                 'update_success' => 'Update user successfully',
                 'update_fail' => 'Update user failed!',
+                'update_no_permit' => 'Can not update this User! You only can update your profile!',
             ],
             'show' => [
                 'title' => 'Show User',

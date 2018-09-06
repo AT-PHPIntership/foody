@@ -78,7 +78,6 @@ function loginSuccess(response) {
 }
 function welcomeLogged() {
   $('#userName').html(localStorage.getItem("username"));
-  $('#userName').show();
   $('.user-name').show();
   $('#userLogout').show();
   $('#userLogin').hide();
@@ -88,6 +87,5 @@ function welcomeLogout() {
   $('#userLogin').show();
   $('#userLogout').hide();
   $('#userSignup').show();
-  $('#userName').hide();
   $('.user-name').hide();
 }

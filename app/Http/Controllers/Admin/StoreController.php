@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 use App\Models\ShopOpeningStatus;
 use App\Http\Requests\Admin\UpdateStoreRequest;
 use File;
+use App\Models\User;
 
 class StoreController extends Controller
 {
@@ -33,7 +34,7 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        $store = Store::with('shopOpenStatus')->where('id', $id)->first();
+        $store = Store::with('shopOpenStatus', 'manager')->where('id', $id)->first();
         return view('admin.pages.stores.show', compact('store'));
     }
 
@@ -44,7 +45,8 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.stores.create');
+        $managers = User::where('role_id', 2)->pluck('full_name', 'id');
+        return view('admin.pages.stores.create', compact('managers'));
     }
 
     /**
@@ -85,8 +87,9 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        $store = Store::with('shopOpenStatus')->where('id', $id)->first();
-        return view('admin.pages.stores.edit', compact('store'));
+        $store = Store::with('shopOpenStatus', 'manager')->where('id', $id)->first();
+        $managers = User::where('role_id', 2)->pluck('full_name', 'id');
+        return view('admin.pages.stores.edit', compact('store','managers'));
     }
 
     /**
@@ -138,5 +141,17 @@ class StoreController extends Controller
         } catch (Exception $ex) {
             return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.del_fail'));
         }
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id int
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showProducts(Store $store)
+    {
+        $products = $store->products()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.stores.show-products', compact('store', 'products'));
     }
 }

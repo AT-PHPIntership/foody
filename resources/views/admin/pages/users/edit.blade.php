@@ -54,7 +54,7 @@
                 <div class="form-group">
                   <div class="form-line">
                     <label class="control-label">{{ __('user.admin.role') }}</label>
-                    <select name="role_id" class="form-control">
+                    <select disabled name="role_id" class="form-control">
                       <option value="1" @if ($user->role_id == 1) selected @endif>{{__('user.admin.show.role_admin')}}</option>
                       <option value="2" @if ($user->role_id == 2) selected @endif>{{__('user.admin.show.role_shop_manager')}}</option>
                       <option value="3" @if ($user->role_id == 3) selected @endif>{{__('user.admin.show.role_user')}}</option>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -54,7 +55,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.pages.users.edit', compact('user'));
+        $userLogin = Auth::user();
+        if ($userLogin->id == $user->id) {
+            return view('admin.pages.users.edit', compact('user'));
+        } else {
+            return redirect()->route('admin.users.index')->with('alert', __('user.admin.edit.update_no_permit'));
+        }
     }
 
     /**
@@ -68,7 +74,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         try {
-            $updateUser = $request->except(["_token", "_method", "submit", "username", "email"]);
+            $updateUser = $request->except(["_token", "_method", "submit", "username", "email", "role_id"]);
             $user->update($updateUser);
             return redirect()->route('admin.users.index')->with('message', __('user.admin.edit.update_success'));
         } catch (Exception $e) {
@@ -86,8 +92,18 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         try {
-            $user->delete();
-            return redirect()->route('admin.users.index')->with('message', __('user.admin.delete_success'));
+            $userLogin = Auth::user();
+            if ($userLogin->role_id == User::ROLE_ADMIN) {
+                if ($user->role_id == User::ROLE_ADMIN) {
+                    return redirect()->route('admin.users.index')->with('alert', __('user.admin.delete_no_permit'));
+                } else {
+                    $user->delete();
+                    return redirect()->route('admin.users.index')->with('message', __('user.admin.delete_success'));
+                }
+            } else {
+                return redirect()->route('admin.users.index')->with('alert', __('user.admin.delete_no_permit'));
+            }
+            
         } catch (Exception $e) {
             return redirect()->route('admin.users.index')->with('alert', __('user.admin.delete_fail'));
         }

@@ -64,11 +64,11 @@
         <li class="login" id="userLogin" onclick="LoginPopup();">
           <i class="fa fa-sign-in"></i>{{__('user/login.title')}}
         </li>
-        <li class="user-name">
+        <li class="user-name" style="display:none">
             <a href="{{route('user.info')}}">
           <i class="fa fa-user" id="userName" style="font-size: larger;"></i></a>
         </li>
-        <li class="logout" id="userLogout">
+        <li class="logout" id="userLogout" style="display:none">
           <i class="fa fa-sign-out"></i>{{__('user/login.logout')}}
         </li>
         <li class="signup" id="userSignup" onclick="SignupPopup();">
