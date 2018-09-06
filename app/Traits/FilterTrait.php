@@ -40,5 +40,8 @@ trait FilterTrait
                 ->orWhere('products.category_id', $request->category_id);
             }
         }
+        if ($request->name) {
+            return $query->where('name', 'like', '%'.$request->name.'%');
+        }
     }
 }
