@@ -54,10 +54,12 @@
               <span>{{ __('left-bar.store') }}</span>
             </a>
             <ul class="ml-menu">
-              <li><a href="{{ route('admin.stores.create') }}">{{ __('left-bar.create-store') }}</a></li>
-              <li><a href="{{ route('admin.stores.index') }}">{{ __('left-bar.show-store') }}</a></li>
+              <li><a href="{{ route('admin.stores.create') }}"><span>{{ __('left-bar.create-store') }}</span></a></li>
+              <li><a href="{{ route('admin.stores.index') }}"><span>{{ __('left-bar.show-store') }}</span></a></li>
+              @if (Auth::user()->role_id == 2)
+              <li><a href="{{route('admin.users.showStores', Auth::user()->id)}}"><span>{{ __('left-bar.show-your-stores') }}</span></a></li>
+              @endif
             </ul>
-
             <a href="javascript:void(0);" class="menu-toggle">
               <i class="material-icons">restaurant</i>
               <span>{{ __('left-bar.product') }}</span>
@@ -65,16 +67,15 @@
             <ul class="ml-menu">
               <li><a href="{{ route('admin.products.create')}}"><span>{{ __('left-bar.create-product') }}</span></a></li>
               <li><a href="{{ route('admin.products.index') }}"><span>{{ __('left-bar.show-products') }}</span></a></li>
+              @if (Auth::user()->role_id == 2)
+              <li><a href="{{route('admin.users.showProducts', Auth::user()->id)}}"><span>{{ __('left-bar.show-your-products') }}</span></a></li>
+              @endif
             </ul>
 
-            <a href="javascript:void(0);" class="menu-toggle">
+            <a href="{{ route('admin.orders.index')}}">
               <i class="material-icons">assignment</i>
               <span>{{ __('left-bar.order') }}</span>
             </a>
-            <ul class="ml-menu">
-              <li><a href="{{ route('admin.orders.index')}}">{{ __('left-bar.show-orders') }}</a></li>
-            </ul>
-
           </li>
         </ul>
       </div>

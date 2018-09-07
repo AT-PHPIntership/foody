@@ -44,6 +44,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Store::class, 'manager_id', 'id');
     }
+    /**
+    * Get Products of User
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\hasManyThrough
+    */
+    public function products()
+    {
+        return $this->hasManyThrough(
+        Product::class,
+        Store::class,
+        'manager_id',
+        'store_id', 
+        'id', 
+        'id'
+        );
+    }
 
     /**
     * Get Order of User

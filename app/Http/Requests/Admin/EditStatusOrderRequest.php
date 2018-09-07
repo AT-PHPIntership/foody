@@ -25,7 +25,7 @@ class EditStatusOrderRequest extends FormRequest
     {
         return [
             'delivery_time' => 'date_format:"Y-m-d H:i:s"',
-            'status' => 'integer|min:0|max:1'
+            'payment_status' => 'integer|min:0|max:1'
         ];
     }
 }

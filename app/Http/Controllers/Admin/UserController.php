@@ -109,4 +109,30 @@ class UserController extends Controller
             return redirect()->route('admin.users.index')->with('alert', __('user.admin.delete_fail'));
         }
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id int
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showStores(User $user)
+    {
+        $stores = $user->stores()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.users.show-stores', compact('stores', 'user'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id int
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showProducts(User $user)
+    {
+        $products = $user->products()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.users.show-products', compact('user', 'products'));
+    }
 }

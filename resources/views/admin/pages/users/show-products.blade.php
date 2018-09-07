@@ -8,7 +8,7 @@
     <div class="card">
       <div class="body">
         <div class="header">
-        <h2>{{__('store.admin.list.title_list_products')}}{{ $store->name}}</h2>
+        <h2>List your Products</h2>
             <a href="{{ route('admin.products.create') }}"
               class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
               class="material-icons">playlist_add</i><span>{{ __('product.admin.show.create_product') }}</span>
