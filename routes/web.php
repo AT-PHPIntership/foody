@@ -21,6 +21,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 });
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'adminLogin'], function () {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('users/{user}/show-stores', 'UserController@showStores')->name('users.showStores');
+    Route::get('users/{user}/show-products', 'UserController@showProducts')->name('users.showProducts');
     Route::resource('users', 'UserController');
     Route::get('categories/{category}/show-child', 'CategoryController@showChild')->name('categories.showChild');
     Route::resource('categories', 'CategoryController');

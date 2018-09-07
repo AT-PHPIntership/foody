@@ -6,6 +6,7 @@ use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\Browser\Pages\Admin\Store\CreateStore;
 use Tests\Browser\Admin\AdminTestCase;
+use App\Models\User;
 
 class CreateStoreTest extends AdminTestCase
 {
@@ -89,6 +90,7 @@ class CreateStoreTest extends AdminTestCase
             $browser->loginAs($this->user)
                     ->visit(new CreateStore())
                     ->type('name', 'Riley Runolfsdottir Sr.')
+                    ->select('manager_id', User::find(1)->id)
                     ->type('address', '982 Fisher Shoal Schummhaven, NJ 98391')
                     ->type('phone', '0123456789')
                     ->type('describe', 'Eos impedit amet provident tempora')

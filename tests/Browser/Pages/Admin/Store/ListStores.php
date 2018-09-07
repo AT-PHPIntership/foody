@@ -48,7 +48,6 @@ class ListStores extends Page
                 ->assertSee('ID')
                 ->assertSee('Name')
                 ->assertSee('Address')
-                ->assertSee('Active')
                 ->assertSee('Show')
                 ->assertSee('Edit')
                 ->assertSee('Delete');

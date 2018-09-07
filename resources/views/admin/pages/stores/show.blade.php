@@ -38,6 +38,14 @@
         </div>
         <div class="row clearfix">
           <div class="col-sm-3">
+            <h4>{{__('store.admin.manager')}}:</h4>
+          </div>
+          <div class="col-sm-9">
+            <p class="font-20">{{$store->manager->full_name}}</p>
+          </div>
+        </div>
+        <div class="row clearfix">
+          <div class="col-sm-3">
             <h4>{{__('store.admin.phone')}}:</h4>
           </div>
           <div class="col-sm-9">
@@ -65,7 +73,7 @@
             <h4>{{__('store.admin.image')}}:</h4>
           </div>
           <div class="col-sm-9">
-            <img class="img-responsive thumbnail" src="images/products/{{ $store->image }}">
+            <img class="img-responsive thumbnail" src="images/stores/{{ $store->image }}">
           </div>
         </div>
         <div class="row clearfix">

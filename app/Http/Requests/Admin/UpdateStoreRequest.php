@@ -25,6 +25,7 @@ class UpdateStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
+            'manager_id' => 'required',
             'phone' => 'required|regex:/^0[0-9]{9,10}$/',
             'address' => 'required|string',
             'describe' => 'string',

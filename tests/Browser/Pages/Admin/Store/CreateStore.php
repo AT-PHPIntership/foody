@@ -26,7 +26,6 @@ class CreateStore extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->assertSee(__('store.admin.add.title'))
                 ->assertSee(__('store.admin.add.create'))
                 ->assertSee(__('store.admin.name'))
                 ->assertSee(__('store.admin.address'))
