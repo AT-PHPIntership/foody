@@ -1830,3 +1830,13 @@ a, a:hover {
     float:  right;
 }
 .fa-user:before{padding: 15%;}
+
+#orderStatus:hover {
+    color: red;
+}
+.banner-user {
+    width: -webkit-calc(100% - 270px);
+    width: -webkit-calc(100% - 270px);
+    width: -o-calc(100% - 270px);
+    float: right;
+}

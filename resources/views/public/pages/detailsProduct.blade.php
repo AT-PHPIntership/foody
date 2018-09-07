@@ -3,15 +3,19 @@
 <div class="breadcrumb distance-none">
   <ul class="list-inline text-uppercase distance-none">
     <li>
-      <a href="/"><i class="fa fa-home"></i></a>
-      <i class="fa fa-angle-double-right"></i>
-    </li>
-      <li>
-      <a href="/san-pham.html">{{ __('user/category.title')}}</a>
+      <a href=""><i class="fa fa-home"></i></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
     <li>
-      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;">Thực đơn món gà</h1></a>
+      <a href=""></a>
+      <i class="fa fa-angle-double-right"></i>
+    </li>
+    <li>
+      <a href=""></a>
+      <i class="fa fa-angle-double-right"></i>
+    </li>
+    <li>
+      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;"></h1></a>
     </li>
   </ul>
 </div>
@@ -48,29 +52,25 @@
                                   <div class="item">
                                       <div class="item-img">
                                           <a href="javascript:;">
-                                              <img src="images/products/food.jpg" alt="images/products/food.jpg" />
+                                              <img id="mobile-image-1"/>
                                           </a>
-  
                                       </div>
   
                                   </div>
                                   <div class="item">
                                       <div class="item-img">
                                           <a href="javascript:;">
-                                              <img src="images/products/food1.jpg" alt="images/products/food.jpg" />
+                                              <img id="mobile-image-2"/>
                                           </a>
-  
                                       </div>
   
                                   </div>
                                   <div class="item">
                                       <div class="item-img">
                                           <a href="javascript:;">
-                                              <img src="images/products/food2.jpg" alt="images/products/food.jpg" />
+                                              <img id="mobile-image-3"/>
                                           </a>
-  
                                       </div>
-  
                                   </div>
                       </div>
   
@@ -117,7 +117,7 @@
                         </p>
   
                           <div class="price left">
-                              <span id ="productPrice" class="only-price"></span>
+                              <span id ="productPrice" class="only-price"></span><span class="only-price">&nbsp;VND</span>
                           </div>
   
                       <div class="right social text-right">
@@ -155,7 +155,7 @@
                                   </div>
                                   <div>
                                               <div class="form-group col-lg-12 distance-none">
-                                                  <button id="btn-muangay" onclick="addToCart('7127310816120859758');" type="button" class="btn btn-lg btn-primary btn-block btn-success text-capitalize">
+                                                  <button id="btn-muangay" type="button" class="btn btn-lg btn-primary btn-block btn-success text-capitalize">
                                                       <i class="fa fa-shopping-cart"></i>{{__('user/product.details.buy_now')}}
                                                   </button>
                                               </div>
@@ -185,6 +185,5 @@
 </section>
 @endsection
 @section('js')
-  <script src="/js/public/category.js"></script>
   <script type="text/javascript" src="/js/public/detailsProduct.js"></script>
 @endsection

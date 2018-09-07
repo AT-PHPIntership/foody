@@ -4,19 +4,19 @@ function loadProducts(result, html, current_page) {
     html += '<div class="item-wrapper">'+
     '<div class="item">'+
       '<div class="item-img">'+
-        '<a href="">'+
-          '<img src="images/products/'+product.images[0].path+'" alt="" />'+
+        '<a href="'+ api.products_index +'/'+ product['id'] +'">'+
+          '<img height="200" src="images/products/'+product.images[0].path+'" alt="" />'+
         '</a>'+
       '</div>'+
       '<div class="item-name">'+
-        '<a href="">'+
+        '<a href="'+ api.products_index +'/'+ product['id'] +'">'+
           '<h2 class="text-center text-uppercase distance-none" title="">'+product.name+'</h2>'+
         '</a>'+
         '<div class="store text-center">'+
           '<a href=""><span>'+product.store.name+'</span></a>'+
         '</div>'+
         '<div class="price text-center">'+
-        '<span>'+product.price+' đ</span>'+
+        '<span>'+formatNumber(product.price)+' VND</span>'+
         '</div>'+
       '</div>'+
       '<div class="item-addCart-hover">'+
@@ -60,12 +60,14 @@ $(document).ready(function() {
         url: url+'&page=1',
         type: "get",
         success: function(result) {
+          console.log(result)
           var html = '';
           current_page = result.result.paginator.current_page;
-          $('.breadcrumb ul li:nth-child(2) a').html('category');
-          $('.breadcrumb ul li:nth-child(3) a').attr('href', api.products_index +'?category_id=' + id);
+          $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
           if(id===result.result.data[0].category.parent.id) {
-            $('.breadcrumb ul li:nth-child(3) a').html(result.result.data[0].category.parent.name);
+            $('.breadcrumb ul li:nth-child(2) a').attr('href', api.products_index +'?category_id=' + id);
+            // $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
+            $('.breadcrumb ul li:nth-child(2) i').hide();
             html+='<div id="category-products" class="product product-home product-wrapper">'+
             '<div class="title border-bottom">'+
               '<i class="fa fa-fire"></i>'+
@@ -73,9 +75,12 @@ $(document).ready(function() {
                 '<span>'+result.result.data[0].category.parent.name+'</span>'+
               '</h1>'+
             '</div>';
-          }else{
+          } else {
+            $('.breadcrumb ul li:nth-child(2) a').attr('href', api.products_index +'?category_id=' + result.result.data[0].category.parent.id);
+            // $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
+            $('.breadcrumb ul li:nth-child(3) a').attr('href', api.products_index +'?category_id=' + id);
             $('.breadcrumb ul li:nth-child(3) a').html(result.result.data[0].category.name);
-            html+='<div id="products-hot-0" class="product product-home product-wrapper">'+
+            html+='<div id="category-products" class="product product-home product-wrapper">'+
             '<div class="title border-bottom">'+
               '<i class="fa fa-fire"></i>'+
               '<h1 class="distance-none text-uppercase">'+

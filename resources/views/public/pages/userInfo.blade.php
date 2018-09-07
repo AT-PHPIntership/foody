@@ -6,12 +6,8 @@
       <a href="/"><i class="fa fa-home"></i></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
-      <li>
-      <a href="/san-pham.html">{{ __('user/category.title')}}</a>
-      <i class="fa fa-angle-double-right"></i>
-    </li>
     <li>
-      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;">Thực đơn món gà</h1></a>
+      <a href="javascript:;"><h1 style="font-size:14px;padding:0;margin:0;">{{__('user/cart.left-menu.account-info')}}</h1></a>
     </li>
   </ul>
 </div>
@@ -37,15 +33,36 @@
       <img src="user/Files/admin/27042018/banner-phai.gif" />
     </a>
   </div>
-  <div class="banner" style="margin-top:10px;">
+
+  <div class="list-menu home-menu" style="top:10px;">
+    <ul class="list-inline">
+      <li>
+        <a href={{route('user.info')}}>{{__('user/cart.left-menu.account-info')}}</a>
+      </li>
+      <li>
+        <a href={{route('orders.info')}}>{{__('user/cart.left-menu.order-info')}}</a>
+      </li>
+      <li>
+        <a href="http://flyfood.vn/quy-trinh-huong-dan-dat-hang-online-tai-flyfoodvn-detail-81d1180116115450489.html">{{__('user/cart.left-menu.shopping_guide')}}</a>
+      </li>
+      <li>
+        <a href="http://flyfood.vn/dieu-khoan-su-dung-website-flyfood-detail-28cf180116111951153.html">{{__('user/cart.left-menu.term-of-use')}}</a>
+      </li>
+      <li>
+        <a href="http://flyfood.vn/chinh-sach-bao-mat-flyfood-detail-4ed3180116110956315.html">{{__('user/cart.left-menu.privacy-policy')}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="banner-user" style="margin-top:10px;">
   <p class="message full left text-center" id="textMessage"></p>
     <div class="row">
-      <div class="col-lg-12 left full">
+      <div id="profileForm" class="col-lg-12 left full">
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-6" style="width:100%;">
-                <form method="POST" data-ajax="true" data-ajax-failure="checkMember" data-ajax-method="Post" data-ajax-success="checkMember" enctype="multipart/form-data" id="profileForm" method="post">
+                <form method="POST" data-ajax="true" data-ajax-failure="checkMember" data-ajax-method="Post" data-ajax-success="checkMember" enctype="multipart/form-data" method="post">
                   <div class="row">
                     <div class="col-lg-4">
                       <span class="field-validation-valid" data-valmsg-for="username" data-valmsg-replace="true"></span>
@@ -105,6 +122,5 @@
 </section>
 @endsection
 @section('js')
-  <script src="/js/public/category.js"></script>
   <script src="/js/public/userInfo.js"></script>
 @endsection

@@ -6,11 +6,12 @@ $(document).ready(function() {
             let i = 1;
             result.result.forEach(product => {
                 $('.img-newest-' + i).attr('href', api.products_index + '/' + product['id']);
-                $('#img-pro-newest-' + i).attr('src', 'images/products/'+ product.images[0].path);
+                $('#img-pro-newest-' + i).attr({'src': 'images/products/'+ product.images[0].path,
+                                                'height' : '200'});
                 $('#buy-now-newest-' + i).attr('onclick', 'addToCart('+product.id+')');
                 $('#name-pro-newest-' + i).html(product.name);
                 $('#store-pro-newest-' + i + ' span').html(product.store.name);
-                $('#price-pro-newest-' + i + ' span').html(formatNumber(product.price) +' đ');
+                $('#price-pro-newest-' + i + ' span').html(formatNumber(product.price) +' VND');
                 i++;
             });
         }
@@ -36,7 +37,7 @@ $(document).ready(function() {
                                 '<div class="item">'+
                                     '<div class="item-img">'+
                                         '<a href="'+ api.products_index +'/'+ product['id'] +'">'+
-                                            '<img src="images/products/'+product.images[0].path+'" alt="" />'+
+                                            '<img height="200" src="images/products/'+product.images[0].path+'" alt="" />'+
                                         '</a>'+
                                     '</div>'+
                                     '<div class="item-name">'+
