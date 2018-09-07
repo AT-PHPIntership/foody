@@ -21,7 +21,7 @@ return [
     'delivery_time_date' => 'The field delivery-time must be a date.',
     'delivery_time_regex_orderer' => 'Email is not format correct',
     'payments' => 'Payments',
-    'delivery_date' => 'Delivery Date',
+    'delivery_time' => 'Delivery Time',
     'money_ship' => 'Money ship',
     'total_payment' => 'Total payment',
     'vnd' => 'VND',

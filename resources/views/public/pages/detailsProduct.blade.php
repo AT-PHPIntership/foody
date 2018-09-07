@@ -6,7 +6,11 @@
       <a href=""><i class="fa fa-home"></i></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
-      <li>
+    <li>
+      <a href=""></a>
+      <i class="fa fa-angle-double-right"></i>
+    </li>
+    <li>
       <a href=""></a>
       <i class="fa fa-angle-double-right"></i>
     </li>
@@ -113,7 +117,7 @@
                         </p>
   
                           <div class="price left">
-                              <span id ="productPrice" class="only-price"></span>
+                              <span id ="productPrice" class="only-price"></span><span class="only-price">&nbsp;VND</span>
                           </div>
   
                       <div class="right social text-right">
@@ -151,7 +155,7 @@
                                   </div>
                                   <div>
                                               <div class="form-group col-lg-12 distance-none">
-                                                  <button id="btn-muangay" onclick="addToCart('7127310816120859758');" type="button" class="btn btn-lg btn-primary btn-block btn-success text-capitalize">
+                                                  <button id="btn-muangay" type="button" class="btn btn-lg btn-primary btn-block btn-success text-capitalize">
                                                       <i class="fa fa-shopping-cart"></i>{{__('user/product.details.buy_now')}}
                                                   </button>
                                               </div>
