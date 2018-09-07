@@ -83,8 +83,8 @@ class Order extends Model
      */
     public function scopeProcessStatus($query)
     {
-        return $query->select(DB::raw('count(processing_status) as status'))
-        ->groupBy('processing_status');
+        return $query->select('processing_status', DB::raw('count(processing_status) as number'))
+                    ->groupBy('processing_status');
     }
 
      

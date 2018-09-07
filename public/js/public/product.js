@@ -5,7 +5,7 @@ function loadProducts(result, html, current_page) {
     '<div class="item">'+
       '<div class="item-img">'+
         '<a href="'+ api.products_index +'/'+ product['id'] +'">'+
-          '<img src="images/products/'+product.images[0].path+'" alt="" />'+
+          '<img height="200" src="images/products/'+product.images[0].path+'" alt="" />'+
         '</a>'+
       '</div>'+
       '<div class="item-name">'+
@@ -63,10 +63,11 @@ $(document).ready(function() {
           console.log(result)
           var html = '';
           current_page = result.result.paginator.current_page;
-          // $('.breadcrumb ul li:nth-child(2) a').html('category');
-          $('.breadcrumb ul li:nth-child(2) a').attr('href', api.products_index +'?category_id=' + id);
+          $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
           if(id===result.result.data[0].category.parent.id) {
-            $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
+            $('.breadcrumb ul li:nth-child(2) a').attr('href', api.products_index +'?category_id=' + id);
+            // $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
+            $('.breadcrumb ul li:nth-child(2) i').hide();
             html+='<div id="category-products" class="product product-home product-wrapper">'+
             '<div class="title border-bottom">'+
               '<i class="fa fa-fire"></i>'+
@@ -74,9 +75,12 @@ $(document).ready(function() {
                 '<span>'+result.result.data[0].category.parent.name+'</span>'+
               '</h1>'+
             '</div>';
-          }else{
+          } else {
+            $('.breadcrumb ul li:nth-child(2) a').attr('href', api.products_index +'?category_id=' + result.result.data[0].category.parent.id);
+            // $('.breadcrumb ul li:nth-child(2) a').html(result.result.data[0].category.parent.name);
+            $('.breadcrumb ul li:nth-child(3) a').attr('href', api.products_index +'?category_id=' + id);
             $('.breadcrumb ul li:nth-child(3) a').html(result.result.data[0].category.name);
-            html+='<div id="products-hot-0" class="product product-home product-wrapper">'+
+            html+='<div id="category-products" class="product product-home product-wrapper">'+
             '<div class="title border-bottom">'+
               '<i class="fa fa-fire"></i>'+
               '<h1 class="distance-none text-uppercase">'+
