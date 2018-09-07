@@ -18,8 +18,8 @@
             <tr>
               <th>@sortablelink('id', __('store.admin.id'))</th>
               <th>@sortablelink('name', __('store.admin.name'))</th>
-              <th>{{ __('store.admin.address') }}</th>
-              <th>{{ __('store.admin.active') }}</th>
+              <th>@sortablelink('address',__('store.admin.address'))</th>
+              <th>{{ __('store.admin.products') }}</th>
               <th>{{ __('store.admin.table.show') }}</th>
               <th>{{ __('store.admin.table.edit') }}</th>
               <th>{{ __('store.admin.table.delete') }}</th>
@@ -31,8 +31,10 @@
                 <th scope="row">{{ $store->id }}</th>
                 <td><a href="{{ route('admin.stores.show', $store->id) }}">{{ $store->name }}</a></td>
                 <td>{{ $store->address }}</td>
-                <td>{{ $store->is_active }}</td>
-                <td><a href="{{ route('admin.stores.show', $store->id) }}">Show</a></td>
+                <td><a id="details" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float"
+                  href="{{route('admin.stores.showProducts', $store->id)}}"><i class="material-icons">remove_red_eye</i></a></td>
+                <td><a id="details" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float"
+                    href="{{ route('admin.stores.show', $store->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
                 <td><a
                     href="{{route('admin.stores.edit', $store->id)}}"
                     class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">
