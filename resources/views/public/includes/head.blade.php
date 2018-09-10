@@ -22,7 +22,7 @@
 <script src="https://apis.google.com/js/platform.js" async defer>
     { lang: 'vi' }
 </script>
-
+<meta name="google-signin-client_id" content="293455807788-v7sq8h3no8a37796d5qfo69886cufuqv.apps.googleusercontent.com">
 
 <link href="user/Scripts/slide/jquery.bxslider.css" rel="stylesheet"/>
 
