@@ -68,8 +68,7 @@ $(document).ready(function(){
                     <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
                         <span >'+Lang.get('user/cart.orders.canceled_order')+'</span>\
                     </b></p></div></div></div>';
-            }
-            else {
+            } else {
                 orderHtml += '<p><i class="fa fa-info-circle"></i>\
                     <b data-toggle="tooltip" data-placement="top" title="" data-original-title="Trạng thái">\
                         <span >'+Lang.get('user/cart.orders.approved_order')+'</span>\
