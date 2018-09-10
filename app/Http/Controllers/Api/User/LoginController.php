@@ -95,7 +95,6 @@ class LoginController extends ApiController
             $user->password = bcrypt('12345678');
             $user->gplus_id = $request->gplus_id;
             $user->role_id = 3;
-            $user->phone = 'not found';
         }
         if ($user->save()) {
             $data['token'] =  $user->createToken('token')->accessToken;
