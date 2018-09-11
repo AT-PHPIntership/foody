@@ -46,7 +46,7 @@ class ProductController extends Controller
     public function create()
     {
         $stores = Store::pluck('name', 'id');
-        $categories = Category::pluck('name', 'id');
+        $categories = Category::with('children')->get();
         return view('admin.pages.products.create', compact('stores', 'categories'));
     }
 

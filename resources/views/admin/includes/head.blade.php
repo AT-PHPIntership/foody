@@ -83,3 +83,4 @@
 <!-- AdminBSB Themes. You can choose a theme from themes instead of get all themes -->
 <link
 	href="bower_components/adminbsb-materialdesign/css/themes/all-themes.css" rel="stylesheet" />
+<link href="bower_components/adminbsb-materialdesign/css/bootstrap-datepicker.min.css" rel="stylesheet"> 

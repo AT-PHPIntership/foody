@@ -38,7 +38,7 @@
               </div>
               <div class="form-group">
                 <label class="control-label">{{ __('product.admin.show.store') }}</label>
-                <select name="store_id" class="form-control">
+                <select name="store_id" class="form-control show-tick" data-live-search="true">
                   <option value="">--- Choose a store ---</option>
                   @foreach ($stores as $id => $name)
                     <option value="{{ $id }}" {{old('store_id') == $id ? 'selected' : ''}}>{{ $name }}</option>
@@ -47,10 +47,12 @@
               </div>
               <div class="form-group">
                 <label class="control-label">{{ __('product.admin.show.category') }}</label>
-                <select name="category_id" class="form-control">
+                <select name="category_id" class="form-control show-tick" data-live-search="true">
                   <option value="">--- Choose a category ---</option>
                   @foreach ($categories as $id => $name)
-                    <option value="{{ $id }}" {{old('category_id') == $id ? 'selected' : ''}}>{{ $name }}</option>
+                    @if ($name->parent_id !== 0)
+                      <option value="{{ $id }}" {{old('category_id') == $id ? 'selected' : ''}}>{{ $name->name }}</option>
+                    @endif
                   @endforeach
                 </select>
               </div>

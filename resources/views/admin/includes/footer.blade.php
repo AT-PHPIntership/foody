@@ -97,5 +97,7 @@
 <!-- Demo Js -->
 <script
 	src="bower_components/adminbsb-materialdesign/js/demo.js"></script>
+<script
+	src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datepicker.min.js"></script>
 </body>
 </html>
