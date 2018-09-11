@@ -89,7 +89,7 @@
         <div class="row">
           <div class='col-sm-12'>
               <div class="form-group">
-                  <div class='input-group date' id='datetimepicker1'>
+                  <div class='input-group date' id='delivery-time'>
                       <input type='text' class="form-control" placeholder="{{__('user/cart.delivery_time')}}" />
                       <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>

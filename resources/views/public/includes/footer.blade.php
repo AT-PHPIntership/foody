@@ -467,7 +467,7 @@
 <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript">
   $(function () {
-      $('#datetimepicker1').datetimepicker({
+      $('#delivery-time').datetimepicker({
         minDate: new Date(),
       });
   });

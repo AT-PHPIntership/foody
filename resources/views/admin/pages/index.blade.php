@@ -4,6 +4,7 @@
 <!-- Hover Rows -->
 
 <!-- #END# Hover Rows -->
+@if (count($count) > 0 &&count($orders) > 0 &&count($countStatus) > 0)
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="info-box bg-red hover-zoom-effect">
@@ -111,13 +112,29 @@
           </div>
           <div class="body">
               <ul class="list-group">
-                  <li class="list-group-item">{{ __('index.pending') }}<span class="badge bg-orange">{{ $countStatus['pending'] }} {{ __('index.orders') }}</span></li>
-                  <li class="list-group-item">{{ __('index.approved') }}<span class="badge bg-green">{{ $countStatus['approved'] }} {{ __('index.orders') }}</span></li>
-                  <li class="list-group-item">{{ __('index.cancel') }}<span class="badge bg-red">{{ $countStatus['cancel'] }} {{ __('index.orders') }}</span></li>
+                  @foreach ($countStatus as $item)
+                    @php
+                    switch ($item->processing_status) {
+                        case 1:
+                            $status = __('index.approved');
+                            $color = 'green';
+                            break;
+                        case 2:
+                            $status = __('index.cancel');
+                            $color = 'red';
+                            break;
+                        case 3:
+                            $status = __('index.pending');
+                            $color = 'orange';
+                            break;
+                    }
+                    @endphp
+                  <li class="list-group-item">{{ $status }}<span class="badge bg-{{$color}}">{{ $item->number }} {{ __('index.orders') }}</span></li>
+                  @endforeach
               </ul>
           </div>
       </div>
   </div>
 </div>
-
+@endif
 @endsection

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kyslik\ColumnSortable\Sortable;
+use Illuminate\Support\Facades\DB;
 
 class Order extends Model
 {
@@ -73,6 +74,20 @@ class Order extends Model
         }
     }
 
+    /**
+     * Scope a query to get number status orders
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeProcessStatus($query)
+    {
+        return $query->select('processing_status', DB::raw('count(processing_status) as number'))
+                    ->groupBy('processing_status');
+    }
+
+     
     /**
      * The attributes that should be mutated to dates.
      *

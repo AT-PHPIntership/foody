@@ -39,11 +39,7 @@ class HomeController extends Controller
             'lastyear' => Order::whereBetween('created_at', [$fromYear, $toYear])->count(),
             'all' => Order::count(),
         ];
-        $countStatus = [
-            'pending' => Order::where('processing_status', Order::APPROVED_ID)->count(),
-            'approved' => Order::where('processing_status', Order::PENDING_ID)->count(),
-            'cancel' =>Order::where('processing_status', Order::CANCEL_ID)->count(),
-        ];
+        $countStatus = Order::processStatus()->get();
         return view('admin.pages.index', compact('count', 'orders', 'countStatus'));
     }
 }
