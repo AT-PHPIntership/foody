@@ -78,5 +78,5 @@ class Order extends Model
      *
      * @var array
      */
-    protected $dates = ['delivery_time', 'deleted_at'];
+    protected $dates = ['deleted_at'];
 }

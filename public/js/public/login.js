@@ -9,26 +9,16 @@ $(document).ready(function () {
       }),
       success: function(response) {
         if(response.code == 200) {
-          $('#userLogin').hide();
-          $('#userLogout').show();
-          $('#userSignup').hide();
+          welcomeLogged();
         }
       },
       error: function (response) {
         window.localStorage.removeItem('token-login');
-        $('#userLogin').show();
-        $('#userLogout').hide();
-        $('#userSignup').show();
-        $('#userName').hide();
-        $('.user-name').hide();
+        welcomeLogout();
       }
     });
   } else {
-    $('#userLogin').show();
-    $('#userLogout').hide();
-    $('#userSignup').show();
-    $('#userName').hide();
-    $('.user-name').hide();
+    welcomeLogout();
   }
 
   $(document).on('click', '#loginBtn', function (event) {
@@ -44,12 +34,7 @@ $(document).ready(function () {
         password: $('.login-form input[type="password"]').val()
       },
       success: function (response) {
-        $('.login-form').html(Lang.get('user/login.login_success'));
-        $('.login-form').css('color', 'green');
-        localStorage.setItem('token-login', response.result.token);
-        localStorage.setItem('username', response.result.user.username);
-        $('#userName').html(response.result.user.username);
-        window.location.href = 'http://' + window.location.hostname;
+        loginSuccess(response);
       },
       error: function (response) {
         alert(response.responseJSON.error);
@@ -57,6 +42,52 @@ $(document).ready(function () {
       }
     });
   })
-  name = localStorage.getItem("username");
-  $('#userName').html(name);
 })
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  var gplus_id = profile.getId();
+  var email =  profile.getEmail();
+  var username = email.substr(0, email.indexOf('@'));
+  var fullname = profile.getName();
+  $.ajax({
+    url: "/api/login/gplus",
+    type: "get",
+    headers: {
+      'Accept': 'application/json',
+    },
+    data: {
+      gplus_id: gplus_id,
+      username: username, 
+      full_name: fullname,
+      email: email
+    },
+    success: function (response) {
+      loginSuccess(response);
+    },
+    error: function (response) {
+      alert(response.responseJSON.error);
+    }
+  });
+}
+function loginSuccess(response) {
+  localStorage.setItem('token-login', response.result.token);
+  localStorage.setItem('username', response.result.user.username);
+  $('.login-form').html(Lang.get('user/login.login_success'));
+  $('.login-form').css('color', 'green');
+  welcomeLogged();
+}
+function welcomeLogged() {
+  $('#userName').html(localStorage.getItem("username"));
+  $('#userName').show();
+  $('.user-name').show();
+  $('#userLogout').show();
+  $('#userLogin').hide();
+  $('#userSignup').hide();
+}
+function welcomeLogout() {
+  $('#userLogin').show();
+  $('#userLogout').hide();
+  $('#userSignup').show();
+  $('#userName').hide();
+  $('.user-name').hide();
+}
