@@ -88,7 +88,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $stores = Store::pluck('name', 'id');
-        $categories = Category::pluck('name', 'id');
+        $categories = Category::with('children')->get();
         $images = $product->images;
         return view('admin.pages.products.edit', compact('product', 'stores', 'categories', 'images'));
     }
