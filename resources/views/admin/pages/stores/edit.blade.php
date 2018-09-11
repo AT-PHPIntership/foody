@@ -66,7 +66,7 @@
                   <div class="col-sm-6">
                     <img class="img-responsive thumbnail" src="images/stores/{{ $store->image }}">
                   </div>
-								</div>								
+                </div>								
               </div>
               <div class="form-group row clearfix">
                 <div class="col-sm-4">

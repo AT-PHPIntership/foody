@@ -1831,8 +1831,9 @@ a, a:hover {
 }
 .fa-user:before{padding: 15%;}
 
-#orderStatus:hover {
+#cancelOrder:hover {
     color: red;
+    cursor: pointer;
 }
 .banner-user {
     width: -webkit-calc(100% - 270px);

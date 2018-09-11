@@ -29,7 +29,7 @@ class ListStores extends Page
             } else {
                 return '/admin/stores';
             }
-        }else{
+        } else {
             return '/admin/stores';
         }
     }

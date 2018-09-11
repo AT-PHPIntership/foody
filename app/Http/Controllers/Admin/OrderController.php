@@ -45,7 +45,9 @@ class OrderController extends Controller
     public function update(EditStatusOrderRequest $request, Order $order)
     {
         try {
-            $order->processing_status = $request->processing_status;
+            if ($order->processing_status == 3) {
+                $order->processing_status = $request->processing_status;
+            }
             $order->payment_status = $request->payment_status;
             $order->delivery_time = $request->delivery_time;
             $order->save();

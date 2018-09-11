@@ -18,11 +18,11 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>@sortablelink('id', 'ID')</th>
+                <th>@sortablelink('id','ID')</th>
                 <th>{{__('product.admin.show.image')}}</th>
-                <th>@sortablelink('name', __('product.admin.show.name'))</th>
-                <th>@sortablelink('price', __('product.admin.show.price'))</th>
-                <th>@sortablelink('store_id', __('product.admin.show.store'))</th>
+                <th>@sortablelink('name',__('product.admin.show.name'))</th>
+                <th>@sortablelink('price',__('product.admin.show.price'))</th>
+                <th>@sortablelink('store_id',__('product.admin.show.store'))</th>
                 <th>{{__('product.admin.show.details')}}</th>
                 <th>{{__('product.admin.show.edit')}}</th>
                 <th>{{__('product.admin.show.delete')}}</th>
