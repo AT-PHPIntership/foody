@@ -95,7 +95,7 @@ class CreateStoreTest extends AdminTestCase
             $browser->loginAs($this->user)
                     ->visit(new CreateStore())
                     ->type('name', 'Riley Runolfsdottir Sr.')
-                    ->select('manager_id', $this->manager->id)
+                    ->select('manager_id', 'Hien Pham')
                     ->type('address', '982 Fisher Shoal Schummhaven, NJ 98391')
                     ->type('phone', '0123456789')
                     ->type('describe', 'Eos impedit amet provident tempora')
