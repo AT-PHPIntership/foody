@@ -28,7 +28,7 @@
               <div class="form-group">
                 <label for="phone">{{ __('store.admin.phone') }}</label>
                 <div class="input-group">
-                  <input type="text" name="phone" class="form-control" value="{{ old('name', $store->phone) }}" placeholder="{{ __('store.admin.add.enter_phone') }}"/>
+                  <input type="text" name="phone" class="form-control" value="{{ old('phone', $store->phone) }}" placeholder="{{ __('store.admin.add.enter_phone') }}"/>
                 </div>
               </div>
               <div class="form-group">
@@ -44,9 +44,9 @@
                     <input type="file" name="image" class="form-control" placeholder="{{ __('store.admin.create.enter_image') }}" />
                   </div>
                   <div class="col-sm-6">
-                    <img class="img-responsive thumbnail" src="{{ $store->image }}">
+                    <img class="img-responsive thumbnail" src="images/products/{{ $store->image }}">
                   </div>
-								</div>								
+                </div>								
               </div>
               <div class="form-group row clearfix">
                 <div class="col-sm-4">
