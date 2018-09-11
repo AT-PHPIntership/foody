@@ -58,7 +58,7 @@
             <h4>{{__('product.admin.show.store')}}:</h4>
           </div>
           <div class="col-sm-9">
-            <p class="font-20">{{ $product->store->name }}</p>
+            <p class="font-20"><a href="{{route('admin.stores.showProducts', $product->store->id)}}">{{ $product->store->name }}</a></p>
           </div>
         </div>
         <div class="row clearfix">
@@ -69,7 +69,7 @@
             @if (!$product->images->isEmpty())
               @foreach ($product->images as $image)
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                  <img class="img-responsive thumbnail" src="images/products/{{ $image->path }}">
+                  <img height="200" class="img-responsive thumbnail" src="images/products/{{ $image->path }}">
                 </div>
               @endforeach
             @else
