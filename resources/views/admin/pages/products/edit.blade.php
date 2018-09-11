@@ -34,7 +34,7 @@
                 <label class="control-label">{{ __('product.admin.show.store') }}</label>
                 <select name="store_id" class="form-control show-tick" data-live-search="true">
                   @foreach ($stores as $id => $name)
-                    <option value="{{ $id }}" {{ $id == $product->store_id ? 'selected' : '' }}>{{ old('name', $name) }}</option>
+                    <option value="{{ $id }}" {{ $id == $product->store_id ? 'selected' : '' }}>{{ $name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -45,7 +45,7 @@
                   <select name="category_id" class="form-control show-tick" data-live-search="true">
                     @foreach ($categories as $category)
                       @if ($category->parent_id !== 0)
-                        <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ old('name', $category->name) }}</option>
+                        <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
                       @endif
                     @endforeach
                   </select>

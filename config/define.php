@@ -6,7 +6,7 @@ return [
     ],
     'limit_rows' => 4,
     'login' => [
-      'unauthorised' => 'Please fill in all information!',
+      'unauthorised' => 'The user name or password is incorrect!',
       'success' => 'You have login successfully!'
     ],
     'limit_row_slide' => 8,

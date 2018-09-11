@@ -85,14 +85,12 @@ class UpdateUserTest extends AdminTestCase
                 ->visit(new UpdateUser)
                 ->assertSee(__('user.admin.edit.title'))
                 ->type('full_name', 'Hien Pham')
-                // ->type('birthday', '1995-08-15')
                 ->type('phone', '01214556631')
                 ->press(__('user.admin.edit.update_user'))
                 ->assertPathIs('/admin/users')
                 ->assertSee(__('user.admin.edit.update_success'));
             $this->assertDatabaseHas('users', [
                 'full_name' => 'Hien Pham',
-                // 'birthday' => '1995-08-15',
                 'phone' => '01214556631',
             ]);
         });

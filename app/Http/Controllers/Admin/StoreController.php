@@ -139,4 +139,17 @@ class StoreController extends Controller
             return redirect()->route('admin.stores.index')->with('message', __('store.admin.message.del_fail'));
         }
     }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param Store $store store
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showProducts(Store $store)
+    {
+        $products = $store->products()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.stores.show-products', compact('store', 'products'));
+    }
 }
