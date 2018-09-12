@@ -16,6 +16,10 @@ class CreateStoresTable extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100 )->charset('utf8')->collation('utf8_unicode_ci');
+            $table->unsignedInteger('manager_id');
+            $table->foreign('manager_id')
+                    ->references('id')->on('users')
+                    ->onDelete('no action'); 
             $table->string('address', 100)->charset('utf8')->collation('utf8_unicode_ci');
             $table->string('phone');
             $table->text('describe')->charset('utf8')->collation('utf8_unicode_ci');
