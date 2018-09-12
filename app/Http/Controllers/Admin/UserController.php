@@ -42,6 +42,7 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
         $request['birthday'] = Carbon::parse($request['birthday'])->format('Y-m-d');
+        $request['password'] = bcrypt($request->password);
         User::create($request->all());
         return redirect()->route('admin.users.index')->with('message', __('user.admin.create.create_success'));
     }
@@ -97,14 +98,14 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param App\Models\User $user user
+     * @param App\Models\User $manager manager
      *
      * @return \Illuminate\Http\Response
      */
-    public function showStores(User $user)
+    public function showStores(User $manager)
     {
-        $stores = $user->stores()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
-        return view('admin.pages.users.show-stores', compact('stores', 'user'));
+        $stores = $manager->stores()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.users.show-stores', compact('stores', 'manager'));
     }
 
     /**

@@ -47,7 +47,7 @@
                 <td>
                   {{ $userInfo->nameRole() }}
                     @if ($userInfo->role_id == 2)
-                      <br><a href="{{route('admin.users.showStores', $userInfo->id)}}">Show list stores</a>
+                      <br><a href="{{route('admin.shop-manager.showStores', $userInfo->id)}}">Show list stores</a>
                     @endif
                 </td>
                 <td>
