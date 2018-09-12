@@ -463,7 +463,15 @@
 <script src="js/public/cart.js"></script>
 <script src="user/Scripts/jqzoom.js"></script>
 <script src="user/Scripts/slide/jquery.bxslider.js"></script>
-
+<script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+      $('#delivery-time').datetimepicker({
+        minDate: new Date(),
+      });
+  });
+</script>
 <script>
     $(document).ready(function () {
         $('#bestbuy').bxSlider({

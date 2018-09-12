@@ -29,6 +29,7 @@ class OrderController extends ApiController
         $products = json_decode($request->products);
         $request['user_id'] = $user->id;
         $request['payment_status'] = 0;
+        $request['delivery_time'] = Carbon::parse($request['delivery_time'])->toDateTimeString();
         $request['submit_time'] = Carbon::now()->toDateTimeString();
         $order = Order::create($request->all());
         foreach ($products as $product) {
