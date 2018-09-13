@@ -6,6 +6,6 @@ $('.img-remove').on('click', function() {
 function deleteImage(imageId) {
     document.getElementById("remove-" + imageId).addEventListener("click", function(){
         document.getElementById("tr-" + imageId).remove();
-        $("#imageDel").val($("#imageDel").val() + imageId + "," );
+        $("#imageDel").val($("#imageDel").val() + imageId + " " );
     });
 }

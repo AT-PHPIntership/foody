@@ -107,13 +107,9 @@ class ProductController extends Controller
             $product->update($request->all());
             $img = $request->imageDel;
             if ($img) {
-                $imagesRemove = explode(",", $img);
-                $imagesArrDel = array();
-                for ($i = 0; $i < count($imagesRemove)-1; $i++) {
-                    array_push($imagesArrDel, (int) $imagesRemove[$i]);
-                }
-                for ($i = 0; $i < count($imagesArrDel); $i++) {
-                    Image::where('id', $imagesArrDel[$i])->delete();
+                $imagesRemove = explode(" ", $img);
+                for ($i = 0; $i < count($imagesRemove); $i++) {
+                    Image::where('id', $imagesRemove[$i])->delete();
                 }
             }
 
