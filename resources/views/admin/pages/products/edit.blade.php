@@ -44,9 +44,7 @@
                   <label class="control-label">{{ __('product.admin.show.category') }}</label>
                   <select name="category_id" class="form-control show-tick" data-live-search="true">
                     @foreach ($categories as $category)
-                      @if ($category->parent_id !== 0)
-                        <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
-                      @endif
+                      <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
                     @endforeach
                   </select>
                 </div>

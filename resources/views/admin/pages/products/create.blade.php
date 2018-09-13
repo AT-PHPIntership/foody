@@ -50,9 +50,7 @@
                 <select name="category_id" class="form-control show-tick" data-live-search="true">
                   <option value="">--- Choose a category ---</option>
                   @foreach ($categories as $category)
-                    @if ($category->parent_id !== 0)
-                      <option value="{{ $category->id }}" {{old('category_id') == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
-                    @endif
+                    <option value="{{ $category->id }}" {{old('category_id') == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                   @endforeach
                 </select>
               </div>
