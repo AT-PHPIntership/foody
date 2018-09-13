@@ -17,10 +17,20 @@ class Store extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'address', 'phone', 'describe', 'image', 'is_active'
+        'name', 'manager_id', 'address', 'phone', 'describe', 'image', 'is_active'
     ];
 
     public $sortable = ['id', 'name', 'created_at'];
+
+    /**
+     * Get User Manager Object
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function manager()
+    {
+        return $this->belongsTo(User::class, 'manager_id', 'id');
+    }
 
     /**
      * Get ShopOpenStatus Object

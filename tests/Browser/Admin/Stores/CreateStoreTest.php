@@ -6,10 +6,12 @@ use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\Browser\Pages\Admin\Store\CreateStore;
 use Tests\Browser\Admin\AdminTestCase;
+use App\Models\User;
 
 class CreateStoreTest extends AdminTestCase
 {
     use DatabaseMigrations;
+    protected $manager;
 
     const NUMBER_RECORD = 7;
     const ROW_LIMIT = 5;
@@ -21,6 +23,10 @@ class CreateStoreTest extends AdminTestCase
     public function setUp()
     {
         parent::setUp();
+        $this->manager = factory(User::class)->create([
+            'role_id' => '3',
+            'full_name' => 'Hien Pham'
+        ]);
     }
 
     /**
@@ -85,10 +91,14 @@ class CreateStoreTest extends AdminTestCase
      */
     public function test_create_store_success()
     {
+        factory(User::class, 1)->create([
+            'role_id' => '2'
+        ]);
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
                     ->visit(new CreateStore())
                     ->type('name', 'Riley Runolfsdottir Sr.')
+                    ->select('manager_id', User::find(1)->id)
                     ->type('address', '982 Fisher Shoal Schummhaven, NJ 98391')
                     ->type('phone', '0123456789')
                     ->type('describe', 'Eos impedit amet provident tempora')

@@ -26,10 +26,12 @@
               </div>
               <div class="form-group">
                 <label for="birthday">{{ __('user.admin.birthday') }}</label>
-                <div class="input-group">
-                  <input type="text" name="birthday" value="{{ old('birthday')}}" class="form-control" placeholder="{{ __('user.admin.create.enter_birthday') }}"/>
-                  <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
+                <div class="form-line">
+                  <div class="input-group date datepicker" data-provide="datepicker">
+                      <input type="text" name="birthday" value="{{ old('birthday')}}" class="form-control" placeholder="{{ __('user.admin.create.enter_birthday') }}"/>
+                      <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </div>
                   </div>
                 </div>
               </div>
