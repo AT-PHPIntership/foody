@@ -111,13 +111,13 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param App\Models\User $user user
+     * @param App\Models\User $manager manager
      *
      * @return \Illuminate\Http\Response
      */
-    public function showProducts(User $user)
+    public function showProducts(User $manager)
     {
-        $products = $user->products()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
-        return view('admin.pages.users.show-products', compact('user', 'products'));
+        $products = $manager->products()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.users.show-products', compact('manager', 'products'));
     }
 }
