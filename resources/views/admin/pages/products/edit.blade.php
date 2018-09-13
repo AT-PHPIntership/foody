@@ -55,11 +55,25 @@
                   <input type="file" name="image[]" class="form-control" multiple/>
                 </div>
               </div>
-              @foreach ($images as $image)
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                  <img class="img-responsive thumbnail"  src="images/products/{{ $image->path }}"/>
+              <div class="form-group row" hidden>
+                <div class="col-md-8">
+                  <input class="form-control col-md-8 active" name="imageDel" id="imageDel">
                 </div>
-              @endforeach
+              </div>
+              <div class="form-group">
+                <table >
+                  <tbody>
+                    @foreach ($images as $image)
+                    <tr id="tr-{{ $image->id }}">
+                      <td style="width: 50%;"><img width="100px" height="75px" src="images/products/{{ $image->path }}" alt="product-image" class="rounded"></td>
+                      <td style="width: 25%;"><a style="font-size:24px" class="remove" id="remove-{{ $image->id }}" >
+                      <i class="fa fa-remove img-remove" style="font-size:25px;color:red;cursor: pointer;" image-id="{{ $image->id }}" data-confirm="{{ __('product.admin.edit.comfirm') }}" ></i></a>
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
               <button type="submit" id="submit" name="submit" class="btn btn-success">{{ __('product.admin.edit.update_product') }}</button>&nbsp;
               <a href="{{ route('admin.products.index') }}" name="submit" class="btn btn-info waves-effect">{{ __('product.admin.edit.cancel') }}</a>
             </form>
@@ -70,4 +84,7 @@
   </div>
 </div>
 <!-- #END# Hover Rows -->
+@endsection
+@section('js')
+  <script src="/js/admin/updateProduct.js"></script>
 @endsection

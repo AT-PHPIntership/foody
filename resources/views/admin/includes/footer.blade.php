@@ -97,5 +97,6 @@
 <!-- Demo Js -->
 <script
 	src="bower_components/adminbsb-materialdesign/js/demo.js"></script>
+<script src="/js/admin/updateProduct.js"></script>
 </body>
 </html>
