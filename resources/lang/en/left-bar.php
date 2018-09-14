@@ -14,6 +14,7 @@ return [
     'product' => 'Product',
     'create-product' => 'Create Product',
     'show-products' => 'Show all Products',
+    'show-your-products' => 'Your Products',
     'order' => 'Order',
     'create-order' => 'Create Order',
     'show-orders' => 'Show all Orders',

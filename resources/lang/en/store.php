@@ -9,11 +9,13 @@ return [
         ],
         'id' => 'ID',
         'name' => 'Name',
+        'manager' => 'Manager',
         'address' => 'Address',
         'products' => 'Products',
         'phone' => 'Phone',
         'describe' => 'Describe',
         'image' => 'Image',
+        'products' => 'Products',
         'active' => 'Active',
         'uptime' => 'Uptime',
         'table' => [

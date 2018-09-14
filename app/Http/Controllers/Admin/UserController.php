@@ -41,8 +41,9 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        $userData = $request->all();
-        User::create($userData);
+        $request['birthday'] = Carbon::parse($request['birthday'])->format('Y-m-d');
+        $request['password'] = bcrypt($request->password);
+        User::create($request->all());
         return redirect()->route('admin.users.index')->with('message', __('user.admin.create.create_success'));
     }
 
@@ -70,7 +71,7 @@ class UserController extends Controller
     {
         try {
             $request['birthday'] = Carbon::parse($request['birthday'])->format('Y-m-d');
-            $user->update($request->except(["_token", "_method", "submit", "username", "email"]));
+            $user->update($request->except(["_token", "_method", "submit", "username", "email", "role_id"]));
             return redirect()->route('admin.users.index')->with('message', __('user.admin.edit.update_success'));
         } catch (Exception $e) {
             return redirect()->route('admin.users.index')->with('alert', __('user.admin.edit.update_fail'));
@@ -92,5 +93,31 @@ class UserController extends Controller
         } catch (Exception $e) {
             return redirect()->route('admin.users.index')->with('alert', __('user.admin.delete_fail'));
         }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param App\Models\User $manager manager
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showStores(User $manager)
+    {
+        $stores = $manager->stores()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.users.show-stores', compact('stores', 'manager'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param App\Models\User $manager manager
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showProducts(User $manager)
+    {
+        $products = $manager->products()->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        return view('admin.pages.users.show-products', compact('manager', 'products'));
     }
 }

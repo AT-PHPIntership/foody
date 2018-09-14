@@ -27,7 +27,7 @@ class CreateUserRequest extends FormRequest
         return [
             'username'       => 'required|string|max:100|unique:users',
             'full_name'      => 'string|max:255',
-            'birthday'       => 'date_format:"Y-m-d"',
+            'birthday'       => 'required',
             'gender'         => 'required|integer|min:0|max:1',
             'phone'          => 'regex:/^0[0-9]{9,10}$/',
             'email'          => 'required|string|email|max:255|unique:users',

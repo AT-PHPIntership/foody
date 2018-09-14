@@ -19,6 +19,18 @@
                 <input type="text" name="name" class="form-control" value="{{ old('name', $store->name) }}" placeholder="{{ __('store.admin.add.enter_name') }}" />
                 </div>
               </div>
+              @if (Auth::user()->role_id == 1)
+              <div class="form-group">
+                <label class="control-label">{{ __('store.admin.manager') }}</label>
+                <select name="manager_id" class="form-control">
+                  @foreach ($managers as $id => $name)
+                    <option {{ $id == $store->manager_id ? 'selected' : '' }} value="{{ $id }}">{{ old('name', $name) }}</option>
+                  @endforeach
+                </select>
+              </div>
+              @else
+                <input type="hidden" name="manager_id" value="{{Auth::user()->id}}">
+              @endif
               <div class="form-group">
                 <label for="address">{{ __('store.admin.address') }}</label>
                 <div class="form-line">
@@ -44,7 +56,7 @@
                     <input type="file" name="image" class="form-control" placeholder="{{ __('store.admin.create.enter_image') }}" />
                   </div>
                   <div class="col-sm-6">
-                    <img class="img-responsive thumbnail" src="images/products/{{ $store->image }}">
+                    <img class="img-responsive thumbnail" src="images/stores/{{ $store->image }}">
                   </div>
                 </div>								
               </div>

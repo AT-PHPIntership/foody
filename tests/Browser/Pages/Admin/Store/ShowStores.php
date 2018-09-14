@@ -34,7 +34,6 @@ class ShowStores extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-                ->assertSee('Detail Store')
                 ->assertSee('Name')
                 ->assertSee('Address')
                 ->assertSee('Phone')
