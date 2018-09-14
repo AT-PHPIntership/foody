@@ -4,14 +4,18 @@ return [
         'title' => 'Store',
         'detail_title' => 'Detail Store',
         'list' => [
-            'title' => 'List Stores'
+            'title' => 'List Stores',
+            'title_list_products' => 'List Products of Store: ',
         ],
         'id' => 'ID',
         'name' => 'Name',
+        'manager' => 'Manager',
         'address' => 'Address',
+        'products' => 'Products',
         'phone' => 'Phone',
         'describe' => 'Describe',
         'image' => 'Image',
+        'products' => 'Products',
         'active' => 'Active',
         'uptime' => 'Uptime',
         'table' => [

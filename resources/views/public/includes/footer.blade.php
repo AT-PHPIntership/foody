@@ -153,12 +153,12 @@
                         <span class="field-validation-valid" data-valmsg-for="username" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                          <input class="form-control" data-val="true" data-val-required="Please input your user name" id="username" name="username" placeholder={{__('user/login.placeholder_username')}} type="text" value="" />
+                          <input class="form-control" data-val="true" data-val-required="{{__('user/login.userInfo.username_require')}}" id="username" name="username" placeholder="{{__('user/login.placeholder_username')}}" type="text" value="" />
                         </div>
                         <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                          <input class="form-control" data-val="true" data-val-required="Please input your password" id="password" name="password" placeholder={{__('user/login.placeholder_password')}} type="password" />
+                          <input class="form-control" data-val="true" data-val-required="{{__('user/login.userInfo.password_require')}}" id="password" name="password" placeholder="{{__('user/login.placeholder_password')}}" type="password" />
                         </div>
                         <div class="form-group">
                           <div class="checkbox">
@@ -285,7 +285,7 @@
                     @method('POST')
                     <div class="col-lg-6">
                       <fieldset>
-                        <span id="valmsg-username" class="field-validation-valid" data-valmsg-for="username" data-valmsg-replace="true"></span>
+                        <span  class="field-validation-valid" data-valmsg-for="username" data-valmsg-replace="true"></span>
                         <div class="form-group input-group">
                           <span class="input-group-addon"><i class="fa fa-user"></i></span>
                           <input class="form-control" data-val="true" data-val-length="{{ __('user/register.username.length')}}" data-val-length-max="50" data-val-regex="{{ __('user/register.username.regex-msg')}}" 
@@ -320,13 +320,13 @@
                         <input class="form-control" data-val="true" data-val-length="{{ __('user/register.phone.length')}}" data-val-length-max="20" data-val-regex="{{ __('user/register.phone.regex-msg')}}" data-val-regex-pattern="^(0[1-9]{1}\d{8,9})$" 
                         data-val-required="{{ __('user/register.phone.require-msg')}}" id="phone" name="phone" placeholder="{{ __('user/register.phone.placeholder')}}" type="text" value="" />
                       </div>
-                      <span id="valmsg-email" class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
+                      <span  class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
                       <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                         <input class="form-control" data-val="true" data-val-regex="{{ __('user/register.email.regex-msg')}}" data-val-regex-pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" data-val-required="{{ __('user/register.email.require-msg')}}" id="email" name="email" placeholder="{{ __('user/register.email.placeholder')}}" type="text" value="" />
                       </div>
                       <div class="form-group">
-                        <button onclick="showMark();" type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
+                        <button  type="submit" class="btn btn-sm btn-primary btn-block btn-danger text-capitalize">
                           <i class="fa fa-edit"></i>{{ __('user/register.title')}}
                         </button>
                       </div>
@@ -463,7 +463,15 @@
 <script src="js/public/cart.js"></script>
 <script src="user/Scripts/jqzoom.js"></script>
 <script src="user/Scripts/slide/jquery.bxslider.js"></script>
-
+<script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+      $('#delivery-time').datetimepicker({
+        minDate: new Date(),
+      });
+  });
+</script>
 <script>
     $(document).ready(function () {
         $('#bestbuy').bxSlider({

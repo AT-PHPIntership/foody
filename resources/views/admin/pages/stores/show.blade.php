@@ -11,6 +11,13 @@
             class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
             class="material-icons">add</i><span>{{ __('store.admin.add.create') }}</span>
         </a>
+        <ul class="header-dropdown m-r--5">
+          <li><a href="{{ route('admin.stores.index') }}"
+            class="btn btn-info waves-effect"
+            style="margin: -14px 14px 0 0px;"> <i class="material-icons"
+              style="color: white;">keyboard_backspace</i> <span>Back</span>
+          </a></li>
+        </ul>
       </div>
       <div class="body">
         <div class="row clearfix">
@@ -27,6 +34,14 @@
           </div>
           <div class="col-sm-9">
             <p class="font-20">{{$store->address}}</p>
+          </div>
+        </div>
+        <div class="row clearfix">
+          <div class="col-sm-3">
+            <h4>{{__('store.admin.manager')}}:</h4>
+          </div>
+          <div class="col-sm-9">
+            <p class="font-20">{{$store->manager->full_name}}</p>
           </div>
         </div>
         <div class="row clearfix">
@@ -58,7 +73,7 @@
             <h4>{{__('store.admin.image')}}:</h4>
           </div>
           <div class="col-sm-9">
-            <img class="img-responsive thumbnail" src="{{ $store->image }}">
+            <img class="img-responsive thumbnail" src="images/stores/{{ $store->image }}">
           </div>
         </div>
         <div class="row clearfix">

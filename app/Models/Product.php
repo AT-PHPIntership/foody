@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\FilterTrait;
+use Kyslik\ColumnSortable\Sortable;
 
 class Product extends Model
 {
-    use SoftDeletes, FilterTrait;
+    use SoftDeletes, FilterTrait, Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -18,6 +19,8 @@ class Product extends Model
     protected $fillable = [
         'name', 'describe', 'price', 'store_id', 'category_id'
     ];
+
+    protected $sortable = ['id', 'name', 'price', 'store_id'];
 
     /**
      * Get Category Object

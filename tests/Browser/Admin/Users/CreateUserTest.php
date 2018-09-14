@@ -45,7 +45,7 @@ class CreateUserTest extends AdminTestCase
         return [
             ['username', '', 'The username field is required.'],
             ['full_name', '', 'The full name must be a string.'],
-            ['birthday', '', 'The birthday does not match the format Y-m-d.'],
+            ['birthday', '', 'The birthday field is required.'],
             ['phone', '', 'The phone format is invalid.'],
             ['email', '', 'The email field is required.'],
             ['password', '', 'The password field is required.'],

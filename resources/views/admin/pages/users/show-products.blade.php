@@ -8,7 +8,7 @@
     <div class="card">
       <div class="body">
         <div class="header">
-            <h2>{{__('product.admin.show.form_title')}}</h2>
+        <h2>List your Products</h2>
             <a href="{{ route('admin.products.create') }}"
               class="btn bg-green waves-effect" style="margin-top: 30px;"> <i
               class="material-icons">playlist_add</i><span>{{ __('product.admin.show.create_product') }}</span>
@@ -18,11 +18,11 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>@sortablelink('id','ID')</th>
+                <th>@sortablelink('id', 'ID')</th>
                 <th>{{__('product.admin.show.image')}}</th>
-                <th>@sortablelink('name',__('product.admin.show.name'))</th>
-                <th>@sortablelink('price',__('product.admin.show.price'))</th>
-                <th>@sortablelink('store_id',__('product.admin.show.store'))</th>
+                <th>@sortablelink('name', __('product.admin.show.name'))</th>
+                <th>@sortablelink('price', __('product.admin.show.price'))</th>
+                <th>@sortablelink('store_id', __('product.admin.show.store'))</th>
                 <th>{{__('product.admin.show.details')}}</th>
                 <th>{{__('product.admin.show.edit')}}</th>
                 <th>{{__('product.admin.show.delete')}}</th>
@@ -41,7 +41,7 @@
                 <td>{{ $product->price }} VND</td>
                 <td><a href="{{route('admin.stores.showProducts', $product->store->id)}}">{{ $product->store->name }}</a></td>
                 <td><a id="details" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float"
-                   href="{{route('admin.products.show', $product->id)}}"><i class="material-icons">remove_red_eye</i></a></td>
+                  href="{{route('admin.products.show', $product->id)}}"><i class="material-icons">remove_red_eye</i></a></td>
                 <td><a
                   href="{{route('admin.products.edit', $product->id)}}"
                   class="btn bg-yellow btn-circle waves-effect waves-circle waves-float">

@@ -11,6 +11,7 @@ use App\Models\Image;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use File;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -21,7 +22,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['images','category'])->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
+        $products = Product::with(['images','category'])->sortable()->orderBy('created_at', 'desc')->paginate(config('paginate.number_products'));
         return view('admin.pages.products.index', compact('products'));
     }
 
@@ -45,7 +46,12 @@ class ProductController extends Controller
     */
     public function create()
     {
-        $stores = Store::pluck('name', 'id');
+        $userLogin = Auth::user();
+        if ($userLogin->role_id == 2) {
+            $stores = Store::where('manager_id', $userLogin->id)->pluck('name', 'id');
+        } else {
+            $stores = Store::pluck('name', 'id');
+        }
         $categories = Category::pluck('name', 'id');
         return view('admin.pages.products.create', compact('stores', 'categories'));
     }

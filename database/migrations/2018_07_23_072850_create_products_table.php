@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')
                     ->references('id')->on('categories')
-                    ->onDelete('no action');            
+                    ->onDelete('no action');
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });

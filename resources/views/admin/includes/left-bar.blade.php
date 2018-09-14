@@ -65,6 +65,9 @@
             <ul class="ml-menu">
               <li><a href="{{ route('admin.products.create')}}"><span>{{ __('left-bar.create-product') }}</span></a></li>
               <li><a href="{{ route('admin.products.index') }}"><span>{{ __('left-bar.show-products') }}</span></a></li>
+              @if (Auth::user()->role_id == 2)
+              <li><a href="{{route('admin.shop-manager.showProducts', Auth::user()->id)}}"><span>{{ __('left-bar.show-your-products') }}</span></a></li>
+              @endif
             </ul>
 
             <a href="javascript:void(0);" class="menu-toggle">

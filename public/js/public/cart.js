@@ -149,9 +149,18 @@ function modifyCart(id, option) {
                 }
             }
         }
-        localStorage.setItem("cart", JSON.stringify(cart));
-        showCart(cart);
-        changeNumberCart(cart.length);
+        if(cart.length == 0) {
+            localStorage.removeItem('cart');
+            cart = null;
+            $('.shopping-cart .shopping-cart-show').html('Cart (0)');
+            collapseCart();
+            $('.box-cart').html('<p class="title text-uppercase">Your Cart is empty</p>');
+            changeNumberCart(0);
+        }else{
+            localStorage.setItem("cart", JSON.stringify(cart));
+            showCart(cart);
+            changeNumberCart(cart.length);
+        }
     }
 }
 function collapseCart() {

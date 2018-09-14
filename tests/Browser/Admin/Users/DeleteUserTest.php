@@ -22,7 +22,7 @@ class DeleteUserTest extends AdminTestCase
     {
         parent::setUp();
         $this->userDel = factory(User::class)->create([
-            'role_id' => '1'
+            'role_id' => '3'
         ]);
     }
 
