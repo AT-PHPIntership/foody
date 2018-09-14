@@ -111,6 +111,14 @@ class ProductController extends Controller
     {
         try {
             $product->update($request->all());
+            $img = $request->imageDel;
+            if ($img) {
+                $imagesRemove = explode(" ", $img);
+                for ($i = 0; $i < count($imagesRemove); $i++) {
+                    Image::where('id', $imagesRemove[$i])->delete();
+                }
+            }
+
             if (is_array(request()->file('image'))) {
                 foreach (request()->file('image') as $image) {
                     $newImage = $image->getClientOriginalName();

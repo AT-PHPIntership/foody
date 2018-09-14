@@ -83,4 +83,6 @@
 <!-- AdminBSB Themes. You can choose a theme from themes instead of get all themes -->
 <link
 	href="bower_components/adminbsb-materialdesign/css/themes/all-themes.css" rel="stylesheet" />
+<link rel="stylesheet" 
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="bower_components/adminbsb-materialdesign/css/bootstrap-datepicker.min.css" rel="stylesheet"> 

@@ -37,7 +37,8 @@
         'update_product' => 'Save',
         'cancel' => "Cancel",
         'update_success' => 'Update product successfully',
-        'update_fail' => 'Update product failed!'
+        'update_fail' => 'Update product failed!',
+        'comfirm' => 'Are you sure want to delete this image?'
       ]
     ]
   ];
