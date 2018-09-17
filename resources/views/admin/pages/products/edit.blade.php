@@ -32,9 +32,9 @@
               <div class="form-group">
               <div class="form-line">
                 <label class="control-label">{{ __('product.admin.show.store') }}</label>
-                <select name="store_id" class="form-control">
+                <select name="store_id" class="form-control show-tick" data-live-search="true">
                   @foreach ($stores as $id => $name)
-                    <option {{ $id == $product->store_id ? 'selected' : '' }} value="{{ $id }}">{{ old('name', $name) }}</option>
+                    <option value="{{ $id }}" {{ $id == $product->store_id ? 'selected' : '' }}>{{ $name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -42,9 +42,9 @@
               <div class="form-group">
                 <div class="form-line">
                   <label class="control-label">{{ __('product.admin.show.category') }}</label>
-                  <select name="category_id" class="form-control">
-                    @foreach ($categories as $id => $name)
-                      <option {{ $id == $product->category_id ? 'selected' : '' }} value="{{ $id }}">{{ old('name', $name) }}</option>
+                  <select name="category_id" class="form-control show-tick" data-live-search="true">
+                    @foreach ($categories as $category)
+                      <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
                     @endforeach
                   </select>
                 </div>

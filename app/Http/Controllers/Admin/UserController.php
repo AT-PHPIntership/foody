@@ -70,8 +70,8 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         try {
-            $updateUser = $request->except(["_token", "_method", "submit", "username", "email", "role_id"]);
-            $user->update($updateUser);
+            $request['birthday'] = Carbon::parse($request['birthday'])->format('Y-m-d');
+            $user->update($request->except(["_token", "_method", "submit", "username", "email", "role_id"]));
             return redirect()->route('admin.users.index')->with('message', __('user.admin.edit.update_success'));
         } catch (Exception $e) {
             return redirect()->route('admin.users.index')->with('alert', __('user.admin.edit.update_fail'));
