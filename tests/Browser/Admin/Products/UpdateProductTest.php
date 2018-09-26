@@ -24,7 +24,8 @@ class UpdateProductTest extends AdminTestCase
     {
         parent::setUp();
         factory(Store::class)->create();
-        factory(Category::class)->create();
+        factory(Category::class, 1)->create();
+        factory(Category::class, 1)->states('parent')->create();
         factory(Product::class)->create();
     }
 
@@ -84,7 +85,6 @@ class UpdateProductTest extends AdminTestCase
      */
     public function test_update_product_success()
     {
-        factory('App\Models\Product', 5)->create();
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->user)
                 ->visit(new UpdateProduct)

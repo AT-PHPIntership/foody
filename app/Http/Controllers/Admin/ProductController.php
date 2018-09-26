@@ -52,8 +52,7 @@ class ProductController extends Controller
         } else {
             $stores = Store::pluck('name', 'id');
         }
-        $categories = Category::pluck('name', 'id');
-        return view('admin.pages.products.create', compact('stores', 'categories'));
+        return view('admin.pages.products.create', compact('stores'));
     }
 
     /**
@@ -94,9 +93,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $stores = Store::pluck('name', 'id');
-        $categories = Category::pluck('name', 'id');
         $images = $product->images;
-        return view('admin.pages.products.edit', compact('product', 'stores', 'categories', 'images'));
+        return view('admin.pages.products.edit', compact('product', 'stores', 'images'));
     }
 
     /**
