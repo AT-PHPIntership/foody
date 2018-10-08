@@ -49,8 +49,8 @@
                 <label class="control-label">{{ __('product.admin.show.category') }}</label>
                 <select name="category_id" class="form-control">
                   <option value="">--- Choose a category ---</option>
-                  @foreach ($categories as $id => $name)
-                    <option value="{{ $id }}" {{old('category_id') == $id ? 'selected' : ''}}>{{ $name }}</option>
+                  @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{old('category_id') == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                   @endforeach
                 </select>
               </div>

@@ -81,8 +81,9 @@ class CreateProductTest extends AdminTestCase
     public function test_create_product_success()
     {
         $this->browse(function (Browser $browser) {
-            factory('App\Models\Category', 5)->create();
             factory('App\Models\Store', 5)->create();
+            factory(Category::class, 1)->create();
+            factory(Category::class, 2)->states('parent')->create();
             $browser->loginAs($this->user)
                     ->visit(new CreateProduct)
                     ->type('name', 'Milk Tea')
@@ -90,7 +91,7 @@ class CreateProductTest extends AdminTestCase
                     ->type('describe', 'Delicious')
                     ->type('price', '40000')
                     ->select('store_id', Store::find(1)->id)
-                    ->select('category_id', Category::find(1)->id)
+                    ->select('category_id', Category::find(2)->id)
                     ->press(__('product.admin.create.create_product'))
                     ->assertSee(__('product.admin.create.create_success'))
                     ->assertPathIs('/admin/products');
@@ -100,7 +101,7 @@ class CreateProductTest extends AdminTestCase
                     'describe' => 'Delicious',
                     'price' => '40000',
                     'store_id' => '1',
-                    'category_id' => '1',
+                    'category_id' => '2',
                 ]);
         });
     }
